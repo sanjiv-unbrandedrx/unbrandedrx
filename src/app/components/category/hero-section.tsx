@@ -1,0 +1,44 @@
+import Header from "@/app/components/common/Header";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { getNameFromSlug } from "@/lib/utils";
+export default function HeroSection({ slug }: { slug: string }) {
+  return (
+    <section
+      className="container mx-auto pb-20 bg-right bg-cover bg-no-repeat"
+      style={{ backgroundImage: "url('/categories/hair-loss.png')" }}
+    >
+      <Header />
+      <Breadcrumb className="mt-4 mb-9 container mx-auto">
+        <BreadcrumbList className="lowercase text-xs font-light tracking-tight">
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/">{getNameFromSlug(slug)}</BreadcrumbLink>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+      <div className="max-w-md space-y-6 mb-9">
+        <h2 className="font-title font-medium text-4xl tracking-tight">
+          Prescription <br /> Hair Loss Treatments.
+          <br />
+          No Brand Markup.
+        </h2>
+        <p className="font-light text-2xl text-muted-foreground">
+          Get clinically-backed hair regrowth formulas prescribed by licensed
+          providers — without paying for celebrity ads or flashy packaging.
+        </p>
+      </div>
+      <button className="bg-zinc-800 text-white font-title rounded-4xl border border-neutral-900 py-3.5 px-11 font-medium text-xl tracking-tight">
+        Get Started
+      </button>
+    </section>
+  );
+}
