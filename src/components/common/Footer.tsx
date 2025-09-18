@@ -2,7 +2,7 @@ import Button from "@/components/ui/button";
 import Image from "next/image";
 export default function Footer() {
   return (
-    <footer className="mt-24 py-10 bg-neutral-800 text-white px-10">
+    <footer className="py-10 bg-neutral-800 text-white px-10">
       <div className="flex flex-1 gap-[24px] items-start justify-between max-w-[1360px] mx-auto">
         <div className="space-y-16">
           <div className="grid grid-cols-3 gap-x-5">

@@ -1,5 +1,5 @@
 import HeroSection from "@/components/category/hero-section";
-import ProductCarousel from "@/components/category/product-carousel";
+import ProductCarousel from "@/components/common/product-carousel";
 import ProductGridSection from "@/components/category/product-grid-section";
 import Image from "next/image";
 
@@ -25,7 +25,7 @@ export default async function CategoryPage({
         </div>
       </section>
 
-      <ProductCarousel />
+      <ProductCarousel title="See Also" />
     </main>
   );
 }
