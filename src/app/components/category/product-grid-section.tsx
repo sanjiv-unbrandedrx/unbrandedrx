@@ -1,6 +1,91 @@
 import DownIcon from "@/app/components/svg/down-icon";
-import PlusIcon from "@/app/components/svg/plus-icon";
-import Image from "next/image";
+import ProductGridItem from "../shop/product-grid-item";
+
+export type ProductItem = {
+  id: string;
+  name: string;
+  medicalName: string;
+  price: string;
+  bestSeller?: boolean;
+  mostSearched?: boolean;
+  image: string;
+};
+
+const DUMMY_PRODUCTS: ProductItem[] = [
+  {
+    id: "foll",
+    name: "Follice Activator",
+    medicalName: "Minoxidil + Caffeine + Copper Peptides",
+    price: "43.50",
+    bestSeller: true,
+    image: "/products/dropper.png",
+  },
+  {
+    id: "topi",
+    name: "Topical Hair Formula",
+    medicalName: "Minoxidil + Tretinoin",
+    price: "62.00",
+    image: "/products/dropper.png",
+  },
+  {
+    id: "hairre",
+    name: "Hair Regrowth",
+    medicalName: "Dutasteride + Biotin",
+    price: "55.00",
+    image: "/products/dropper.png",
+  },
+  {
+    id: "scal",
+    name: "Scalp Spray Formula",
+    medicalName: "Finasteride + Minoxidil",
+    price: "79.50",
+    image: "/products/dropper.png",
+  },
+  {
+    id: "anti-a",
+    name: "Anti-aging Cream",
+    medicalName: "Tretinoin + Hydroquinone + Peptides",
+    price: "27.50",
+    image: "/products/dropper.png",
+  },
+  {
+    id: "4-in-1ed",
+    name: "4-in-1 ED",
+    medicalName: "Tadalafil",
+    price: "38.00",
+    image: "/products/dropper.png",
+  },
+  {
+    id: "metabol",
+    name: "Metabolic Support",
+    medicalName: "Tirzepatide",
+    price: "60.00",
+    mostSearched: true,
+    image: "/products/dropper.png",
+  },
+  {
+    id: "testo",
+    name: "Testosterone Support",
+    medicalName: "Enclomiphene Citrate",
+    price: "33.50",
+    image: "/products/dropper.png",
+  },
+  {
+    id: "sleepc",
+    name: "4-in-1 Sleep Capsule",
+    medicalName: "Doxepin + Melatonin",
+    price: "23.50",
+    image: "/products/dropper.png",
+  },
+  {
+    id: "weig",
+    name: "Weight Management Injection",
+    medicalName: "Semaglutide",
+    price: "12.50",
+    image: "/products/dropper.png",
+  },
+];
+
 export default function ProductGridSection() {
   return (
     <section className="container mx-auto">
@@ -23,37 +108,8 @@ export default function ProductGridSection() {
         </div>
       </div>
       <div className="grid grid-cols-4 gap-5">
-        {[0, 1, 2, 3, 4, 5].map((i) => (
-          <div
-            className="flex flex-col items-stretch justify-start"
-            key={`product-${i}`}
-          >
-            <div className="flex justify-between p-1">
-              <span className="bg-neutral-900 font-title font-medium py-1 px-3 rounded-3xl tracking-tight text-[9px] text-white leading-4">
-                Best Seller
-              </span>
-              <PlusIcon />
-            </div>
-            <div className="relative h-[285px] w-full">
-              <Image src={"/products/dropper.png"} alt="Dropper" fill />
-            </div>
-            <div className="flex flex-col items-center justify-end gap-y-3">
-              <div className="text-neutral-800/80 flex flex-col items-center justify-end gap-y-1">
-                <p>Follice Activator</p>
-                <p className="text-xs">
-                  Minoxidil + Caffeine + Copper Peptides
-                </p>
-              </div>
-              <div className="flex justify-center items-center gap-x-5">
-                <p className="tabular-nums tracking-tighter">
-                  $ 43<span className="text-xs">.50</span>
-                </p>
-                <button className="text-neutral-800 border border-neutral-800 rounded-4xl px-4 py-1 font-title font-medium text-xs tracking-tight">
-                  Get Started
-                </button>
-              </div>
-            </div>
-          </div>
+        {DUMMY_PRODUCTS.map((product) => (
+          <ProductGridItem product={product} key={product.id} />
         ))}
       </div>
     </section>

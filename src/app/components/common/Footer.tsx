@@ -1,3 +1,4 @@
+import Button from "@/components/ui/button";
 import Image from "next/image";
 export default function Footer() {
   return (
@@ -56,9 +57,9 @@ export default function Footer() {
                 Empower
                 <br /> your crew.
               </p>
-              <button className="bg-zinc-800 text-white font-title rounded-4xl border border-neutral-900 py-2 px-7 font-medium tracking-tight self-center">
+              <Button size="base" variant="filled" className="self-center">
                 For Business
-              </button>
+              </Button>
             </div>
           </div>
         </div>

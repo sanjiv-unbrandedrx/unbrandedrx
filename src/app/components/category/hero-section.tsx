@@ -6,6 +6,7 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import Button from "@/components/ui/button";
 import { getNameFromSlug } from "@/lib/utils";
 export default function HeroSection({ slug }: { slug: string }) {
   return (
@@ -36,9 +37,9 @@ export default function HeroSection({ slug }: { slug: string }) {
           providers — without paying for celebrity ads or flashy packaging.
         </p>
       </div>
-      <button className="bg-zinc-800 text-white font-title rounded-4xl border border-neutral-900 py-3.5 px-11 font-medium text-xl tracking-tight">
+      <Button size="xl" variant="filled">
         Get Started
-      </button>
+      </Button>
     </section>
   );
 }

@@ -1,4 +1,5 @@
 import StarFillIcon from "@/app/components/svg/star-fill-icon";
+import Button from "@/components/ui/button";
 import Image from "next/image";
 
 export default function ProductCard() {
@@ -37,12 +38,12 @@ export default function ProductCard() {
           </p>
         </div>
         <div className="flex justify-between items-center flex-1 gap-x-5">
-          <button className="text-neutral-800 border border-neutral-300 rounded-4xl px-7 py-2 font-title font-medium tracking-tight">
+          <Button size="base" variant="outline">
             Get Started
-          </button>
-          <button className="bg-zinc-800 text-white font-title rounded-4xl border border-neutral-900 py-2 px-7 font-medium tracking-tight">
+          </Button>
+          <Button size="base" variant="filled">
             Add to Cart
-          </button>
+          </Button>
         </div>
       </div>
     </div>
