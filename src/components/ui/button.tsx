@@ -6,11 +6,13 @@ type ButtonSize = "xs" | "sm" | "base" | "lg" | "xl";
 interface ButtonProps extends React.ComponentProps<"button"> {
   variant: ButtonVariant;
   size: ButtonSize;
+  fullWidth?: boolean;
 }
 
 export default function Button({
   variant,
   size,
+  fullWidth,
   className,
   ...props
 }: ButtonProps) {
@@ -23,7 +25,7 @@ export default function Button({
 
   const sizeClasses = {
     xs: "text-xs px-4 py-1",
-    sm: "px-7 py-2",
+    sm: "text-sm px-7 py-2",
     base: "px-7 py-2",
     lg: "px-7 py-2",
     xl: "py-3.5 px-11 text-xl",
@@ -36,6 +38,7 @@ export default function Button({
         "rounded-4xl font-title font-medium tracking-tight",
         variantClasses[variant],
         sizeClasses[size],
+        fullWidth && "w-full",
         className
       )}
     />
