@@ -1,5 +1,4 @@
-import Link from "next/link";
-import HeroSection from "../components/home/hero-section";
+import HeroSection from "@/components/home/hero-section";
 import CategoryCard, { CategoryItem } from "@/components/home/category-card";
 import CardsSection from "@/components/home/cards-section";
 import FeaturedSection from "@/components/home/featured-section";

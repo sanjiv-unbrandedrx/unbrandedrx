@@ -26,7 +26,9 @@ export default function Header() {
           <SearchIcon />
         </li>
         <li>
-          <UserIcon />
+          <Link href="/signup">
+            <UserIcon />
+          </Link>
         </li>
         <li>
           <BasketIcon />
