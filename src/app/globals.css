@@ -124,3 +124,36 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .shadow-table {
+    box-shadow: -8px 12px 13px 0px rgba(34, 34, 34, 0.06),
+      -3px 4px 8px 0px rgba(34, 34, 34, 0.05);
+  }
+}
+
+@layer components {
+  .radio-wrapper {
+    @apply relative flex-1;
+  }
+
+  .radio-wrapper:hover .radio-card {
+    @apply border-neutral-400;
+  }
+
+  .radio-card {
+    @apply border border-neutral-300 rounded-2xl px-3 py-4 flex flex-col gap-y-2 items-start justify-start h-full transition-all;
+  }
+
+  .radio-wrapper input[type="radio"]:checked + .radio-card {
+    @apply border-neutral-800;
+  }
+
+  .radio-wrapper .radio-card .radio-icon {
+    @apply text-white transition-all;
+  }
+
+  .radio-wrapper input[type="radio"]:checked + .radio-card .radio-icon {
+    @apply text-foreground;
+  }
+}

@@ -16,7 +16,7 @@ export default function CategoryCard({ category }: { category: CategoryItem }) {
       <Link href={`/shop/category/${category.slug}`} className="group">
         <div className="bg-muted px-12 rounded-2xl flex justify-between items-center relative">
           <div className="py-8 max-w-50 space-y-3">
-            <p className="font-title text-neutral-800 font-meidum text-3xl">
+            <p className="font-title text-neutral-800 font-medium text-3xl">
               {category.name}
             </p>
             <p className="text-muted-foreground">{category.description}</p>
