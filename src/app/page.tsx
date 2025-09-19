@@ -24,11 +24,11 @@ const DUMMY_CATEGORIES: CategoryItem[] = [
 
 export default function Home() {
   return (
-    <main className="px-4 xl:px-0">
+    <main>
       <HeroSection />
 
-      <section className="max-w-[1200px] mx-auto mt-16">
-        <div className="grid grid-cols-2 gap-x-6">
+      <section className="max-w-[1200px] mx-auto mt-8 xl:mt-16 px-4 xl:px-0">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-x-6 gap-y-3">
           {DUMMY_CATEGORIES.map((category) => (
             <CategoryCard key={category.id} category={category} />
           ))}
@@ -38,21 +38,6 @@ export default function Home() {
       <CardsSection />
       <FeaturedSection />
       <ProductCarousel title="Our Best Sellers" />
-
-      <section className="hidden container mx-auto border-2 border-red-400 border-dashed p-4 bg-secondary font-mono mt-40">
-        <p className="font-medium mb-4"> DEV MODE LINKS </p>
-        <p className="text-muted-foreground text-sm"> Available links: </p>
-        <ul className="flex flex-col gap-y-2 font-title font-medium text-lg">
-          <li>
-            <Link
-              href="/shop/category/hair-loss"
-              className="underline underline-offset-2 font-mono"
-            >
-              Hair Loss
-            </Link>
-          </li>
-        </ul>
-      </section>
     </main>
   );
 }

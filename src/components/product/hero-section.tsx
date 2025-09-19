@@ -6,8 +6,8 @@ import Button from "../ui/button";
 
 export default function HeroSection() {
   return (
-    <section className="container mx-auto px-4 xl:px-0 my-15">
-      <div className="flex justify-between items-stretch gap-x-4">
+    <section className="container mx-auto px-4 xl:px-0 my-4 xl:my-15">
+      <div className="flex flex-col xl:flex-row justify-between items-stretch gap-x-4">
         <div className="w-full min-h-[590px] h-full max-h-full relative rounded-3xl overflow-hidden">
           <Image
             src="/products/follicle-activator.png"
@@ -16,12 +16,12 @@ export default function HeroSection() {
             className="object-cover object-right"
           />
         </div>
-        <div className="flex flex-col gap-y-10 w-full px-19">
+        <div className="flex flex-col gap-y-10 w-full py-6 px-1 xl:px-19 xl:py-0">
           <div className="space-y-3">
-            <p className="font-title text-4xl font-medium tracking-tight">
+            <p className="font-title text-2xl xl:text-4xl font-medium tracking-tight">
               Follicle Activator
             </p>
-            <p>
+            <p className="text-sm xl:text-base">
               A powerful topical blend of Minoxidil, Caffeine, Coppper Peptides
               and more, prescribed for your hair loss.
             </p>

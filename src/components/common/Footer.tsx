@@ -2,31 +2,41 @@ import Button from "@/components/ui/button";
 import Image from "next/image";
 export default function Footer() {
   return (
-    <footer className="py-10 bg-neutral-800 text-white px-10">
-      <div className="flex flex-1 gap-[24px] items-start justify-between max-w-[1360px] mx-auto">
-        <div className="space-y-16">
-          <div className="grid grid-cols-3 gap-x-5">
-            <div className="w-full flex flex-col gap-y-3">
-              <p className="text-neutral-300 font-medium text-xs">Categories</p>
-              <p>Hair Loss</p>
-              <p>Weight Loss</p>
-              <p>Men&apos;s Health</p>
-              <p>Skincare</p>
-            </div>
-            <div className="w-full flex flex-col gap-y-3">
-              <p className="text-neutral-300 font-medium text-xs">
-                Our Comapny
+    <footer className="py-10 bg-neutral-800 text-white px-4 xl:px-10">
+      <div className="flex flex-col-reverse xl:flex-row flex-1 gap-[24px] items-start justify-between max-w-[1360px] mx-auto">
+        <div className="space-y-8 xl:space-y-16">
+          <div className="grid grid-cols-1 xl:grid-cols-3 gap-5">
+            <div className="w-full">
+              <p className="text-neutral-300 font-medium text-xs mb-1 xl:mb-3">
+                Categories
               </p>
-              <p>About Us</p>
-              <p>How it Works</p>
-              <p>Contact Us</p>
-              <p>Support</p>
+              <div className="w-full flex flex-row xl:flex-col gap-y-3 gap-x-4">
+                <p>Hair Loss</p>
+                <p>Weight Loss</p>
+                <p>Men&apos;s Health</p>
+                <p>Skincare</p>
+              </div>
             </div>
-            <div className="w-full flex flex-col gap-y-3">
-              <p className="text-neutral-300 font-medium text-xs">Legal</p>
-              <p>Terms & Conditions</p>
-              <p>Privacy Policy</p>
-              <p>Returns</p>
+            <div className="w-full">
+              <p className="text-neutral-300 font-medium text-xs mb-1 xl:mb-3">
+                Our Company
+              </p>
+              <div className="w-full flex flex-row xl:flex-col gap-y-3 gap-x-4">
+                <p>About Us</p>
+                <p>How it Works</p>
+                <p>Contact Us</p>
+                <p>Support</p>
+              </div>
+            </div>
+            <div className="w-full">
+              <p className="text-neutral-300 font-medium text-xs mb-1 xl:mb-3">
+                Legal
+              </p>
+              <div className="w-full flex flex-row xl:flex-col gap-y-3 gap-x-4">
+                <p>Terms & Conditions</p>
+                <p>Privacy Policy</p>
+                <p>Returns</p>
+              </div>
             </div>
           </div>
           <div>

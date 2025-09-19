@@ -89,14 +89,14 @@ const DUMMY_PRODUCTS: ProductItem[] = [
 export default function ProductGridSection() {
   return (
     <section className="container mx-auto px-4 xl:px-0">
-      <div className="flex justify-between items-center py-6">
+      <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center py-6 gap-y-4 mb-4 xl:mb-0">
         <div className="flex items-center gap-x-2">
           <h3 className="font-title tracking-tight text-3xl font-semibold">
             All Categories
           </h3>
           <DownIcon />
         </div>
-        <div className="flex justify-end items-center gap-x-15 text-muted-foreground">
+        <div className="flex justify-end items-center gap-x-6 xl:gap-x-15 text-muted-foreground">
           <div className="flex items-center gap-x-2">
             <p>Filter by</p>
             <DownIcon />
@@ -107,7 +107,7 @@ export default function ProductGridSection() {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 xl:grid-cols-4 gap-5">
         {DUMMY_PRODUCTS.map((product) => (
           <ProductGridItem product={product} key={product.id} />
         ))}

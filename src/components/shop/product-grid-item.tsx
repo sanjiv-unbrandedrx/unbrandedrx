@@ -4,6 +4,7 @@ import { PlusIcon } from "lucide-react";
 import Button from "@/components/ui/button";
 import { formatPrice } from "@/lib/component-utils";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ProductGridItem({ product }: { product: ProductItem }) {
   return (
@@ -19,7 +20,12 @@ export default function ProductGridItem({ product }: { product: ProductItem }) {
         <PlusIcon />
       </div>
       <div className="relative h-[285px] w-full">
-        <Image src={product.image} alt={product.name} fill />
+        <Image
+          src={product.image}
+          alt={product.name}
+          fill
+          className="object-contain object-center"
+        />
       </div>
       <div className="flex flex-col items-center justify-end gap-y-3">
         <div className="text-neutral-800/80 flex flex-col items-center justify-end gap-y-1">
@@ -33,7 +39,7 @@ export default function ProductGridItem({ product }: { product: ProductItem }) {
             variant="outline"
             className="border-neutral-800 hover:bg-neutral-900 hover:text-white"
           >
-            Get Started
+            <Link href="/shop/product/follicle-activator">Get Started</Link>
           </Button>
         </div>
       </div>

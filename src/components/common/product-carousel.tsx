@@ -26,7 +26,7 @@ export default function ProductCarousel({ title }: { title: string }) {
   });
   return (
     <section className="bg-secondary py-20">
-      <div className="flex justify-between items-center py-6 px-30">
+      <div className="flex justify-between items-center py-6 px-4 xl:px-30">
         <h3 className="font-title tracking-tight text-4xl font-semibold">
           {title}
         </h3>
@@ -57,24 +57,24 @@ export default function ProductCarousel({ title }: { title: string }) {
           </div>
         )}
       </div>
-      <div className="pl-30">
+      <div className="pl-4 xl:pl-30">
         <div ref={sliderRef} className="keen-slider">
-          <div className="keen-slider__slide min-w-[420px] max-w-[420px]">
+          <div className="keen-slider__slide min-w-[400px] xl:min-w-[420px] max-w-[420px]">
             <ProductCard />
           </div>
-          <div className="keen-slider__slide min-w-[420px] max-w-[420px]">
+          <div className="keen-slider__slide min-w-[400px] xl:min-w-[420px] max-w-[420px]">
             <ProductCard />
           </div>
-          <div className="keen-slider__slide min-w-[420px] max-w-[420px]">
+          <div className="keen-slider__slide min-w-[400px] xl:min-w-[420px] max-w-[420px]">
             <ProductCard />
           </div>
-          <div className="keen-slider__slide min-w-[420px] max-w-[420px]">
+          <div className="keen-slider__slide min-w-[400px] xl:min-w-[420px] max-w-[420px]">
             <ProductCard />
           </div>
-          <div className="keen-slider__slide min-w-[420px] max-w-[420px]">
+          <div className="keen-slider__slide min-w-[400px] xl:min-w-[420px] max-w-[420px]">
             <ProductCard />
           </div>
-          <div className="keen-slider__slide min-w-[30px] w-[30px] max-w-[30px]"></div>
+          <div className="keen-slider__slide min-w-[1px] w-[1px] max-w-[1px] xl:min-w-[30px] xl:w-[30px] xl:max-w-[30px]"></div>
         </div>
       </div>
     </section>

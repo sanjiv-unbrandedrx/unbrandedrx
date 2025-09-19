@@ -2,6 +2,7 @@
 
 import { ChangeEvent, useState } from "react";
 import Button from "../ui/button";
+import Link from "next/link";
 
 export default function FeaturedSection() {
   const [itemCount, setItemCount] = useState<number>(1);
@@ -20,8 +21,8 @@ export default function FeaturedSection() {
 
   return (
     <section className="container mx-auto px-4 xl:px-0 mb-25">
-      <div className="relative min-h-[575px] bg-[url(/home/hair-regrow.png)] bg-center bg-cover rounded-3xl">
-        <div className="flex flex-col justify-center items-start gap-y-9 py-36 px-25">
+      <div className="relative min-h-[575px] bg-[url(/home/hair-regrow.png)] bg-center bg-cover rounded-3xl flex flex-col items-start justify-center">
+        <div className="flex flex-col justify-center items-start gap-y-9 py-12 xl:py-36 px-8 xl:px-25">
           <div className="w-full space-y-5">
             <div>
               <p className="font-title text-4xl font-medium">Hair Regrow</p>
@@ -38,8 +39,8 @@ export default function FeaturedSection() {
             $ 37
             <span className="text-3xl">.00</span>
           </p>
-          <div className="flex gap-x-2">
-            <div className="border border-neutral-500/50 rounded-full flex justify-center items-center py-3.5 px-8 text-xl gap-x-3">
+          <div className="flex items-center justify-start gap-x-2">
+            <div className="border border-neutral-500/50 rounded-full flex justify-center items-center py-2 xl:py-3.5 px-4 xl:px-8 text-xl gap-x-3">
               <button
                 onClick={() => changeValue(-1)}
                 disabled={itemCount <= 1}
@@ -66,8 +67,12 @@ export default function FeaturedSection() {
                 +
               </button>
             </div>
-            <Button variant="filled" size="xl" className="bg-[#002021]">
-              Get Started
+            <Button
+              variant="filled"
+              size="xl"
+              className="bg-[#002021] py-2 px-4 xl:py-3.5 xl:px-8"
+            >
+              <Link href="/shop/product/follicle-activator">Get Started</Link>
             </Button>
           </div>
         </div>

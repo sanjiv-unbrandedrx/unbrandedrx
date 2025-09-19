@@ -2,25 +2,27 @@ import Badge from "../ui/badge";
 
 export default function CardsSection() {
   return (
-    <section className="container mx-auto py-20 mt-5">
-      <div className="flex flex-col items-center justify-center gap-y-15">
+    <section className="container mx-auto py-5 xl:py-20 mt-5 px-4 xl:px-0">
+      <div className="flex flex-col items-center justify-center gap-y-6 xl:gap-y-15">
         <div className="text-center">
-          <p className="text-muted-foreground text-2xl">
+          <p className="text-muted-foreground text-lg xl:text-2xl">
             Healthcare that fits you &mdash; not the other way around
           </p>
-          <p className="font-title text-[45px] max-w-5xl tracking-tight">
+          <p className="font-title text-xl xl:text-[45px] max-w-5xl tracking-tight">
             From
             <span className="font-medium"> personalized prescriptions </span>
+            <br className="xl:hidden" />
             to discreet
-            <br />
-            <span className="font-medium"> delivery, </span>UnbrandedRx offers
-            expert care,
+            <br className="hidden xl:block" />
+            <span className="font-medium"> delivery, </span>
+            <br className="xl:hidden" />
+            UnbrandedRx offers expert care,
             <br />
             <span className="font-medium"> 100% online. </span>No mark-ups.
             <br /> No pharmacy counters. Just results.
           </p>
         </div>
-        <div className="grid grid-cols-2 xl:grid-cols-4 gap-4 w-full">
+        <div className="grid grid-cols-1 xl:grid-cols-4 gap-4 w-full">
           <div className="min-h-100 bg-center bg-cover rounded-3xl overflow-hidden bg-[url(/home/card-1.png)] relative">
             <div className="flex flex-col items-start justify-start gap-3 absolute inset-0 w-full h-full bg-gradient-to-b from-black p-6">
               <Badge className="font-sans text-xs px-4 bg-neutral-800">
