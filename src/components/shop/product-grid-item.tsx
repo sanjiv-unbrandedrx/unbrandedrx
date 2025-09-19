@@ -1,7 +1,7 @@
 import Badge from "@/components/ui/badge";
 import { ProductItem } from "../category/product-grid-section";
 import { PlusIcon } from "lucide-react";
-import Button from "@/components/ui/button";
+import Button from "@/components/ui/button-custom";
 import { formatPrice } from "@/lib/component-utils";
 import Image from "next/image";
 import Link from "next/link";

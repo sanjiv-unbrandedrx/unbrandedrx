@@ -2,7 +2,7 @@ import { CheckCircleFillIcon } from "@/components/svg/check-circle-fill-icon";
 import StarFillIcon from "@/components/svg/star-fill-icon";
 import Badge from "@/components/ui/badge";
 import Image from "next/image";
-import Button from "../ui/button";
+import Button from "../ui/button-custom";
 
 export default function HeroSection() {
   return (

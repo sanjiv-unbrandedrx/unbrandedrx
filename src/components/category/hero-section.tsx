@@ -6,7 +6,7 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import Button from "@/components/ui/button";
+import Button from "@/components/ui/button-custom";
 import { getNameFromSlug } from "@/lib/utils";
 export default function HeroSection({ slug }: { slug: string }) {
   return (

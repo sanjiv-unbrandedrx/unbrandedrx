@@ -1,5 +1,5 @@
 import Header from "@/components/common/Header";
-import Button from "@/components/ui/button";
+import Button from "@/components/ui/button-custom";
 
 export default function HeroSection() {
   return (

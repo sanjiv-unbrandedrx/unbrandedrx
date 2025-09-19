@@ -1,5 +1,13 @@
-import Button from "@/components/ui/button";
+import Button from "@/components/ui/button-custom";
 import Image from "next/image";
+import Link from "next/link";
+import {
+  InstaBrandIcon,
+  LinkedinBrandIcon,
+  TikTokBrandIcon,
+  XBrandIcon,
+  YoutubeBrandIcon,
+} from "../svg/brand-icons";
 export default function Footer() {
   return (
     <footer className="py-10 bg-neutral-800 text-white px-4 xl:px-10">
@@ -11,10 +19,30 @@ export default function Footer() {
                 Categories
               </p>
               <div className="w-full flex flex-row xl:flex-col gap-y-3 gap-x-4">
-                <p>Hair Loss</p>
-                <p>Weight Loss</p>
-                <p>Men&apos;s Health</p>
-                <p>Skincare</p>
+                <Link
+                  href="/shop/category/hair-loss"
+                  className="hover:underline underline-offset-2"
+                >
+                  Hair Loss
+                </Link>
+                <Link
+                  href="/shop/category/weight-loss"
+                  className="hover:underline underline-offset-2"
+                >
+                  Weight Loss
+                </Link>
+                <Link
+                  href="/shop/category/mens-health"
+                  className="hover:underline underline-offset-2"
+                >
+                  Men&apos;s Health
+                </Link>
+                <Link
+                  href="/shop/category/skincare"
+                  className="hover:underline underline-offset-2"
+                >
+                  Skincare
+                </Link>
               </div>
             </div>
             <div className="w-full">
@@ -40,13 +68,23 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <p className="text-neutral-300 font-medium text-xs">Social</p>
-            <div className="flex justify-start gap-x-3">
-              <p>YT</p>
-              <p>X</p>
-              <p>t</p>
-              <p>i</p>
-              <p>in</p>
+            <p className="text-neutral-300 font-medium text-xs mb-3">Social</p>
+            <div className="flex justify-start items-center gap-x-3">
+              <Link href="https://www.youtube.com/">
+                <YoutubeBrandIcon />
+              </Link>
+              <Link href="https://www.x.com/">
+                <XBrandIcon className="size-5" />
+              </Link>
+              <Link href="https://www.tiktok.com/">
+                <TikTokBrandIcon className="size-5" />
+              </Link>
+              <Link href="https://www.instagram.com/">
+                <InstaBrandIcon className="size-5" />
+              </Link>
+              <Link href="https://www.linkedin.com/">
+                <LinkedinBrandIcon className="size-6" />
+              </Link>
             </div>
           </div>
           <div>

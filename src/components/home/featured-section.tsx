@@ -1,7 +1,7 @@
 "use client";
 
 import { ChangeEvent, useState } from "react";
-import Button from "../ui/button";
+import Button from "../ui/button-custom";
 import Link from "next/link";
 
 export default function FeaturedSection() {
@@ -68,9 +68,9 @@ export default function FeaturedSection() {
               </button>
             </div>
             <Button
-              variant="filled"
+              variant="filledCart"
               size="xl"
-              className="bg-[#002021] py-2 px-4 xl:py-3.5 xl:px-8"
+              className="py-2 px-4 xl:py-3.5 xl:px-8"
             >
               <Link href="/shop/product/follicle-activator">Get Started</Link>
             </Button>

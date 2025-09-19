@@ -1,5 +1,5 @@
 import StarFillIcon from "@/components/svg/star-fill-icon";
-import Button from "@/components/ui/button";
+import Button from "@/components/ui/button-custom";
 import Image from "next/image";
 
 export default function ProductCard() {
@@ -41,7 +41,7 @@ export default function ProductCard() {
           <Button size="sm" variant="outline" fullWidth>
             Get Started
           </Button>
-          <Button size="sm" variant="filled" fullWidth>
+          <Button size="sm" variant="filledCart" fullWidth>
             Add to Cart
           </Button>
         </div>
