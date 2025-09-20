@@ -2,7 +2,7 @@ export default function DeepDiveSection() {
   return (
     <section className="my-4 xl:my-15 container mx-auto py-6 xl:py-10 px-4 xl:px-0">
       <div className="flex flex-col xl:flex-row justify-between gap-y-8 gap-x-19">
-        <div className="flex-1 bg-[url('/products/key-ingredients.png')] bg-center bg-cover rounded-3xl min-h-[360px] xl:min-h-[522px] flex flex-col items-stretch justify-stretch">
+        <div className="flex-1 bg-[url('/products/key-ingredients.webp')] bg-center bg-cover rounded-3xl min-h-[360px] xl:min-h-[522px] flex flex-col items-stretch justify-stretch">
           <div className="bg-gradient-to-b from-white/20 to-white w-full h-full flex-1 flex flex-col gap-y-5 justify-end items-start py-8 px-10">
             <h4 className="font-title text-3xl font-medium">
               Key Active Ingredients

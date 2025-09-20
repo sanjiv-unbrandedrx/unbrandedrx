@@ -18,7 +18,7 @@ export default function HowItWorksSection() {
               </p>
             </div>
             <Image
-              src="/products/card-1.png"
+              src="/products/card-1.webp"
               alt="test"
               width={185}
               height={202}
@@ -39,7 +39,7 @@ export default function HowItWorksSection() {
               </p>
             </div>
             <Image
-              src="/products/card-2.png"
+              src="/products/card-2.webp"
               alt="test"
               width={202}
               height={253}
@@ -60,7 +60,7 @@ export default function HowItWorksSection() {
               </p>
             </div>
             <Image
-              src="/products/card-3.png"
+              src="/products/card-3.webp"
               alt="test"
               width={190}
               height={120}

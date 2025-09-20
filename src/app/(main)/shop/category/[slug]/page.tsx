@@ -18,7 +18,7 @@ export default async function CategoryPage({
         <div className="relative min-h-[500px]">
           <Image
             className="rounded-xl object-center object-cover"
-            src={"/categories/category-closeup.png"}
+            src={"/categories/category-closeup.webp"}
             alt="Category Closeup"
             fill
           />

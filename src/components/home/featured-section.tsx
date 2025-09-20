@@ -21,7 +21,7 @@ export default function FeaturedSection() {
 
   return (
     <section className="container mx-auto px-4 xl:px-0 mb-25">
-      <div className="relative min-h-[575px] bg-[url(/home/hair-regrow.png)] bg-center bg-cover rounded-3xl flex flex-col items-start justify-center">
+      <div className="relative min-h-[575px] bg-[url(/home/hair-regrow.webp)] bg-center bg-cover rounded-3xl flex flex-col items-start justify-center">
         <div className="flex flex-col justify-center items-start gap-y-9 py-12 xl:py-36 px-8 xl:px-25">
           <div className="w-full space-y-5">
             <div>

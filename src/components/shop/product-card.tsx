@@ -8,7 +8,7 @@ export default function ProductCard() {
       <div className="relative rounded-t-3xl min-w-[328px] aspect-square">
         <Image
           className="object-center object-cover"
-          src="/products/four-one-sleep.png"
+          src="/products/four-one-sleep.webp"
           alt="4-in-1 Sleep Capsule"
           fill
         />

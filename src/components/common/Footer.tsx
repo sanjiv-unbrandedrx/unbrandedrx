@@ -96,7 +96,7 @@ export default function Footer() {
           <div className="relative rounded-3xl overflow-hidden min-h-[400px] min-w-[400px]">
             <Image
               fill
-              src="/footer.png"
+              src="/footer.webp"
               alt="unbrandedrx"
               className="object-center object-cover"
             />

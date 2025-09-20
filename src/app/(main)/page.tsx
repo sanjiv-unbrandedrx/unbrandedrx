@@ -9,14 +9,14 @@ const DUMMY_CATEGORIES: CategoryItem[] = [
     id: "hair-loss",
     name: "Hair Loss",
     description: "Solutions for preventing hair loss and promoting regrowth",
-    image: "/home/hair-loss.png",
+    image: "/home/hair-loss.webp",
     slug: "hair-loss",
   },
   {
     id: "sexual-health",
     name: "Sexual Health",
     description: "Treatments for erectile dysfunction and improved performance",
-    image: "/home/sexual-health.png",
+    image: "/home/sexual-health.webp",
     slug: "sexual-health",
   },
 ];

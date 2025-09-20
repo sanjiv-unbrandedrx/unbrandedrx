@@ -10,7 +10,7 @@ export default function HeroSection() {
       <div className="flex flex-col xl:flex-row justify-between items-stretch gap-x-4">
         <div className="w-full min-h-[590px] h-full max-h-full relative rounded-3xl overflow-hidden">
           <Image
-            src="/products/follicle-activator.png"
+            src="/products/follicle-activator.webp"
             alt="Follicle Activator"
             fill
             className="object-cover object-right"

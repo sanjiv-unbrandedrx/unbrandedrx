@@ -23,7 +23,7 @@ export default function CardsSection() {
           </p>
         </div>
         <div className="grid grid-cols-1 xl:grid-cols-4 gap-4 w-full">
-          <div className="min-h-100 bg-center bg-cover rounded-3xl overflow-hidden bg-[url(/home/card-1.png)] relative">
+          <div className="min-h-100 bg-center bg-cover rounded-3xl overflow-hidden bg-[url(/home/card-1.webp)] relative">
             <div className="flex flex-col items-start justify-start gap-3 absolute inset-0 w-full h-full bg-gradient-to-b from-black p-6">
               <Badge className="font-sans text-xs px-4 bg-neutral-800">
                 Zero Appointments Required
@@ -38,7 +38,7 @@ export default function CardsSection() {
             </div>
           </div>
           <div className="min-h-100 bg-center bg-cover rounded-3xl overflow-hidden bg-[#D1CFCB] relative">
-            <div className="flex flex-col items-start justify-end gap-3 absolute inset-0 w-full h-full p-6 bg-[url(/home/card-2.png)] bg-position-[right_top_80px]  bg-size-[200px_auto] bg-no-repeat">
+            <div className="flex flex-col items-start justify-end gap-3 absolute inset-0 w-full h-full p-6 bg-[url(/home/card-2.webp)] bg-position-[right_top_80px]  bg-size-[200px_auto] bg-no-repeat">
               <Badge className="font-sans text-xs px-4 bg-neutral-800">
                 Your Privacy, Protected
               </Badge>
@@ -48,13 +48,13 @@ export default function CardsSection() {
               <p>Your health stays your business.</p>
             </div>
           </div>
-          <div className="min-h-100 bg-center bg-cover rounded-3xl overflow-hidden bg-[url(/home/card-3.png)] flex flex-col items-start justify-end p-6">
+          <div className="min-h-100 bg-center bg-cover rounded-3xl overflow-hidden bg-[url(/home/card-3.webp)] flex flex-col items-start justify-end p-6">
             <Badge className="font-sans text-xs px-4 bg-neutral-800">
               Clinician-Led Care
             </Badge>
           </div>
           <div className="min-h-100 bg-center bg-cover rounded-3xl overflow-hidden bg-[#D1CFCB] relative">
-            <div className="flex flex-col items-start justify-start gap-3 absolute inset-0 w-full h-full p-6 bg-[url(/home/card-4.png)] bg-bottom-left bg-size-[220px_auto] bg-no-repeat">
+            <div className="flex flex-col items-start justify-start gap-3 absolute inset-0 w-full h-full p-6 bg-[url(/home/card-4.webp)] bg-bottom-left bg-size-[220px_auto] bg-no-repeat">
               <Badge className="font-sans text-xs px-4 bg-neutral-800">
                 Zero Appointments Required
               </Badge>
