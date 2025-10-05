@@ -1,10 +1,21 @@
 import Badge from "@/components/ui/badge";
-import { ProductItem } from "../category/product-grid-section";
 import { PlusIcon } from "lucide-react";
 import Button from "@/components/ui/button-custom";
 import { formatPrice } from "@/lib/component-utils";
 import Image from "next/image";
 import Link from "next/link";
+
+// This type definition is now used by the category-specific grid sections
+export type ProductItem = {
+  id: string;
+  name: string;
+  medicalName: string;
+  price: string;
+  bestSeller?: boolean;
+  mostSearched?: boolean;
+  image: string;
+  slug: string; // Added slug for dynamic linking
+};
 
 export default function ProductGridItem({ product }: { product: ProductItem }) {
   return (
@@ -39,7 +50,8 @@ export default function ProductGridItem({ product }: { product: ProductItem }) {
             variant="outline"
             className="border-neutral-800 hover:bg-neutral-900 hover:text-white"
           >
-            <Link href="/shop/product/follicle-activator">Get Started</Link>
+            {/* BUG FIX: Link now uses the product's slug */}
+            <Link href={`/shop/product/${product.slug}`}>Get Started</Link>
           </Button>
         </div>
       </div>
