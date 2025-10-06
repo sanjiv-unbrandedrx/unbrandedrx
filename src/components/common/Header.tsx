@@ -14,7 +14,7 @@ export default function Header() {
           <Logo />
         </Link>
         <Link href="/shop/category/hair-loss">Hair Loss</Link>
-        <Link href="/shop/category/mens-health">Men's Health</Link>
+        <Link href="/shop/category/mens-health">Men&apos;s Health</Link>
       </nav>
       <nav className="flex xl:hidden gap-x-10 items-center justify-start font-semibold font-title tracking-tight">
         <Link href="/" aria-label="Home">

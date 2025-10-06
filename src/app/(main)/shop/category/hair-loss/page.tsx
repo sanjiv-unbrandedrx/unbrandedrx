@@ -21,7 +21,7 @@ export default function HairLossCategoryPage() {
       </section>
 
       {/* Note: "See Also" content is not yet dynamic */}
-      <ProductCarousel title="See Also" />
+      <ProductCarousel title="See Also" products={[]} />
     </main>
   );
 }

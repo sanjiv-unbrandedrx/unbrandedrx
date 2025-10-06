@@ -19,11 +19,11 @@ export default function DirectorSection() {
             A Message from Our Medical Director
           </h3>
           <p className="mt-4 text-lg text-muted-foreground">
-            "At unbrandedrx, our focus is singular: patient well-being. We empower
-            our providers to prescribe the most effective, clinically-backed
-            treatments available. By removing the noise of brand marketing, we
-            can focus purely on delivering high-quality, accessible, and
-            affordable care."
+            &quot;At unbrandedrx, our focus is singular: patient well-being. We
+            empower our providers to prescribe the most effective,
+            clinically-backed treatments available. By removing the noise of
+            brand marketing, we can focus purely on delivering high-quality,
+            accessible, and affordable care.&quot;
           </p>
           <p className="mt-6 font-semibold">Dr. Simal Patel</p>
           <p className="text-sm text-muted-foreground">Medical Director</p>
