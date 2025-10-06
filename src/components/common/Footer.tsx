@@ -33,9 +33,10 @@ const productLinks = [
   },
 ];
 
+// SURGICAL STRIKE: Updated hrefs for "About Us" and "How it Works" to point to the correct pages.
 const companyLinks = [
-  { name: "About Us", href: "#" },
-  { name: "How it Works", href: "#" },
+  { name: "About Us", href: "/about" },
+  { name: "How it Works", href: "/how-it-works" },
   { name: "Contact Us", href: "/contact-us" },
   { name: "Support", href: "#" },
 ];
