@@ -39,7 +39,7 @@ export default function ProductGridItem({ product }: { product: ProductItem }) {
         />
       </div>
       <div className="flex flex-col items-center justify-end gap-y-3">
-        <div className="text-neutral-800/80 flex flex-col items-center justify-end gap-y-1">
+        <div className="text-neutral-800/80 flex flex-col items-center justify-end gap-y-1 text-center">
           <p>{product.name}</p>
           <p className="text-xs">{product.medicalName}</p>
         </div>

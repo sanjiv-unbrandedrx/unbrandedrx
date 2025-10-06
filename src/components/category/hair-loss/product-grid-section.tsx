@@ -36,6 +36,23 @@ const HAIR_LOSS_PRODUCTS: ProductItem[] = [
     image: "/products/topical-dutasteride-hero.png",
     slug: "topical-dutasteride",
   },
+  {
+    id: "hairfect-rx-8-in-1",
+    name: "Hairfect Rx - The 8-in-1 perfect prescription hair loss formula",
+    medicalName:
+      "Finasteride + Minoxidil + D-Biotin + CA-5 MethylTetraHydrofolate + Zinc Picolinate",
+    price: "59.00",
+    image: "/products/topical-dutasteride-hero.png",
+    slug: "hairfect-rx-8-in-1",
+  },
+  {
+    id: "hairfect-rx",
+    name: "Hairfect Rx Solution",
+    medicalName: "Minoxidil + Dutasteride + Tertinoin + FLUOCINOLONE",
+    price: "59.00",
+    image: "/products/topical-dutasteride-hero.png",
+    slug: "hairfect-rx-haircaps",
+  },
 ];
 
 export default function ProductGridSection() {
