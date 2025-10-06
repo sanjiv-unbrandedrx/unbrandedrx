@@ -1,8 +1,9 @@
+// File: src/components/category/hair-loss/product-grid-section.tsx
 import DownIcon from "@/components/svg/down-icon";
 import ProductGridItem from "@/components/shop/product-grid-item";
 import { ProductItem } from "@/components/shop/product-grid-item"; // Import type from the shared component
 
-// Hardcode the products for THIS category page
+// SURGICAL STRIKE: Removed the two "Hairfect Rx" products from the array.
 const HAIR_LOSS_PRODUCTS: ProductItem[] = [
   {
     id: "oral-finasteride",
@@ -35,23 +36,6 @@ const HAIR_LOSS_PRODUCTS: ProductItem[] = [
     price: "69.00",
     image: "/products/topical-dutasteride-hero.png",
     slug: "topical-dutasteride",
-  },
-  {
-    id: "hairfect-rx-8-in-1",
-    name: "Hairfect Rx - The 8-in-1 perfect prescription hair loss formula",
-    medicalName:
-      "Finasteride + Minoxidil + D-Biotin + CA-5 MethylTetraHydrofolate + Zinc Picolinate",
-    price: "59.00",
-    image: "/products/topical-dutasteride-hero.png",
-    slug: "hairfect-rx-8-in-1",
-  },
-  {
-    id: "hairfect-rx",
-    name: "Hairfect Rx Solution",
-    medicalName: "Minoxidil + Dutasteride + Tertinoin + FLUOCINOLONE",
-    price: "59.00",
-    image: "/products/topical-dutasteride-hero.png",
-    slug: "hairfect-rx-haircaps",
   },
 ];
 

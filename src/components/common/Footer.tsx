@@ -1,115 +1,122 @@
-import Button from "@/components/ui/button-custom";
-import Image from "next/image";
+// File: src/components/common/Footer.tsx
 import Link from "next/link";
-import {
-  InstaBrandIcon,
-  LinkedinBrandIcon,
-  TikTokBrandIcon,
-  XBrandIcon,
-  YoutubeBrandIcon,
-} from "../svg/brand-icons";
+
+const productLinks = [
+  {
+    category: "Hair Loss",
+    categoryHref: "/shop/category/hair-loss",
+    items: [
+      { name: "Oral Finasteride", href: "/shop/product/oral-finasteride" },
+      { name: "Oral Dutasteride", href: "/shop/product/oral-dutasteride" },
+      {
+        name: "Topical Finasteride",
+        href: "/shop/product/topical-finasteride",
+      },
+      {
+        name: "Topical Dutasteride",
+        href: "/shop/product/topical-dutasteride",
+      },
+    ],
+  },
+  {
+    category: "Men's Health",
+    categoryHref: "/shop/category/mens-health",
+    items: [
+      { name: "4-in-1 ED Troche", href: "/shop/product/ed-troche" },
+      { name: "Enclomiphene", href: "/shop/product/enclomiphene" },
+      { name: "Dapoxetine", href: "/shop/product/dapoxetine" },
+      {
+        name: "Ultimate Performance Capsule",
+        href: "/shop/product/ultimate-performance",
+      },
+    ],
+  },
+];
+
+const companyLinks = [
+  { name: "About Us", href: "#" },
+  { name: "How it Works", href: "#" },
+  { name: "Contact Us", href: "/contact-us" },
+  { name: "Support", href: "#" },
+];
+
+const legalLinks = [
+  { name: "Terms & Conditions", href: "/terms-and-conditions" },
+  { name: "Privacy Policy", href: "/privacy-policy" },
+  { name: "Returns", href: "/returns-policy" },
+];
+
 export default function Footer() {
   return (
-    <footer className="py-10 bg-neutral-800 text-white px-4 xl:px-10">
-      <div className="flex flex-col-reverse xl:flex-row flex-1 gap-[24px] items-start justify-between max-w-[1360px] mx-auto">
-        <div className="space-y-8 xl:space-y-16">
-          <div className="grid grid-cols-1 xl:grid-cols-3 gap-5">
-            <div className="w-full">
-              <p className="text-neutral-300 font-medium text-xs mb-1 xl:mb-3">
-                Categories
-              </p>
-              <div className="w-full flex flex-row xl:flex-col gap-y-3 gap-x-4">
-                <Link
-                  href="/shop/category/hair-loss"
-                  className="hover:underline underline-offset-2"
-                >
-                  Hair Loss
-                </Link>
-                <Link
-                  href="/shop/category/weight-loss"
-                  className="hover:underline underline-offset-2"
-                >
-                  Weight Loss
-                </Link>
-                <Link
-                  href="/shop/category/mens-health"
-                  className="hover:underline underline-offset-2"
-                >
-                  Men&apos;s Health
-                </Link>
-                <Link
-                  href="/shop/category/skincare"
-                  className="hover:underline underline-offset-2"
-                >
-                  Skincare
-                </Link>
+    <footer className="border-t bg-neutral-800 py-16 text-white px-4 xl:px-10">
+      <div className="mx-auto max-w-[1360px]">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+          {/* Products Section */}
+          <div className="col-span-2 grid grid-cols-1 gap-8 sm:grid-cols-2">
+            {productLinks.map((section) => (
+              <div key={section.category}>
+                <p className="font-medium text-neutral-300">
+                  <Link
+                    href={section.categoryHref}
+                    className="hover:underline underline-offset-2"
+                  >
+                    {section.category}
+                  </Link>
+                </p>
+                <div className="mt-4 flex flex-col space-y-3">
+                  {section.items.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="text-sm text-neutral-400 hover:text-white hover:underline underline-offset-2"
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
               </div>
-            </div>
-            <div className="w-full">
-              <p className="text-neutral-300 font-medium text-xs mb-1 xl:mb-3">
-                Our Company
-              </p>
-              <div className="w-full flex flex-row xl:flex-col gap-y-3 gap-x-4">
-                <p>About Us</p>
-                <p>How it Works</p>
-                <p>Contact Us</p>
-                <p>Support</p>
-              </div>
-            </div>
-            <div className="w-full">
-              <p className="text-neutral-300 font-medium text-xs mb-1 xl:mb-3">
-                Legal
-              </p>
-              <div className="w-full flex flex-row xl:flex-col gap-y-3 gap-x-4">
-                <p>Terms & Conditions</p>
-                <p>Privacy Policy</p>
-                <p>Returns</p>
-              </div>
+            ))}
+          </div>
+
+          {/* Company Section */}
+          <div>
+            <p className="font-medium text-neutral-300">Our Company</p>
+            <div className="mt-4 flex flex-col space-y-3">
+              {companyLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-sm text-neutral-400 hover:text-white hover:underline underline-offset-2"
+                >
+                  {link.name}
+                </Link>
+              ))}
             </div>
           </div>
+
+          {/* Legal Section */}
           <div>
-            <p className="text-neutral-300 font-medium text-xs mb-3">Social</p>
-            <div className="flex justify-start items-center gap-x-3">
-              <Link href="https://www.youtube.com/">
-                <YoutubeBrandIcon />
-              </Link>
-              <Link href="https://www.x.com/">
-                <XBrandIcon className="size-5" />
-              </Link>
-              <Link href="https://www.tiktok.com/">
-                <TikTokBrandIcon className="size-5" />
-              </Link>
-              <Link href="https://www.instagram.com/">
-                <InstaBrandIcon className="size-5" />
-              </Link>
-              <Link href="https://www.linkedin.com/">
-                <LinkedinBrandIcon className="size-6" />
-              </Link>
+            <p className="font-medium text-neutral-300">Legal</p>
+            <div className="mt-4 flex flex-col space-y-3">
+              {legalLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-sm text-neutral-400 hover:text-white hover:underline underline-offset-2"
+                >
+                  {link.name}
+                </Link>
+              ))}
             </div>
-          </div>
-          <div>
-            <p>&copy;unbrandedrx inc. All Rights Reserved</p>
-            <p>3459 Hidden Meadow Drive Oakes, North Dakota 58474</p>
           </div>
         </div>
-        <div>
-          <div className="relative rounded-3xl overflow-hidden min-h-[400px] min-w-[400px]">
-            <Image
-              fill
-              src="/footer.webp"
-              alt="unbrandedrx"
-              className="object-center object-cover"
-            />
-            <div className="absolute z-10 inset-0 w-full h-full flex flex-col items-start justify-between gap-y-4 px-5 pt-5 pb-3">
-              <p className="font-title text-xl">
-                Empower
-                <br /> your crew.
-              </p>
-              <Button size="base" variant="filled" className="self-center">
-                For Business
-              </Button>
-            </div>
-          </div>
+
+        {/* Copyright */}
+        <div className="mt-16 border-t border-neutral-700 pt-8">
+          <p className="text-sm text-neutral-500">
+            &copy; {new Date().getFullYear()} unbrandedrx inc. All Rights
+            Reserved
+          </p>
         </div>
       </div>
     </footer>
