@@ -9,6 +9,7 @@ export type ProductItem = {
   bestSeller?: boolean;
   mostSearched?: boolean;
   image: string;
+  slug: string;
 };
 
 const DUMMY_PRODUCTS: ProductItem[] = [
@@ -19,6 +20,7 @@ const DUMMY_PRODUCTS: ProductItem[] = [
     price: "43.50",
     bestSeller: true,
     image: "/products/dropper.webp",
+    slug: "follice-activator",
   },
   {
     id: "topi",
@@ -26,6 +28,7 @@ const DUMMY_PRODUCTS: ProductItem[] = [
     medicalName: "Minoxidil + Tretinoin",
     price: "62.00",
     image: "/products/dropper.webp",
+    slug: "topical-hair-formula",
   },
   {
     id: "hairre",
@@ -33,6 +36,7 @@ const DUMMY_PRODUCTS: ProductItem[] = [
     medicalName: "Dutasteride + Biotin",
     price: "55.00",
     image: "/products/dropper.webp",
+    slug: "hair-regrowth",
   },
   {
     id: "scal",
@@ -40,6 +44,7 @@ const DUMMY_PRODUCTS: ProductItem[] = [
     medicalName: "Finasteride + Minoxidil",
     price: "79.50",
     image: "/products/dropper.webp",
+    slug: "scalp-spray-formula",
   },
   {
     id: "anti-a",
@@ -47,6 +52,7 @@ const DUMMY_PRODUCTS: ProductItem[] = [
     medicalName: "Tretinoin + Hydroquinone + Peptides",
     price: "27.50",
     image: "/products/dropper.webp",
+    slug: "anti-aging-cream",
   },
   {
     id: "4-in-1ed",
@@ -54,6 +60,7 @@ const DUMMY_PRODUCTS: ProductItem[] = [
     medicalName: "Tadalafil",
     price: "38.00",
     image: "/products/dropper.webp",
+    slug: "4-in-1-ed",
   },
   {
     id: "metabol",
@@ -62,6 +69,7 @@ const DUMMY_PRODUCTS: ProductItem[] = [
     price: "60.00",
     mostSearched: true,
     image: "/products/dropper.webp",
+    slug: "metabolic-support",
   },
   {
     id: "testo",
@@ -69,6 +77,7 @@ const DUMMY_PRODUCTS: ProductItem[] = [
     medicalName: "Enclomiphene Citrate",
     price: "33.50",
     image: "/products/dropper.webp",
+    slug: "testosterone-support",
   },
   {
     id: "sleepc",
@@ -76,6 +85,7 @@ const DUMMY_PRODUCTS: ProductItem[] = [
     medicalName: "Doxepin + Melatonin",
     price: "23.50",
     image: "/products/dropper.webp",
+    slug: "4-in-1-sleep-capsule",
   },
   {
     id: "weig",
@@ -83,6 +93,7 @@ const DUMMY_PRODUCTS: ProductItem[] = [
     medicalName: "Semaglutide",
     price: "12.50",
     image: "/products/dropper.webp",
+    slug: "weight-management-injection",
   },
 ];
 
