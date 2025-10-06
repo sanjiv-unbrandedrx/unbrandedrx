@@ -63,7 +63,7 @@ export default function ProductCard({ product }: { product: Product }) {
           </Button>
           <Button
             size="sm"
-            variant="filledCart"
+            variant="secondary"
             fullWidth
             className="rounded-full"
           >
