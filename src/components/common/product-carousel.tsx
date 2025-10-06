@@ -1,6 +1,7 @@
+// File: src/components/common/product-carousel.tsx
 "use client";
 
-import ProductCard from "../shop/product-card";
+import ProductCard, { Product } from "../shop/product-card"; // SURGICAL STRIKE: Import Product type
 import LeftCircleIcon from "@/components/svg/left-circle-icon";
 import RightCircleFillIcon from "@/components/svg/right-circle-fill-icon";
 import { useKeenSlider } from "keen-slider/react";
@@ -9,7 +10,14 @@ import { useState } from "react";
 import LeftCircleFillIcon from "../svg/left-circle-fill-icon";
 import RightCircleIcon from "../svg/right-circle-icon";
 
-export default function ProductCarousel({ title }: { title: string }) {
+// SURGICAL STRIKE: Component now accepts a title and a list of products.
+export default function ProductCarousel({
+  title,
+  products,
+}: {
+  title: string;
+  products: Product[];
+}) {
   const [sliderReady, setSliderReady] = useState<boolean>(false);
   const [currentSlide, setCurrentSlide] = useState<number>(0);
 
@@ -24,6 +32,12 @@ export default function ProductCarousel({ title }: { title: string }) {
     mode: "free-snap",
     slides: { perView: "auto", spacing: 20 },
   });
+
+  // SURGICAL STRIKE: Return null if there are no products to display.
+  if (!products || products.length === 0) {
+    return null;
+  }
+
   return (
     <section className="bg-secondary py-20">
       <div className="flex justify-between items-center py-6 px-4 xl:px-30">
@@ -59,21 +73,15 @@ export default function ProductCarousel({ title }: { title: string }) {
       </div>
       <div className="pl-4 xl:pl-30">
         <div ref={sliderRef} className="keen-slider">
-          <div className="keen-slider__slide min-w-[400px] xl:min-w-[420px] max-w-[420px]">
-            <ProductCard />
-          </div>
-          <div className="keen-slider__slide min-w-[400px] xl:min-w-[420px] max-w-[420px]">
-            <ProductCard />
-          </div>
-          <div className="keen-slider__slide min-w-[400px] xl:min-w-[420px] max-w-[420px]">
-            <ProductCard />
-          </div>
-          <div className="keen-slider__slide min-w-[400px] xl:min-w-[420px] max-w-[420px]">
-            <ProductCard />
-          </div>
-          <div className="keen-slider__slide min-w-[400px] xl:min-w-[420px] max-w-[420px]">
-            <ProductCard />
-          </div>
+          {/* SURGICAL STRIKE: Dynamically render product cards from the products prop */}
+          {products.map((product) => (
+            <div
+              className="keen-slider__slide min-w-[400px] xl:min-w-[420px] max-w-[420px]"
+              key={product.id}
+            >
+              <ProductCard product={product} />
+            </div>
+          ))}
           <div className="keen-slider__slide min-w-[1px] w-[1px] max-w-[1px] xl:min-w-[30px] xl:w-[30px] xl:max-w-[30px]"></div>
         </div>
       </div>
