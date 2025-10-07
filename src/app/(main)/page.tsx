@@ -6,6 +6,7 @@ import FeaturedSection from "@/components/home/featured-section";
 import ProductCarousel from "@/components/common/product-carousel";
 import { Product } from "@/components/shop/product-card";
 
+// SURGICAL STRIKE: Updated the category list to include all four main categories.
 const DUMMY_CATEGORIES: CategoryItem[] = [
   {
     id: "hair-loss",
@@ -15,11 +16,25 @@ const DUMMY_CATEGORIES: CategoryItem[] = [
     slug: "hair-loss",
   },
   {
+    id: "mens-health",
+    name: "Men's Health",
+    description: "Overall solutions for male vitality and well-being",
+    image: "/home/sexual-health.webp",
+    slug: "mens-health",
+  },
+  {
     id: "sexual-health",
     name: "Sexual Health",
     description: "Treatments for erectile dysfunction and improved performance",
     image: "/home/sexual-health.webp",
     slug: "sexual-health",
+  },
+  {
+    id: "testosterone",
+    name: "Testosterone",
+    description: "Support for healthy testosterone levels and vitality",
+    image: "/home/hair-loss.webp",
+    slug: "testosterone",
   },
 ];
 
