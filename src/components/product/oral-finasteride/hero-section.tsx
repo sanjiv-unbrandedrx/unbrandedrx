@@ -118,24 +118,7 @@ export default function HeroSection() {
             </label>
           </div>
 
-          {isClient && (
-            <div className="space-y-2">
-              <p className="text-sm font-medium">Strength:</p>
-              <Select>
-                <SelectTrigger className="w-full border-neutral-400">
-                  <SelectValue placeholder="Select strength" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="standard">
-                    Standard Strength (2.5mg Minoxidil)
-                  </SelectItem>
-                  <SelectItem value="extra">
-                    Extra Strength (5mg Minoxidil)
-                  </SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-          )}
+          {/* SURGICAL STRIKE: Removed the strength label and dropdown component. */}
 
           <Button variant="filled" size="xl">
             Start My Visit

@@ -160,25 +160,18 @@ export default nextConfig;
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
+    "@eslint/eslintrc": "^3.0.0",
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/node": "^20.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.0.0",
     "eslint-config-next": "15.5.3",
-    "tailwindcss": "^4",
+    "tailwindcss": "^4.0.0",
     "tw-animate-css": "^1.3.8",
-    "typescript": "^5"
+    "typescript": "^5.0.0"
   }
 }
-
-
-# File: pnpm-workspace.yaml
-onlyBuiltDependencies:
-  - '@tailwindcss/oxide'
-  - sharp
-  - unrs-resolver
 
 
 # File: postcss.config.mjs
@@ -326,10 +319,11 @@ export default function RootLayout({
 import HeroSection from "@/components/home/hero-section";
 import CategoryCard, { CategoryItem } from "@/components/home/category-card";
 import CardsSection from "@/components/home/cards-section";
-import FeaturedSection from "@/components/home/featured-section";
+// SURGICAL STRIKE: Removed FeaturedSection import
 import ProductCarousel from "@/components/common/product-carousel";
 import { Product } from "@/components/shop/product-card";
 
+// SURGICAL STRIKE: Updated the category list to include all four main categories.
 const DUMMY_CATEGORIES: CategoryItem[] = [
   {
     id: "hair-loss",
@@ -339,11 +333,25 @@ const DUMMY_CATEGORIES: CategoryItem[] = [
     slug: "hair-loss",
   },
   {
+    id: "mens-health",
+    name: "Men's Health",
+    description: "Overall solutions for male vitality and well-being",
+    image: "/home/sexual-health.webp",
+    slug: "mens-health",
+  },
+  {
     id: "sexual-health",
     name: "Sexual Health",
     description: "Treatments for erectile dysfunction and improved performance",
     image: "/home/sexual-health.webp",
     slug: "sexual-health",
+  },
+  {
+    id: "testosterone",
+    name: "Testosterone",
+    description: "Support for healthy testosterone levels and vitality",
+    image: "/home/hair-loss.webp",
+    slug: "testosterone",
   },
 ];
 
@@ -405,7 +413,7 @@ export default function Home() {
       </section>
 
       <CardsSection />
-      <FeaturedSection />
+      {/* SURGICAL STRIKE: Removed FeaturedSection component */}
       {/* SURGICAL STRIKE: Pass the best-sellers data to the carousel. */}
       <ProductCarousel title="Our Best Sellers" products={BEST_SELLERS} />
     </main>
@@ -466,6 +474,36 @@ export default function ReturnsPolicyPage() {
           </div>
         </div>
       </section>
+    </main>
+  );
+}
+
+# File: src\app\(main)\shop\category\all-products\page.tsx
+// @/app/(main)/shop/category/all-products/page.tsx
+import HeroSection from "@/components/category/all-products/hero-section";
+import ProductGridSection from "@/components/category/all-products/product-grid-section";
+import ProductCarousel from "@/components/common/product-carousel";
+import Image from "next/image";
+
+export default function AllProductsCategoryPage() {
+  return (
+    <main>
+      <HeroSection />
+      <ProductGridSection />
+
+      <section className="container mx-auto py-25 px-4 xl:px-0">
+        <div className="relative min-h-[500px]">
+          <Image
+            className="rounded-xl object-center object-cover"
+            src={"/categories/category-closeup.webp"}
+            alt="Category Closeup"
+            fill
+          />
+        </div>
+      </section>
+
+      {/* Note: "See Also" content is not yet dynamic */}
+      <ProductCarousel title="See Also" products={[]} />
     </main>
   );
 }
@@ -577,6 +615,36 @@ export default function SexualHealthCategoryPage() {
       </section>
 
       <ProductCarousel title="See Also" products={RELATED_PRODUCTS} />
+    </main>
+  );
+}
+
+# File: src\app\(main)\shop\category\testosterone\page.tsx
+// @/app/(main)/shop/category/testosterone/page.tsx
+import HeroSection from "@/components/category/testosterone/hero-section";
+import ProductGridSection from "@/components/category/testosterone/product-grid-section";
+import ProductCarousel from "@/components/common/product-carousel";
+import Image from "next/image";
+
+export default function TestosteroneCategoryPage() {
+  return (
+    <main>
+      <HeroSection />
+      <ProductGridSection />
+
+      <section className="container mx-auto py-25 px-4 xl:px-0">
+        <div className="relative min-h-[500px]">
+          <Image
+            className="rounded-xl object-center object-cover"
+            src={"/categories/category-closeup.webp"}
+            alt="Category Closeup"
+            fill
+          />
+        </div>
+      </section>
+
+      {/* Note: "See Also" content is not yet dynamic */}
+      <ProductCarousel title="See Also" products={[]} />
     </main>
   );
 }
@@ -1181,6 +1249,158 @@ export default function PillarsSection() {
   );
 }
 
+# File: src\components\category\all-products\hero-section.tsx
+// @/components/category/all-products/hero-section.tsx
+import Header from "@/components/common/Header";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import Button from "@/components/ui/button-custom";
+import { getNameFromSlug } from "@/lib/utils";
+
+export default function HeroSection() {
+  const slug = "all-products";
+  return (
+    <section className="container mx-auto pb-20 bg-none xl:bg-[url(/categories/hair-loss.webp)] bg-right bg-cover bg-no-repeat px-4 xl:px-0">
+      <Header />
+      <Breadcrumb className="mt-4 mb-9 container mx-auto">
+        <BreadcrumbList className="lowercase text-xs font-light tracking-tight">
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/shop/category/all-products">
+              {getNameFromSlug(slug)}
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+      <div className="max-w-md space-y-6 mb-9">
+        <h2 className="font-title font-medium text-2xl xl:text-4xl tracking-tight">
+          All Prescription Treatments.
+          <br />
+          No Brand Markup.
+        </h2>
+        <p className="font-light text-xl xl:text-2xl text-muted-foreground">
+          Browse all clinically-backed formulas prescribed by licensed
+          providers — without paying for celebrity ads or flashy packaging.
+        </p>
+      </div>
+      <Button size="xl" variant="filled">
+        Get Started
+      </Button>
+    </section>
+  );
+}
+
+# File: src\components\category\all-products\product-grid-section.tsx
+// @/components/category/all-products/product-grid-section.tsx
+import DownIcon from "@/components/svg/down-icon";
+import ProductGridItem from "@/components/shop/product-grid-item";
+import { ProductItem } from "@/components/shop/product-grid-item";
+
+const ALL_PRODUCTS: ProductItem[] = [
+  {
+    id: "ed-troche",
+    name: "4-in-1 ED Troche",
+    medicalName: "Tadalafil + Vardenafil + Apomorphine",
+    price: "29.00",
+    image: "/products/ed-troche-hero.png",
+    slug: "ed-troche",
+  },
+  {
+    id: "dapoxetine",
+    name: "Dapoxetine",
+    medicalName: "Dapoxetine",
+    price: "89.00",
+    image: "/products/dapoxetine-hero.png",
+    slug: "dapoxetine",
+  },
+  {
+    id: "enclomiphene",
+    name: "Enclomiphene",
+    medicalName: "Enclomiphene Citrate",
+    price: "79.00",
+    image: "/products/enclomiphene-hero.png",
+    slug: "enclomiphene",
+  },
+  {
+    id: "oral-dutasteride",
+    name: "Oral Dutasteride",
+    medicalName: "Dutasteride + Minoxidil",
+    price: "XX.XX",
+    image: "/products/oral-dutasteride-hero.png",
+    slug: "oral-dutasteride",
+  },
+  {
+    id: "oral-finasteride",
+    name: "Oral Finasteride",
+    medicalName: "Finasteride + Minoxidil",
+    price: "59.00",
+    image: "/products/oral-finasteride-hero.png",
+    slug: "oral-finasteride",
+  },
+  {
+    id: "topical-dutasteride",
+    name: "Topical Dutasteride",
+    medicalName: "Minoxidil + Dutasteride + Tretinoin",
+    price: "69.00",
+    image: "/products/topical-dutasteride-hero.png",
+    slug: "topical-dutasteride",
+  },
+  {
+    id: "topical-finasteride",
+    name: "Topical Finasteride",
+    medicalName: "Minoxidil + Finasteride + Tretinoin",
+    price: "59.00",
+    image: "/products/topical-finasteride-hero.png",
+    slug: "topical-finasteride",
+  },
+  {
+    id: "ultimate-performance",
+    name: "Ultimate Performance Capsule",
+    medicalName: "Sildenafil + Tadalafil + More",
+    price: "XX.XX",
+    image: "/products/ultimate-performance-hero.png",
+    slug: "ultimate-performance",
+  },
+];
+
+export default function ProductGridSection() {
+  return (
+    <section className="container mx-auto px-4 xl:px-0">
+      <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center py-6 gap-y-4 mb-4 xl:mb-0">
+        <div className="flex items-center gap-x-2">
+          <h3 className="font-title tracking-tight text-3xl font-semibold">
+            All Categories
+          </h3>
+          <DownIcon />
+        </div>
+        <div className="flex justify-end items-center gap-x-6 xl:gap-x-15 text-muted-foreground">
+          <div className="flex items-center gap-x-2">
+            <p>Filter by</p>
+            <DownIcon />
+          </div>
+          <div className="flex items-center gap-x-2">
+            <p>Sort by</p>
+            <DownIcon />
+          </div>
+        </div>
+      </div>
+      <div className="grid grid-cols-1 xl:grid-cols-4 gap-5">
+        {ALL_PRODUCTS.map((product) => (
+          <ProductGridItem product={product} key={product.id} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
 # File: src\components\category\hair-loss\hero-section.tsx
 import Header from "@/components/common/Header";
 import {
@@ -1529,6 +1749,102 @@ export default function ProductGridSection() {
   );
 }
 
+# File: src\components\category\testosterone\hero-section.tsx
+// @/components/category/testosterone/hero-section.tsx
+import Header from "@/components/common/Header";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import Button from "@/components/ui/button-custom";
+import { getNameFromSlug } from "@/lib/utils";
+
+export default function HeroSection() {
+  const slug = "testosterone";
+  return (
+    <section className="container mx-auto pb-20 bg-none xl:bg-[url(/categories/hair-loss.webp)] bg-right bg-cover bg-no-repeat px-4 xl:px-0">
+      <Header />
+      <Breadcrumb className="mt-4 mb-9 container mx-auto">
+        <BreadcrumbList className="lowercase text-xs font-light tracking-tight">
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/shop/category/testosterone">
+              {getNameFromSlug(slug)}
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+      <div className="max-w-md space-y-6 mb-9">
+        <h2 className="font-title font-medium text-2xl xl:text-4xl tracking-tight">
+          Testosterone Support Treatments.
+          <br />
+          No Brand Markup.
+        </h2>
+        <p className="font-light text-xl xl:text-2xl text-muted-foreground">
+          Get clinically-backed treatments to support natural testosterone
+          production, prescribed by licensed providers.
+        </p>
+      </div>
+      <Button size="xl" variant="filled">
+        Get Started
+      </Button>
+    </section>
+  );
+}
+
+# File: src\components\category\testosterone\product-grid-section.tsx
+// @/components/category/testosterone/product-grid-section.tsx
+import DownIcon from "@/components/svg/down-icon";
+import ProductGridItem from "@/components/shop/product-grid-item";
+import { ProductItem } from "@/components/shop/product-grid-item";
+
+const TESTOSTERONE_PRODUCTS: ProductItem[] = [
+  {
+    id: "enclomiphene",
+    name: "Enclomiphene",
+    medicalName: "Enclomiphene Citrate",
+    price: "79.00",
+    image: "/products/enclomiphene-hero.png",
+    slug: "enclomiphene",
+  },
+];
+
+export default function ProductGridSection() {
+  return (
+    <section className="container mx-auto px-4 xl:px-0">
+      <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center py-6 gap-y-4 mb-4 xl:mb-0">
+        <div className="flex items-center gap-x-2">
+          <h3 className="font-title tracking-tight text-3xl font-semibold">
+            All Categories
+          </h3>
+          <DownIcon />
+        </div>
+        <div className="flex justify-end items-center gap-x-6 xl:gap-x-15 text-muted-foreground">
+          <div className="flex items-center gap-x-2">
+            <p>Filter by</p>
+            <DownIcon />
+          </div>
+          <div className="flex items-center gap-x-2">
+            <p>Sort by</p>
+            <DownIcon />
+          </div>
+        </div>
+      </div>
+      <div className="grid grid-cols-1 xl:grid-cols-4 gap-5">
+        {TESTOSTERONE_PRODUCTS.map((product) => (
+          <ProductGridItem product={product} key={product.id} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
 # File: src\components\common\Footer.tsx
 // File: src/components/common/Footer.tsx
 import Link from "next/link";
@@ -1658,45 +1974,136 @@ export default function Footer() {
 
 # File: src\components\common\Header.tsx
 // File: src/components/common/Header.tsx
+"use client"; // SURGICAL STRIKE: Enable client-side interactivity for state management.
+
 import Link from "next/link";
+import { useState } from "react";
 import Logo from "../svg/logo";
-import SearchIcon from "../svg/search-icon";
-import { UserIcon } from "../svg/user-icon";
-import BasketIcon from "../svg/basket-icon";
+// SURGICAL STRIKE: Removed unused icon imports.
+import MenuIcon from "../svg/menu-icon";
+import MobileNav from "./MobileNav";
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <header className="container mx-auto flex items-center justify-between gap-x-3 py-9">
-      {/* SURGICAL STRIKE: Replaced general nav links with direct category links */}
-      <nav className="hidden xl:flex gap-x-10 items-center justify-start font-semibold font-title tracking-tight">
-        <Link href="/" aria-label="Home">
-          <Logo />
-        </Link>
-        <Link href="/shop/category/hair-loss">Hair Loss</Link>
-        <Link href="/shop/category/mens-health">Men&apos;s Health</Link>
-      </nav>
-      <nav className="flex xl:hidden gap-x-10 items-center justify-start font-semibold font-title tracking-tight">
-        <Link href="/" aria-label="Home">
-          <Logo className="w-30" />
-        </Link>
-      </nav>
-      <ul className="flex gap-x-3 xl:gap-x-6 items-center justify-end">
-        <li>
-          <SearchIcon />
-        </li>
-        <li>
-          <Link href="/signup">
-            <UserIcon />
+    <>
+      <header className="container mx-auto flex items-center justify-between gap-x-3 py-9">
+        <nav className="flex gap-x-10 items-center justify-start font-semibold font-title tracking-tight">
+          <Link href="/" aria-label="Home">
+            {/* SURGICAL STRIKE: Increased logo width by 50% (w-30 to w-45) */}
+            <Logo className="w-45" />
           </Link>
-        </li>
-        <li>
-          <BasketIcon />
-        </li>
-      </ul>
-    </header>
+        </nav>
+        {/* SURGICAL STRIKE: Removed Search, User, and Basket icons from the header. */}
+        <ul className="flex gap-x-3 xl:gap-x-6 items-center justify-end">
+          <li>
+            <button onClick={() => setIsMenuOpen(true)} aria-label="Open menu">
+              <MenuIcon />
+            </button>
+          </li>
+        </ul>
+      </header>
+
+      <MobileNav isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+    </>
   );
 }
 
+# File: src\components\common\MobileNav.tsx
+// @/components/common/MobileNav.tsx
+"use client";
+
+import Link from "next/link";
+import { useEffect } from "react";
+import CloseIcon from "../svg/close-icon";
+import Logo from "../svg/logo";
+import { cn } from "@/lib/utils";
+// SURGICAL STRIKE: Removed SearchIcon import.
+import { UserIcon } from "../svg/user-icon";
+import BasketIcon from "../svg/basket-icon";
+
+const navLinks = [
+  { name: "All Products", href: "/shop/category/all-products" },
+  { name: "Hair Loss", href: "/shop/category/hair-loss" },
+  { name: "Men's Health", href: "/shop/category/mens-health" },
+  { name: "Sexual Health", href: "/shop/category/sexual-health" },
+  { name: "Testosterone", href: "/shop/category/testosterone" },
+];
+
+interface MobileNavProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
+  return (
+    <>
+      {/* Overlay */}
+      <div
+        className={cn(
+          "fixed inset-0 bg-black/40 z-40 transition-opacity duration-300",
+          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        )}
+        onClick={onClose}
+      />
+
+      {/* Drawer */}
+      <div
+        className={cn(
+          "fixed top-0 right-0 h-full w-full max-w-sm bg-white z-50 transform transition-transform duration-300 ease-in-out",
+          isOpen ? "translate-x-0" : "translate-x-full"
+        )}
+      >
+        <div className="flex flex-col h-full">
+          {/* SURGICAL STRIKE: Relocated User and Basket icons to the header */}
+          <div className="flex items-center justify-between p-6 border-b">
+            {/* SURGICAL STRIKE: Increased logo width by 50% (w-32 to w-48) */}
+            <Logo className="w-48" />
+            <div className="flex items-center gap-x-6">
+              <Link href="/signup" onClick={onClose} aria-label="My Account">
+                <UserIcon />
+              </Link>
+              <button aria-label="Shopping Basket">
+                <BasketIcon />
+              </button>
+              <button onClick={onClose} aria-label="Close menu">
+                <CloseIcon className="size-6" />
+              </button>
+            </div>
+          </div>
+          <nav className="flex-grow p-6">
+            <ul className="space-y-6">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    onClick={onClose}
+                    className="font-title text-2xl font-medium tracking-tight text-neutral-800 hover:text-neutral-600 transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          {/* SURGICAL STRIKE: Removed the footer section with icons */}
+        </div>
+      </div>
+    </>
+  );
+}
 
 # File: src\components\common\product-carousel.tsx
 // File: src/components/common/product-carousel.tsx
@@ -1909,92 +2316,9 @@ export default function CategoryCard({ category }: { category: CategoryItem }) {
 }
 
 
-# File: src\components\home\featured-section.tsx
-"use client";
-
-import { ChangeEvent, useState } from "react";
-import Button from "../ui/button-custom";
-import Link from "next/link";
-
-export default function FeaturedSection() {
-  const [itemCount, setItemCount] = useState<number>(1);
-  function handleNumberInput(e: ChangeEvent<HTMLInputElement>) {
-    if (isNaN(Number(e.target.value))) return;
-
-    const value = Math.min(Math.max(Number(e.target.value), 1), 99);
-    setItemCount(value);
-  }
-
-  function changeValue(v: number) {
-    let value = itemCount + v;
-    value = Math.min(Math.max(value, 1), 99);
-    setItemCount(value);
-  }
-
-  return (
-    <section className="container mx-auto px-4 xl:px-0 mb-25">
-      <div className="relative min-h-[575px] bg-[url(/home/hair-regrow.webp)] bg-center bg-cover rounded-3xl flex flex-col items-start justify-center">
-        <div className="flex flex-col justify-center items-start gap-y-9 py-12 xl:py-36 px-8 xl:px-25">
-          <div className="w-full space-y-5">
-            <div>
-              <p className="font-title text-4xl font-medium">Hair Regrow</p>
-              <p className="font-title text-2xl font-medium">
-                Dutasteride + Biotin
-              </p>
-            </div>
-            <p className="text-neutral-600 font-light max-w-100">
-              Get direct access to physician prescribed treatments without
-              paying for the marketing
-            </p>
-          </div>
-          <p className="text-neutral-600 tabular-nums tracking-tighter text-4xl font-light">
-            $ 37
-            <span className="text-3xl">.00</span>
-          </p>
-          <div className="flex items-center justify-start gap-x-2">
-            <div className="border border-neutral-500/50 rounded-full flex justify-center items-center py-2 xl:py-3.5 px-4 xl:px-8 text-xl gap-x-3">
-              <button
-                onClick={() => changeValue(-1)}
-                disabled={itemCount <= 1}
-                className="disabled:text-neutral-500"
-              >
-                -
-              </button>
-              <input
-                className="tabular-nums font-medium w-10 text-center"
-                type="text"
-                pattern="[+\\-]?(?:0|[1-9]\\d*)"
-                inputMode="decimal"
-                min={1}
-                max={99}
-                value={itemCount}
-                onChange={handleNumberInput}
-                autoComplete="off"
-              />
-              <button
-                onClick={() => changeValue(1)}
-                disabled={itemCount >= 99}
-                className="disabled:text-neutral-500"
-              >
-                +
-              </button>
-            </div>
-            <Button
-              variant="filledCart"
-              size="xl"
-              className="py-2 px-4 xl:py-3.5 xl:px-8"
-            >
-              <Link href="/shop/product/follicle-activator">Get Started</Link>
-            </Button>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-
 # File: src\components\home\hero-section.tsx
+// SURGICAL STRIKE: Import Link component
+import Link from "next/link";
 import Header from "@/components/common/Header";
 import Button from "@/components/ui/button-custom";
 
@@ -2012,14 +2336,14 @@ export default function HeroSection() {
             doctor consults.
           </p>
         </div>
+        {/* SURGICAL STRIKE: Updated button text and linked to all-products page */}
         <Button size="xl" variant="filled">
-          See the Treatments
+          <Link href="/shop/category/all-products">Shop All Treatments</Link>
         </Button>
       </div>
     </section>
   );
 }
-
 
 # File: src\components\how-it-works\faq-section.tsx
 // File: src/components/how-it-works/faq-section.tsx
@@ -5247,7 +5571,8 @@ function StepIndicator({
   totalSteps: number;
 }) {
   if (currentStep === 1) {
-    return <Logo className="text-neutral-400 w-25" />;
+    // SURGICAL STRIKE: Increased logo width by 50% (w-25 to w-38)
+    return <Logo className="text-neutral-400 w-38" />;
   }
   return (
     <div className="w-full">
@@ -5330,7 +5655,6 @@ function LocationComponent() {
 function EligibilityComponent() {
   return <DatePicker className="w-full" />;
 }
-
 
 # File: src\components\svg\basket-icon.tsx
 export default function BasketIcon() {
@@ -5504,6 +5828,36 @@ export function CheckCircleFillIcon({ ...props }: React.ComponentProps<"svg">) {
 }
 
 
+# File: src\components\svg\close-icon.tsx
+// @/components/svg/close-icon.tsx
+export default function CloseIcon({ ...props }: React.ComponentProps<"svg">) {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M18 6L6 18"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M6 6L18 18"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 # File: src\components\svg\down-icon.tsx
 export default function DownIcon() {
   return (
@@ -5631,6 +5985,43 @@ export default function Logo({ ...props }: React.ComponentProps<"svg">) {
   );
 }
 
+
+# File: src\components\svg\menu-icon.tsx
+// @/components/svg/menu-icon.tsx
+export default function MenuIcon({ ...props }: React.ComponentProps<"svg">) {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M3 12H21"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M3 6H21"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M3 18H21"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
 # File: src\components\svg\plus-icon.tsx
 export default function PlusIcon() {
