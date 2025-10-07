@@ -2,7 +2,7 @@
 import HeroSection from "@/components/home/hero-section";
 import CategoryCard, { CategoryItem } from "@/components/home/category-card";
 import CardsSection from "@/components/home/cards-section";
-import FeaturedSection from "@/components/home/featured-section";
+// SURGICAL STRIKE: Removed FeaturedSection import
 import ProductCarousel from "@/components/common/product-carousel";
 import { Product } from "@/components/shop/product-card";
 
@@ -96,7 +96,7 @@ export default function Home() {
       </section>
 
       <CardsSection />
-      <FeaturedSection />
+      {/* SURGICAL STRIKE: Removed FeaturedSection component */}
       {/* SURGICAL STRIKE: Pass the best-sellers data to the carousel. */}
       <ProductCarousel title="Our Best Sellers" products={BEST_SELLERS} />
     </main>

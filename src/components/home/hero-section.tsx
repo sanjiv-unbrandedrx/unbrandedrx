@@ -1,3 +1,5 @@
+// SURGICAL STRIKE: Import Link component
+import Link from "next/link";
 import Header from "@/components/common/Header";
 import Button from "@/components/ui/button-custom";
 
@@ -15,8 +17,9 @@ export default function HeroSection() {
             doctor consults.
           </p>
         </div>
+        {/* SURGICAL STRIKE: Updated button text and linked to all-products page */}
         <Button size="xl" variant="filled">
-          See the Treatments
+          <Link href="/shop/category/all-products">Shop All Treatments</Link>
         </Button>
       </div>
     </section>

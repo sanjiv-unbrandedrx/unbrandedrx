@@ -119,7 +119,8 @@ function StepIndicator({
   totalSteps: number;
 }) {
   if (currentStep === 1) {
-    return <Logo className="text-neutral-400 w-25" />;
+    // SURGICAL STRIKE: Increased logo width by 50% (w-25 to w-38)
+    return <Logo className="text-neutral-400 w-38" />;
   }
   return (
     <div className="w-full">
