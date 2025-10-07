@@ -12,6 +12,7 @@ export default function QuestionsSection() {
         <h3 className="min-w-sm mb-6 font-title text-3xl font-medium xl:mb-0">
           Product Questions
         </h3>
+        {/* SURGICAL STRIKE: Replaced the old 5 FAQs with a new, comprehensive list of 8 FAQs. */}
         <div className="w-full flex-1">
           <Accordion type="single" collapsible className="space-y-4">
             <AccordionItem
@@ -19,12 +20,14 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                How do I use it?
+                How does this formula work for hair loss?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                Take one capsule by mouth daily, with or without food. For best
-                results, be consistent and take it around the same time each
-                day.
+                This formula targets the root cause of male pattern baldness.
+                The active ingredient, Finasteride, is a prescription
+                medication that works by blocking the production of
+                Dihydrotestosterone (DHT), the hormone primarily responsible
+                for shrinking hair follicles and causing hair to thin.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -32,14 +35,15 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                What&apos;s the difference between this and topical Finasteride?
+                Why is Finasteride combined with Oral Minoxidil?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                Oral Finasteride works systemically to lower DHT levels,
-                addressing hair loss from the inside out. Topical treatments are
-                applied directly to the scalp. Our oral formula also includes
-                Minoxidil for a dual-action approach to regrowth in a single,
-                convenient capsule.
+                This combination creates a powerful &quot;one-two punch&quot;
+                against hair loss. While Finasteride works to stop further
+                loss by blocking DHT, Oral Minoxidil helps to stimulate
+                regrowth. It works by increasing blood flow to the scalp, which
+                can help reactivate dormant follicles and promote the growth
+                of thicker, healthier hair.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -47,14 +51,15 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                Are there any side effects?
+                What&apos;s the difference between oral and topical Finasteride?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                While generally well-tolerated, Finasteride can cause side
-                effects in a small percentage of men, including sexual side
-                effects. It is critical to discuss your medical history with
-                your provider during your online visit. [We will add a link to
-                full safety information here].
+                Oral Finasteride is a daily capsule that works systemically to
+                lower DHT levels throughout your body. Topical Finasteride is
+                applied directly to the scalp to target the hair follicles
+                more locally. The choice between them often comes down to
+                personal preference and your provider&apos;s recommendation based
+                on your health history and hair loss pattern.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -62,13 +67,12 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                How long before I see results?
+                How do I use it?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                Hair growth is a slow process. Most men begin to see a
-                reduction in hair loss or early signs of regrowth within 3-6
-                months of consistent daily use. Maximum results are typically
-                seen after 12 months.
+                Take one capsule by mouth every day. For the best results,
+                it&apos;s important to be consistent and take it around the same
+                time each day. It can be taken with or without food.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -76,13 +80,61 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
+                How long before I see results?
+              </AccordionTrigger>
+              <AccordionContent className="text-xs">
+                Hair growth is a gradual process. Most men start to see a
+                reduction in hair loss or the first signs of new growth within
+                3-6 months of consistent daily use. Maximum benefits are
+                typically seen after about 12 months.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="item-6"
+              className="border-0 rounded-3xl bg-white px-5"
+            >
+              <AccordionTrigger className="hover:no-underline font-semibold">
                 What happens if I stop taking it?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                The benefits of Finasteride last only as long as you are taking
-                the medication. If you stop, DHT levels will return to their
-                previous levels, and any hair that was gained or preserved will
-                likely be lost within several months.
+                The benefits of Finasteride and Minoxidil only last as long as
+                you are taking the medication. If you stop, your DHT levels
+                will return to normal, and any hair you have preserved or
+                regrown will likely be lost within the following several
+                months.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="item-7"
+              className="border-0 rounded-3xl bg-white px-5"
+            >
+              <AccordionTrigger className="hover:no-underline font-semibold">
+                Is this medication FDA-approved?
+              </AccordionTrigger>
+              <AccordionContent className="text-xs">
+                Finasteride 1mg is an FDA-approved medication for the
+                treatment of male pattern hair loss. However, our specific
+                formula is a &quot;compounded medication,&quot; meaning it&apos;s
+                custom-prepared by a licensed U.S. pharmacy to combine
+                Finasteride with Oral Minoxidil. Compounded drugs are not
+                themselves FDA-approved.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="item-8"
+              className="border-0 rounded-3xl bg-white px-5"
+            >
+              <AccordionTrigger className="hover:no-underline font-semibold">
+                What are the potential side effects?
+              </AccordionTrigger>
+              <AccordionContent className="text-xs">
+                While generally well-tolerated, potential side effects can
+                occur. For Finasteride, this can include sexual side effects
+                in a small percentage of men. It is crucial to provide a
+                complete and accurate medical history during your online visit
+                for your provider to determine if this treatment is safe for
+                you. Please review the full safety information for a
+                comprehensive overview.
               </AccordionContent>
             </AccordionItem>
           </Accordion>

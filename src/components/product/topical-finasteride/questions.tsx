@@ -1,3 +1,4 @@
+// src/components/product/topical-finasteride/questions.tsx
 import {
   Accordion,
   AccordionContent,
@@ -12,6 +13,7 @@ export default function QuestionsSection() {
         <h3 className="min-w-sm mb-6 font-title text-3xl font-medium xl:mb-0">
           Product Questions
         </h3>
+        {/* SURGICAL STRIKE: Replaced the old 5 FAQs with a new, comprehensive list of 8 FAQs. */}
         <div className="w-full flex-1">
           <Accordion type="single" collapsible className="space-y-4">
             <AccordionItem
@@ -19,12 +21,15 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                How do I apply it?
+                How does this topical formula work?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                Apply 1ml of the solution to a clean, dry scalp once daily,
-                focusing on areas of thinning. Gently massage it into the scalp
-                and let it dry. Wash your hands thoroughly after application.
+                This formula works by targeting Dihydrotestosterone (DHT), the
+                hormone that causes male pattern hair loss, directly at the
+                scalp. The active ingredient, Finasteride, helps to block the
+                conversion of testosterone to DHT locally, which can prevent
+                hair follicles from shrinking and help stop hair loss at its
+                source.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -32,12 +37,15 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                Will it make my hair greasy or sticky?
+                Why choose a topical formula over an oral pill?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                The formula is designed to be lightweight and absorb into the
-                scalp. To minimize any effect on your hairstyle, we recommend
-                applying it at night, at least an hour before going to bed.
+                A topical formula is a great alternative for men who prefer not
+                to take a daily pill. By delivering the active ingredients
+                directly to the scalp, it focuses the treatment on the area
+                where it&apos;s needed most. This localized approach is also
+                thought to have a lower risk of systemic side effects compared
+                to the oral tablet form.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -45,14 +53,16 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                Are there any side effects?
+                Why does this formula contain multiple active ingredients?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                The most common side effects are localized to the application
-                site, such as scalp itching or irritation. While systemic side
-                effects are less common than with oral finasteride, they are
-                still possible. [We will add a link to full safety
-                information here].
+                Our formula is designed for a comprehensive, multi-action
+                approach. <strong>Finasteride</strong> blocks DHT to prevent
+                further loss, <strong>Minoxidil</strong> helps stimulate
+                regrowth by increasing blood flow to follicles,{" "}
+                <strong>Tretinoin</strong> improves the scalp&apos;s absorption of
+                the other ingredients, and <strong>Fluocinolone</strong> helps
+                soothe scalp inflammation.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -60,12 +70,13 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                Can I use styling products with this?
+                How do I apply it?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                Yes. Apply the treatment first and allow it to dry completely
-                before using any styling products like gels, mousses, or
-                sprays.
+                Once daily, apply 1ml of the solution to the affected areas of
+                a clean, dry scalp. Massage it in gently and let it dry
+                completely. It&apos;s important to wash your hands thoroughly after
+                you&apos;ve finished applying it.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -73,12 +84,60 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
+                Will it make my hair greasy, and can I use styling products?
+              </AccordionTrigger>
+              <AccordionContent className="text-xs">
+                The solution is designed to be lightweight and absorb into the
+                scalp. To minimize any effect on your hairstyle, we recommend
+                applying it at night. You can use styling products, but you
+                should always apply the treatment first and wait for it to dry
+                completely before using any gels, sprays, or other products.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="item-6"
+              className="border-0 rounded-3xl bg-white px-5"
+            >
+              <AccordionTrigger className="hover:no-underline font-semibold">
                 How long before I see results?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                Consistent daily application is crucial. Most users begin to
-                see less shedding and early signs of regrowth within 3-6
-                months. Maximum results are typically visible after 12 months.
+                Daily, consistent application is key. Most men start to notice
+                less shedding or the first signs of regrowth within 3-6
+                months. The most significant results are typically seen after
+                12 months of continuous use.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="item-7"
+              className="border-0 rounded-3xl bg-white px-5"
+            >
+              <AccordionTrigger className="hover:no-underline font-semibold">
+                Is this medication FDA-approved?
+              </AccordionTrigger>
+              <AccordionContent className="text-xs">
+                While the oral form of Finasteride 1mg is FDA-approved for
+                hair loss, using it topically is considered an &quot;off-label&quot;
+                use. Furthermore, our multi-ingredient formula is a
+                &quot;compounded medication,&quot; custom-made by a licensed U.S.
+                pharmacy. As a compounded drug, this specific formula is not
+                FDA-approved.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="item-8"
+              className="border-0 rounded-3xl bg-white px-5"
+            >
+              <AccordionTrigger className="hover:no-underline font-semibold">
+                What are the potential side effects?
+              </AccordionTrigger>
+              <AccordionContent className="text-xs">
+                The most common side effects are typically mild and localized
+                to the scalp, such as itching, redness, or irritation. While
+                the risk is considered lower than with oral Finasteride,
+                systemic side effects are still possible. It&apos;s essential to
+                discuss your full medical history with your provider. Please
+                review the full safety information for more details.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
