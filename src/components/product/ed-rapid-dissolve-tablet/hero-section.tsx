@@ -13,6 +13,8 @@ import Badge from "@/components/ui/badge";
 import Button from "@/components/ui/button-custom";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+// SURGICAL STRIKE: Import icons for the new feature list.
+import { Zap, Clock, Droplets, ShieldCheck } from "lucide-react";
 
 export default function HeroSection() {
   const [isClient, setIsClient] = useState(false);
@@ -29,7 +31,6 @@ export default function HeroSection() {
             src="/products/ed-rapid-dissolve-tablet-hero.png"
             alt="4-in-1 ED Rapid Dissolve Tablet"
             fill
-            // SURGICAL STRIKE: Changed object-cover to object-contain to prevent the image from being cropped.
             className="object-contain object-center"
           />
         </div>
@@ -55,21 +56,37 @@ export default function HeroSection() {
               </p>
             </div>
 
-            <ul className="flex list-none list-inside flex-col gap-y-1 text-xs text-muted-foreground">
-              <li>
-                <span>✓&nbsp;</span>Multi-pathway formula targets both mind &
-                body
-              </li>
-              <li>
-                <span>✓&nbsp;</span>Dissolves in the cheek for faster onset
-              </li>
-              <li>
-                <span>✓&nbsp;</span>No pills to swallow, no water needed
-              </li>
-              <li>
-                <span>✓&nbsp;</span>Prescribed by a licensed U.S. provider
-              </li>
-            </ul>
+            {/* SURGICAL STRIKE: Replaced the old text-based list with a new icon-based list. */}
+            <div className="space-y-4 pt-4">
+              <div className="flex items-start gap-x-3">
+                <Zap className="size-5 text-primary flex-shrink-0" />
+                <p className="text-sm text-muted-foreground">
+                  Multi-pathway formula targets both the physical and
+                  psychological aspects of arousal.
+                </p>
+              </div>
+              <div className="flex items-start gap-x-3">
+                <Clock className="size-5 text-primary flex-shrink-0" />
+                <p className="text-sm text-muted-foreground">
+                  Fast-acting RDT dissolves in the cheek, working in as little
+                  as 15-30 minutes.
+                </p>
+              </div>
+              <div className="flex items-start gap-x-3">
+                <Droplets className="size-5 text-primary flex-shrink-0" />
+                <p className="text-sm text-muted-foreground">
+                  Convenient and discreet — no pills to swallow and no water
+                  needed.
+                </p>
+              </div>
+              <div className="flex items-start gap-x-3">
+                <ShieldCheck className="size-5 text-primary flex-shrink-0" />
+                <p className="text-sm text-muted-foreground">
+                  Prescribed online by a licensed U.S. provider, if appropriate
+                  for you.
+                </p>
+              </div>
+            </div>
           </div>
 
           <div className="flex flex-col justify-between space-y-3">
@@ -141,9 +158,15 @@ export default function HeroSection() {
             </label>
           </div>
 
-          <Button variant="filled" size="xl">
-            Start My Visit
-          </Button>
+          <a
+            href="https://checkout.unbrandedrx.co/4n1?priceId=2064"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button variant="filled" size="xl">
+              Start My Visit
+            </Button>
+          </a>
 
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="item-1" className="border-b-0">
