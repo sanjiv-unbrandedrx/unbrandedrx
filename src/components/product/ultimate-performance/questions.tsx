@@ -28,21 +28,7 @@ export default function QuestionsSection() {
                 one dose in a 24-hour period.
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem
-              value="item-2"
-              className="border-0 rounded-3xl bg-white px-5"
-            >
-              <AccordionTrigger className="hover:no-underline font-semibold">
-                How is this different from the 4-in-1 ED Troche?
-              </AccordionTrigger>
-              <AccordionContent className="text-xs">
-                Both are powerful multi-ingredient formulas. The key
-                difference is the delivery method. This is a traditional oral
-                capsule, while the troche dissolves under the tongue for
-                potentially faster onset. Your provider can help you choose
-                the best format for your lifestyle.
-              </AccordionContent>
-            </AccordionItem>
+            {/* TASK 10: Removed the FAQ item comparing this product to the 4-in-1 ED Troche. */}
             <AccordionItem
               value="item-3"
               className="border-0 rounded-3xl bg-white px-5"
