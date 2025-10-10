@@ -26,17 +26,19 @@ export default function HeroSection() {
     <section className="container mx-auto my-4 px-4 xl:my-15 xl:px-0">
       <div className="flex flex-col justify-between gap-x-4 xl:flex-row xl:items-stretch">
         <div className="relative h-full min-h-[590px] w-full overflow-hidden rounded-3xl">
+          {/* SURGICAL STRIKE: Update alt text to match new product name */}
           <Image
             src="/products/topical-finasteride-hero.png"
-            alt="Topical Finasteride"
+            alt="Topical Finasteride + Minoxidil + Tretinoin + Fluocinolone + Biotin"
             fill
             className="object-contain object-center"
           />
         </div>
         <div className="flex w-full flex-col gap-y-10 py-6 px-1 xl:py-0 xl:px-19">
           <div className="space-y-3">
+            {/* SURGICAL STRIKE: Update product title for consistency and clarity */}
             <p className="font-title text-2xl font-medium tracking-tight xl:text-4xl">
-              Topical Finasteride
+              Topical Finasteride + Minoxidil + Tretinoin + Fluocinolone + Biotin
             </p>
             <p className="text-sm xl:text-base">
               A powerful, multi-action serum that combines four key
@@ -80,7 +82,6 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* SURGICAL STRIKE: Replaced the old pricing tiers with the new, corrected 3-tier structure. */}
           <div className="flex flex-col justify-between space-y-3">
             <label className="radio-wrapper">
               <input
