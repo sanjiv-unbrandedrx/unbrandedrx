@@ -30,7 +30,7 @@ export default function HeroSection() {
             src="/products/oral-finasteride-hero.png"
             alt="Oral Finasteride"
             fill
-            className="object-cover object-right"
+            className="object-contain object-center"
           />
         </div>
         <div className="flex w-full flex-col gap-y-10 py-6 px-1 xl:py-0 xl:px-19">
@@ -101,8 +101,9 @@ export default function HeroSection() {
                   <p className="font-semibold">Monthly Supply</p>
                   <CheckCircleFillIcon className="radio-icon" />
                 </div>
+                {/* SURGICAL STRIKE: Added "From " to the price. */}
                 <p className="tabular-nums text-2xl text-muted-foreground">
-                  $69
+                  From $69
                 </p>
                 <p className="text-muted-foreground">
                   Billed and delivered every month.
@@ -124,8 +125,9 @@ export default function HeroSection() {
                   <CheckCircleFillIcon className="radio-icon" />
                 </div>
                 <p className="font-semibold">Quarterly Supply</p>
+                {/* SURGICAL STRIKE: Added "From " to the price. */}
                 <p className="tabular-nums text-2xl text-muted-foreground">
-                  $169
+                  From $169
                 </p>
                 <p className="text-muted-foreground">
                   Billed and delivered every 3 months. Works out to $56/month.
@@ -146,8 +148,9 @@ export default function HeroSection() {
                   <CheckCircleFillIcon className="radio-icon" />
                 </div>
                 <p className="font-semibold">5-Month Supply</p>
+                {/* SURGICAL STRIKE: Added "From " to the price. */}
                 <p className="tabular-nums text-2xl text-muted-foreground">
-                  $249
+                  From $249
                 </p>
                 <p className="text-muted-foreground">
                   Billed and delivered every 5 months. Save up to 28%.
@@ -156,11 +159,16 @@ export default function HeroSection() {
             </label>
           </div>
 
-          <Button variant="filled" size="xl">
-            Start My Visit
-          </Button>
+          <a
+            href="https://checkout.unbranded.co/hair-compound-oral?priceId=2082"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button variant="filled" size="xl">
+              Start My Visit
+            </Button>
+          </a>
 
-          {/* TASK 39: Add collapsible safety information section */}
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="item-1" className="border-b-0">
               <AccordionTrigger className="hover:no-underline text-sm font-semibold">
