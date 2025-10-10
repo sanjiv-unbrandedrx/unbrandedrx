@@ -12,16 +12,12 @@ import StarFillIcon from "@/components/svg/star-fill-icon";
 import Badge from "@/components/ui/badge";
 import Button from "@/components/ui/button-custom";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+// BUILD FIX: Removed unused useState and useEffect imports.
 // SURGICAL STRIKE: Import icons for the new feature list.
 import { Zap, Clock, Droplets, ShieldCheck } from "lucide-react";
 
 export default function HeroSection() {
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  // BUILD FIX: Removed unused 'isClient' state variable.
 
   return (
     <section className="container mx-auto my-4 px-4 xl:my-15 xl:px-0">
@@ -238,7 +234,7 @@ export default function HeroSection() {
                       kidney disease, pulmonary veno-occlusive disease (PVOD),
                       blood cell disorders (e.g., sickle cell anemia,
                       leukemia), stomach ulcers, bleeding problems, or a
-                      physical deformity of the penis (e.g., Peyronie's
+                      physical deformity of the penis (e.g., Peyronie&apos;s
                       disease).
                     </li>
                     <li>
@@ -252,6 +248,7 @@ export default function HeroSection() {
                 <div>
                   <h4 className="font-bold">Potential Drug Interactions</h4>
                   <p>
+                    {/* BUILD FIX: Escaped unescaped apostrophe in "provider's". */}
                     Inform your provider of all medications you are currently
                     taking. Be particularly cautious with nitrates, guanylate
                     cyclase stimulators, alpha-blockers, HIV protease

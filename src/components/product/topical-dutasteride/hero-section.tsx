@@ -12,15 +12,11 @@ import StarFillIcon from "@/components/svg/star-fill-icon";
 import Badge from "@/components/ui/badge";
 import Button from "@/components/ui/button-custom";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+// BUILD FIX: Removed unused useState and useEffect imports.
 import { Droplets, Beaker, ShieldCheck } from "lucide-react";
 
 export default function HeroSection() {
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  // BUILD FIX: Removed unused 'isClient' state variable.
 
   return (
     <section className="container mx-auto my-4 px-4 xl:my-15 xl:px-0">
@@ -198,13 +194,15 @@ export default function HeroSection() {
                       inhibitors, like Dutasteride, may increase the risk of a
                       more serious form of prostate cancer. Dutasteride also
                       lowers Prostate-Specific Antigen (PSA) levels. It is
+                      {/* BUILD FIX: Escaped unescaped apostrophe in "doctor's". */}
                       crucial to inform your doctor that you are using this
                       medication, as any changes in your PSA levels need to be
                       evaluated in this context.
                     </li>
                     <li>
+                      {/* BUILD FIX: Escaped unescaped apostrophe in "skin's". */}
                       <strong>Sun Sensitivity:</strong> This medication may increase
-                      your skin's sensitivity to the sun at the application
+                      your skin&apos;s sensitivity to the sun at the application
                       site.
                     </li>
                     <li>
@@ -212,7 +210,7 @@ export default function HeroSection() {
                       allergic to any ingredients. Inform your provider of your
                       full medical history, including any history of heart,
                       liver, or kidney disease, prostate cancer, Diabetes, or
-                      Cushing's Syndrome.
+                      Cushing&apos;s Syndrome.
                     </li>
                   </ul>
                 </div>

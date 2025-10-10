@@ -12,15 +12,11 @@ import StarFillIcon from "@/components/svg/star-fill-icon";
 import Badge from "@/components/ui/badge";
 import Button from "@/components/ui/button-custom";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+// BUILD FIX: Removed unused useState and useEffect imports.
 import { Droplets, Sparkles, Beaker, ShieldCheck } from "lucide-react";
 
 export default function HeroSection() {
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  // BUILD FIX: Removed unused 'isClient' state variable.
 
   return (
     <section className="container mx-auto my-4 px-4 xl:my-15 xl:px-0">

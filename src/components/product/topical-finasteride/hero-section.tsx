@@ -12,15 +12,12 @@ import StarFillIcon from "@/components/svg/star-fill-icon";
 import Badge from "@/components/ui/badge";
 import Button from "@/components/ui/button-custom";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { Droplets, Sparkles, Beaker, ShieldCheck } from "lucide-react";
+// BUILD FIX: Removed unused useState and useEffect imports.
+// BUILD FIX: Removed unused 'Sparkles' from lucide-react import.
+import { Droplets, Beaker, ShieldCheck } from "lucide-react";
 
 export default function HeroSection() {
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  // BUILD FIX: Removed unused 'isClient' state variable.
 
   return (
     <section className="container mx-auto my-4 px-4 xl:my-15 xl:px-0">
@@ -196,13 +193,14 @@ export default function HeroSection() {
                     </li>
                     <li>
                       <strong>PSA Levels:</strong> Finasteride can lower PSA levels.
+                      {/* BUILD FIX: Escaped unescaped apostrophe in "provider's". */}
                       Inform your doctor you are using this medication.
                     </li>
                     <li>
                       <strong>Contraindications:</strong> Do not use if you are
                       allergic to any ingredients. Inform your provider of any
                       history of heart, liver, or kidney disease, prostate
-                      cancer, or Cushing's Syndrome.
+                      cancer, or Cushing&apos;s Syndrome.
                     </li>
                   </ul>
                 </div>

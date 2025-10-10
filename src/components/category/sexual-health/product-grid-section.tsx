@@ -9,7 +9,8 @@ const SEXUAL_HEALTH_PRODUCTS: ProductItem[] = [
     id: "ed-rapid-dissolve-tablet",
     name: "4-in-1 ED Rapid Dissolve Tablet",
     medicalName: "Tadalafil + Vardenafil + Apomorphine",
-    price: "29.00",
+    // PRICE UPDATE: Changed from 29.00 to 79.00
+    price: "79.00",
     image: "/products/ed-rapid-dissolve-tablet-hero.png",
     slug: "ed-rapid-dissolve-tablet",
   },

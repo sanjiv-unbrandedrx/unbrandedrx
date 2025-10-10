@@ -9,7 +9,8 @@ const MENS_HEALTH_PRODUCTS: ProductItem[] = [
     id: "ed-rapid-dissolve-tablet",
     name: "4-in-1 ED Rapid Dissolve Tablet",
     medicalName: "Tadalafil + Vardenafil + Apomorphine",
-    price: "XX.XX",
+    // PRICE UPDATE: Changed from XX.XX to 79.00
+    price: "79.00",
     image: "/products/ed-rapid-dissolve-tablet-hero.png",
     slug: "ed-rapid-dissolve-tablet",
   },
@@ -17,7 +18,8 @@ const MENS_HEALTH_PRODUCTS: ProductItem[] = [
     id: "enclomiphene",
     name: "Enclomiphene",
     medicalName: "Enclomiphene Citrate",
-    price: "XX.XX",
+    // PRICE UPDATE: Changed from XX.XX to 79.00
+    price: "79.00",
     image: "/products/enclomiphene-hero.png",
     slug: "enclomiphene",
   },
@@ -25,7 +27,8 @@ const MENS_HEALTH_PRODUCTS: ProductItem[] = [
     id: "dapoxetine",
     name: "Dapoxetine",
     medicalName: "Dapoxetine",
-    price: "XX.XX",
+    // PRICE UPDATE: Changed from XX.XX to 89.00
+    price: "89.00",
     image: "/products/dapoxetine-hero.png",
     slug: "dapoxetine",
   },
@@ -33,7 +36,8 @@ const MENS_HEALTH_PRODUCTS: ProductItem[] = [
     id: "ultimate-performance",
     name: "Ultimate Performance Capsule",
     medicalName: "Sildenafil + Tadalafil + More",
-    price: "XX.XX",
+    // PRICE UPDATE: Changed from XX.XX to 119.00
+    price: "119.00",
     image: "/products/ultimate-performance-hero.png",
     slug: "ultimate-performance",
   },

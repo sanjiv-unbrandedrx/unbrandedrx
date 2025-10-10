@@ -9,7 +9,8 @@ const HAIR_LOSS_PRODUCTS: ProductItem[] = [
     id: "oral-finasteride",
     name: "Oral Finasteride",
     medicalName: "Finasteride + Minoxidil",
-    price: "59.00", // Using monthly price from brief
+    // PRICE UPDATE: Changed from 59.00 to 69.00
+    price: "69.00",
     image: "/products/oral-finasteride-hero.png",
     slug: "oral-finasteride",
   },
@@ -17,7 +18,8 @@ const HAIR_LOSS_PRODUCTS: ProductItem[] = [
     id: "oral-dutasteride",
     name: "Oral Dutasteride",
     medicalName: "Dutasteride + Minoxidil",
-    price: "XX.XX", // Price is placeholder in brief
+    // PRICE UPDATE: Changed from XX.XX to 69.00
+    price: "69.00",
     image: "/products/oral-dutasteride-hero.png",
     slug: "oral-dutasteride",
   },

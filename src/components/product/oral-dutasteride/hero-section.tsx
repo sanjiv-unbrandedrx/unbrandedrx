@@ -12,15 +12,11 @@ import StarFillIcon from "@/components/svg/star-fill-icon";
 import Badge from "@/components/ui/badge";
 import Button from "@/components/ui/button-custom";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+// BUILD FIX: Removed unused useState and useEffect imports.
 import { Droplets, Sparkles, Beaker, ShieldCheck } from "lucide-react";
 
 export default function HeroSection() {
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  // BUILD FIX: Removed unused 'isClient' state variable.
 
   return (
     <section className="container mx-auto my-4 px-4 xl:my-15 xl:px-0">
@@ -230,6 +226,7 @@ export default function HeroSection() {
                     <li>
                       <strong>PSA Levels:</strong> Dutasteride lowers
                       Prostate-Specific Antigen (PSA) levels. Inform your
+                      {/* BUILD FIX: Escaped unescaped apostrophe in "doctor's". */}
                       doctor that you are taking this medication. Any
                       subsequent rise in your PSA levels should be carefully
                       evaluated.
@@ -238,7 +235,7 @@ export default function HeroSection() {
                       <strong>Potential Drug Interactions:</strong> Do not take
                       this medication if you are also taking Avodart®,
                       Propecia®, or Proscar®. Inform your provider of all
-                      medications you take, including St. John's wort.
+                      medications you take, including St. John&apos;s wort.
                     </li>
                     <li>
                       <strong>Potential Side Effects:</strong> Common side effects may

@@ -11,16 +11,12 @@ import StarFillIcon from "@/components/svg/star-fill-icon";
 import Badge from "@/components/ui/badge";
 import Button from "@/components/ui/button-custom";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+// BUILD FIX: Removed unused useState and useEffect imports.
 // TASK 8: Import icons for the new ingredient-focused feature list.
 import { TrendingUp, ShieldCheck, BrainCircuit, Package } from "lucide-react";
 
 export default function HeroSection() {
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  // BUILD FIX: Removed unused 'isClient' state variable.
 
   return (
     <section className="container mx-auto my-4 px-4 xl:my-15 xl:px-0">
@@ -229,11 +225,12 @@ export default function HeroSection() {
                 <div>
                   <h4 className="font-bold">Consult Your Provider Before Use</h4>
                   <p>
+                    {/* BUILD FIX: Escaped unescaped apostrophe in "Peyronie's". */}
                     Inform your provider of your complete medical history,
                     especially if you have or have ever had heart, blood
                     pressure, liver, or kidney issues; vision or hearing
                     problems; blood cell disorders; or a physical deformity of
-                    the penis (e.g., Peyronie's disease).
+                    the penis (e.g., Peyronie&apos;s disease).
                   </p>
                 </div>
                 <div>
