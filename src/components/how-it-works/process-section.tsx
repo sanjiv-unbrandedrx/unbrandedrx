@@ -23,8 +23,9 @@ const steps = [
 const promises = [
   {
     title: "Genuine Medication, Honest Prices",
+    // TASK 27: Removed the sentence "We dispense FDA-approved ingredients from certified pharmacies."
     description:
-      "We dispense FDA-approved ingredients from certified pharmacies. By eliminating brand markups, we pass the savings directly to you.",
+      "By eliminating brand markups, we pass the savings directly to you.",
   },
   {
     title: "Unlimited Provider Access",

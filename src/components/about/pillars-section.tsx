@@ -5,8 +5,9 @@ const pillars = [
   {
     icon: <ShieldCheck className="size-8 text-primary" />,
     title: "Clinical Expertise",
+    // TASK 36: Replaced "certified pharmacy" with "licensed US pharmacy".
     description:
-      "Every treatment is prescribed by a licensed U.S. provider and dispensed from a certified pharmacy, ensuring you receive the highest standard of care.",
+      "Every treatment is prescribed by a licensed U.S. provider and dispensed from a licensed US pharmacy, ensuring you receive the highest standard of care.",
   },
   {
     icon: <Sparkles className="size-8 text-primary" />,

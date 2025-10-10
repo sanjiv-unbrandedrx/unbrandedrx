@@ -315,15 +315,13 @@ export default function RootLayout({
 
 
 # File: src\app\(main)\page.tsx
-// File: src/app/(main)/page.tsx
+// src/app/(main)/page.tsx
 import HeroSection from "@/components/home/hero-section";
 import CategoryCard, { CategoryItem } from "@/components/home/category-card";
 import CardsSection from "@/components/home/cards-section";
-// SURGICAL STRIKE: Removed FeaturedSection import
 import ProductCarousel from "@/components/common/product-carousel";
 import { Product } from "@/components/shop/product-card";
 
-// SURGICAL STRIKE: Updated the category list to include all four main categories.
 const DUMMY_CATEGORIES: CategoryItem[] = [
   {
     id: "hair-loss",
@@ -355,7 +353,6 @@ const DUMMY_CATEGORIES: CategoryItem[] = [
   },
 ];
 
-// SURGICAL STRIKE: Added the list of best-selling products.
 const BEST_SELLERS: Product[] = [
   {
     id: "dapoxetine",
@@ -373,13 +370,14 @@ const BEST_SELLERS: Product[] = [
     image: "/products/enclomiphene-hero.png",
     slug: "enclomiphene",
   },
+  // TASK 6: Update product name and slug
   {
-    id: "ed-troche",
-    name: "4-in-1 ED Troche",
+    id: "ed-rapid-dissolve-tablet",
+    name: "4-in-1 ED Rapid Dissolve Tablet",
     medicalName: "Tadalafil + Vardenafil + Apomorphine",
-    price: "29.00",
+    price: "29.00", // Note: This price is now out of date from Task 4, will update later if needed.
     image: "/products/ed-rapid-dissolve-tablet-hero.png",
-    slug: "ed-troche",
+    slug: "ed-rapid-dissolve-tablet",
   },
   {
     id: "topical-dutasteride",
@@ -413,8 +411,6 @@ export default function Home() {
       </section>
 
       <CardsSection />
-      {/* SURGICAL STRIKE: Removed FeaturedSection component */}
-      {/* SURGICAL STRIKE: Pass the best-sellers data to the carousel. */}
       <ProductCarousel title="Our Best Sellers" products={BEST_SELLERS} />
     </main>
   );
@@ -650,13 +646,26 @@ export default function TestosteroneCategoryPage() {
 }
 
 # File: src\app\(main)\shop\product\[slug]\page.tsx
-import Header from "@/components/common/Header";
-import DeepDiveSection from "@/components/product/deep-dive-section";
-import HeroSection from "@/components/product/hero-section";
-import HowItWorksSection from "@/components/product/how-it-works-section";
-import QuestionsSection from "@/components/product/questions";
+// src/app/(main)/shop/product/[slug]/page.tsx
+import { notFound } from "next/navigation";
 
 export default function ProductPage() {
+  // If a URL reaches this dynamic route, it means a specific product
+  // page was not found. We trigger a 404 to show the user a proper
+  // "Not Found" page instead of a generic placeholder.
+  notFound();
+
+  // The code below is now unreachable but is kept for scaffolding reference.
+  // In a future dynamic implementation, we would fetch product data here
+  // and call notFound() if the data doesn't exist.
+
+  /*
+  import Header from "@/components/common/Header";
+  import DeepDiveSection from "@/components/product/deep-dive-section";
+  import HeroSection from "@/components/product/hero-section";
+  import HowItWorksSection from "@/components/product/how-it-works-section";
+  import QuestionsSection from "@/components/product/questions";
+
   return (
     <main>
       <section className="px-4 xl:px-0">
@@ -668,8 +677,8 @@ export default function ProductPage() {
       <QuestionsSection />
     </main>
   );
+  */
 }
-
 
 # File: src\app\(main)\shop\product\dapoxetine\page.tsx
 // src/app/(main)/shop/product/dapoxetine/page.tsx
@@ -697,12 +706,12 @@ export default function ProductPage() {
   );
 }
 
-# File: src\app\(main)\shop\product\ed-troche\page.tsx
+# File: src\app\(main)\shop\product\ed-rapid-dissolve-tablet\page.tsx
 import Header from "@/components/common/Header";
-import ContentModule from "@/components/product/ed-troche/content-module";
-import DeepDiveSection from "@/components/product/ed-troche/deep-dive-section";
-import HeroSection from "@/components/product/ed-troche/hero-section";
-import QuestionsSection from "@/components/product/ed-troche/questions";
+import ContentModule from "@/components/product/ed-rapid-dissolve-tablet/content-module";
+import DeepDiveSection from "@/components/product/ed-rapid-dissolve-tablet/deep-dive-section";
+import HeroSection from "@/components/product/ed-rapid-dissolve-tablet/hero-section";
+import QuestionsSection from "@/components/product/ed-rapid-dissolve-tablet/questions";
 import HowItWorksSection from "@/components/product/how-it-works-section";
 
 export default function ProductPage() {
@@ -1086,6 +1095,39 @@ export default function RootLayout({
 }
 
 
+# File: src\app\not-found.tsx
+// src/app/not-found.tsx
+import Footer from "@/components/common/Footer";
+import Header from "@/components/common/Header";
+import Button from "@/components/ui/button-custom";
+import Link from "next/link";
+
+export default function NotFound() {
+  return (
+    <>
+      <main>
+        <section className="px-4 xl:px-0">
+          <Header />
+        </section>
+        <section className="container mx-auto my-10 px-4 py-10 text-center xl:my-20 xl:px-0">
+          <div className="mx-auto max-w-2xl">
+            <h1 className="font-title text-4xl font-medium tracking-tight">
+              404 - Page Not Found
+            </h1>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Sorry, the page you are looking for does not exist.
+            </p>
+            <Button size="lg" variant="filled" className="mt-8">
+              <Link href="/">Return to Homepage</Link>
+            </Button>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
+  );
+}
+
 # File: src\components\about\director-section.tsx
 // File: src/components/about/director-section.tsx
 import Image from "next/image";
@@ -1143,7 +1185,7 @@ export default function HeroSection() {
 }
 
 # File: src\components\about\mission-section.tsx
-// File: src/components/about/mission-section.tsx
+// src/components/about/mission-section.tsx
 import ProductCarousel from "@/components/common/product-carousel";
 import { Product } from "@/components/shop/product-card";
 
@@ -1164,13 +1206,14 @@ const popularProducts: Product[] = [
     image: "/products/oral-finasteride-hero.png",
     slug: "oral-finasteride",
   },
+  // TASK 6: Update product name and slug
   {
-    id: "ed-troche",
-    name: "4-in-1 ED Troche",
+    id: "ed-rapid-dissolve-tablet",
+    name: "4-in-1 ED Rapid Dissolve Tablet",
     medicalName: "Tadalafil + Vardenafil + Apomorphine",
-    price: "29.00",
+    price: "29.00", // Note: This price is out of date.
     image: "/products/ed-rapid-dissolve-tablet-hero.png",
-    slug: "ed-troche",
+    slug: "ed-rapid-dissolve-tablet",
   },
 ];
 
@@ -1299,19 +1342,20 @@ export default function HeroSection() {
 }
 
 # File: src\components\category\all-products\product-grid-section.tsx
-// @/components/category/all-products/product-grid-section.tsx
+// src/components/category/all-products/product-grid-section.tsx
 import DownIcon from "@/components/svg/down-icon";
 import ProductGridItem from "@/components/shop/product-grid-item";
 import { ProductItem } from "@/components/shop/product-grid-item";
 
 const ALL_PRODUCTS: ProductItem[] = [
+  // TASK 6: Update product name and slug
   {
-    id: "ed-troche",
-    name: "4-in-1 ED Troche",
+    id: "ed-rapid-dissolve-tablet",
+    name: "4-in-1 ED Rapid Dissolve Tablet",
     medicalName: "Tadalafil + Vardenafil + Apomorphine",
-    price: "29.00",
+    price: "29.00", // Note: out of date
     image: "/products/ed-rapid-dissolve-tablet-hero.png",
-    slug: "ed-troche",
+    slug: "ed-rapid-dissolve-tablet",
   },
   {
     id: "dapoxetine",
@@ -1573,20 +1617,20 @@ export default function HeroSection() {
 }
 
 # File: src\components\category\mens-health\product-grid-section.tsx
-// File: src/components/category/mens-health/product-grid-section.tsx
+// src/components/category/mens-health/product-grid-section.tsx
 import DownIcon from "@/components/svg/down-icon";
 import ProductGridItem from "@/components/shop/product-grid-item";
 import { ProductItem } from "@/components/shop/product-grid-item";
 
-// Hardcode the products for THIS category page
 const MENS_HEALTH_PRODUCTS: ProductItem[] = [
+  // TASK 6: Update product name and slug
   {
-    id: "ed-troche",
-    name: "4-in-1 ED Troche",
+    id: "ed-rapid-dissolve-tablet",
+    name: "4-in-1 ED Rapid Dissolve Tablet",
     medicalName: "Tadalafil + Vardenafil + Apomorphine",
     price: "XX.XX",
     image: "/products/ed-rapid-dissolve-tablet-hero.png",
-    slug: "ed-troche",
+    slug: "ed-rapid-dissolve-tablet",
   },
   {
     id: "enclomiphene",
@@ -1695,19 +1739,20 @@ export default function HeroSection() {
 }
 
 # File: src\components\category\sexual-health\product-grid-section.tsx
-// File: src/components/category/sexual-health/product-grid-section.tsx
+// src/components/category/sexual-health/product-grid-section.tsx
 import DownIcon from "@/components/svg/down-icon";
 import ProductGridItem from "@/components/shop/product-grid-item";
 import { ProductItem } from "@/components/shop/product-grid-item";
 
 const SEXUAL_HEALTH_PRODUCTS: ProductItem[] = [
+  // TASK 6: Update product name and slug
   {
-    id: "ed-troche",
-    name: "4-in-1 ED Troche",
+    id: "ed-rapid-dissolve-tablet",
+    name: "4-in-1 ED Rapid Dissolve Tablet",
     medicalName: "Tadalafil + Vardenafil + Apomorphine",
     price: "29.00",
     image: "/products/ed-rapid-dissolve-tablet-hero.png",
-    slug: "ed-troche",
+    slug: "ed-rapid-dissolve-tablet",
   },
   {
     id: "dapoxetine",
@@ -1846,7 +1891,7 @@ export default function ProductGridSection() {
 }
 
 # File: src\components\common\Footer.tsx
-// File: src/components/common/Footer.tsx
+// src/components/common/Footer.tsx
 import Link from "next/link";
 
 const productLinks = [
@@ -1870,7 +1915,8 @@ const productLinks = [
     category: "Men's Health",
     categoryHref: "/shop/category/mens-health",
     items: [
-      { name: "4-in-1 ED Troche", href: "/shop/product/ed-troche" },
+      // TASK 6: Update product name and link
+      { name: "4-in-1 ED Rapid Dissolve Tablet", href: "/shop/product/ed-rapid-dissolve-tablet" },
       { name: "Enclomiphene", href: "/shop/product/enclomiphene" },
       { name: "Dapoxetine", href: "/shop/product/dapoxetine" },
       {
@@ -1881,7 +1927,6 @@ const productLinks = [
   },
 ];
 
-// SURGICAL STRIKE: Updated hrefs for "About Us" and "How it Works" to point to the correct pages.
 const companyLinks = [
   { name: "About Us", href: "/about" },
   { name: "How it Works", href: "/how-it-works" },
@@ -2733,22 +2778,7 @@ export default function HeroSection() {
             </label>
           </div>
 
-          {isClient && (
-            <div className="space-y-2">
-              <p className="text-sm font-medium">Strength:</p>
-              <Select>
-                <SelectTrigger className="w-full border-neutral-400">
-                  <SelectValue placeholder="Select dose" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="standard">
-                    Standard Dose (27mg)
-                  </SelectItem>
-                  <SelectItem value="high">High Dose (54mg)</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-          )}
+          {/* SURGICAL STRIKE: Removed the strength label and dropdown component. */}
 
           <Button variant="filled" size="xl">
             Start My Visit
@@ -2774,6 +2804,7 @@ export default function QuestionsSection() {
         <h3 className="min-w-sm mb-6 font-title text-3xl font-medium xl:mb-0">
           Product Questions
         </h3>
+        {/* SURGICAL STRIKE: Replaced the old 5 FAQs with a new, comprehensive list of 8 FAQs inspired by Strut Health. */}
         <div className="w-full flex-1">
           <Accordion type="single" collapsible className="space-y-4">
             <AccordionItem
@@ -2781,12 +2812,14 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                How and when do I take it?
+                What is considered Premature Ejaculation (PE)?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                Take one capsule with a full glass of water 1-3 hours before you
-                anticipate sexual activity. Do not exceed one dose in a 24-hour
-                period.
+                PE is a common condition where ejaculation occurs sooner than a
+                man or his partner would like during sexual activity. If this
+                is a recurring concern that causes you distress, a medical
+                treatment like Dapoxetine may be an appropriate option to
+                discuss with a provider.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -2794,14 +2827,15 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                Can I take this with ED medication?
+                What is Dapoxetine and how does it work for PE?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                Combining Dapoxetine with PDE5 inhibitors like Sildenafil or
-                Tadalafil can increase the risk of certain side effects. It is
-                critical that you disclose all medications you are taking to
-                your provider. For a combination solution, ask your provider
-                about our Ultimate Performance Capsule.
+                Dapoxetine is a prescription ingredient designed to help
+                improve control over ejaculation. Unlike topical treatments,
+                it&apos;s an oral capsule that works systemically. It functions by
+                interacting with neurotransmitters in the nervous system to
+                help delay the body&apos;s climax reflex, giving you more control
+                over timing.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -2809,14 +2843,13 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                Are there any side effects?
+                Is this a daily pill or do I take it only when needed?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                Potential side effects can include nausea, dizziness, or
-                headache. Taking the capsule with a full glass of water can help
-                minimize these. It&apos;s important to discuss your medical history
-                thoroughly during your online visit. [Link to full safety
-                information here].
+                This medication is designed for &quot;as-needed&quot; use. You do
+                not need to take it every day. This approach offers
+                flexibility and control, allowing you to take it only on days
+                you anticipate sexual activity.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -2824,12 +2857,12 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                Can I use Dapoxetine every day?
+                How long before sexual activity should I take it?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                Dapoxetine is intended for on-demand use and should not be taken
-                daily. Please follow the instructions provided by your
-                healthcare provider.
+                For best results, take one capsule with a full glass of water
+                1-3 hours before sexual activity. Do not exceed one dose in a
+                24-hour period.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -2837,13 +2870,67 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                What is considered Premature Ejaculation (PE)?
+                How is this different from numbing sprays or wipes?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                PE is a common condition where ejaculation occurs sooner than a
-                man or his partner would like during sexual activity. If this is
-                a recurring concern for you, Dapoxetine may be an appropriate
-                treatment option.
+                Numbing products work topically by desensitizing the penis,
+                which can reduce pleasure for both you and your partner.
+                Dapoxetine works from within on the neurological level to
+                improve your control, without dulling sensation. It&apos;s a
+                medical approach that addresses the issue systemically, not
+                just on the surface.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="item-6"
+              className="border-0 rounded-3xl bg-white px-5"
+            >
+              <AccordionTrigger className="hover:no-underline font-semibold">
+                Can I take this if I also have Erectile Dysfunction (ED)?
+              </AccordionTrigger>
+              <AccordionContent className="text-xs">
+                It is common for PE and ED to occur together. However,
+                combining Dapoxetine with ED medications like Sildenafil or
+                Tadalafil can increase the risk of side effects and must be
+                done under a provider&apos;s supervision. If you experience both
+                conditions, we recommend discussing our combination formulas,
+                like the Ultimate Performance Capsule, with your provider
+                during your online visit.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="item-7"
+              className="border-0 rounded-3xl bg-white px-5"
+            >
+              <AccordionTrigger className="hover:no-underline font-semibold">
+                What does &apos;off-label use&apos; mean for this medication in the
+                U.S.?
+              </AccordionTrigger>
+              <AccordionContent className="text-xs">
+                &quot;Off-label&quot; is a common and legal practice where a
+                provider prescribes a medication for a condition other than
+                what it was originally FDA-approved for, based on their
+                professional judgment and scientific evidence. While
+                Dapoxetine has been studied and is used in other countries
+                specifically for PE, it is not yet FDA-approved for this
+                purpose in the United States.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="item-8"
+              className="border-0 rounded-3xl bg-white px-5"
+            >
+              <AccordionTrigger className="hover:no-underline font-semibold">
+                What are the most common side effects?
+              </AccordionTrigger>
+              <AccordionContent className="text-xs">
+                The most common potential side effects can include nausea,
+                dizziness, or headache. Taking the capsule with a full glass
+                of water can help minimize these. It is crucial to disclose
+                your full medical history during your online visit so your
+-               provider can determine if this treatment is safe and
+                appropriate for you. For a comprehensive overview, please
+                review the full safety information.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
@@ -2938,25 +3025,28 @@ export default function DeepDiveSection() {
 }
 
 
-# File: src\components\product\ed-troche\content-module.tsx
+# File: src\components\product\ed-rapid-dissolve-tablet\content-module.tsx
+// src/components/product/ed-troche/content-module.tsx
 export default function ContentModule() {
   return (
     <section className="container mx-auto my-4 py-6 px-4 xl:my-15 xl:py-10 xl:px-0">
       <div className="rounded-3xl bg-secondary p-10 text-center xl:p-20">
+        {/* TASK 19: Change title to RDT */}
         <h3 className="font-title text-3xl font-medium">
-          What is a Sublingual Troche?
+          What is a Rapid Dissolving Tablet (RDT)?
         </h3>
         <div className="mx-auto mt-4 max-w-3xl space-y-4 text-left text-muted-foreground">
+          {/* TASK 19: Update description to define RDT */}
           <p>
-            A troche (pronounced &quot;tro-key&quot;) is a small, medicated lozenge
-            designed to dissolve under your tongue. This sublingual delivery
-            method allows the active ingredients to be absorbed directly into
-            the bloodstream, bypassing the digestive system. The result is
-            often a faster onset of action compared to traditional pills that
-            need to be swallowed.
+            A Rapid Dissolving Tablet (RDT) is a small lozenge designed to
+            dissolve when placed between your cheek and gum. This method allows
+            the active ingredients to be absorbed directly into the bloodstream,
+            bypassing the digestive system for a potentially faster onset of
+            action compared to traditional pills that need to be swallowed.
           </p>
           <div>
-            <p className="font-medium text-foreground">Benefits of a Troche:</p>
+            {/* TASK 19: Update benefits title */}
+            <p className="font-medium text-foreground">Benefits of an RDT:</p>
             <ul className="list-disc pl-5">
               <li>
                 <span className="font-semibold">Faster Absorption:</span> Works
@@ -2978,23 +3068,28 @@ export default function ContentModule() {
   );
 }
 
-# File: src\components\product\ed-troche\deep-dive-section.tsx
+# File: src\components\product\ed-rapid-dissolve-tablet\deep-dive-section.tsx
+// src/components/product/ed-rapid-dissolve-tablet/deep-dive-section.tsx
 export default function DeepDiveSection() {
   return (
     <section className="container mx-auto my-4 py-6 px-4 xl:my-15 xl:py-10 xl:px-0">
+      {/* REFACTOR: Changed to a two-column layout for better readability. */}
       <div className="flex flex-col justify-between gap-y-8 gap-x-19 xl:flex-row">
-        <div className="flex min-h-[360px] flex-1 flex-col items-stretch justify-stretch rounded-3xl bg-[url('/products/ed-rapid-dissolve-tablet-ingredients.png')] bg-cover bg-center xl:min-h-[522px]">
-          <div className="flex h-full w-full flex-1 flex-col items-start justify-end gap-y-5 rounded-3xl bg-gradient-to-t from-white/60 to-transparent p-8">
+        {/* Column 1: Text Content (Ingredients) */}
+        <div className="flex-1 flex flex-col justify-center">
+          <div className="space-y-5">
             <h4 className="font-title text-3xl font-medium">
               Four Ingredients, One Comprehensive Solution
             </h4>
             <div className="space-y-2 text-neutral-800">
               <p>
-                <span className="font-semibold">
-                  Tadalafil & Vardenafil
-                </span>{" "}
-                are powerful PDE5 inhibitors that increase blood flow to the
-                penis, helping to achieve and maintain a firm erection.
+                <span className="font-semibold">Tadalafil</span> is a long
+                lasting PDE5 inhibitor for on-going erection support.
+              </p>
+              <p>
+                <span className="font-semibold">Vardenafil</span> is a fast
+                acting PDE5 inhibitor for quick aid in achieving and maintaining
+                a firm erection.
               </p>
               <p>
                 <span className="font-semibold">Apomorphine</span> is a dopamine
@@ -3009,27 +3104,34 @@ export default function DeepDiveSection() {
             </div>
           </div>
         </div>
+
+        {/* Column 2: Image */}
+        <div className="flex min-h-[360px] flex-1 flex-col items-stretch justify-stretch rounded-3xl bg-[url('/products/ed-rapid-dissolve-tablet-ingredients.png')] bg-cover bg-center xl:min-h-[522px]">
+          {/* This div is now intentionally empty to serve as the image container. */}
+        </div>
       </div>
     </section>
   );
 }
 
-# File: src\components\product\ed-troche\hero-section.tsx
+# File: src\components\product\ed-rapid-dissolve-tablet\hero-section.tsx
+// src/components/product/ed-rapid-dissolve-tablet/hero-section.tsx
 "use client";
 
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { CheckCircleFillIcon } from "@/components/svg/check-circle-fill-icon";
 import StarFillIcon from "@/components/svg/star-fill-icon";
 import Badge from "@/components/ui/badge";
 import Button from "@/components/ui/button-custom";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+// SURGICAL STRIKE: Import icons for the new feature list.
+import { Zap, Clock, Droplets, ShieldCheck } from "lucide-react";
 
 export default function HeroSection() {
   const [isClient, setIsClient] = useState(false);
@@ -3044,19 +3146,19 @@ export default function HeroSection() {
         <div className="relative h-full min-h-[590px] w-full overflow-hidden rounded-3xl">
           <Image
             src="/products/ed-rapid-dissolve-tablet-hero.png"
-            alt="4-in-1 ED Troche"
+            alt="4-in-1 ED Rapid Dissolve Tablet"
             fill
-            className="object-cover object-right"
+            className="object-contain object-center"
           />
         </div>
         <div className="flex w-full flex-col gap-y-10 py-6 px-1 xl:py-0 xl:px-19">
           <div className="space-y-3">
             <p className="font-title text-2xl font-medium tracking-tight xl:text-4xl">
-              4-in-1 ED Troche
+              4-in-1 ED Rapid Dissolve Tablet
             </p>
             <p className="text-sm xl:text-base">
               A fast-acting, multi-symptom solution for erectile dysfunction
-              in a discreet, sublingual form.
+              in a discreet, rapid-dissolving tablet.
             </p>
             <div className="flex items-center justify-start gap-x-3">
               <div className="flex items-center justify-start gap-x-1">
@@ -3071,22 +3173,37 @@ export default function HeroSection() {
               </p>
             </div>
 
-            <ul className="flex list-none list-inside flex-col gap-y-1 text-xs text-muted-foreground">
-              <li>
-                <span>✓&nbsp;</span>Multi-pathway formula targets both mind &
-                body
-              </li>
-              <li>
-                <span>✓&nbsp;</span>Dissolves under the tongue for faster
-                onset
-              </li>
-              <li>
-                <span>✓&nbsp;</span>No pills to swallow, no water needed
-              </li>
-              <li>
-                <span>✓&nbsp;</span>Prescribed by a licensed U.S. provider
-              </li>
-            </ul>
+            {/* SURGICAL STRIKE: Replaced the old text-based list with a new icon-based list. */}
+            <div className="space-y-4 pt-4">
+              <div className="flex items-start gap-x-3">
+                <Zap className="size-5 text-primary flex-shrink-0" />
+                <p className="text-sm text-muted-foreground">
+                  Multi-pathway formula targets both the physical and
+                  psychological aspects of arousal.
+                </p>
+              </div>
+              <div className="flex items-start gap-x-3">
+                <Clock className="size-5 text-primary flex-shrink-0" />
+                <p className="text-sm text-muted-foreground">
+                  Fast-acting RDT dissolves in the cheek, working in as little
+                  as 15-30 minutes.
+                </p>
+              </div>
+              <div className="flex items-start gap-x-3">
+                <Droplets className="size-5 text-primary flex-shrink-0" />
+                <p className="text-sm text-muted-foreground">
+                  Convenient and discreet — no pills to swallow and no water
+                  needed.
+                </p>
+              </div>
+              <div className="flex items-start gap-x-3">
+                <ShieldCheck className="size-5 text-primary flex-shrink-0" />
+                <p className="text-sm text-muted-foreground">
+                  Prescribed online by a licensed U.S. provider, if appropriate
+                  for you.
+                </p>
+              </div>
+            </div>
           </div>
 
           <div className="flex flex-col justify-between space-y-3">
@@ -3104,7 +3221,7 @@ export default function HeroSection() {
                   <CheckCircleFillIcon className="radio-icon" />
                 </div>
                 <p className="tabular-nums text-2xl text-muted-foreground">
-                  From $29
+                  From $79
                 </p>
                 <p className="text-muted-foreground">
                   Billed and delivered every month.
@@ -3127,7 +3244,7 @@ export default function HeroSection() {
                 </div>
                 <p className="font-semibold">Quarterly Supply</p>
                 <p className="tabular-nums text-2xl text-muted-foreground">
-                  From $99
+                  From $199
                 </p>
                 <p className="text-muted-foreground">
                   Billed and delivered every 3 months. Save up to 15%.
@@ -3149,7 +3266,7 @@ export default function HeroSection() {
                 </div>
                 <p className="font-semibold">5-Month Supply</p>
                 <p className="tabular-nums text-2xl text-muted-foreground">
-                  From $239
+                  From $319
                 </p>
                 <p className="text-muted-foreground">
                   Billed and delivered every 5 months. Save up to 20%.
@@ -3158,32 +3275,132 @@ export default function HeroSection() {
             </label>
           </div>
 
-          {isClient && (
-            <div className="space-y-2">
-              <p className="text-sm font-medium">Strength:</p>
-              <Select>
-                <SelectTrigger className="w-full border-neutral-400">
-                  <SelectValue placeholder="Select strength" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="standard">Standard Strength</SelectItem>
-                  <SelectItem value="extra">Extra Strength</SelectItem>
-                  <SelectItem value="max">Maximum Strength</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-          )}
+          <a
+            href="https://checkout.unbrandedrx.co/4n1?priceId=2064"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button variant="filled" size="xl">
+              Start My Visit
+            </Button>
+          </a>
 
-          <Button variant="filled" size="xl">
-            Start My Visit
-          </Button>
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="item-1" className="border-b-0">
+              <AccordionTrigger className="hover:no-underline text-sm font-semibold">
+                Important Safety Information
+              </AccordionTrigger>
+              <AccordionContent className="text-xs space-y-4">
+                <div>
+                  <h4 className="font-bold">
+                    Contraindications (Do Not Take If):
+                  </h4>
+                  <ul className="list-disc pl-5">
+                    <li>
+                      You are using any nitrate-based medications for chest pain
+                      or heart conditions. This includes nitroglycerin,
+                      isosorbide dinitrate, and isosorbide mononitrate.
+                      Combining this medication with nitrates can cause a
+                      sudden, dangerous drop in blood pressure.
+                    </li>
+                    <li>
+                      You use recreational drugs known as &quot;poppers&quot; (amyl
+                      nitrate or nitrite).
+                    </li>
+                    <li>
+                      You are taking riociguat (Adempas) for pulmonary
+                      arterial hypertension.
+                    </li>
+                    <li>You have a known allergy to any of the active ingredients.</li>
+                    <li>
+                      You are taking 5HT3 antagonist medications such as
+                      ondansetron (Zofran), granisetron, or dolasetron.
+                    </li>
+                    <li>
+                      You have congenital long QT syndrome or are taking class
+                      IA (e.g., quinidine, procainamide) or class III (e.g.,
+                      amiodarone, sotalol) antiarrhythmic medications.
+                    </li>
+                  </ul>
+                  <p className="mt-2 italic">
+                    Seek immediate medical attention if you experience an
+                    erection that is painful or lasts for more than 4 hours. A
+                    prolonged erection, known as priapism, can cause permanent
+                    damage.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-bold">Consult Your Provider Before Use</h4>
+                  <p>
+                    To ensure this medication is safe for you, inform your
+                    provider of your complete medical history, especially if you
+                    have or have ever had:
+                  </p>
+                  <ul className="list-disc pl-5">
+                    <li>
+                      <strong>Cardiovascular Issues:</strong> Heart problems
+                      (including chest pain, heart rhythm disorders, heart
+                      failure, or a history of heart attack), previous stroke,
+                      high or low blood pressure, or poor blood circulation.
+                    </li>
+                    <li>
+                      <strong>Vision Problems:</strong> Severe vision loss,
+                      blindness in one or both eyes, retinitis pigmentosa, or a
+                      condition called NAION (Non-arteritic anterior ischemic
+                      optic neuropathy). Patients with a &quot;crowded&quot; optic disc
+                      may be at higher risk.
+                    </li>
+                    <li>
+                      <strong>Other Medical Conditions:</strong> Liver or
+                      kidney disease, pulmonary veno-occlusive disease (PVOD),
+                      blood cell disorders (e.g., sickle cell anemia,
+                      leukemia), stomach ulcers, bleeding problems, or a
+                      physical deformity of the penis (e.g., Peyronie's
+                      disease).
+                    </li>
+                    <li>
+                      <strong>Other Factors:</strong> If you have been advised
+                      to avoid sexual activity for health reasons, a history of
+                      priapism, electrolyte imbalances, or mental health
+                      conditions including impulse control issues.
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-bold">Potential Drug Interactions</h4>
+                  <p>
+                    Inform your provider of all medications you are currently
+                    taking. Be particularly cautious with nitrates, guanylate
+                    cyclase stimulators, alpha-blockers, HIV protease
+                    inhibitors, oral antifungal medications, certain
+                    antibiotics, and other ED medications. This is not an
+                    exhaustive list.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-bold">Potential Side Effects</h4>
+                  <p>
+                    Common side effects may include headache, flushing,
+                    dizziness, upset stomach, and changes in vision. Seek
+                    emergency help for allergic reactions, symptoms of a heart
+                    attack, or an erection lasting more than 4 hours.
+                  </p>
+                  <p className="mt-2 italic">
+                    This is not a complete list of side effects. For medical
+                    advice, consult your provider.
+                  </p>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
       </div>
     </section>
   );
 }
 
-# File: src\components\product\ed-troche\questions.tsx
+# File: src\components\product\ed-rapid-dissolve-tablet\questions.tsx
+// src/components/product/ed-rapid-dissolve-tablet/questions.tsx
 import {
   Accordion,
   AccordionContent,
@@ -3205,12 +3422,12 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                How do I use a troche?
+                How do I use an RDT?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                Place one troche under your tongue and allow it to dissolve
-                completely. Do not chew or swallow it. This typically takes a
-                few minutes. For best results, use 15-30 minutes before
+                Place one Rapid Dissolving Tablet (RDT) between your cheek and
+                gum and allow it to dissolve completely. Do not chew or swallow
+                it. For best results, use it 15-30 minutes before you anticipate
                 sexual activity.
               </AccordionContent>
             </AccordionItem>
@@ -3219,14 +3436,14 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                How is this different from Viagra® or Cialis®?
+                Why an RDT instead of a regular pill?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                While it contains ingredients from the same class as Cialis®
-                (Tadalafil) and Levitra® (Vardenafil), our 4-in-1 formula also
-                includes Apomorphine and Oxytocin to support arousal pathways
-                in the brain. It&apos;s a more comprehensive approach in a
-                fast-acting form.
+                The RDT delivery method allows the active ingredients to be
+                absorbed directly into the bloodstream through the lining of
+                your cheek. By bypassing the digestive system, it often
+                results in a faster onset of action compared to traditional
+                pills. It’s also more convenient, as no water is needed.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -3234,14 +3451,15 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                Are there any side effects?
+                Why a 4-in-1 formula?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                Common side effects are similar to other ED medications and
-                can include headache, flushing, or nasal congestion. It&apos;s
-                crucial to discuss your full medical history and any
-                medications you are taking with your provider. [Link to full
-                safety information here].
+                Erectile dysfunction can be complex. Our 4-in-1 formula is
+                designed as a multi-pathway solution, targeting both the
+                physical and psychological aspects of erectile function. It
+                combines powerful PDE5 inhibitors (Tadalafil & Vardenafil) to
+                improve blood flow, with ingredients like Apomorphine and
+                Oxytocin that work with the brain&apos;s arousal pathways.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -3249,13 +3467,16 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                Can I take it with food or alcohol?
+                How is this different from Viagra® or Cialis®?
               </AccordionTrigger>
+              {/* TASK 6: Final consistency check */}
               <AccordionContent className="text-xs">
-                Because it is absorbed under the tongue, the troche is less
-                likely to be affected by food than some oral pills. However,
-                heavy meals or excessive alcohol can still impact its
-                effectiveness.
+                While it contains active ingredients from the same class as
+                Cialis® (Tadalafil) and Levitra® (Vardenafil), our formula is
+                more comprehensive. It also includes Apomorphine and Oxytocin
+                to support arousal pathways in the brain. It’s a multi-symptom
+                approach in a fast-acting rapid dissolving tablet, not just a standard
+                pill.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -3263,14 +3484,63 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                How long do the effects last?
+                How fast does it work and how long do the effects last?
+              </AccordionTrigger>
+              {/* TASK 6: Final consistency check */}
+              <AccordionContent className="text-xs">
+                Thanks to the rapid dissolving delivery, many men feel the effects
+                in as little as 15-30 minutes. The Tadalafil component is
+                long-acting, meaning the medication can remain effective in
+                your system for up to 36 hours. This doesn&apos;t mean you will
+                have an erection for the entire time, but it allows for more
+                spontaneity.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="item-6"
+              className="border-0 rounded-3xl bg-white px-5"
+            >
+              <AccordionTrigger className="hover:no-underline font-semibold">
+                Can I take it with food or alcohol?
+              </AccordionTrigger>
+              {/* TASK 6: Final consistency check */}
+              <AccordionContent className="text-xs">
+                Because the medication is absorbed through the cheek, its
+                effectiveness is less likely to be impacted by food. However,
+                heavy meals can still affect performance, and excessive
+                alcohol consumption can increase the risk of side effects like
+                dizziness and may decrease the medication&apos;s effectiveness.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="item-7"
+              className="border-0 rounded-3xl bg-white px-5"
+            >
+              <AccordionTrigger className="hover:no-underline font-semibold">
+                What are the most common side effects?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                Due to the Tadalafil component, the effects can last up to 36
-                hours, but this does not mean you will have an erection for
-                that entire time. It means the medication remains active in
-                your system, facilitating an erection in response to sexual
-                stimulation.
+                Common side effects are similar to other ED medications and
+                can include headache, flushing, or nasal congestion. Because
+                this is a combination of multiple active ingredients, it is
+                crucial to discuss your full medical history with your
+                provider. For a comprehensive overview, please review the full
+                safety information.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="item-8"
+              className="border-0 rounded-3xl bg-white px-5"
+            >
+              <AccordionTrigger className="hover:no-underline font-semibold">
+                Is this a compounded medication?
+              </AccordionTrigger>
+              <AccordionContent className="text-xs">
+                Yes. This is a compounded medication, meaning it is
+                custom-prepared by a licensed U.S. compounding pharmacy. This
+                allows for the combination of multiple active ingredients into
+                a single formula. Compounded drugs are not FDA-approved, as
+                the FDA does not verify their safety or effectiveness.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
@@ -3471,23 +3741,7 @@ export default function HeroSection() {
             </label>
           </div>
 
-          {isClient && (
-            <div className="space-y-2">
-              <p className="text-sm font-medium">Strength:</p>
-              <Select>
-                <SelectTrigger className="w-full border-neutral-400">
-                  <SelectValue placeholder="Select dose" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="low">Low Dose (6.25mg)</SelectItem>
-                  <SelectItem value="standard">
-                    Standard Dose (12.5mg)
-                  </SelectItem>
-                  <SelectItem value="high">High Dose (25mg)</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-          )}
+          {/* SURGICAL STRIKE: Removed the strength label and dropdown component. */}
 
           <Button variant="filled" size="xl">
             Start My Visit
@@ -3513,6 +3767,7 @@ export default function QuestionsSection() {
         <h3 className="min-w-sm mb-6 font-title text-3xl font-medium xl:mb-0">
           Product Questions
         </h3>
+        {/* SURGICAL STRIKE: Replaced the old 5 FAQs with a new, comprehensive list of 8 FAQs. */}
         <div className="w-full flex-1">
           <Accordion type="single" collapsible className="space-y-4">
             <AccordionItem
@@ -3520,12 +3775,14 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                How do I take it?
+                How does Enclomiphene work?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                Take one capsule by mouth daily, or as directed by your
-                provider. It can be taken with or without food. Consistency is
-                key for stable results.
+                Enclomiphene is a selective estrogen receptor modulator (SERM).
+                It works by signaling your brain to increase the production of
+                Luteinizing Hormone (LH) and Follicle-Stimulating Hormone
+                (FSH). These are key hormones that stimulate your testes to
+                produce more of your body&apos;s own testosterone naturally.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -3533,13 +3790,16 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                What benefits are associated with healthy testosterone
-                levels?
+                How is this different from traditional Testosterone
+                Replacement Therapy (TRT)?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                Optimizing testosterone levels can lead to improvements in
-                energy, mood, libido, cognitive function, and body
-                composition. Results vary from person to person.
+                Traditional TRT involves introducing external testosterone
+                into your body via injections or gels, which can cause your
+                natural production to shut down and may lead to side effects
+                like testicular shrinkage. Enclomiphene works differently by
+                encouraging your body to produce its own testosterone,
+                preserving your natural hormonal function.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -3547,12 +3807,16 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                Is this a steroid?
+                What&apos;s the difference between Enclomiphene and Clomiphene?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                No. Enclomiphene is not a steroid. It is a SERM that
-                stimulates your body to produce its own testosterone, rather
-                than introducing synthetic hormones.
+                Clomiphene (often sold as Clomid®) contains a mixture of two
+                isomers: zuclomiphene and enclomiphene. While enclomiphene is
+                effective at boosting testosterone, the zuclomiphene component
+                can linger in the body and may contribute to unwanted side
+                effects. Our formula contains only Enclomiphene, providing the
+                desired testosterone-boosting effects without the unnecessary
+                zuclomiphene isomer.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -3560,13 +3824,13 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                Are there any side effects?
+                Is this a steroid?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                Enclomiphene is generally well-tolerated. Potential side
-                effects can include headache, nausea, or mood changes. A
-                thorough review of your medical history with your provider is
-                essential. [Link to full safety information here].
+                No, Enclomiphene is not an anabolic steroid. It is a
+                non-steroidal oral medication that works with your body&apos;s
+                endocrine system to help increase its natural testosterone
+                levels, rather than introducing synthetic hormones.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -3574,13 +3838,61 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
+                What are the potential benefits of optimizing testosterone?
+              </AccordionTrigger>
+              <AccordionContent className="text-xs">
+                Men with testosterone levels optimized within a healthy range
+                often report a variety of benefits, including improved energy
+                levels, enhanced mood and focus, increased libido (sex drive),
+                and better body composition (more muscle mass and less fat).
+                Individual results will vary.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="item-6"
+              className="border-0 rounded-3xl bg-white px-5"
+            >
+              <AccordionTrigger className="hover:no-underline font-semibold">
+                Do I need to do any lab testing?
+              </AccordionTrigger>
+              <AccordionContent className="text-xs">
+                Yes. To ensure this treatment is appropriate and safe for you,
+                your provider will require recent lab work to evaluate your
+                current hormone levels before prescribing. Periodic follow-up
+                labs may also be recommended to monitor your progress and make
+                any necessary adjustments to your treatment plan.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="item-7"
+              className="border-0 rounded-3xl bg-white px-5"
+            >
+              <AccordionTrigger className="hover:no-underline font-semibold">
                 How long until I see results?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                Changes in hormone levels can often be measured in blood
-                tests within a few weeks. However, feeling the subjective
-                benefits, such as increased energy or libido, can take one
-                to two months of consistent use.
+                While changes in hormone levels can often be measured in blood
+                tests within a few weeks, feeling the subjective benefits can
+                take longer. Most men begin to notice improvements in symptoms
+                like energy and libido within one to two months of consistent
+                daily use.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="item-8"
+              className="border-0 rounded-3xl bg-white px-5"
+            >
+              <AccordionTrigger className="hover:no-underline font-semibold">
+                What are the potential side effects?
+              </AccordionTrigger>
+              <AccordionContent className="text-xs">
+                Enclomiphene is generally well-tolerated by most men.
+                Potential side effects can include headache, nausea, or
+                changes in mood. It is crucial to disclose your full medical
+                history during your online visit so your provider can
+                determine if this is a safe option for you. For a
+                comprehensive overview, please review the full safety
+                information.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
@@ -3801,23 +4113,26 @@ export default function ContentModule() {
 }
 
 # File: src\components\product\oral-dutasteride\deep-dive-section.tsx
+// src/components/product/oral-dutasteride/deep-dive-section.tsx
 export default function DeepDiveSection() {
   return (
     <section className="container mx-auto my-4 py-6 px-4 xl:my-15 xl:py-10 xl:px-0">
+      {/* CONSISTENCY FIX: Refactored to a two-column layout for better readability. */}
       <div className="flex flex-col justify-between gap-y-8 gap-x-19 xl:flex-row">
-        <div className="flex min-h-[360px] flex-1 flex-col items-stretch justify-stretch rounded-3xl bg-[url('/products/oral-dutasteride-ingredients.png')] bg-cover bg-center xl:min-h-[522px]">
-          <div className="flex h-full w-full flex-1 flex-col items-start justify-end gap-y-5 rounded-3xl bg-gradient-to-t from-white/60 to-transparent p-8">
+        {/* Column 1: Text Content (Ingredients) */}
+        <div className="flex-1 flex flex-col justify-center">
+          <div className="space-y-5">
             <h4 className="font-title text-3xl font-medium">
               Key Active Ingredients
             </h4>
             <div className="space-y-2 text-neutral-800">
               <p>
-                <span className="font-semibold">Dutasteride 0.4mg</span> is a
+                <span className="font-semibold">Dutasteride</span> is a
                 potent prescription DHT-blocker that more comprehensively
                 inhibits the enzyme responsible for hair loss.
               </p>
               <p>
-                <span className="font-semibold">Oral Minoxidil 5mg</span> helps
+                <span className="font-semibold">Minoxidil</span> helps
                 increase blood flow and nutrient delivery to the scalp,
                 reactivating dormant follicles to promote new growth.
               </p>
@@ -3829,38 +4144,60 @@ export default function DeepDiveSection() {
             </div>
           </div>
         </div>
+        {/* Column 2: Image */}
+        <div className="flex min-h-[360px] flex-1 flex-col items-stretch justify-stretch rounded-3xl bg-[url('/products/oral-dutasteride-ingredients.png')] bg-cover bg-center xl:min-h-[522px]">
+          {/* This div is now intentionally empty to serve as the image container. */}
+        </div>
       </div>
     </section>
   );
 }
 
 # File: src\components\product\oral-dutasteride\hero-section.tsx
+// src/components/product/oral-dutasteride/hero-section.tsx
+"use client";
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { CheckCircleFillIcon } from "@/components/svg/check-circle-fill-icon";
 import StarFillIcon from "@/components/svg/star-fill-icon";
 import Badge from "@/components/ui/badge";
 import Button from "@/components/ui/button-custom";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { Droplets, Sparkles, Beaker, ShieldCheck } from "lucide-react";
 
 export default function HeroSection() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
     <section className="container mx-auto my-4 px-4 xl:my-15 xl:px-0">
       <div className="flex flex-col justify-between gap-x-4 xl:flex-row xl:items-stretch">
         <div className="relative h-full min-h-[590px] w-full overflow-hidden rounded-3xl">
           <Image
             src="/products/oral-dutasteride-hero.png"
-            alt="Oral Dutasteride"
+            alt="Oral Dutasteride + Oral Minoxidil + 6 Hair Health Supplements"
             fill
-            className="object-cover object-right"
+            className="object-contain object-center"
           />
         </div>
         <div className="flex w-full flex-col gap-y-10 py-6 px-1 xl:py-0 xl:px-19">
           <div className="space-y-3">
             <p className="font-title text-2xl font-medium tracking-tight xl:text-4xl">
-              Oral Dutasteride
+              Oral Dutasteride + Oral Minoxidil + 6 Hair Health Supplements
             </p>
             <p className="text-sm xl:text-base">
               A powerful daily capsule with prescription Dutasteride and
-              Minoxidil for more advanced hair loss.
+              Minoxidil for more advanced hair loss. The 8-in-1 perfect
+              prescription + supplement hair loss formula.
             </p>
             <div className="flex items-center justify-start gap-x-3">
               <div className="flex items-center justify-start gap-x-1">
@@ -3875,24 +4212,57 @@ export default function HeroSection() {
               </p>
             </div>
 
-            <ul className="flex list-none list-inside flex-col gap-y-1 text-xs text-muted-foreground">
-              <li>
-                <span>✓&nbsp;</span>Potent dual-action formula
-              </li>
-              <li>
-                <span>✓&nbsp;</span>Simple once-a-day capsule
-              </li>
-              <li>
-                <span>✓&nbsp;</span>For stubborn or advanced male pattern
-                baldness
-              </li>
-              <li>
-                <span>✓&nbsp;</span>Prescribed by a licensed U.S. provider
-              </li>
-            </ul>
+            <div className="space-y-4 pt-4">
+              <div className="flex items-start gap-x-3">
+                <Beaker className="size-5 text-primary flex-shrink-0" />
+                <p className="text-sm text-muted-foreground">
+                  Potent, research-backed clinical ingredients for advanced hair
+                  loss.
+                </p>
+              </div>
+              <div className="flex items-start gap-x-3">
+                <Droplets className="size-5 text-primary flex-shrink-0" />
+                <p className="text-sm text-muted-foreground">
+                  Advanced liposomal formula for optimal absorption.
+                </p>
+              </div>
+              <div className="flex items-start gap-x-3">
+                <Sparkles className="size-5 text-primary flex-shrink-0" />
+                <p className="text-sm text-muted-foreground">
+                  Fortified with bioavailable Biotin, vitamins, and minerals.
+                </p>
+              </div>
+              <div className="flex items-start gap-x-3">
+                <ShieldCheck className="size-5 text-primary flex-shrink-0" />
+                <p className="text-sm text-muted-foreground">
+                  Formulated by physicians and pharmacists; prescribed online.
+                </p>
+              </div>
+            </div>
           </div>
 
           <div className="flex flex-col justify-between space-y-3">
+            <label className="radio-wrapper">
+              <input
+                className="peer absolute opacity-0"
+                type="radio"
+                name="price"
+                value="price-2"
+                id="price-2"
+              />
+              <div className="radio-card">
+                <div className="flex w-full justify-between">
+                  <p className="font-semibold">Monthly Supply</p>
+                  <CheckCircleFillIcon className="radio-icon" />
+                </div>
+                <p className="tabular-nums text-2xl text-muted-foreground">
+                  From $69
+                </p>
+                <p className="text-muted-foreground">
+                  Billed and delivered every month.
+                </p>
+              </div>
+            </label>
             <label className="radio-wrapper">
               <input
                 className="peer absolute opacity-0"
@@ -3904,12 +4274,12 @@ export default function HeroSection() {
               />
               <div className="radio-card">
                 <div className="flex w-full justify-between">
-                  <Badge>Best Value</Badge>
+                  <Badge>Most Popular</Badge>
                   <CheckCircleFillIcon className="radio-icon" />
                 </div>
                 <p className="font-semibold">Quarterly Supply</p>
                 <p className="tabular-nums text-2xl text-muted-foreground">
-                  $XXX
+                  From $169
                 </p>
                 <p className="text-muted-foreground">
                   Billed and delivered every 3 months.
@@ -3921,27 +4291,129 @@ export default function HeroSection() {
                 className="peer absolute opacity-0"
                 type="radio"
                 name="price"
-                value="price-2"
-                id="price-2"
+                value="price-3"
+                id="price-3"
               />
               <div className="radio-card">
-                <div className="flex w-full justify-end">
+                <div className="flex w-full justify-between">
+                  <Badge>Best Value</Badge>
                   <CheckCircleFillIcon className="radio-icon" />
                 </div>
-                <p className="font-semibold">Monthly Supply</p>
+                <p className="font-semibold">5-Month Supply</p>
                 <p className="tabular-nums text-2xl text-muted-foreground">
-                  $XX
+                  From $249
                 </p>
                 <p className="text-muted-foreground">
-                  Billed and delivered every month.
+                  Billed and delivered every 5 months.
                 </p>
               </div>
             </label>
           </div>
 
-          <Button variant="filled" size="xl" className="mt-4">
-            Start My Visit
-          </Button>
+          <a
+            href="https://checkout.unbranded.co/hair-compound-oral?priceId=2082"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button variant="filled" size="xl" className="mt-4 w-full">
+              Start My Visit
+            </Button>
+          </a>
+
+          {/* SURGICAL STRIKE: Replaced condensed safety info with the new comprehensive version. */}
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="item-1" className="border-b-0">
+              <AccordionTrigger className="hover:no-underline text-sm font-semibold">
+                Important Safety Information
+              </AccordionTrigger>
+              <AccordionContent className="text-xs space-y-4">
+                <p>
+                  <strong>Active Ingredients:</strong> Minoxidil, Dutasteride.
+                  This medication contains multiple active ingredients. Review
+                  all sections carefully.
+                </p>
+                <div>
+                  <h4 className="font-bold">A. Minoxidil Information</h4>
+                  <ul className="list-disc pl-5 mt-2 space-y-1">
+                    <li>
+                      <strong>Important Warnings:</strong> Minoxidil is a potent
+                      medication and must be administered under close
+                      supervision. It can cause serious cardiac effects,
+                      including pericardial effusion (fluid around the heart),
+                      and may worsen angina.
+                    </li>
+                    <li>
+                      <strong>Do Not Use If:</strong> You have a pheochromocytoma
+                      (adrenal gland tumor) or are allergic to any ingredients.
+                    </li>
+                    <li>
+                      <strong>Seek Immediate Care If:</strong> You experience new
+                      or worsening chest pain, shortness of breath, pain upon
+                      breathing, or a rapid or pounding heartbeat.
+                    </li>
+                    <li>
+                      <strong>Monitoring:</strong> You should monitor your weight
+                      and blood pressure regularly. Contact your provider if you
+                      gain 5 or more pounds rapidly.
+                    </li>
+                    <li>
+                      <strong>Pregnancy/Breastfeeding:</strong> Minoxidil should
+                      not be used by women who are pregnant, may become
+                      pregnant, or are breastfeeding.
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-bold">B. Dutasteride Information</h4>
+                  <ul className="list-disc pl-5 mt-2 space-y-1">
+                    <li>
+                      <strong>For Men Only:</strong> This medication is not for
+                      use by women or children.
+                    </li>
+                    <li>
+                      <strong>Pregnancy Risk:</strong> Women who are pregnant or may
+                      become pregnant must not handle crushed or broken
+                      capsules. The active ingredient can be absorbed through
+                      the skin and cause birth defects in a male fetus. If
+                      contact occurs, wash the area immediately with soap and
+                      water.
+                    </li>
+                    <li>
+                      <strong>Prostate Cancer Risk:</strong> 5-alpha-reductase
+                      inhibitors, including Dutasteride, may increase the risk
+                      of a more serious form of prostate cancer.
+                    </li>
+                    <li>
+                      <strong>PSA Levels:</strong> Dutasteride lowers
+                      Prostate-Specific Antigen (PSA) levels. Inform your
+                      doctor that you are taking this medication. Any
+                      subsequent rise in your PSA levels should be carefully
+                      evaluated.
+                    </li>
+                    <li>
+                      <strong>Potential Drug Interactions:</strong> Do not take
+                      this medication if you are also taking Avodart®,
+                      Propecia®, or Proscar®. Inform your provider of all
+                      medications you take, including St. John's wort.
+                    </li>
+                    <li>
+                      <strong>Potential Side Effects:</strong> Common side effects may
+                      include sexual side effects such as impotence, a decrease
+                      in libido, and ejaculation disorders. Less common side
+                      effects may include breast tenderness or enlargement.
+                      Report any changes in your breasts to your provider.
+                    </li>
+                  </ul>
+                </div>
+                <p className="mt-2 italic">
+                  This is not a complete list of contraindications, warnings, or
+                  side effects. For complete medical advice, consult your
+                  provider. You may report side effects to the FDA at
+                  1-800-FDA-1088.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
       </div>
     </section>
@@ -3963,6 +4435,7 @@ export default function QuestionsSection() {
         <h3 className="min-w-sm mb-6 font-title text-3xl font-medium xl:mb-0">
           Product Questions
         </h3>
+        {/* SURGICAL STRIKE: Replaced the old 5 FAQs with a new, comprehensive list of 8 FAQs. */}
         <div className="w-full flex-1">
           <Accordion type="single" collapsible className="space-y-4">
             <AccordionItem
@@ -3970,11 +4443,15 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                How do I use it?
+                How does this formula work for hair loss?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                Take one capsule by mouth daily. For best results, be
-                consistent and take it around the same time each day.
+                Male pattern hair loss is primarily caused by the hormone
+                Dihydrotestosterone (DHT), which shrinks hair follicles.
+                Dutasteride, the key ingredient in this formula, is a powerful
+                prescription medication that works by blocking the enzyme that
+                converts testosterone into DHT. This helps to halt the
+                progression of hair loss and protect your follicles.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -3982,14 +4459,16 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                Is this better than Finasteride?
+                What&apos;s the difference between Oral Dutasteride and
+                Finasteride?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                Dutasteride is a more powerful DHT blocker and can be more
-                effective for some individuals, particularly those with more
-                significant hair loss. However, the best treatment option
-                depends on your specific situation. Your provider will help
-                you make the right choice.
+                Both are DHT-blockers, but Dutasteride is more potent. It
+                works by blocking two types of the 5-alpha-reductase enzyme
+                that produces DHT, while Finasteride only blocks one. For this
+                reason, Dutasteride is often considered a stronger option for
+                men with more advanced hair loss or for those who haven&apos;t
+                seen the desired results with Finasteride.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -3997,15 +4476,14 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                Are there any side effects?
+                Why is this formula combined with Minoxidil?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                While generally well-tolerated, Dutasteride can cause side
-                effects similar to Finasteride, including sexual side
-                effects. Due to its potency, the risk profile may differ
-                slightly. It is critical to provide a full medical history
-                during your online visit. [We will add a link to full safety
-                information here].
+                This formula provides a dual-action approach to treating hair
+                loss. While Dutasteride works to block DHT and prevent further
+                loss, Oral Minoxidil works by increasing blood flow and
+                nutrient delivery to the scalp. This helps to reactivate
+                dormant follicles and actively promote new growth.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -4013,12 +4491,12 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                How long before I see results?
+                How do I use it?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                Consistency is key. Most men begin to see a reduction in hair
-                loss or early signs of regrowth within 3-6 months of daily
-                use. Maximum results are typically seen after 12 months.
+                Take one capsule by mouth daily, with or without food. For
+                best results, consistency is key, so we recommend taking it
+                around the same time each day.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -4026,12 +4504,60 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
+                How long before I see results?
+              </AccordionTrigger>
+              <AccordionContent className="text-xs">
+                Hair growth is a slow process. You may start to see initial
+                improvements, such as reduced shedding, in as little as 3-6
+                months. It is recommended to use the medication for at least
+                6-12 months to see the most significant results.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="item-6"
+              className="border-0 rounded-3xl bg-white px-5"
+            >
+              <AccordionTrigger className="hover:no-underline font-semibold">
                 What happens if I stop taking it?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                The effects of Dutasteride are not permanent. If you stop
-                taking it, your hair loss will likely resume within a few
-                months, and any new growth may be lost.
+                The benefits of this medication are not permanent. If you stop
+                taking it, your DHT levels will return to their previous
+                state, and your hair loss will likely resume. Any hair that
+                was preserved or regrown will likely be lost within several
+                months.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="item-7"
+              className="border-0 rounded-3xl bg-white px-5"
+            >
+              <AccordionTrigger className="hover:no-underline font-semibold">
+                Is this medication FDA-approved?
+              </AccordionTrigger>
+              <AccordionContent className="text-xs">
+                The use of Dutasteride for male pattern hair loss is
+                considered an &quot;off-label&quot; use, which is a common and legal
+                practice by physicians. Additionally, our formula is a
+                &quot;compounded medication,&quot; meaning it&apos;s custom-prepared by
+                a licensed U.S. pharmacy to combine multiple ingredients.
+                Compounded drugs are not themselves FDA-approved.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="item-8"
+              className="border-0 rounded-3xl bg-white px-5"
+            >
+              <AccordionTrigger className="hover:no-underline font-semibold">
+                What are the potential side effects?
+              </AccordionTrigger>
+              <AccordionContent className="text-xs">
+                While generally well-tolerated, potential side effects can
+                occur, which may include sexual side effects similar to those
+                of Finasteride. A thorough and honest consultation with your
+                provider is essential to determine if this treatment is safe
+                for you. For a comprehensive overview, please review the full
+                safety information.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
@@ -4064,18 +4590,21 @@ export default function ContentModule() {
 }
 
 # File: src\components\product\oral-finasteride\deep-dive-section.tsx
+// src/components/product/oral-finasteride/deep-dive-section.tsx
 export default function DeepDiveSection() {
   return (
     <section className="container mx-auto my-4 py-6 px-4 xl:my-15 xl:py-10 xl:px-0">
+      {/* CONSISTENCY FIX: Refactored to a two-column layout for better readability. */}
       <div className="flex flex-col justify-between gap-y-8 gap-x-19 xl:flex-row">
-        <div className="flex min-h-[360px] flex-1 flex-col items-stretch justify-stretch rounded-3xl bg-[url('/products/oral-finasteride-ingredients.png')] bg-cover bg-center xl:min-h-[522px]">
-          <div className="flex h-full w-full flex-1 flex-col items-start justify-end gap-y-5 rounded-3xl bg-gradient-to-t from-white/60 to-transparent p-8">
+        {/* Column 1: Text Content (Ingredients) */}
+        <div className="flex-1 flex flex-col justify-center">
+          <div className="space-y-5">
             <h4 className="font-title text-3xl font-medium">
               Key Active Ingredients
             </h4>
             <div className="space-y-2 text-neutral-800">
               <p>
-                <span className="font-semibold">Finasteride 1mg</span> is a
+                <span className="font-semibold">Finasteride</span> is a
                 prescription DHT-blocker that helps prevent further hair loss
                 and protects follicles from miniaturization.
               </p>
@@ -4092,27 +4621,33 @@ export default function DeepDiveSection() {
             </div>
           </div>
         </div>
+
+        {/* Column 2: Image */}
+        <div className="flex min-h-[360px] flex-1 flex-col items-stretch justify-stretch rounded-3xl bg-[url('/products/oral-finasteride-ingredients.png')] bg-cover bg-center xl:min-h-[522px]">
+          {/* This div is now intentionally empty to serve as the image container. */}
+        </div>
       </div>
     </section>
   );
 }
 
 # File: src\components\product\oral-finasteride\hero-section.tsx
+// src/components/product/oral-finasteride/hero-section.tsx
 "use client";
 
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { CheckCircleFillIcon } from "@/components/svg/check-circle-fill-icon";
 import StarFillIcon from "@/components/svg/star-fill-icon";
 import Badge from "@/components/ui/badge";
 import Button from "@/components/ui/button-custom";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { Droplets, Sparkles, Beaker, ShieldCheck } from "lucide-react";
 
 export default function HeroSection() {
   const [isClient, setIsClient] = useState(false);
@@ -4129,7 +4664,7 @@ export default function HeroSection() {
             src="/products/oral-finasteride-hero.png"
             alt="Oral Finasteride"
             fill
-            className="object-cover object-right"
+            className="object-contain object-center"
           />
         </div>
         <div className="flex w-full flex-col gap-y-10 py-6 px-1 xl:py-0 xl:px-19">
@@ -4139,7 +4674,8 @@ export default function HeroSection() {
             </p>
             <p className="text-sm xl:text-base">
               A daily capsule combining prescription Finasteride and Minoxidil
-              to fight hair loss from within.
+              to fight hair loss from within. The 8-in-1 perfect prescription +
+              supplement hair loss formula.
             </p>
             <div className="flex items-center justify-start gap-x-3">
               <div className="flex items-center justify-start gap-x-1">
@@ -4154,24 +4690,60 @@ export default function HeroSection() {
               </p>
             </div>
 
-            <ul className="flex list-none list-inside flex-col gap-y-1 text-xs text-muted-foreground">
-              <li>
-                <span>✓&nbsp;</span>Combines two clinically-proven ingredients
-              </li>
-              <li>
-                <span>✓&nbsp;</span>Simple once-a-day capsule
-              </li>
-              <li>
-                <span>✓&nbsp;</span>Targets the root cause of male pattern
-                baldness
-              </li>
-              <li>
-                <span>✓&nbsp;</span>Prescribed by a licensed U.S. provider
-              </li>
-            </ul>
+            <div className="space-y-4 pt-4">
+              <div className="flex items-start gap-x-3">
+                <Beaker className="size-5 text-primary flex-shrink-0" />
+                <p className="text-sm text-muted-foreground">
+                  Combines two research-backed clinical ingredients to fight
+                  hair loss.
+                </p>
+              </div>
+              <div className="flex items-start gap-x-3">
+                <Droplets className="size-5 text-primary flex-shrink-0" />
+                <p className="text-sm text-muted-foreground">
+                  Advanced liposomal formula for optimal absorption.
+                </p>
+              </div>
+              <div className="flex items-start gap-x-3">
+                <Sparkles className="size-5 text-primary flex-shrink-0" />
+                <p className="text-sm text-muted-foreground">
+                  Enhanced with bioavailable Biotin and essential hair-healthy
+                  vitamins.
+                </p>
+              </div>
+              <div className="flex items-start gap-x-3">
+                <ShieldCheck className="size-5 text-primary flex-shrink-0" />
+                <p className="text-sm text-muted-foreground">
+                  Expertly formulated by physicians and pharmacists and
+                  prescribed online.
+                </p>
+              </div>
+            </div>
           </div>
 
           <div className="flex flex-col justify-between space-y-3">
+            <label className="radio-wrapper">
+              <input
+                className="peer absolute opacity-0"
+                type="radio"
+                name="price"
+                value="price-2"
+                id="price-2"
+              />
+              <div className="radio-card">
+                <div className="flex w-full justify-between">
+                  <p className="font-semibold">Monthly Supply</p>
+                  <CheckCircleFillIcon className="radio-icon" />
+                </div>
+                {/* SURGICAL STRIKE: Added "From " to the price. */}
+                <p className="tabular-nums text-2xl text-muted-foreground">
+                  From $69
+                </p>
+                <p className="text-muted-foreground">
+                  Billed and delivered every month.
+                </p>
+              </div>
+            </label>
             <label className="radio-wrapper">
               <input
                 className="peer absolute opacity-0"
@@ -4183,15 +4755,16 @@ export default function HeroSection() {
               />
               <div className="radio-card">
                 <div className="flex w-full justify-between">
-                  <Badge>Best Value</Badge>
+                  <Badge>Most Popular</Badge>
                   <CheckCircleFillIcon className="radio-icon" />
                 </div>
                 <p className="font-semibold">Quarterly Supply</p>
+                {/* SURGICAL STRIKE: Added "From " to the price. */}
                 <p className="tabular-nums text-2xl text-muted-foreground">
-                  $159
+                  From $169
                 </p>
                 <p className="text-muted-foreground">
-                  Billed and delivered every 3 months. Works out to $53/month.
+                  Billed and delivered every 3 months. Works out to $56/month.
                 </p>
               </div>
             </label>
@@ -4200,46 +4773,112 @@ export default function HeroSection() {
                 className="peer absolute opacity-0"
                 type="radio"
                 name="price"
-                value="price-2"
-                id="price-2"
+                value="price-3"
+                id="price-3"
               />
               <div className="radio-card">
-                <div className="flex w-full justify-end">
+                <div className="flex w-full justify-between">
+                  <Badge>Best Value</Badge>
                   <CheckCircleFillIcon className="radio-icon" />
                 </div>
-                <p className="font-semibold">Monthly Supply</p>
+                <p className="font-semibold">5-Month Supply</p>
+                {/* SURGICAL STRIKE: Added "From " to the price. */}
                 <p className="tabular-nums text-2xl text-muted-foreground">
-                  $59
+                  From $249
                 </p>
                 <p className="text-muted-foreground">
-                  Billed and delivered every month.
+                  Billed and delivered every 5 months. Save up to 28%.
                 </p>
               </div>
             </label>
           </div>
 
-          {isClient && (
-            <div className="space-y-2">
-              <p className="text-sm font-medium">Strength:</p>
-              <Select>
-                <SelectTrigger className="w-full border-neutral-400">
-                  <SelectValue placeholder="Select strength" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="standard">
-                    Standard Strength (2.5mg Minoxidil)
-                  </SelectItem>
-                  <SelectItem value="extra">
-                    Extra Strength (5mg Minoxidil)
-                  </SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-          )}
+          <a
+            href="https://checkout.unbranded.co/hair-compound-oral?priceId=2082"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button variant="filled" size="xl">
+              Start My Visit
+            </Button>
+          </a>
 
-          <Button variant="filled" size="xl">
-            Start My Visit
-          </Button>
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="item-1" className="border-b-0">
+              <AccordionTrigger className="hover:no-underline text-sm font-semibold">
+                Important Safety Information
+              </AccordionTrigger>
+              <AccordionContent className="text-xs space-y-4">
+                <p>
+                  This medication contains multiple active ingredients. Review
+                  all sections carefully.
+                </p>
+                <div>
+                  <h4 className="font-bold">A. Minoxidil Information</h4>
+                  <p>
+                    Minoxidil is a potent medication and must be used under
+                    close supervision.
+                  </p>
+                  <ul className="list-disc pl-5 mt-2">
+                    <li>
+                      <strong>Contraindications & Warnings:</strong> Do not use
+                      if you have a pheochromocytoma (adrenal gland tumor).
+                      Minoxidil can cause serious cardiac effects, including
+                      fluid around the heart. Seek immediate medical help for new
+                      or worsening chest pain, shortness of breath, or rapid
+                      heart rate.
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-bold">B. Finasteride Information</h4>
+                  <ul className="list-disc pl-5 mt-2">
+                    <li>
+                      <strong>For Men Only:</strong> Not for use by women or
+                      children.
+                    </li>
+                    <li>
+                      <strong>Pregnancy Risk:</strong> Women who are pregnant or may
+                      become pregnant must not handle crushed or broken tablets,
+                      as the active ingredient can cause birth defects in a male
+                      fetus.
+                    </li>
+                    <li>
+                      <strong>Prostate Cancer Risk:</strong> Finasteride may increase
+                      the risk of a serious form of prostate cancer.
+                    </li>
+                    <li>
+                      <strong>PSA Levels:</strong> Finasteride causes a decrease in
+                      Prostate-Specific Antigen (PSA) levels. Any subsequent
+                      rise in PSA should be evaluated by a physician.
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-bold">Before Taking This Medication</h4>
+                  <p>
+                    Inform your provider of your complete medical history,
+                    especially heart conditions, high or low blood pressure,
+                    kidney or liver disease, and prostate issues.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-bold">Potential Side Effects</h4>
+                  <p>
+                    Seek emergency help for severe allergic reactions. Common
+                    side effects of Minoxidil include changes in body hair and
+                    rash. Common side effects of Finasteride include decreased
+                    libido and erectile dysfunction. Less common side effects
+                    include breast tenderness, depression, and testicular pain.
+                  </p>
+                  <p className="mt-2 italic">
+                    This is not an exhaustive list. For complete medical advice
+                    about side effects, consult your provider.
+                  </p>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
       </div>
     </section>
@@ -4261,6 +4900,7 @@ export default function QuestionsSection() {
         <h3 className="min-w-sm mb-6 font-title text-3xl font-medium xl:mb-0">
           Product Questions
         </h3>
+        {/* SURGICAL STRIKE: Replaced the old 5 FAQs with a new, comprehensive list of 8 FAQs. */}
         <div className="w-full flex-1">
           <Accordion type="single" collapsible className="space-y-4">
             <AccordionItem
@@ -4268,12 +4908,14 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                How do I use it?
+                How does this formula work for hair loss?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                Take one capsule by mouth daily, with or without food. For best
-                results, be consistent and take it around the same time each
-                day.
+                This formula targets the root cause of male pattern baldness.
+                The active ingredient, Finasteride, is a prescription
+                medication that works by blocking the production of
+                Dihydrotestosterone (DHT), the hormone primarily responsible
+                for shrinking hair follicles and causing hair to thin.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -4281,14 +4923,15 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                What&apos;s the difference between this and topical Finasteride?
+                Why is Finasteride combined with Oral Minoxidil?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                Oral Finasteride works systemically to lower DHT levels,
-                addressing hair loss from the inside out. Topical treatments are
-                applied directly to the scalp. Our oral formula also includes
-                Minoxidil for a dual-action approach to regrowth in a single,
-                convenient capsule.
+                This combination creates a powerful &quot;one-two punch&quot;
+                against hair loss. While Finasteride works to stop further
+                loss by blocking DHT, Oral Minoxidil helps to stimulate
+                regrowth. It works by increasing blood flow to the scalp, which
+                can help reactivate dormant follicles and promote the growth
+                of thicker, healthier hair.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -4296,14 +4939,15 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                Are there any side effects?
+                What&apos;s the difference between oral and topical Finasteride?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                While generally well-tolerated, Finasteride can cause side
-                effects in a small percentage of men, including sexual side
-                effects. It is critical to discuss your medical history with
-                your provider during your online visit. [We will add a link to
-                full safety information here].
+                Oral Finasteride is a daily capsule that works systemically to
+                lower DHT levels throughout your body. Topical Finasteride is
+                applied directly to the scalp to target the hair follicles
+                more locally. The choice between them often comes down to
+                personal preference and your provider&apos;s recommendation based
+                on your health history and hair loss pattern.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -4311,13 +4955,12 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                How long before I see results?
+                How do I use it?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                Hair growth is a slow process. Most men begin to see a
-                reduction in hair loss or early signs of regrowth within 3-6
-                months of consistent daily use. Maximum results are typically
-                seen after 12 months.
+                Take one capsule by mouth every day. For the best results,
+                it&apos;s important to be consistent and take it around the same
+                time each day. It can be taken with or without food.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -4325,13 +4968,61 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
+                How long before I see results?
+              </AccordionTrigger>
+              <AccordionContent className="text-xs">
+                Hair growth is a gradual process. Most men start to see a
+                reduction in hair loss or the first signs of new growth within
+                3-6 months of consistent daily use. Maximum benefits are
+                typically seen after about 12 months.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="item-6"
+              className="border-0 rounded-3xl bg-white px-5"
+            >
+              <AccordionTrigger className="hover:no-underline font-semibold">
                 What happens if I stop taking it?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                The benefits of Finasteride last only as long as you are taking
-                the medication. If you stop, DHT levels will return to their
-                previous levels, and any hair that was gained or preserved will
-                likely be lost within several months.
+                The benefits of Finasteride and Minoxidil only last as long as
+                you are taking the medication. If you stop, your DHT levels
+                will return to normal, and any hair you have preserved or
+                regrown will likely be lost within the following several
+                months.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="item-7"
+              className="border-0 rounded-3xl bg-white px-5"
+            >
+              <AccordionTrigger className="hover:no-underline font-semibold">
+                Is this medication FDA-approved?
+              </AccordionTrigger>
+              <AccordionContent className="text-xs">
+                Finasteride 1mg is an FDA-approved medication for the
+                treatment of male pattern hair loss. However, our specific
+                formula is a &quot;compounded medication,&quot; meaning it&apos;s
+                custom-prepared by a licensed U.S. pharmacy to combine
+                Finasteride with Oral Minoxidil. Compounded drugs are not
+                themselves FDA-approved.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="item-8"
+              className="border-0 rounded-3xl bg-white px-5"
+            >
+              <AccordionTrigger className="hover:no-underline font-semibold">
+                What are the potential side effects?
+              </AccordionTrigger>
+              <AccordionContent className="text-xs">
+                While generally well-tolerated, potential side effects can
+                occur. For Finasteride, this can include sexual side effects
+                in a small percentage of men. It is crucial to provide a
+                complete and accurate medical history during your online visit
+                for your provider to determine if this treatment is safe for
+                you. Please review the full safety information for a
+                comprehensive overview.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
@@ -4469,38 +5160,45 @@ export default function ContentModule() {
 }
 
 # File: src\components\product\topical-dutasteride\deep-dive-section.tsx
+// src/components/product/topical-dutasteride/deep-dive-section.tsx
 export default function DeepDiveSection() {
   return (
     <section className="container mx-auto my-4 py-6 px-4 xl:my-15 xl:py-10 xl:px-0">
+      {/* TASKS 3, 17 & CONSISTENCY FIX: Refactored to a two-column layout and removed ingredient strengths. */}
       <div className="flex flex-col justify-between gap-y-8 gap-x-19 xl:flex-row">
-        <div className="flex min-h-[360px] flex-1 flex-col items-stretch justify-stretch rounded-3xl bg-[url('/products/topical-dutasteride-ingredients.png')] bg-cover bg-center xl:min-h-[522px]">
-          <div className="flex h-full w-full flex-1 flex-col items-start justify-end gap-y-5 rounded-3xl bg-gradient-to-t from-white/60 to-transparent p-8">
+        {/* Column 1: Text Content (Ingredients) */}
+        <div className="flex-1 flex flex-col justify-center">
+          <div className="space-y-5">
             <h4 className="font-title text-3xl font-medium">
               Key Active Ingredients
             </h4>
             <div className="space-y-2 text-neutral-800">
               <p>
-                <span className="font-semibold">Dutasteride 0.1%</span> is a
+                <span className="font-semibold">Dutasteride</span> is a
                 powerful DHT-blocker that provides a more comprehensive
                 defense against follicle miniaturization at the scalp.
               </p>
               <p>
-                <span className="font-semibold">Minoxidil 7.5%</span> is a
+                <span className="font-semibold">Minoxidil</span> is a
                 vasodilator that helps improve blood flow to the scalp,
                 promoting growth in dormant follicles.
               </p>
               <p>
-                <span className="font-semibold">Tretinoin 0.0125%</span> is a
+                <span className="font-semibold">Tretinoin</span> is a
                 retinoid that enhances the penetration and effectiveness of the
                 other active ingredients.
               </p>
               <p>
-                <span className="font-semibold">Fluocinolone 0.01%</span> is a
+                <span className="font-semibold">Fluocinolone</span> is a
                 mild anti-inflammatory that helps reduce scalp irritation,
                 creating a healthier environment for hair growth.
               </p>
             </div>
           </div>
+        </div>
+        {/* Column 2: Image */}
+        <div className="flex min-h-[360px] flex-1 flex-col items-stretch justify-stretch rounded-3xl bg-[url('/products/topical-dutasteride-ingredients.png')] bg-cover bg-center xl:min-h-[522px]">
+          {/* This div is now intentionally empty to serve as the image container. */}
         </div>
       </div>
     </section>
@@ -4508,32 +5206,50 @@ export default function DeepDiveSection() {
 }
 
 # File: src\components\product\topical-dutasteride\hero-section.tsx
+// src/components/product/topical-dutasteride/hero-section.tsx
+"use client";
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { CheckCircleFillIcon } from "@/components/svg/check-circle-fill-icon";
 import StarFillIcon from "@/components/svg/star-fill-icon";
 import Badge from "@/components/ui/badge";
 import Button from "@/components/ui/button-custom";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { Droplets, Beaker, ShieldCheck } from "lucide-react";
 
 export default function HeroSection() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
     <section className="container mx-auto my-4 px-4 xl:my-15 xl:px-0">
       <div className="flex flex-col justify-between gap-x-4 xl:flex-row xl:items-stretch">
         <div className="relative h-full min-h-[590px] w-full overflow-hidden rounded-3xl">
           <Image
             src="/products/topical-dutasteride-hero.png"
-            alt="Topical Dutasteride"
+            alt="Topical Dutasteride + Minoxidil + Tretinoin + Fluocinolone + Biotin"
             fill
-            className="object-cover object-right"
+            className="object-contain object-center"
           />
         </div>
         <div className="flex w-full flex-col gap-y-10 py-6 px-1 xl:py-0 xl:px-19">
           <div className="space-y-3">
             <p className="font-title text-2xl font-medium tracking-tight xl:text-4xl">
-              Topical Dutasteride
+              Topical Dutasteride + Minoxidil + Tretinoin + Fluocinolone + Biotin
             </p>
             <p className="text-sm xl:text-base">
               A maximum-strength topical serum combining potent Dutasteride
-              and Minoxidil for advanced hair loss.
+              and Minoxidil for advanced hair loss. The perfect 5-in-1 topical
+              hair loss formula.
             </p>
             <div className="flex items-center justify-start gap-x-3">
               <div className="flex items-center justify-start gap-x-1">
@@ -4548,25 +5264,53 @@ export default function HeroSection() {
               </p>
             </div>
 
-            <ul className="flex list-none list-inside flex-col gap-y-1 text-xs text-muted-foreground">
-              <li>
-                <span>✓&nbsp;</span>Our most powerful formula for stubborn
-                hair loss
-              </li>
-              <li>
-                <span>✓&nbsp;</span>Targets DHT directly at the scalp
-              </li>
-              <li>
-                <span>✓&nbsp;</span>The ideal pill-free alternative for
-                advanced cases
-              </li>
-              <li>
-                <span>✓&nbsp;</span>Prescribed by a licensed U.S. provider
-              </li>
-            </ul>
+            <div className="space-y-4 pt-4">
+              <div className="flex items-start gap-x-3">
+                <Beaker className="size-5 text-primary flex-shrink-0" />
+                <p className="text-sm text-muted-foreground">
+                  Physician & Pharmacist formulated with research-backed
+                  clinical ingredients for stubborn hair loss.
+                </p>
+              </div>
+              <div className="flex items-start gap-x-3">
+                <Droplets className="size-5 text-primary flex-shrink-0" />
+                <p className="text-sm text-muted-foreground">
+                  Copper-infused liposomal formula for optimal bioavailability
+                  and absorption.
+                </p>
+              </div>
+              <div className="flex items-start gap-x-3">
+                <ShieldCheck className="size-5 text-primary flex-shrink-0" />
+                <p className="text-sm text-muted-foreground">
+                  The ideal pill-free alternative for advanced cases, targeting
+                  DHT directly at the scalp.
+                </p>
+              </div>
+            </div>
           </div>
 
           <div className="flex flex-col justify-between space-y-3">
+            <label className="radio-wrapper">
+              <input
+                className="peer absolute opacity-0"
+                type="radio"
+                name="price"
+                value="price-2"
+                id="price-2"
+              />
+              <div className="radio-card">
+                <div className="flex w-full justify-between">
+                  <p className="font-semibold">Monthly Supply</p>
+                  <CheckCircleFillIcon className="radio-icon" />
+                </div>
+                <p className="tabular-nums text-2xl text-muted-foreground">
+                  From $69
+                </p>
+                <p className="text-muted-foreground">
+                  Billed and delivered every month.
+                </p>
+              </div>
+            </label>
             <label className="radio-wrapper">
               <input
                 className="peer absolute opacity-0"
@@ -4578,16 +5322,15 @@ export default function HeroSection() {
               />
               <div className="radio-card">
                 <div className="flex w-full justify-between">
-                  <Badge>Best Value</Badge>
+                  <Badge>Most Popular</Badge>
                   <CheckCircleFillIcon className="radio-icon" />
                 </div>
                 <p className="font-semibold">Quarterly Supply</p>
                 <p className="tabular-nums text-2xl text-muted-foreground">
-                  $172.50
+                  From $169
                 </p>
                 <p className="text-muted-foreground">
-                  Billed and delivered every 3 months. Works out to
-                  $57.50/month.
+                  Billed and delivered every 3 months.
                 </p>
               </div>
             </label>
@@ -4596,27 +5339,111 @@ export default function HeroSection() {
                 className="peer absolute opacity-0"
                 type="radio"
                 name="price"
-                value="price-2"
-                id="price-2"
+                value="price-3"
+                id="price-3"
               />
               <div className="radio-card">
-                <div className="flex w-full justify-end">
+                <div className="flex w-full justify-between">
+                  <Badge>Best Value</Badge>
                   <CheckCircleFillIcon className="radio-icon" />
                 </div>
-                <p className="font-semibold">Monthly Supply</p>
+                <p className="font-semibold">5-Month Supply</p>
                 <p className="tabular-nums text-2xl text-muted-foreground">
-                  $69
+                  From $249
                 </p>
                 <p className="text-muted-foreground">
-                  Billed and delivered every month.
+                  Billed and delivered every 5 months.
                 </p>
               </div>
             </label>
           </div>
 
-          <Button variant="filled" size="xl" className="mt-4">
-            Start My Visit
-          </Button>
+          {/* SURGICAL STRIKE: Replaced placeholder with the correct checkout URL. */}
+          <a
+            href="https://checkout.unbranded.co/hair_compound_topical?priceId=2017"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button variant="filled" size="xl" className="mt-4 w-full">
+              Start My Visit
+            </Button>
+          </a>
+
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="item-1" className="border-b-0">
+              <AccordionTrigger className="hover:no-underline text-sm font-semibold">
+                Important Safety Information
+              </AccordionTrigger>
+              <AccordionContent className="text-xs space-y-4">
+                <div>
+                  <h4 className="font-bold">How to Use:</h4>
+                  <p>
+                    Apply once daily at night to a clean, dry scalp as directed
+                    by your provider. Wash your hands thoroughly after
+                    application. Avoid getting the medication in your eyes or
+                    mouth. Allow it to dry for at least 4 hours before washing.
+                    Consistent daily use is required to see and maintain
+                    results, which may take 2-4 months to appear.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-bold">Important Warnings:</h4>
+                  <ul className="list-disc pl-5 space-y-1">
+                    <li>
+                      <strong>For Men Only:</strong> This product is intended for
+                      use by men only and should not be used by women or
+                      children.
+                    </li>
+                    <li>
+                      <strong>Pregnancy Risk:</strong> Women who are pregnant or may
+                      become pregnant must not handle or use this medication.
+                      Dutasteride, an active ingredient, can be absorbed through
+                      the skin and poses a significant risk of causing birth
+                      defects in a male fetus.
+                    </li>
+                    <li>
+                      <strong>Prostate Health:</strong> 5-alpha-reductase
+                      inhibitors, like Dutasteride, may increase the risk of a
+                      more serious form of prostate cancer. Dutasteride also
+                      lowers Prostate-Specific Antigen (PSA) levels. It is
+                      crucial to inform your doctor that you are using this
+                      medication, as any changes in your PSA levels need to be
+                      evaluated in this context.
+                    </li>
+                    <li>
+                      <strong>Sun Sensitivity:</strong> This medication may increase
+                      your skin's sensitivity to the sun at the application
+                      site.
+                    </li>
+                    <li>
+                      <strong>Contraindications:</strong> Do not use if you are
+                      allergic to any ingredients. Inform your provider of your
+                      full medical history, including any history of heart,
+                      liver, or kidney disease, prostate cancer, Diabetes, or
+                      Cushing's Syndrome.
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-bold">Potential Side Effects:</h4>
+                  <p>
+                    Common side effects are typically confined to the
+                    application area and may include itching, redness, burning,
+                    flaking, or dryness. Though the risk is lower with topical
+                    application, systemic side effects are possible. These can
+                    include sexual side effects such as a decrease in libido,
+                    difficulty with erections, or ejaculation disorders. Seek
+                    emergency help for severe allergic reactions.
+                  </p>
+                </div>
+                <p className="italic">
+                  This is not an exhaustive list. For medical advice, consult
+                  your provider. You may report side effects to the FDA at
+                  1-800-FDA-1088.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
       </div>
     </section>
@@ -4638,6 +5465,7 @@ export default function QuestionsSection() {
         <h3 className="min-w-sm mb-6 font-title text-3xl font-medium xl:mb-0">
           Product Questions
         </h3>
+        {/* SURGICAL STRIKE: Replaced the old 5 FAQs with a new, comprehensive list of 8 FAQs. */}
         <div className="w-full flex-1">
           <Accordion type="single" collapsible className="space-y-4">
             <AccordionItem
@@ -4645,12 +5473,14 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                How do I apply it?
+                How does this topical formula work for hair loss?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                Apply 1ml of the solution to a clean, dry scalp once daily,
-                focusing on areas of thinning. Gently massage it in and let it
-                dry. Wash your hands thoroughly after application.
+                This formula targets the root cause of male pattern
+                baldness—the hormone Dihydrotestosterone (DHT)—directly at the
+                scalp. Dutasteride, the primary active ingredient, is a potent
+                DHT-blocker that helps prevent the hair follicle
+                miniaturization that leads to thinning and hair loss.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -4658,13 +5488,16 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                Is this better than Topical Finasteride?
+                What&apos;s the difference between Topical Dutasteride and Topical
+                Finasteride?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                It is a more powerful DHT blocker and may be more effective
-                for advanced cases of male pattern baldness. &quot;Better&quot;
-                depends on the individual. Your provider will review your case
-                to recommend the most appropriate treatment.
+                Both are DHT-blockers, but Dutasteride is considered more
+                powerful. It inhibits more of the 5-alpha-reductase enzyme
+                responsible for producing DHT. This makes it a maximum-strength
+                option, often recommended for men with more significant hair
+                loss or for those who have not achieved their desired results
+                with Finasteride.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -4672,14 +5505,16 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                Are there any side effects?
+                Why does this formula contain multiple active ingredients?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                The most common side effects are localized to the application
-                site, such as scalp itching or irritation. Given its potency,
-                it&apos;s crucial to discuss your full medical history with your
-                provider to understand the risk profile. [We will add a link
-                to full safety information here].
+                Our formula is designed for a multi-pronged attack on hair
+                loss. <strong>Dutasteride</strong> blocks DHT,{" "}
+                <strong>Minoxidil</strong> helps stimulate new growth by
+                increasing blood flow, <strong>Tretinoin</strong> enhances the
+                scalp penetration of the other ingredients, and{" "}
+                <strong>Fluocinolone</strong> helps reduce scalp inflammation,
+                creating a healthier environment for follicles to thrive.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -4687,13 +5522,13 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                Can I switch from Topical Finasteride to this?
+                How do I apply it?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                Yes, this is a common treatment progression. If you are
-                interested in switching, you should first complete a
-                follow-up consultation with your provider to ensure it is a
-                safe and appropriate choice for you.
+                Apply 1ml of the solution to a clean, dry scalp once daily.
+                Focus on the areas where you are experiencing thinning, massage
+                it in gently, and allow it to dry. Be sure to wash your hands
+                thoroughly after each application.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -4701,12 +5536,60 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
+                Can I switch from Topical Finasteride to this?
+              </AccordionTrigger>
+              <AccordionContent className="text-xs">
+                Yes, switching from Topical Finasteride to the more potent
+                Topical Dutasteride is a common progression for some men
+                seeking better results. However, you should first complete a
+                follow-up consultation with your provider to ensure it is a
+                safe and appropriate choice for you.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="item-6"
+              className="border-0 rounded-3xl bg-white px-5"
+            >
+              <AccordionTrigger className="hover:no-underline font-semibold">
                 How long before I see results?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                With consistent daily use, most men see initial results, such
-                as reduced shedding or early regrowth, within 3-6 months.
-                Maximum results are typically visible after 12 months.
+                Consistency is crucial. Most men begin to see initial results,
+                such as reduced shedding or early signs of regrowth, within
+                3-6 months of daily use. Maximum benefits are typically visible
+                after 12 months of continued application.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="item-7"
+              className="border-0 rounded-3xl bg-white px-5"
+            >
+              <AccordionTrigger className="hover:no-underline font-semibold">
+                Is this medication FDA-approved?
+              </AccordionTrigger>
+              <AccordionContent className="text-xs">
+                The use of Dutasteride for hair loss is considered an
+                &quot;off-label&quot; use. Additionally, our multi-ingredient
+                formula is a &quot;compounded medication,&quot; custom-prepared by a
+                licensed U.S. pharmacy. As a compounded drug, this specific
+                formula is not FDA-approved.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="item-8"
+              className="border-0 rounded-3xl bg-white px-5"
+            >
+              <AccordionTrigger className="hover:no-underline font-semibold">
+                What are the potential side effects?
+              </AccordionTrigger>
+              <AccordionContent className="text-xs">
+                Since this is a topical treatment, the most common side
+                effects are typically localized to the application site, such
+                as scalp itching or irritation. While the risk of systemic
+                side effects is lower than with oral medications, it is still
+                possible. A thorough review of your medical history with your
+                provider is essential. Please see the full safety information
+                for a comprehensive overview.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
@@ -4739,38 +5622,45 @@ export default function ContentModule() {
 }
 
 # File: src\components\product\topical-finasteride\deep-dive-section.tsx
+// src/components/product/topical-finasteride/deep-dive-section.tsx
 export default function DeepDiveSection() {
   return (
     <section className="container mx-auto my-4 py-6 px-4 xl:my-15 xl:py-10 xl:px-0">
+      {/* REFACTOR: Changed to a two-column layout and removed ingredient strengths for consistency. */}
       <div className="flex flex-col justify-between gap-y-8 gap-x-19 xl:flex-row">
-        <div className="flex min-h-[360px] flex-1 flex-col items-stretch justify-stretch rounded-3xl bg-[url('/products/topical-finasteride-ingredients.png')] bg-cover bg-center xl:min-h-[522px]">
-          <div className="flex h-full w-full flex-1 flex-col items-start justify-end gap-y-5 rounded-3xl bg-gradient-to-t from-white/60 to-transparent p-8">
+        {/* Column 1: Text Content (Ingredients) */}
+        <div className="flex-1 flex flex-col justify-center">
+          <div className="space-y-5">
             <h4 className="font-title text-3xl font-medium">
               Key Active Ingredients
             </h4>
             <div className="space-y-2 text-neutral-800">
               <p>
-                <span className="font-semibold">Finasteride 0.25%</span> is a
+                <span className="font-semibold">Finasteride</span> is a
                 DHT-blocker that works at the scalp level to help prevent
                 follicle miniaturization.
               </p>
               <p>
-                <span className="font-semibold">Minoxidil 7.5%</span> is a
+                <span className="font-semibold">Minoxidil</span> is a
                 vasodilator that helps improve blood flow to the scalp,
                 promoting growth in dormant follicles.
               </p>
               <p>
-                <span className="font-semibold">Tretinoin 0.0125%</span> is a
+                <span className="font-semibold">Tretinoin</span> is a
                 retinoid that enhances the penetration and effectiveness of the
                 other active ingredients.
               </p>
               <p>
-                <span className="font-semibold">Fluocinolone 0.01%</span> is a
+                <span className="font-semibold">Fluocinolone</span> is a
                 mild anti-inflammatory that helps reduce scalp irritation,
                 creating a healthier environment for hair growth.
               </p>
             </div>
           </div>
+        </div>
+        {/* Column 2: Image */}
+        <div className="flex min-h-[360px] flex-1 flex-col items-stretch justify-stretch rounded-3xl bg-[url('/products/topical-finasteride-ingredients.png')] bg-cover bg-center xl:min-h-[522px]">
+          {/* This div is now intentionally empty to serve as the image container. */}
         </div>
       </div>
     </section>
@@ -4778,32 +5668,52 @@ export default function DeepDiveSection() {
 }
 
 # File: src\components\product\topical-finasteride\hero-section.tsx
+// src/components/product/topical-finasteride/hero-section.tsx
+"use client";
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { CheckCircleFillIcon } from "@/components/svg/check-circle-fill-icon";
 import StarFillIcon from "@/components/svg/star-fill-icon";
 import Badge from "@/components/ui/badge";
 import Button from "@/components/ui/button-custom";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { Droplets, Sparkles, Beaker, ShieldCheck } from "lucide-react";
 
 export default function HeroSection() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
     <section className="container mx-auto my-4 px-4 xl:my-15 xl:px-0">
       <div className="flex flex-col justify-between gap-x-4 xl:flex-row xl:items-stretch">
         <div className="relative h-full min-h-[590px] w-full overflow-hidden rounded-3xl">
+          {/* SURGICAL STRIKE: Update alt text to match new product name */}
           <Image
             src="/products/topical-finasteride-hero.png"
-            alt="Topical Finasteride"
+            alt="Topical Finasteride + Minoxidil + Tretinoin + Fluocinolone + Biotin"
             fill
-            className="object-cover object-right"
+            className="object-contain object-center"
           />
         </div>
         <div className="flex w-full flex-col gap-y-10 py-6 px-1 xl:py-0 xl:px-19">
           <div className="space-y-3">
+            {/* SURGICAL STRIKE: Update product title for consistency and clarity */}
             <p className="font-title text-2xl font-medium tracking-tight xl:text-4xl">
-              Topical Finasteride
+              Topical Finasteride + Minoxidil + Tretinoin + Fluocinolone + Biotin
             </p>
             <p className="text-sm xl:text-base">
               A powerful, multi-action serum that combines four key
-              ingredients to fight hair loss directly at the scalp.
+              ingredients to fight hair loss directly at the scalp. The perfect
+              5-in-1 topical hair loss formula.
             </p>
             <div className="flex items-center justify-start gap-x-3">
               <div className="flex items-center justify-start gap-x-1">
@@ -4818,20 +5728,28 @@ export default function HeroSection() {
               </p>
             </div>
 
-            <ul className="flex list-none list-inside flex-col gap-y-1 text-xs text-muted-foreground">
-              <li>
-                <span>✓&nbsp;</span>Targets hair loss at the source
-              </li>
-              <li>
-                <span>✓&nbsp;</span>Potent 4-in-1 prescription formula
-              </li>
-              <li>
-                <span>✓&nbsp;</span>A pill-free alternative to oral medication
-              </li>
-              <li>
-                <span>✓&nbsp;</span>Prescribed by a licensed U.S. provider
-              </li>
-            </ul>
+            <div className="space-y-4 pt-4">
+              <div className="flex items-start gap-x-3">
+                <Beaker className="size-5 text-primary flex-shrink-0" />
+                <p className="text-sm text-muted-foreground">
+                  Physician & Pharmacist formulated with research-backed
+                  clinical ingredients.
+                </p>
+              </div>
+              <div className="flex items-start gap-x-3">
+                <Droplets className="size-5 text-primary flex-shrink-0" />
+                <p className="text-sm text-muted-foreground">
+                  Copper-infused liposomal formula for optimal bioavailability
+                  and absorption.
+                </p>
+              </div>
+              <div className="flex items-start gap-x-3">
+                <ShieldCheck className="size-5 text-primary flex-shrink-0" />
+                <p className="text-sm text-muted-foreground">
+                  A pill-free alternative that targets hair loss at the source.
+                </p>
+              </div>
+            </div>
           </div>
 
           <div className="flex flex-col justify-between space-y-3">
@@ -4842,19 +5760,17 @@ export default function HeroSection() {
                 name="price"
                 value="price-1"
                 id="price-1"
-                defaultChecked
               />
               <div className="radio-card">
                 <div className="flex w-full justify-between">
-                  <Badge>Best Value</Badge>
+                  <p className="font-semibold">Monthly Supply</p>
                   <CheckCircleFillIcon className="radio-icon" />
                 </div>
-                <p className="font-semibold">Quarterly Supply</p>
                 <p className="tabular-nums text-2xl text-muted-foreground">
-                  $147.50
+                  From $59
                 </p>
                 <p className="text-muted-foreground">
-                  Billed and delivered every 3 months. Just $49.17/month.
+                  Billed and delivered every month.
                 </p>
               </div>
             </label>
@@ -4865,25 +5781,120 @@ export default function HeroSection() {
                 name="price"
                 value="price-2"
                 id="price-2"
+                defaultChecked
               />
               <div className="radio-card">
-                <div className="flex w-full justify-end">
+                <div className="flex w-full justify-between">
+                  <Badge>Most Popular</Badge>
                   <CheckCircleFillIcon className="radio-icon" />
                 </div>
-                <p className="font-semibold">Monthly Supply</p>
+                <p className="font-semibold">Quarterly Supply</p>
                 <p className="tabular-nums text-2xl text-muted-foreground">
-                  $59
+                  From $139
                 </p>
                 <p className="text-muted-foreground">
-                  Billed and delivered every month.
+                  Billed and delivered every 3 months. Save up to 21%.
+                </p>
+              </div>
+            </label>
+            <label className="radio-wrapper">
+              <input
+                className="peer absolute opacity-0"
+                type="radio"
+                name="price"
+                value="price-3"
+                id="price-3"
+              />
+              <div className="radio-card">
+                <div className="flex w-full justify-between">
+                  <Badge>Best Value</Badge>
+                  <CheckCircleFillIcon className="radio-icon" />
+                </div>
+                <p className="font-semibold">5-Month Supply</p>
+                <p className="tabular-nums text-2xl text-muted-foreground">
+                  From $199
+                </p>
+                <p className="text-muted-foreground">
+                  Billed and delivered every 5 months. Save up to 32%.
                 </p>
               </div>
             </label>
           </div>
 
-          <Button variant="filled" size="xl" className="mt-4">
-            Start My Visit
-          </Button>
+          <a
+            href="https://checkout.unbranded.co/hair_compound_topical?priceId=2015"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button variant="filled" size="xl" className="mt-4 w-full">
+              Start My Visit
+            </Button>
+          </a>
+
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="item-1" className="border-b-0">
+              <AccordionTrigger className="hover:no-underline text-sm font-semibold">
+                Important Safety Information
+              </AccordionTrigger>
+              <AccordionContent className="text-xs space-y-4">
+                <div>
+                  <h4 className="font-bold">How to Use:</h4>
+                  <p>
+                    Apply once daily at night to a clean, dry scalp. Wash hands
+                    after application. Avoid contact with eyes or mouth. Allow
+                    to dry for at least 4 hours before washing. Results may take
+                    2-4 months to appear.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-bold">Important Warnings:</h4>
+                  <ul className="list-disc pl-5 space-y-1">
+                    <li>
+                      <strong>For Men Only:</strong> This product is for use by
+                      men only.
+                    </li>
+                    <li>
+                      <strong>Pregnancy Risk:</strong> Women who are pregnant or may
+                      become pregnant must not handle or use this medication.
+                      Finasteride can be absorbed through the skin and cause
+                      birth defects in a male fetus.
+                    </li>
+                    <li>
+                      <strong>Prostate Cancer Risk:</strong> Finasteride may
+                      increase the risk of a more serious form of prostate
+                      cancer.
+                    </li>
+                    <li>
+                      <strong>PSA Levels:</strong> Finasteride can lower PSA levels.
+                      Inform your doctor you are using this medication.
+                    </li>
+                    <li>
+                      <strong>Contraindications:</strong> Do not use if you are
+                      allergic to any ingredients. Inform your provider of any
+                      history of heart, liver, or kidney disease, prostate
+                      cancer, or Cushing's Syndrome.
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-bold">Potential Side Effects:</h4>
+                  <p>
+                    Common side effects are typically localized to the scalp,
+                    such as itching, redness, or irritation. Though rare with
+                    topical application, systemic side effects are possible and
+                    may include sexual side effects such as decreased libido or
+                    trouble with erections, breast tenderness, or dizziness.
+                    Seek emergency help for severe allergic reactions.
+                  </p>
+                </div>
+                <p className="italic">
+                  This is not an exhaustive list. For complete medical advice,
+                  consult your provider. You may report side effects to the FDA
+                  at 1-800-FDA-1088.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
       </div>
     </section>
@@ -4891,6 +5902,7 @@ export default function HeroSection() {
 }
 
 # File: src\components\product\topical-finasteride\questions.tsx
+// src/components/product/topical-finasteride/questions.tsx
 import {
   Accordion,
   AccordionContent,
@@ -4905,6 +5917,7 @@ export default function QuestionsSection() {
         <h3 className="min-w-sm mb-6 font-title text-3xl font-medium xl:mb-0">
           Product Questions
         </h3>
+        {/* SURGICAL STRIKE: Replaced the old 5 FAQs with a new, comprehensive list of 8 FAQs. */}
         <div className="w-full flex-1">
           <Accordion type="single" collapsible className="space-y-4">
             <AccordionItem
@@ -4912,12 +5925,15 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                How do I apply it?
+                How does this topical formula work?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                Apply 1ml of the solution to a clean, dry scalp once daily,
-                focusing on areas of thinning. Gently massage it into the scalp
-                and let it dry. Wash your hands thoroughly after application.
+                This formula works by targeting Dihydrotestosterone (DHT), the
+                hormone that causes male pattern hair loss, directly at the
+                scalp. The active ingredient, Finasteride, helps to block the
+                conversion of testosterone to DHT locally, which can prevent
+                hair follicles from shrinking and help stop hair loss at its
+                source.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -4925,12 +5941,15 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                Will it make my hair greasy or sticky?
+                Why choose a topical formula over an oral pill?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                The formula is designed to be lightweight and absorb into the
-                scalp. To minimize any effect on your hairstyle, we recommend
-                applying it at night, at least an hour before going to bed.
+                A topical formula is a great alternative for men who prefer not
+                to take a daily pill. By delivering the active ingredients
+                directly to the scalp, it focuses the treatment on the area
+                where it&apos;s needed most. This localized approach is also
+                thought to have a lower risk of systemic side effects compared
+                to the oral tablet form.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -4938,14 +5957,16 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                Are there any side effects?
+                Why does this formula contain multiple active ingredients?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                The most common side effects are localized to the application
-                site, such as scalp itching or irritation. While systemic side
-                effects are less common than with oral finasteride, they are
-                still possible. [We will add a link to full safety
-                information here].
+                Our formula is designed for a comprehensive, multi-action
+                approach. <strong>Finasteride</strong> blocks DHT to prevent
+                further loss, <strong>Minoxidil</strong> helps stimulate
+                regrowth by increasing blood flow to follicles,{" "}
+                <strong>Tretinoin</strong> improves the scalp&apos;s absorption of
+                the other ingredients, and <strong>Fluocinolone</strong> helps
+                soothe scalp inflammation.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -4953,12 +5974,13 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                Can I use styling products with this?
+                How do I apply it?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                Yes. Apply the treatment first and allow it to dry completely
-                before using any styling products like gels, mousses, or
-                sprays.
+                Once daily, apply 1ml of the solution to the affected areas of
+                a clean, dry scalp. Massage it in gently and let it dry
+                completely. It&apos;s important to wash your hands thoroughly after
+                you&apos;ve finished applying it.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -4966,12 +5988,60 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
+                Will it make my hair greasy, and can I use styling products?
+              </AccordionTrigger>
+              <AccordionContent className="text-xs">
+                The solution is designed to be lightweight and absorb into the
+                scalp. To minimize any effect on your hairstyle, we recommend
+                applying it at night. You can use styling products, but you
+                should always apply the treatment first and wait for it to dry
+                completely before using any gels, sprays, or other products.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="item-6"
+              className="border-0 rounded-3xl bg-white px-5"
+            >
+              <AccordionTrigger className="hover:no-underline font-semibold">
                 How long before I see results?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                Consistent daily application is crucial. Most users begin to
-                see less shedding and early signs of regrowth within 3-6
-                months. Maximum results are typically visible after 12 months.
+                Daily, consistent application is key. Most men start to notice
+                less shedding or the first signs of regrowth within 3-6
+                months. The most significant results are typically seen after
+                12 months of continuous use.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="item-7"
+              className="border-0 rounded-3xl bg-white px-5"
+            >
+              <AccordionTrigger className="hover:no-underline font-semibold">
+                Is this medication FDA-approved?
+              </AccordionTrigger>
+              <AccordionContent className="text-xs">
+                While the oral form of Finasteride 1mg is FDA-approved for
+                hair loss, using it topically is considered an &quot;off-label&quot;
+                use. Furthermore, our multi-ingredient formula is a
+                &quot;compounded medication,&quot; custom-made by a licensed U.S.
+                pharmacy. As a compounded drug, this specific formula is not
+                FDA-approved.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="item-8"
+              className="border-0 rounded-3xl bg-white px-5"
+            >
+              <AccordionTrigger className="hover:no-underline font-semibold">
+                What are the potential side effects?
+              </AccordionTrigger>
+              <AccordionContent className="text-xs">
+                The most common side effects are typically mild and localized
+                to the scalp, such as itching, redness, or irritation. While
+                the risk is considered lower than with oral Finasteride,
+                systemic side effects are still possible. It&apos;s essential to
+                discuss your full medical history with your provider. Please
+                review the full safety information for more details.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
@@ -5186,20 +6256,7 @@ export default function HeroSection() {
             </label>
           </div>
 
-          {isClient && (
-            <div className="space-y-2">
-              <p className="text-sm font-medium">Strength:</p>
-              <Select>
-                <SelectTrigger className="w-full border-neutral-400">
-                  <SelectValue placeholder="Select dose" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="standard">Standard Dose</SelectItem>
-                  <SelectItem value="max">Maximum Dose</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-          )}
+          {/* SURGICAL STRIKE: Removed the strength label and dropdown component. */}
 
           <Button variant="filled" size="xl">
             Start My Visit
