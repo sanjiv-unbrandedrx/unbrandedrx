@@ -1,3 +1,4 @@
+// src/components/product/ed-rapid-dissolve-tablet/questions.tsx
 import {
   Accordion,
   AccordionContent,
@@ -12,7 +13,6 @@ export default function QuestionsSection() {
         <h3 className="min-w-sm mb-6 font-title text-3xl font-medium xl:mb-0">
           Product Questions
         </h3>
-        {/* SURGICAL STRIKE: Replaced the old 5 FAQs with a new, comprehensive list of 8 FAQs. */}
         <div className="w-full flex-1">
           <Accordion type="single" collapsible className="space-y-4">
             <AccordionItem
@@ -20,13 +20,13 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                How do I use a troche?
+                How do I use an RDT?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                Place one troche under your tongue and allow it to dissolve
-                completely. Do not chew or swallow it, as this affects its
-                absorption. For best results, use it 15-30 minutes before you
-                anticipate sexual activity.
+                Place one Rapid Dissolving Tablet (RDT) between your cheek and
+                gum and allow it to dissolve completely. Do not chew or swallow
+                it. For best results, use it 15-30 minutes before you anticipate
+                sexual activity.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -34,15 +34,14 @@ export default function QuestionsSection() {
               className="border-0 rounded-3xl bg-white px-5"
             >
               <AccordionTrigger className="hover:no-underline font-semibold">
-                What does &apos;sublingual&apos; mean and why is it better?
+                Why an RDT instead of a regular pill?
               </AccordionTrigger>
               <AccordionContent className="text-xs">
-                &quot;Sublingual&quot; means &quot;under the tongue.&quot; This delivery
-                method allows the active ingredients to be absorbed directly
-                into the bloodstream through the rich network of capillaries
-                there. By bypassing the digestive system, it often results in
-                a faster onset of action compared to traditional pills that
-                need to be swallowed.
+                The RDT delivery method allows the active ingredients to be
+                absorbed directly into the bloodstream through the lining of
+                your cheek. By bypassing the digestive system, it often
+                results in a faster onset of action compared to traditional
+                pills. It’s also more convenient, as no water is needed.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
@@ -68,12 +67,13 @@ export default function QuestionsSection() {
               <AccordionTrigger className="hover:no-underline font-semibold">
                 How is this different from Viagra® or Cialis®?
               </AccordionTrigger>
+              {/* TASK 6: Final consistency check */}
               <AccordionContent className="text-xs">
                 While it contains active ingredients from the same class as
                 Cialis® (Tadalafil) and Levitra® (Vardenafil), our formula is
                 more comprehensive. It also includes Apomorphine and Oxytocin
                 to support arousal pathways in the brain. It’s a multi-symptom
-                approach in a fast-acting sublingual form, not just a standard
+                approach in a fast-acting rapid dissolving tablet, not just a standard
                 pill.
               </AccordionContent>
             </AccordionItem>
@@ -84,8 +84,9 @@ export default function QuestionsSection() {
               <AccordionTrigger className="hover:no-underline font-semibold">
                 How fast does it work and how long do the effects last?
               </AccordionTrigger>
+              {/* TASK 6: Final consistency check */}
               <AccordionContent className="text-xs">
-                Thanks to the sublingual delivery, many men feel the effects
+                Thanks to the rapid dissolving delivery, many men feel the effects
                 in as little as 15-30 minutes. The Tadalafil component is
                 long-acting, meaning the medication can remain effective in
                 your system for up to 36 hours. This doesn&apos;t mean you will
@@ -100,8 +101,9 @@ export default function QuestionsSection() {
               <AccordionTrigger className="hover:no-underline font-semibold">
                 Can I take it with food or alcohol?
               </AccordionTrigger>
+              {/* TASK 6: Final consistency check */}
               <AccordionContent className="text-xs">
-                Because the medication is absorbed sublingually, its
+                Because the medication is absorbed through the cheek, its
                 effectiveness is less likely to be impacted by food. However,
                 heavy meals can still affect performance, and excessive
                 alcohol consumption can increase the risk of side effects like
@@ -122,7 +124,6 @@ export default function QuestionsSection() {
                 crucial to discuss your full medical history with your
                 provider. For a comprehensive overview, please review the full
                 safety information.
-                {/* BUG FIX: Corrected the closing tag for AccordionContent */}
               </AccordionContent>
             </AccordionItem>
             <AccordionItem

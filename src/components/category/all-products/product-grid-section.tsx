@@ -1,16 +1,17 @@
-// @/components/category/all-products/product-grid-section.tsx
+// src/components/category/all-products/product-grid-section.tsx
 import DownIcon from "@/components/svg/down-icon";
 import ProductGridItem from "@/components/shop/product-grid-item";
 import { ProductItem } from "@/components/shop/product-grid-item";
 
 const ALL_PRODUCTS: ProductItem[] = [
+  // TASK 6: Update product name and slug
   {
-    id: "ed-troche",
-    name: "4-in-1 ED Troche",
+    id: "ed-rapid-dissolve-tablet",
+    name: "4-in-1 ED Rapid Dissolve Tablet",
     medicalName: "Tadalafil + Vardenafil + Apomorphine",
-    price: "29.00",
-    image: "/products/ed-troche-hero.png",
-    slug: "ed-troche",
+    price: "29.00", // Note: out of date
+    image: "/products/ed-rapid-dissolve-tablet-hero.png",
+    slug: "ed-rapid-dissolve-tablet",
   },
   {
     id: "dapoxetine",

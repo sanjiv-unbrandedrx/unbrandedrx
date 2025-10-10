@@ -1,12 +1,10 @@
-// File: src/app/(main)/page.tsx
+// src/app/(main)/page.tsx
 import HeroSection from "@/components/home/hero-section";
 import CategoryCard, { CategoryItem } from "@/components/home/category-card";
 import CardsSection from "@/components/home/cards-section";
-// SURGICAL STRIKE: Removed FeaturedSection import
 import ProductCarousel from "@/components/common/product-carousel";
 import { Product } from "@/components/shop/product-card";
 
-// SURGICAL STRIKE: Updated the category list to include all four main categories.
 const DUMMY_CATEGORIES: CategoryItem[] = [
   {
     id: "hair-loss",
@@ -38,7 +36,6 @@ const DUMMY_CATEGORIES: CategoryItem[] = [
   },
 ];
 
-// SURGICAL STRIKE: Added the list of best-selling products.
 const BEST_SELLERS: Product[] = [
   {
     id: "dapoxetine",
@@ -56,13 +53,14 @@ const BEST_SELLERS: Product[] = [
     image: "/products/enclomiphene-hero.png",
     slug: "enclomiphene",
   },
+  // TASK 6: Update product name and slug
   {
-    id: "ed-troche",
-    name: "4-in-1 ED Troche",
+    id: "ed-rapid-dissolve-tablet",
+    name: "4-in-1 ED Rapid Dissolve Tablet",
     medicalName: "Tadalafil + Vardenafil + Apomorphine",
-    price: "29.00",
-    image: "/products/ed-troche-hero.png",
-    slug: "ed-troche",
+    price: "29.00", // Note: This price is now out of date from Task 4, will update later if needed.
+    image: "/products/ed-rapid-dissolve-tablet-hero.png",
+    slug: "ed-rapid-dissolve-tablet",
   },
   {
     id: "topical-dutasteride",
@@ -96,8 +94,6 @@ export default function Home() {
       </section>
 
       <CardsSection />
-      {/* SURGICAL STRIKE: Removed FeaturedSection component */}
-      {/* SURGICAL STRIKE: Pass the best-sellers data to the carousel. */}
       <ProductCarousel title="Our Best Sellers" products={BEST_SELLERS} />
     </main>
   );

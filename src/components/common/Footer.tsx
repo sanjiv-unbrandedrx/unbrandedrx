@@ -1,4 +1,4 @@
-// File: src/components/common/Footer.tsx
+// src/components/common/Footer.tsx
 import Link from "next/link";
 
 const productLinks = [
@@ -22,7 +22,8 @@ const productLinks = [
     category: "Men's Health",
     categoryHref: "/shop/category/mens-health",
     items: [
-      { name: "4-in-1 ED Troche", href: "/shop/product/ed-troche" },
+      // TASK 6: Update product name and link
+      { name: "4-in-1 ED Rapid Dissolve Tablet", href: "/shop/product/ed-rapid-dissolve-tablet" },
       { name: "Enclomiphene", href: "/shop/product/enclomiphene" },
       { name: "Dapoxetine", href: "/shop/product/dapoxetine" },
       {
@@ -33,7 +34,6 @@ const productLinks = [
   },
 ];
 
-// SURGICAL STRIKE: Updated hrefs for "About Us" and "How it Works" to point to the correct pages.
 const companyLinks = [
   { name: "About Us", href: "/about" },
   { name: "How it Works", href: "/how-it-works" },

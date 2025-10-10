@@ -1,17 +1,17 @@
-// File: src/components/category/mens-health/product-grid-section.tsx
+// src/components/category/mens-health/product-grid-section.tsx
 import DownIcon from "@/components/svg/down-icon";
 import ProductGridItem from "@/components/shop/product-grid-item";
 import { ProductItem } from "@/components/shop/product-grid-item";
 
-// Hardcode the products for THIS category page
 const MENS_HEALTH_PRODUCTS: ProductItem[] = [
+  // TASK 6: Update product name and slug
   {
-    id: "ed-troche",
-    name: "4-in-1 ED Troche",
+    id: "ed-rapid-dissolve-tablet",
+    name: "4-in-1 ED Rapid Dissolve Tablet",
     medicalName: "Tadalafil + Vardenafil + Apomorphine",
     price: "XX.XX",
-    image: "/products/ed-troche-hero.png",
-    slug: "ed-troche",
+    image: "/products/ed-rapid-dissolve-tablet-hero.png",
+    slug: "ed-rapid-dissolve-tablet",
   },
   {
     id: "enclomiphene",

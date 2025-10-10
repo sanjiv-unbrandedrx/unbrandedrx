@@ -378,7 +378,7 @@ const BEST_SELLERS: Product[] = [
     name: "4-in-1 ED Troche",
     medicalName: "Tadalafil + Vardenafil + Apomorphine",
     price: "29.00",
-    image: "/products/ed-troche-hero.png",
+    image: "/products/ed-rapid-dissolve-tablet-hero.png",
     slug: "ed-troche",
   },
   {
@@ -1169,7 +1169,7 @@ const popularProducts: Product[] = [
     name: "4-in-1 ED Troche",
     medicalName: "Tadalafil + Vardenafil + Apomorphine",
     price: "29.00",
-    image: "/products/ed-troche-hero.png",
+    image: "/products/ed-rapid-dissolve-tablet-hero.png",
     slug: "ed-troche",
   },
 ];
@@ -1310,7 +1310,7 @@ const ALL_PRODUCTS: ProductItem[] = [
     name: "4-in-1 ED Troche",
     medicalName: "Tadalafil + Vardenafil + Apomorphine",
     price: "29.00",
-    image: "/products/ed-troche-hero.png",
+    image: "/products/ed-rapid-dissolve-tablet-hero.png",
     slug: "ed-troche",
   },
   {
@@ -1585,7 +1585,7 @@ const MENS_HEALTH_PRODUCTS: ProductItem[] = [
     name: "4-in-1 ED Troche",
     medicalName: "Tadalafil + Vardenafil + Apomorphine",
     price: "XX.XX",
-    image: "/products/ed-troche-hero.png",
+    image: "/products/ed-rapid-dissolve-tablet-hero.png",
     slug: "ed-troche",
   },
   {
@@ -1706,7 +1706,7 @@ const SEXUAL_HEALTH_PRODUCTS: ProductItem[] = [
     name: "4-in-1 ED Troche",
     medicalName: "Tadalafil + Vardenafil + Apomorphine",
     price: "29.00",
-    image: "/products/ed-troche-hero.png",
+    image: "/products/ed-rapid-dissolve-tablet-hero.png",
     slug: "ed-troche",
   },
   {
@@ -2983,7 +2983,7 @@ export default function DeepDiveSection() {
   return (
     <section className="container mx-auto my-4 py-6 px-4 xl:my-15 xl:py-10 xl:px-0">
       <div className="flex flex-col justify-between gap-y-8 gap-x-19 xl:flex-row">
-        <div className="flex min-h-[360px] flex-1 flex-col items-stretch justify-stretch rounded-3xl bg-[url('/products/ed-troche-ingredients.png')] bg-cover bg-center xl:min-h-[522px]">
+        <div className="flex min-h-[360px] flex-1 flex-col items-stretch justify-stretch rounded-3xl bg-[url('/products/ed-rapid-dissolve-tablet-ingredients.png')] bg-cover bg-center xl:min-h-[522px]">
           <div className="flex h-full w-full flex-1 flex-col items-start justify-end gap-y-5 rounded-3xl bg-gradient-to-t from-white/60 to-transparent p-8">
             <h4 className="font-title text-3xl font-medium">
               Four Ingredients, One Comprehensive Solution
@@ -3043,7 +3043,7 @@ export default function HeroSection() {
       <div className="flex flex-col justify-between gap-x-4 xl:flex-row xl:items-stretch">
         <div className="relative h-full min-h-[590px] w-full overflow-hidden rounded-3xl">
           <Image
-            src="/products/ed-troche-hero.png"
+            src="/products/ed-rapid-dissolve-tablet-hero.png"
             alt="4-in-1 ED Troche"
             fill
             className="object-cover object-right"

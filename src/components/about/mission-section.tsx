@@ -1,4 +1,4 @@
-// File: src/components/about/mission-section.tsx
+// src/components/about/mission-section.tsx
 import ProductCarousel from "@/components/common/product-carousel";
 import { Product } from "@/components/shop/product-card";
 
@@ -19,13 +19,14 @@ const popularProducts: Product[] = [
     image: "/products/oral-finasteride-hero.png",
     slug: "oral-finasteride",
   },
+  // TASK 6: Update product name and slug
   {
-    id: "ed-troche",
-    name: "4-in-1 ED Troche",
+    id: "ed-rapid-dissolve-tablet",
+    name: "4-in-1 ED Rapid Dissolve Tablet",
     medicalName: "Tadalafil + Vardenafil + Apomorphine",
-    price: "29.00",
-    image: "/products/ed-troche-hero.png",
-    slug: "ed-troche",
+    price: "29.00", // Note: This price is out of date.
+    image: "/products/ed-rapid-dissolve-tablet-hero.png",
+    slug: "ed-rapid-dissolve-tablet",
   },
 ];
 
