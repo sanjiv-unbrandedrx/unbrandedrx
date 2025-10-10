@@ -156,4 +156,24 @@ body {
   .radio-wrapper input[type="radio"]:checked + .radio-card .radio-icon {
     @apply text-foreground;
   }
+
+  /* Added styles for rendered markdown content */
+  .legal-content {
+    @apply text-left w-full space-y-4 text-muted-foreground;
+  }
+  .legal-content h2 {
+    @apply font-title text-2xl font-semibold text-foreground mt-8 border-b pb-2;
+  }
+  .legal-content h3 {
+    @apply font-title text-xl font-semibold text-foreground mt-6;
+  }
+  .legal-content ul {
+    @apply list-disc list-inside space-y-2;
+  }
+  .legal-content a {
+    @apply text-primary underline-offset-4 hover:underline;
+  }
+  .legal-content strong {
+    @apply font-semibold text-foreground;
+  }
 }

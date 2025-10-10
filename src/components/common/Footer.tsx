@@ -115,7 +115,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="mt-16 border-t border-neutral-700 pt-8">
           <p className="text-sm text-neutral-500">
-            &copy; {new Date().getFullYear()} unbrandedrx inc. All Rights
+            &copy; {new Date().getFullYear()} unbrandedrx. All Rights
             Reserved
           </p>
         </div>
