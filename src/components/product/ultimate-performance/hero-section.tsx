@@ -164,10 +164,16 @@ export default function HeroSection() {
           </div>
 
           {/* SURGICAL STRIKE: Removed the strength label and dropdown component. */}
-
-          <Button variant="filled" size="xl">
-            Start My Visit
-          </Button>
+          {/* SURGICAL STRIKE: Added the correct checkout URL to the CTA button. */}
+          <a
+            href="https://checkout.unbranded.co/StaminaRx?priceId=1979"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button variant="filled" size="xl">
+              Start My Visit
+            </Button>
+          </a>
 
           {/* TASK 46: Added comprehensive safety information accordion. */}
           <Accordion type="single" collapsible className="w-full">
