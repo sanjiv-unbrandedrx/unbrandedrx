@@ -1,18 +1,19 @@
 "use client";
 
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { CheckCircleFillIcon } from "@/components/svg/check-circle-fill-icon";
 import StarFillIcon from "@/components/svg/star-fill-icon";
 import Badge from "@/components/ui/badge";
 import Button from "@/components/ui/button-custom";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+// REFACTOR: Import icons for the new feature list.
+import { BarChart, Zap, Package, ShieldCheck } from "lucide-react";
 
 export default function HeroSection() {
   const [isClient, setIsClient] = useState(false);
@@ -29,7 +30,8 @@ export default function HeroSection() {
             src="/products/enclomiphene-hero.png"
             alt="Enclomiphene"
             fill
-            className="object-cover object-right"
+            // REFACTOR: Changed image treatment to 'object-contain' for consistency.
+            className="object-contain object-center"
           />
         </div>
         <div className="flex w-full flex-col gap-y-10 py-6 px-1 xl:py-0 xl:px-19">
@@ -54,21 +56,33 @@ export default function HeroSection() {
               </p>
             </div>
 
-            <ul className="flex list-none list-inside flex-col gap-y-1 text-xs text-muted-foreground">
-              <li>
-                <span>✓&nbsp;</span>Promotes healthy testosterone levels
-              </li>
-              <li>
-                <span>✓&nbsp;</span>Supports your body&apos;s own hormone
-                production
-              </li>
-              <li>
-                <span>✓&nbsp;</span>Convenient once-a-day capsule
-              </li>
-              <li>
-                <span>✓&nbsp;</span>Prescribed by a licensed U.S. provider
-              </li>
-            </ul>
+            {/* REFACTOR: Replaced the old text-based list with a new icon-based list. */}
+            <div className="space-y-4 pt-4">
+              <div className="flex items-start gap-x-3">
+                <BarChart className="size-5 text-primary flex-shrink-0" />
+                <p className="text-sm text-muted-foreground">
+                  Promotes healthy testosterone levels.
+                </p>
+              </div>
+              <div className="flex items-start gap-x-3">
+                <Zap className="size-5 text-primary flex-shrink-0" />
+                <p className="text-sm text-muted-foreground">
+                  Supports your body&apos;s own hormone production.
+                </p>
+              </div>
+              <div className="flex items-start gap-x-3">
+                <Package className="size-5 text-primary flex-shrink-0" />
+                <p className="text-sm text-muted-foreground">
+                  Convenient once-a-day capsule.
+                </p>
+              </div>
+              <div className="flex items-start gap-x-3">
+                <ShieldCheck className="size-5 text-primary flex-shrink-0" />
+                <p className="text-sm text-muted-foreground">
+                  Prescribed by a licensed U.S. provider.
+                </p>
+              </div>
+            </div>
           </div>
 
           <div className="flex flex-col justify-between space-y-3">
@@ -142,9 +156,102 @@ export default function HeroSection() {
 
           {/* SURGICAL STRIKE: Removed the strength label and dropdown component. */}
 
-          <Button variant="filled" size="xl">
-            Start My Visit
-          </Button>
+          <a
+            href="https://checkout.unbranded.co/enclomiphine?priceId=1998"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button variant="filled" size="xl">
+              Start My Visit
+            </Button>
+          </a>
+          {/* TASK 44: Added comprehensive safety information accordion. */}
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="item-1" className="border-b-0">
+              <AccordionTrigger className="hover:no-underline text-sm font-semibold">
+                Important Safety Information
+              </AccordionTrigger>
+              <AccordionContent className="text-xs space-y-4">
+                <div>
+                  <h4 className="font-bold">
+                    Contraindications (Do Not Take If):
+                  </h4>
+                  <ul className="list-disc pl-5 mt-2 space-y-1">
+                    <li>
+                      You have an allergy or hypersensitivity to Enclomiphene or
+                      Clomiphene.
+                    </li>
+                    <li>
+                      You have liver disease or a history of liver dysfunction.
+                    </li>
+                    <li>
+                      You have thyroid dysfunction, adrenal dysfunction, or an
+                      intracranial lesion such as a pituitary tumor.
+                    </li>
+                    <li>
+                      You are a woman or child; this medication is intended for
+                      use in men only.
+                    </li>
+                    <li>
+                      You have a history of or are at risk for blood clots.
+                    </li>
+                    <li>
+                      You have a history of hormone-related cancers.
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-bold">Consult Your Provider Before Use</h4>
+                  <p>
+                    To ensure Enclomiphene is safe for you, inform your
+                    provider if you have ever had:
+                  </p>
+                  <ul className="list-disc pl-5 mt-2 space-y-1">
+                    <li>Liver disease or increased liver enzymes</li>
+                    <li>Thyroid or adrenal dysfunction</li>
+                    <li>Intracranial lesions including pituitary tumors</li>
+                    <li>
+                      Blood clots, or if you take blood-thinning medications
+                    </li>
+                    <li>Heart disease or other cardiac conditions</li>
+                    <li>Cancer</li>
+                    <li>High cholesterol or triglycerides</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-bold">Potential Side Effects</h4>
+                  <p>
+                    Get emergency medical help for signs of an allergic
+                    reaction (hives, difficulty breathing, swelling of your
+                    face, lips, tongue, or throat) or signs of a blood clot
+                    (shortness of breath, chest pain, swelling in the legs).
+                  </p>
+                  <p className="mt-2">
+                    Common side effects of Enclomiphene may include:
+                  </p>
+                  <ul className="list-disc pl-5 mt-2 space-y-1">
+                    <li>Headache</li>
+                    <li>
+                      Visual symptoms (blurring, spots, flashes, floaters)
+                    </li>
+                    <li>Abdominal or pelvic pain or bloating</li>
+                    <li>Hot flashes</li>
+                    <li>Nausea, vomiting, or diarrhea</li>
+                    <li>Breast discomfort or tenderness</li>
+                    <li>Dizziness</li>
+                    <li>Mood changes (aggression, irritability, anxiety)</li>
+                    <li>Acne</li>
+                  </ul>
+                </div>
+                <p className="mt-2 italic">
+                  This is not a complete list of side effects and others may
+                  occur. Call your doctor for medical advice about side
+                  effects. You may report side effects to the FDA at
+                  1-800-FDA-1088.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
       </div>
     </section>
