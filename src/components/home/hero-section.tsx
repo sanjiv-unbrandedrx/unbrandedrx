@@ -17,7 +17,7 @@ export default function HeroSection() {
           </h2>
           {/* DEVAN FEEDBACK: Updated sub-headline */}
           <p className="font-light text-xl xl:text-2xl text-neutral-700 xl:text-muted-foreground">
-            Skip fancy packaging. Save more & have access to better
+            Skip fancy packaging. Save more & get better
             prescription formulas.
           </p>
         </div>
