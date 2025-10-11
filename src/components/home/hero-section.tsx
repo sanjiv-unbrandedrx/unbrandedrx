@@ -11,8 +11,9 @@ export default function HeroSection() {
         <Header />
         <div className="max-w-md space-y-6 mb-9 mt-12 xl:mt-35">
           {/* DEVAN FEEDBACK: Updated headline */}
+          {/* SURGICAL STRIKE: Added a line break to match the mockup design. */}
           <h2 className="font-title font-medium text-3xl xl:text-4xl tracking-tight">
-            Better Formulas. Smarter Rx Prices.
+            Better Formulas. <br /> Smarter Rx Prices.
           </h2>
           {/* DEVAN FEEDBACK: Updated sub-headline */}
           <p className="font-light text-xl xl:text-2xl text-neutral-700 xl:text-muted-foreground">
