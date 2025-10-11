@@ -1,6 +1,6 @@
 ### **UnbrandedRx - Refund Policy**
 
-This return and refund policy (“Return and Refund Policy”) governs services (“Services”) and products (“products” or “medication”) sold through online interfaces and properties (e.g., websites and mobile applications) owned and controlled by **Strut Health, LLC, doing business as UnbrandedRx** (hereinafter, "**UnbrandedRx**", "we","us", or "our"), including the **https://www.unbrandedrx.co** website.
+This return and refund policy (“Return and Refund Policy”) governs services (“Services”) and products (“products” or “medication”) sold through online interfaces and properties (e.g., websites and mobile applications) owned and controlled by UnbrandedRx (hereinafter, "we," "us," or "our"), including the https://www.unbrandedrx.co website.
 
 **Returns**
 

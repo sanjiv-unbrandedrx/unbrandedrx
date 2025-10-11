@@ -14,7 +14,7 @@ We use the information we collect to process your orders, provide customer suppo
 **Last Updated: October 26, 2023**
 
 **Introduction**
-**UnbrandedRx** (referred to herein as “we,” “us,” and “our”), a business name of Strut Health, LLC, is committed to protecting the privacy and security of the personal information we receive and collect from you. We also believe in transparency, and we are committed to informing you about how we treat your personal information.
+**UnbrandedRx** (referred to herein as “we,” “us,” and “our”) is committed to protecting the privacy and security of the personal information we receive and collect from you. We also believe in transparency, and we are committed to informing you about how we treat your personal information.
 
 This Website Privacy Policy (the “Policy”), together with our Terms of Service, apply to this our online interfaces and properties (e.g. websites and mobile applications) owned and controlled by **UnbrandedRx** including, but not limited to, the **https://www.unbrandedrx.co** website (the “Site”). This Policy describes the ways in which we use and share (1) personal information that users, visitors, and customers (“you” or “your”) provide to us when using the Site, and (2) certain information about you that is automatically collected when you access or use the Site. This Policy also describes certain rights and options that you may have with regard to your personal information.
 
