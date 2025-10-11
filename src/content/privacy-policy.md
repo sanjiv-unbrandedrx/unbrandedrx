@@ -11,7 +11,7 @@ This is a placeholder for the Privacy Policy. This document outlines how we coll
 
 We use the information we collect to process your orders, provide customer support, and improve our services. We do not sell your personal information to third parties.### **UnbrandedRx - Privacy Policy**
 
-**Last Updated: October 26, 2023**
+**Last Updated: October 1, 2025**
 
 **Introduction**
 **UnbrandedRx** (referred to herein as “we,” “us,” and “our”) is committed to protecting the privacy and security of the personal information we receive and collect from you. We also believe in transparency, and we are committed to informing you about how we treat your personal information.

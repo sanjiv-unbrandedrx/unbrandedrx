@@ -1,6 +1,6 @@
 ### **UnbrandedRx - Terms of Service**
 
-**Last Updated: October 26, 2023**
+**Last Updated: October 1, 2025**
 
 This document contains important information regarding your rights and obligations, as well as conditions, limitations, and exclusions that might apply to you. Please read it carefully.
 

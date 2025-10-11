@@ -22,7 +22,7 @@ Depending on where you live, the time it may take for your exchanged product to 
 
 **UnbrandedRx** may modify or update this Return and Refund Policy from time to time to reflect the changes in our business and practices, and so you should review this page periodically. When we change the policy in a material manner we will let you know and update the ‘last modified’ date at the bottom of this page.
 
-**Last Modified: October 26, 2023**
+**Last Modified: October 1, 2025**
 
 ---
 
