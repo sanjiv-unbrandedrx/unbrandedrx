@@ -6393,6 +6393,7 @@ body {
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "@/app/globals.css";
+import Script from "next/script";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -6420,6 +6421,12 @@ export default function RootLayout({
         className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}
       >
         <div>{children}</div>
+        <Script
+          id="ze-snippet"
+          src="https://static.zdassets.com/ekr/snippet.js?key=d9a6b9b3-7260-4bcc-8eb0-913c82f9b355"
+        >
+          {" "}
+        </Script>
       </body>
     </html>
   );
@@ -6556,27 +6563,6 @@ export default function MissionSection() {
       title="Popular Treatments, Transparently Priced."
       products={popularProducts}
     />
-  );
-}
-
-# File: src\components\about\partner-section.tsx
-// File: src/components/about/partner-section.tsx
-export default function PartnerSection() {
-  return (
-    <section className="bg-secondary">
-      <div className="container mx-auto px-4 py-20 text-center xl:px-0">
-        <h2 className="font-title text-3xl font-medium tracking-tight xl:text-4xl">
-          Expertise You Can Trust. Powered by Strut Health.
-        </h2>
-        <p className="mx-auto mt-6 max-w-3xl text-lg text-muted-foreground">
-          Our platform is built in partnership with Strut Health, a leader in
-          telehealth innovation. This collaboration allows us to provide you with
-          a secure, best-in-class patient portal, access to a nationwide network
-          of licensed medical providers, and reliable pharmacy services,
-          ensuring your health is always in expert hands.
-        </p>
-      </div>
-    </section>
   );
 }
 
@@ -13891,10 +13877,10 @@ This is a placeholder for the Privacy Policy. This document outlines how we coll
 
 We use the information we collect to process your orders, provide customer support, and improve our services. We do not sell your personal information to third parties.### **UnbrandedRx - Privacy Policy**
 
-**Last Updated: October 26, 2023**
+**Last Updated: October 1, 2025**
 
 **Introduction**
-**UnbrandedRx** (referred to herein as “we,” “us,” and “our”), a business name of Strut Health, LLC, is committed to protecting the privacy and security of the personal information we receive and collect from you. We also believe in transparency, and we are committed to informing you about how we treat your personal information.
+**UnbrandedRx** (referred to herein as “we,” “us,” and “our”) is committed to protecting the privacy and security of the personal information we receive and collect from you. We also believe in transparency, and we are committed to informing you about how we treat your personal information.
 
 This Website Privacy Policy (the “Policy”), together with our Terms of Service, apply to this our online interfaces and properties (e.g. websites and mobile applications) owned and controlled by **UnbrandedRx** including, but not limited to, the **https://www.unbrandedrx.co** website (the “Site”). This Policy describes the ways in which we use and share (1) personal information that users, visitors, and customers (“you” or “your”) provide to us when using the Site, and (2) certain information about you that is automatically collected when you access or use the Site. This Policy also describes certain rights and options that you may have with regard to your personal information.
 
@@ -14053,7 +14039,7 @@ You are expected to, and you acknowledge and agree that it is your responsibilit
 # File: src\content\returns-policy.md
 ### **UnbrandedRx - Refund Policy**
 
-This return and refund policy (“Return and Refund Policy”) governs services (“Services”) and products (“products” or “medication”) sold through online interfaces and properties (e.g., websites and mobile applications) owned and controlled by **Strut Health, LLC, doing business as UnbrandedRx** (hereinafter, "**UnbrandedRx**", "we","us", or "our"), including the **https://www.unbrandedrx.co** website.
+This return and refund policy (“Return and Refund Policy”) governs services (“Services”) and products (“products” or “medication”) sold through online interfaces and properties (e.g., websites and mobile applications) owned and controlled by UnbrandedRx (hereinafter, "we," "us," or "our"), including the https://www.unbrandedrx.co website.
 
 **Returns**
 
@@ -14075,7 +14061,7 @@ Depending on where you live, the time it may take for your exchanged product to 
 
 **UnbrandedRx** may modify or update this Return and Refund Policy from time to time to reflect the changes in our business and practices, and so you should review this page periodically. When we change the policy in a material manner we will let you know and update the ‘last modified’ date at the bottom of this page.
 
-**Last Modified: October 26, 2023**
+**Last Modified: October 1, 2025**
 
 ---
 
@@ -14090,11 +14076,11 @@ Let me know what you need next. We're in good shape for launch.
 # File: src\content\terms-and-conditions.md
 ### **UnbrandedRx - Terms of Service**
 
-**Last Updated: October 26, 2023**
+**Last Updated: October 1, 2025**
 
 This document contains important information regarding your rights and obligations, as well as conditions, limitations, and exclusions that might apply to you. Please read it carefully.
 
-These Terms of Use govern your use of our online interfaces and properties (e.g. websites and mobile applications) owned and controlled by **Strut Health, LLC, doing business as UnbrandedRx ("UnbrandedRx" “we,” “us,” or “our”)** including, but not limited to, the **https://www.unbrandedrx.co** website (the "Site") as well as the services and products ("Products") available to users through the Site. Titan Health, P.A. and its affiliated entities (collectively defined as "Titan Health") provide the professional medical services through Titan Health physicians (individually the "Provider" and collectively the "Providers"). **UnbrandedRx** provides the non-clinical Site services ("Services"). The terms "you" and "your" means you and any other person accessing your **UnbrandedRx** account.
+These Terms of Use govern your use of our online interfaces and properties (e.g., websites and mobile applications) owned and controlled by **UnbrandedRx** (“we,” “us,” or “our”), including, but not limited to, the **https://www.unbrandedrx.co** website (the "Site"), as well as the services (“Services”) and products (“Products”) available to users through the Site. Professional medical services are provided by independent medical groups and their affiliated physicians (individually the "Provider" and collectively the "Providers"). **UnbrandedRx** provides the non-clinical Site services. The terms "you" and "your" mean you and any other person accessing your **UnbrandedRx** account.
 
 By using or accessing the Site, registering with the Site, and/or by clicking “I Agree,” you acknowledge that you have read, understand, and agree to all terms and conditions contained within these Terms of Use. Your compliance with these Terms of Use is a condition to your use of the Site. If you do not agree to be bound by the Term of Use, promptly exit the Site. Please also consult our Privacy Policy, which can be found at **http://unbrandedrx.co/privacy-policy** for a description of our privacy practices and our Returns Policy, which can be found at **http://unbrandedrx.co/returns-policy** for a description regarding how Product returns are handled.
 
