@@ -31,14 +31,17 @@ export default function ProductGridItem({ product }: { product: ProductItem }) {
         </div>
         <PlusIcon />
       </div>
-      <div className="relative h-[285px] w-full">
-        <Image
-          src={product.image}
-          alt={product.name}
-          fill
-          className="object-contain object-center"
-        />
-      </div>
+      {/* TASK: Wrapped the image container with a Link to make it clickable. */}
+      <Link href={`/shop/product/${product.slug}`}>
+        <div className="relative h-[285px] w-full">
+          <Image
+            src={product.image}
+            alt={product.name}
+            fill
+            className="object-contain object-center"
+          />
+        </div>
+      </Link>
       <div className="flex flex-col items-center justify-end gap-y-3">
         {/* SURGICAL STRIKE: Reverted styling change by removing "text-center" */}
         <div className="text-neutral-800/80 flex flex-col items-center justify-end gap-y-1">
