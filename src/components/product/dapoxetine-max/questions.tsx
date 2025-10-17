@@ -1,3 +1,4 @@
+// src/components/product/dapoxetine-max/questions.tsx
 import {
   Accordion,
   AccordionContent,
@@ -28,7 +29,6 @@ export default function QuestionsSection() {
                 one dose in a 24-hour period.
               </AccordionContent>
             </AccordionItem>
-            {/* TASK 10: Removed the FAQ item comparing this product to the 4-in-1 ED Troche. */}
             <AccordionItem
               value="item-3"
               className="border-0 rounded-3xl bg-white px-5"

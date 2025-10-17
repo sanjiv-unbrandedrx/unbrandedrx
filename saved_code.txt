@@ -8138,7 +8138,7 @@ export default function HeroSection() {
 
           {/* TASK: Added checkout link to CTA button. */}
           <a
-            href="https://checkout.unbranded.co/StaminaRx?priceId=1978"
+            href="https://checkout.unbrandedrx.co/StaminaRx?priceId=1978"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -9235,7 +9235,7 @@ export default function HeroSection() {
           {/* SURGICAL STRIKE: Removed the strength label and dropdown component. */}
 
           <a
-            href="https://checkout.unbranded.co/enclomiphine?priceId=1998"
+            href="https://checkout.unbrandedrx.co/enclomiphine?priceId=1998"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -9891,7 +9891,7 @@ export default function HeroSection() {
           </div>
 
           <a
-            href="https://checkout.unbranded.co/hair-compound-oral?priceId=2082"
+            href="https://checkout.unbrandedrx.co/hair-compound-oral?priceId=2082"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -10371,7 +10371,7 @@ export default function HeroSection() {
           </div>
 
           <a
-            href="https://checkout.unbranded.co/hair-compound-oral?priceId=2082"
+            href="https://checkout.unbrandedrx.co/hair-compound-oral?priceId=2082"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -10933,7 +10933,7 @@ export default function HeroSection() {
 
           {/* SURGICAL STRIKE: Replaced placeholder with the correct checkout URL. */}
           <a
-            href="https://checkout.unbranded.co/hair_compound_topical?priceId=2017"
+            href="https://checkout.unbrandedrx.co/hair_compound_topical?priceId=2017"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -11394,7 +11394,7 @@ export default function HeroSection() {
           </div>
 
           <a
-            href="https://checkout.unbranded.co/hair_compound_topical?priceId=2015"
+            href="https://checkout.unbrandedrx.co/hair_compound_topical?priceId=2015"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -11863,7 +11863,7 @@ export default function HeroSection() {
           {/* SURGICAL STRIKE: Removed the strength label and dropdown component. */}
           {/* SURGICAL STRIKE: Added the correct checkout URL to the CTA button. */}
           <a
-            href="https://checkout.unbranded.co/StaminaRx?priceId=1979"
+            href="https://checkout.unbrandedrx.co/StaminaRx?priceId=1979"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -12156,14 +12156,17 @@ export default function ProductGridItem({ product }: { product: ProductItem }) {
         </div>
         <PlusIcon />
       </div>
-      <div className="relative h-[285px] w-full">
-        <Image
-          src={product.image}
-          alt={product.name}
-          fill
-          className="object-contain object-center"
-        />
-      </div>
+      {/* TASK: Wrapped the image container with a Link to make it clickable. */}
+      <Link href={`/shop/product/${product.slug}`}>
+        <div className="relative h-[285px] w-full">
+          <Image
+            src={product.image}
+            alt={product.name}
+            fill
+            className="object-contain object-center"
+          />
+        </div>
+      </Link>
       <div className="flex flex-col items-center justify-end gap-y-3">
         {/* SURGICAL STRIKE: Reverted styling change by removing "text-center" */}
         <div className="text-neutral-800/80 flex flex-col items-center justify-end gap-y-1">

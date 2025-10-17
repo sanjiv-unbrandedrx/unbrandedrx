@@ -22,13 +22,16 @@ const productLinks = [
     category: "Men's Health",
     categoryHref: "/shop/category/mens-health",
     items: [
-      // TASK 6: Update product name and link
-      { name: "4-in-1 ED Rapid Dissolve Tablet", href: "/shop/product/ed-rapid-dissolve-tablet" },
+      {
+        name: "4-in-1 ED Rapid Dissolve Tablet",
+        href: "/shop/product/ed-rapid-dissolve-tablet",
+      },
       { name: "Enclomiphene", href: "/shop/product/enclomiphene" },
       { name: "Dapoxetine", href: "/shop/product/dapoxetine" },
+      // TASK: Renamed product and updated link.
       {
-        name: "Ultimate Performance Capsule",
-        href: "/shop/product/ultimate-performance",
+        name: "Dapoxetine Max",
+        href: "/shop/product/dapoxetine-max",
       },
     ],
   },
@@ -38,7 +41,6 @@ const companyLinks = [
   { name: "About Us", href: "/about" },
   { name: "How it Works", href: "/how-it-works" },
   { name: "Contact Us", href: "/contact-us" },
-  // TASK 38: Removed the "Support" link from the footer.
 ];
 
 const legalLinks = [

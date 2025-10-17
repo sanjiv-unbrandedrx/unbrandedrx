@@ -4,12 +4,10 @@ import ProductGridItem from "@/components/shop/product-grid-item";
 import { ProductItem } from "@/components/shop/product-grid-item";
 
 const MENS_HEALTH_PRODUCTS: ProductItem[] = [
-  // TASK 6: Update product name and slug
   {
     id: "ed-rapid-dissolve-tablet",
     name: "4-in-1 ED Rapid Dissolve Tablet",
     medicalName: "Tadalafil + Vardenafil + Apomorphine",
-    // PRICE UPDATE: Changed from XX.XX to 79.00
     price: "79.00",
     image: "/products/ed-rapid-dissolve-tablet-hero.png",
     slug: "ed-rapid-dissolve-tablet",
@@ -18,7 +16,6 @@ const MENS_HEALTH_PRODUCTS: ProductItem[] = [
     id: "enclomiphene",
     name: "Enclomiphene",
     medicalName: "Enclomiphene Citrate",
-    // PRICE UPDATE: Changed from XX.XX to 79.00
     price: "79.00",
     image: "/products/enclomiphene-hero.png",
     slug: "enclomiphene",
@@ -27,19 +24,18 @@ const MENS_HEALTH_PRODUCTS: ProductItem[] = [
     id: "dapoxetine",
     name: "Dapoxetine",
     medicalName: "Dapoxetine",
-    // PRICE UPDATE: Changed from XX.XX to 89.00
     price: "89.00",
     image: "/products/dapoxetine-hero.png",
     slug: "dapoxetine",
   },
+  // TASK: Renamed "Ultimate Performance Capsule" to "Dapoxetine Max" and updated details.
   {
-    id: "ultimate-performance",
-    name: "Ultimate Performance Capsule",
-    medicalName: "Sildenafil + Tadalafil + More",
-    // PRICE UPDATE: Changed from XX.XX to 119.00
+    id: "dapoxetine-max",
+    name: "Dapoxetine Max",
+    medicalName: "Sildenafil + Tadalafil + Dapoxetine",
     price: "119.00",
-    image: "/products/ultimate-performance-hero.png",
-    slug: "ultimate-performance",
+    image: "/products/dapoxetine-max-hero.png",
+    slug: "dapoxetine-max",
   },
 ];
 

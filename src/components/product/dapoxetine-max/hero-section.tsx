@@ -1,3 +1,4 @@
+// src/components/product/dapoxetine-max/hero-section.tsx
 "use client";
 
 import {
@@ -11,29 +12,26 @@ import StarFillIcon from "@/components/svg/star-fill-icon";
 import Badge from "@/components/ui/badge";
 import Button from "@/components/ui/button-custom";
 import Image from "next/image";
-// BUILD FIX: Removed unused useState and useEffect imports.
-// TASK 8: Import icons for the new ingredient-focused feature list.
 import { TrendingUp, ShieldCheck, BrainCircuit, Package } from "lucide-react";
 
 export default function HeroSection() {
-  // BUILD FIX: Removed unused 'isClient' state variable.
-
   return (
     <section className="container mx-auto my-4 px-4 xl:my-15 xl:px-0">
       <div className="flex flex-col justify-between gap-x-4 xl:flex-row xl:items-stretch">
         <div className="relative h-full min-h-[590px] w-full overflow-hidden rounded-3xl">
+          {/* TASK: Updated image path and alt text for the new product. */}
           <Image
-            src="/products/ultimate-performance-hero.png"
-            alt="Ultimate Performance Capsule"
+            src="/products/dapoxetine-max-hero.png"
+            alt="Dapoxetine Max"
             fill
-            // SURGICAL STRIKE: Changed image treatment from 'object-cover' to 'object-contain' to ensure the full product is visible.
             className="object-contain object-center"
           />
         </div>
         <div className="flex w-full flex-col gap-y-10 py-6 px-1 xl:py-0 xl:px-19">
           <div className="space-y-3">
+            {/* TASK: Updated product name. */}
             <p className="font-title text-2xl font-medium tracking-tight xl:text-4xl">
-              Ultimate Performance Capsule
+              Dapoxetine Max
             </p>
             <p className="text-sm xl:text-base">
               The all-in-one prescription solution for total sexual
@@ -53,7 +51,6 @@ export default function HeroSection() {
               </p>
             </div>
 
-            {/* TASK 8: Replaced the old benefit-oriented list with a new ingredient-focused list. */}
             <div className="space-y-4 pt-4">
               <div className="flex items-start gap-x-3">
                 <TrendingUp className="size-5 text-primary flex-shrink-0" />
@@ -163,10 +160,9 @@ export default function HeroSection() {
             </label>
           </div>
 
-          {/* SURGICAL STRIKE: Removed the strength label and dropdown component. */}
-          {/* SURGICAL STRIKE: Added the correct checkout URL to the CTA button. */}
+          {/* TASK: Updated checkout URL for the new product name. */}
           <a
-            href="https://checkout.unbrandedrx.co/StaminaRx?priceId=1979"
+            href="https://checkout.unbrandedrx.co/dapoxetine-max?priceId=1979"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -175,7 +171,6 @@ export default function HeroSection() {
             </Button>
           </a>
 
-          {/* TASK 46: Added comprehensive safety information accordion. */}
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="item-1" className="border-b-0">
               <AccordionTrigger className="hover:no-underline text-sm font-semibold">
@@ -231,7 +226,6 @@ export default function HeroSection() {
                 <div>
                   <h4 className="font-bold">Consult Your Provider Before Use</h4>
                   <p>
-                    {/* BUILD FIX: Escaped unescaped apostrophe in "Peyronie's". */}
                     Inform your provider of your complete medical history,
                     especially if you have or have ever had heart, blood
                     pressure, liver, or kidney issues; vision or hearing
