@@ -149,7 +149,7 @@ export default function HeroSection() {
           </div>
 
           <a
-            href="https://checkout.unbranded.co/hair_compound_topical?priceId=2015"
+            href="https://checkout.unbrandedrx.co/hair_compound_topical?priceId=2015"
             target="_blank"
             rel="noopener noreferrer"
           >

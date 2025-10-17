@@ -153,7 +153,7 @@ export default function HeroSection() {
           {/* SURGICAL STRIKE: Removed the strength label and dropdown component. */}
 
           <a
-            href="https://checkout.unbranded.co/enclomiphine?priceId=1998"
+            href="https://checkout.unbrandedrx.co/enclomiphine?priceId=1998"
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -159,7 +159,7 @@ export default function HeroSection() {
 
           {/* TASK: Added checkout link to CTA button. */}
           <a
-            href="https://checkout.unbranded.co/StaminaRx?priceId=1978"
+            href="https://checkout.unbrandedrx.co/StaminaRx?priceId=1978"
             target="_blank"
             rel="noopener noreferrer"
           >

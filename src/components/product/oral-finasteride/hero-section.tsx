@@ -156,7 +156,7 @@ export default function HeroSection() {
           </div>
 
           <a
-            href="https://checkout.unbranded.co/hair-compound-oral?priceId=2082"
+            href="https://checkout.unbrandedrx.co/hair-compound-oral?priceId=2082"
             target="_blank"
             rel="noopener noreferrer"
           >

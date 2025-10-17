@@ -148,7 +148,7 @@ export default function HeroSection() {
 
           {/* SURGICAL STRIKE: Replaced placeholder with the correct checkout URL. */}
           <a
-            href="https://checkout.unbranded.co/hair_compound_topical?priceId=2017"
+            href="https://checkout.unbrandedrx.co/hair_compound_topical?priceId=2017"
             target="_blank"
             rel="noopener noreferrer"
           >

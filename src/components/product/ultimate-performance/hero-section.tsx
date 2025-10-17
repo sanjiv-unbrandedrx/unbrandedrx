@@ -166,7 +166,7 @@ export default function HeroSection() {
           {/* SURGICAL STRIKE: Removed the strength label and dropdown component. */}
           {/* SURGICAL STRIKE: Added the correct checkout URL to the CTA button. */}
           <a
-            href="https://checkout.unbranded.co/StaminaRx?priceId=1979"
+            href="https://checkout.unbrandedrx.co/StaminaRx?priceId=1979"
             target="_blank"
             rel="noopener noreferrer"
           >
