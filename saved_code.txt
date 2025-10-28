@@ -8133,8 +8133,9 @@ export default function HeroSection() {
           {/* SURGICAL STRIKE: Removed the strength label and dropdown component. */}
 
           {/* TASK: Added checkout link to CTA button. */}
+          {/* COFOUNDER NOTE: Updated priceId from 1978 to 1977. */}
           <a
-            href="https://checkout.unbrandedrx.co/StaminaRx?priceId=1978"
+            href="https://checkout.unbrandedrx.co/StaminaRx?priceId=1977"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -11343,8 +11344,9 @@ export default function HeroSection() {
           </div>
 
           {/* SURGICAL STRIKE: Replaced placeholder with the correct checkout URL. */}
+          {/* COFOUNDER NOTE: Updated priceId from 2017 to 2015. */}
           <a
-            href="https://checkout.unbrandedrx.co/hair_compound_topical?priceId=2017"
+            href="https://checkout.unbrandedrx.co/hair_compound_topical?priceId=2015"
             target="_blank"
             rel="noopener noreferrer"
           >
