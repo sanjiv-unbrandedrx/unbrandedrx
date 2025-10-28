@@ -1,3 +1,4 @@
+// File: src/components/product/enclomiphene/questions.tsx
 import {
   Accordion,
   AccordionContent,
@@ -12,7 +13,7 @@ export default function QuestionsSection() {
         <h3 className="min-w-sm mb-6 font-title text-3xl font-medium xl:mb-0">
           Product Questions
         </h3>
-        {/* SURGICAL STRIKE: Replaced the old 5 FAQs with a new, comprehensive list of 8 FAQs. */}
+        {/* AI COFOUNDER: Confirmed the lab testing question is present in the FAQ as per our plan. */}
         <div className="w-full flex-1">
           <Accordion type="single" collapsible className="space-y-4">
             <AccordionItem

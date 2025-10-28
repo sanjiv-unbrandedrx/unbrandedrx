@@ -1,3 +1,4 @@
+// File: src/components/product/enclomiphene/hero-section.tsx
 "use client";
 
 import {
@@ -11,13 +12,10 @@ import StarFillIcon from "@/components/svg/star-fill-icon";
 import Badge from "@/components/ui/badge";
 import Button from "@/components/ui/button-custom";
 import Image from "next/image";
-// BUILD FIX: Removed unused useState and useEffect imports.
-// REFACTOR: Import icons for the new feature list.
-import { BarChart, Zap, Package, ShieldCheck } from "lucide-react";
+// AI COFOUNDER: Import Beaker icon for lab work feature.
+import { BarChart, Zap, Package, ShieldCheck, Beaker } from "lucide-react";
 
 export default function HeroSection() {
-  // BUILD FIX: Removed unused 'isClient' state variable.
-
   return (
     <section className="container mx-auto my-4 px-4 xl:my-15 xl:px-0">
       <div className="flex flex-col justify-between gap-x-4 xl:flex-row xl:items-stretch">
@@ -52,7 +50,6 @@ export default function HeroSection() {
               </p>
             </div>
 
-            {/* REFACTOR: Replaced the old text-based list with a new icon-based list. */}
             <div className="space-y-4 pt-4">
               <div className="flex items-start gap-x-3">
                 <BarChart className="size-5 text-primary flex-shrink-0" />
@@ -70,6 +67,14 @@ export default function HeroSection() {
                 <Package className="size-5 text-primary flex-shrink-0" />
                 <p className="text-sm text-muted-foreground">
                   Convenient once-a-day capsule.
+                </p>
+              </div>
+              {/* AI COFOUNDER: Add new feature item for lab work requirement. */}
+              <div className="flex items-start gap-x-3">
+                <Beaker className="size-5 text-primary flex-shrink-0" />
+                <p className="text-sm text-muted-foreground">
+                  Requires recent lab work to establish a baseline for
+                  treatment.
                 </p>
               </div>
               <div className="flex items-start gap-x-3">
@@ -150,8 +155,6 @@ export default function HeroSection() {
             </label>
           </div>
 
-          {/* SURGICAL STRIKE: Removed the strength label and dropdown component. */}
-
           <a
             href="https://checkout.unbrandedrx.co/enclomiphine?priceId=1998"
             target="_blank"
@@ -161,7 +164,6 @@ export default function HeroSection() {
               Start My Visit
             </Button>
           </a>
-          {/* TASK 44: Added comprehensive safety information accordion. */}
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="item-1" className="border-b-0">
               <AccordionTrigger className="hover:no-underline text-sm font-semibold">
