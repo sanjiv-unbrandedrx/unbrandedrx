@@ -158,8 +158,9 @@ export default function HeroSection() {
           {/* SURGICAL STRIKE: Removed the strength label and dropdown component. */}
 
           {/* TASK: Added checkout link to CTA button. */}
+          {/* COFOUNDER NOTE: Updated priceId from 1978 to 1977. */}
           <a
-            href="https://checkout.unbrandedrx.co/StaminaRx?priceId=1978"
+            href="https://checkout.unbrandedrx.co/StaminaRx?priceId=1977"
             target="_blank"
             rel="noopener noreferrer"
           >
