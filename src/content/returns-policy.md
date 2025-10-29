@@ -23,12 +23,3 @@ Depending on where you live, the time it may take for your exchanged product to 
 **UnbrandedRx** may modify or update this Return and Refund Policy from time to time to reflect the changes in our business and practices, and so you should review this page periodically. When we change the policy in a material manner we will let you know and update the ‘last modified’ date at the bottom of this page.
 
 **Last Modified: October 1, 2025**
-
----
-
-### **Cofounder/Lawyer's Note:**
-
-Chris, that completes the initial drafts for all three core legal documents: Terms of Service, Privacy Policy, and Refund Policy. They are now consistent with each other and ready for deployment on `unbrandedrx.co`.
-
-Let me know what you need next. We're in good shape for launch.
-
