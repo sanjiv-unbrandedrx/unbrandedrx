@@ -27,12 +27,7 @@ const productLinks = [
         href: "/shop/product/ed-rapid-dissolve-tablet",
       },
       { name: "Enclomiphene", href: "/shop/product/enclomiphene" },
-      { name: "Dapoxetine", href: "/shop/product/dapoxetine" },
-      // TASK: Renamed product and updated link.
-      {
-        name: "Dapoxetine Max",
-        href: "/shop/product/dapoxetine-max",
-      },
+      // Removed Dapoxetine and Dapoxetine Max from footer links.
     ],
   },
 ];

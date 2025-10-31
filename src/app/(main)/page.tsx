@@ -37,14 +37,7 @@ const DUMMY_CATEGORIES: CategoryItem[] = [
 ];
 
 const BEST_SELLERS: Product[] = [
-  {
-    id: "dapoxetine",
-    name: "Dapoxetine",
-    medicalName: "Dapoxetine",
-    price: "89.00",
-    image: "/products/dapoxetine-hero.png",
-    slug: "dapoxetine",
-  },
+  // Removed Dapoxetine from Best Sellers list.
   {
     id: "enclomiphene",
     name: "Enclomiphene",
@@ -53,12 +46,10 @@ const BEST_SELLERS: Product[] = [
     image: "/products/enclomiphene-hero.png",
     slug: "enclomiphene",
   },
-  // TASK 6: Update product name and slug
   {
     id: "ed-rapid-dissolve-tablet",
     name: "4-in-1 ED Rapid Dissolve Tablet",
     medicalName: "Tadalafil + Vardenafil + Apomorphine",
-    // PRICE UPDATE: Changed from 29.00 to 79.00
     price: "79.00",
     image: "/products/ed-rapid-dissolve-tablet-hero.png",
     slug: "ed-rapid-dissolve-tablet",

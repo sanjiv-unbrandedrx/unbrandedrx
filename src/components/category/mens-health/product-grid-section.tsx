@@ -3,6 +3,7 @@ import DownIcon from "@/components/svg/down-icon";
 import ProductGridItem from "@/components/shop/product-grid-item";
 import { ProductItem } from "@/components/shop/product-grid-item";
 
+// Removed Dapoxetine and Dapoxetine Max from the men's health products list.
 const MENS_HEALTH_PRODUCTS: ProductItem[] = [
   {
     id: "ed-rapid-dissolve-tablet",
@@ -19,23 +20,6 @@ const MENS_HEALTH_PRODUCTS: ProductItem[] = [
     price: "79.00",
     image: "/products/enclomiphene-hero.png",
     slug: "enclomiphene",
-  },
-  {
-    id: "dapoxetine",
-    name: "Dapoxetine",
-    medicalName: "Dapoxetine",
-    price: "89.00",
-    image: "/products/dapoxetine-hero.png",
-    slug: "dapoxetine",
-  },
-  // TASK: Renamed "Ultimate Performance Capsule" to "Dapoxetine Max" and updated details.
-  {
-    id: "dapoxetine-max",
-    name: "Dapoxetine Max",
-    medicalName: "Sildenafil + Tadalafil + Dapoxetine",
-    price: "119.00",
-    image: "/products/dapoxetine-max-hero.png",
-    slug: "dapoxetine-max",
   },
 ];
 

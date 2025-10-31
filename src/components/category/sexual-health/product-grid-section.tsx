@@ -3,24 +3,15 @@ import DownIcon from "@/components/svg/down-icon";
 import ProductGridItem from "@/components/shop/product-grid-item";
 import { ProductItem } from "@/components/shop/product-grid-item";
 
+// Removed Dapoxetine from the sexual health products list.
 const SEXUAL_HEALTH_PRODUCTS: ProductItem[] = [
-  // TASK 6: Update product name and slug
   {
     id: "ed-rapid-dissolve-tablet",
     name: "4-in-1 ED Rapid Dissolve Tablet",
     medicalName: "Tadalafil + Vardenafil + Apomorphine",
-    // PRICE UPDATE: Changed from 29.00 to 79.00
     price: "79.00",
     image: "/products/ed-rapid-dissolve-tablet-hero.png",
     slug: "ed-rapid-dissolve-tablet",
-  },
-  {
-    id: "dapoxetine",
-    name: "Dapoxetine",
-    medicalName: "Dapoxetine",
-    price: "89.00",
-    image: "/products/dapoxetine-hero.png",
-    slug: "dapoxetine",
   },
 ];
 

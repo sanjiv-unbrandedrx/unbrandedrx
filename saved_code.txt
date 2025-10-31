@@ -6068,12 +6068,15 @@ export default function ProductPage() {
 }
 
 # File: src\app\(main)\shop\product\enclomiphene\page.tsx
+// File: src/app/(main)/shop/product/enclomiphene/page.tsx
 import Header from "@/components/common/Header";
 import ContentModule from "@/components/product/enclomiphene/content-module";
 import DeepDiveSection from "@/components/product/enclomiphene/deep-dive-section";
 import HeroSection from "@/components/product/enclomiphene/hero-section";
 import QuestionsSection from "@/components/product/enclomiphene/questions";
-import HowItWorksSection from "@/components/product/how-it-works-section";
+// AI COFOUNDER: Import new and updated components
+import HowItWorksSection from "@/components/product/enclomiphene/how-it-works-section";
+import LabTestingSection from "@/components/product/enclomiphene/lab-testing-section";
 
 export default function ProductPage() {
   return (
@@ -6082,8 +6085,11 @@ export default function ProductPage() {
         <Header />
       </section>
       <HeroSection />
+      {/* AI COFOUNDER: Use the new enclomiphene-specific 'How It Works' section */}
       <HowItWorksSection />
       <DeepDiveSection />
+      {/* AI COFOUNDER: Add the new Lab Testing section */}
+      <LabTestingSection />
       <ContentModule />
       <QuestionsSection />
     </main>
@@ -7354,6 +7360,8 @@ import Logo from "../svg/logo";
 // SURGICAL STRIKE: Removed unused icon imports.
 import MenuIcon from "../svg/menu-icon";
 import MobileNav from "./MobileNav";
+// AI COFOUNDER: Add Button import for the new Log in button.
+import { Button } from "@/components/ui/button";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -7369,6 +7377,24 @@ export default function Header() {
         </nav>
         {/* SURGICAL STRIKE: Removed Search, User, and Basket icons from the header. */}
         <ul className="flex gap-x-3 xl:gap-x-6 items-center justify-end">
+          {/* AI COFOUNDER: Add Log in button to the left of the menu icon. */}
+          <li>
+            <Button
+              variant="outline"
+              size="sm"
+              asChild
+              className="rounded-full"
+            >
+              {/* AI COFOUNDER: Updated link to point to the external login URL and open in a new tab. */}
+              <Link
+                href="http://my.unbrandedrx.co/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Log in
+              </Link>
+            </Button>
+          </li>
           <li>
             <button onClick={() => setIsMenuOpen(true)} aria-label="Open menu">
               <MenuIcon />
@@ -9492,6 +9518,7 @@ export default function DeepDiveSection() {
 }
 
 # File: src\components\product\enclomiphene\hero-section.tsx
+// File: src/components/product/enclomiphene/hero-section.tsx
 "use client";
 
 import {
@@ -9505,13 +9532,10 @@ import StarFillIcon from "@/components/svg/star-fill-icon";
 import Badge from "@/components/ui/badge";
 import Button from "@/components/ui/button-custom";
 import Image from "next/image";
-// BUILD FIX: Removed unused useState and useEffect imports.
-// REFACTOR: Import icons for the new feature list.
-import { BarChart, Zap, Package, ShieldCheck } from "lucide-react";
+// AI COFOUNDER: Import Beaker icon for lab work feature.
+import { BarChart, Zap, Package, ShieldCheck, Beaker } from "lucide-react";
 
 export default function HeroSection() {
-  // BUILD FIX: Removed unused 'isClient' state variable.
-
   return (
     <section className="container mx-auto my-4 px-4 xl:my-15 xl:px-0">
       <div className="flex flex-col justify-between gap-x-4 xl:flex-row xl:items-stretch">
@@ -9546,7 +9570,6 @@ export default function HeroSection() {
               </p>
             </div>
 
-            {/* REFACTOR: Replaced the old text-based list with a new icon-based list. */}
             <div className="space-y-4 pt-4">
               <div className="flex items-start gap-x-3">
                 <BarChart className="size-5 text-primary flex-shrink-0" />
@@ -9564,6 +9587,14 @@ export default function HeroSection() {
                 <Package className="size-5 text-primary flex-shrink-0" />
                 <p className="text-sm text-muted-foreground">
                   Convenient once-a-day capsule.
+                </p>
+              </div>
+              {/* AI COFOUNDER: Add new feature item for lab work requirement. */}
+              <div className="flex items-start gap-x-3">
+                <Beaker className="size-5 text-primary flex-shrink-0" />
+                <p className="text-sm text-muted-foreground">
+                  Requires recent lab work to establish a baseline for
+                  treatment.
                 </p>
               </div>
               <div className="flex items-start gap-x-3">
@@ -9644,8 +9675,6 @@ export default function HeroSection() {
             </label>
           </div>
 
-          {/* SURGICAL STRIKE: Removed the strength label and dropdown component. */}
-
           <a
             href="https://checkout.unbrandedrx.co/enclomiphine?priceId=1998"
             target="_blank"
@@ -9655,7 +9684,6 @@ export default function HeroSection() {
               Start My Visit
             </Button>
           </a>
-          {/* TASK 44: Added comprehensive safety information accordion. */}
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="item-1" className="border-b-0">
               <AccordionTrigger className="hover:no-underline text-sm font-semibold">
@@ -9748,7 +9776,122 @@ export default function HeroSection() {
   );
 }
 
+# File: src\components\product\enclomiphene\how-it-works-section.tsx
+// File: src/components/product/enclomiphene/how-it-works-section.tsx
+import Image from "next/image";
+
+export default function HowItWorksSection() {
+  return (
+    <section className="container mx-auto my-4 xl:my-15 py-8 xl:py-15 px-4 xl:px-0">
+      <h3 className="font-title text-4xl tracking-tight font-medium">
+        How it works
+      </h3>
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 py-10">
+        <div className="group">
+          <div className="bg-muted p-6 rounded-2xl flex justify-between items-end relative h-full min-h-[236px]">
+            <div className="max-w-54 flex flex-col items-start justify-end gap-y-3">
+              <p className="font-semibold text-neutral-800 text-xl">
+                1. Online Visit & Labs
+              </p>
+              <p className="text-muted-foreground">
+                Complete a health profile and use our at-home kit or upload
+                recent labs for your provider to review.
+              </p>
+            </div>
+            <Image
+              src="/products/card-1.webp"
+              alt="Online Visit"
+              width={185}
+              height={202}
+              className="absolute object-center object-cover -top-6 right-0 xl:-right-6"
+            />
+          </div>
+        </div>
+
+        <div className="group">
+          <div className="bg-muted p-6 rounded-2xl flex justify-between items-end relative h-full min-h-[236px]">
+            <div className="max-w-54 flex flex-col items-start justify-end gap-y-3">
+              <p className="font-semibold text-neutral-800 text-xl">
+                2. Doctor Review
+              </p>
+              <p className="text-muted-foreground">
+                A licensed U.S. provider will review your information and
+                prescribe a treatment plan, if appropriate.
+              </p>
+            </div>
+            <Image
+              src="/products/card-2.webp"
+              alt="Doctor Review"
+              width={202}
+              height={253}
+              className="absolute object-center object-cover -top-16 right-0"
+            />
+          </div>
+        </div>
+
+        <div className="group">
+          <div className="bg-muted p-6 rounded-2xl flex justify-between items-end relative h-full min-h-[236px]">
+            <div className="max-w-54 flex flex-col items-start justify-end gap-y-3">
+              <p className="font-semibold text-neutral-800 text-xl">
+                3. Discreet Delivery
+              </p>
+              <p className="text-muted-foreground">
+                Receive your medication in a simple, unmarked package with free
+                shipping.
+              </p>
+            </div>
+            <Image
+              src="/products/card-3.webp"
+              alt="Discreet Delivery"
+              width={190}
+              height={120}
+              className="absolute object-center object-cover -top-4 right-4"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+# File: src\components\product\enclomiphene\lab-testing-section.tsx
+// File: src/components/product/enclomiphene/lab-testing-section.tsx
+export default function LabTestingSection() {
+  return (
+    <section className="container mx-auto my-4 py-6 px-4 xl:my-15 xl:py-10 xl:px-0">
+      <div className="flex flex-col justify-between gap-y-8 gap-x-19 xl:flex-row">
+        {/* Column 1: Text Content */}
+        <div className="flex-1 flex flex-col justify-center">
+          <div className="space-y-5">
+            <h4 className="font-title text-3xl font-medium">
+              Simple At-Home Lab Testing
+            </h4>
+            <div className="space-y-2 text-neutral-800">
+              <p>
+                To ensure Enclomiphene is right for you, we require a baseline
+                hormone panel. You can easily complete this with our at-home
+                finger-prick test kit, which is mailed directly to you.
+              </p>
+              <p>
+                The process is simple, takes only a few minutes, and is reviewed
+                by a CLIA-certified lab. If you have recent lab results from
+                your own doctor, you may be able to upload those instead.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Column 2: Image */}
+        <div className="flex min-h-[360px] flex-1 flex-col items-stretch justify-stretch rounded-3xl bg-[url('/products/lab-kit.png')] bg-cover bg-center xl:min-h-[522px]">
+          {/* This div is for the background image. */}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 # File: src\components\product\enclomiphene\questions.tsx
+// File: src/components/product/enclomiphene/questions.tsx
 import {
   Accordion,
   AccordionContent,
@@ -9763,7 +9906,7 @@ export default function QuestionsSection() {
         <h3 className="min-w-sm mb-6 font-title text-3xl font-medium xl:mb-0">
           Product Questions
         </h3>
-        {/* SURGICAL STRIKE: Replaced the old 5 FAQs with a new, comprehensive list of 8 FAQs. */}
+        {/* AI COFOUNDER: Confirmed the lab testing question is present in the FAQ as per our plan. */}
         <div className="w-full flex-1">
           <Accordion type="single" collapsible className="space-y-4">
             <AccordionItem
@@ -14063,16 +14206,6 @@ Depending on where you live, the time it may take for your exchanged product to 
 **UnbrandedRx** may modify or update this Return and Refund Policy from time to time to reflect the changes in our business and practices, and so you should review this page periodically. When we change the policy in a material manner we will let you know and update the ‘last modified’ date at the bottom of this page.
 
 **Last Modified: October 1, 2025**
-
----
-
-### **Cofounder/Lawyer's Note:**
-
-Chris, that completes the initial drafts for all three core legal documents: Terms of Service, Privacy Policy, and Refund Policy. They are now consistent with each other and ready for deployment on `unbrandedrx.co`.
-
-Let me know what you need next. We're in good shape for launch.
-
-
 
 # File: src\content\terms-and-conditions.md
 ### **UnbrandedRx - Terms of Service**

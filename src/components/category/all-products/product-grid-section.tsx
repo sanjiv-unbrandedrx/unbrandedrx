@@ -3,6 +3,7 @@ import DownIcon from "@/components/svg/down-icon";
 import ProductGridItem from "@/components/shop/product-grid-item";
 import { ProductItem } from "@/components/shop/product-grid-item";
 
+// AI COFOUNDER: Removed Dapoxetine and Dapoxetine Max from the all products list.
 const ALL_PRODUCTS: ProductItem[] = [
   {
     id: "ed-rapid-dissolve-tablet",
@@ -11,14 +12,6 @@ const ALL_PRODUCTS: ProductItem[] = [
     price: "79.00",
     image: "/products/ed-rapid-dissolve-tablet-hero.png",
     slug: "ed-rapid-dissolve-tablet",
-  },
-  {
-    id: "dapoxetine",
-    name: "Dapoxetine",
-    medicalName: "Dapoxetine",
-    price: "89.00",
-    image: "/products/dapoxetine-hero.png",
-    slug: "dapoxetine",
   },
   {
     id: "enclomiphene",
@@ -59,15 +52,6 @@ const ALL_PRODUCTS: ProductItem[] = [
     price: "59.00",
     image: "/products/topical-finasteride-hero.png",
     slug: "topical-finasteride",
-  },
-  // TASK: Renamed "Ultimate Performance Capsule" to "Dapoxetine Max" and updated details.
-  {
-    id: "dapoxetine-max",
-    name: "Dapoxetine Max",
-    medicalName: "Sildenafil + Tadalafil + Dapoxetine",
-    price: "119.00",
-    image: "/products/dapoxetine-max-hero.png",
-    slug: "dapoxetine-max",
   },
 ];
 
