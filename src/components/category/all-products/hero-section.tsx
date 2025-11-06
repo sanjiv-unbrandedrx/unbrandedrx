@@ -7,7 +7,8 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import Button from "@/components/ui/button-custom";
+// COFOUNDER NOTE: Replaced Button with a styled Link for anchor functionality.
+import Link from "next/link";
 import { getNameFromSlug } from "@/lib/utils";
 
 export default function HeroSection() {
@@ -39,9 +40,13 @@ export default function HeroSection() {
           providers — without paying for celebrity ads or flashy packaging.
         </p>
       </div>
-      <Button size="xl" variant="filled">
+      {/* COFOUNDER NOTE: Replaced Button with a styled Link to scroll to the products section. */}
+      <Link
+        href="#products"
+        className="inline-flex items-center justify-center rounded-4xl font-title font-medium tracking-tight bg-zinc-800 text-white border border-neutral-900 hover:bg-zinc-900 py-3.5 px-11 text-xl"
+      >
         Get Started
-      </Button>
+      </Link>
     </section>
   );
 }

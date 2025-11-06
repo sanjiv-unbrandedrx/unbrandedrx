@@ -1,5 +1,7 @@
 // src/components/common/Footer.tsx
 import Link from "next/link";
+// COFOUNDER NOTE: Add Image import for the LegitScript seal.
+import Image from "next/image";
 
 const productLinks = [
   {
@@ -27,7 +29,9 @@ const productLinks = [
         href: "/shop/product/ed-rapid-dissolve-tablet",
       },
       { name: "Enclomiphene", href: "/shop/product/enclomiphene" },
-      // Removed Dapoxetine and Dapoxetine Max from footer links.
+      // COFOUNDER NOTE: Restored Dapoxetine and Dapoxetine Max to footer links per feedback.
+      { name: "Dapoxetine", href: "/shop/product/dapoxetine" },
+      { name: "Dapoxetine Max", href: "/shop/product/dapoxetine-max" },
     ],
   },
 ];
@@ -109,12 +113,26 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Copyright */}
+        {/* Copyright & LegitScript Seal */}
         <div className="mt-16 border-t border-neutral-700 pt-8">
           <p className="text-sm text-neutral-500">
-            &copy; {new Date().getFullYear()} unbrandedrx. All Rights
-            Reserved
+            &copy; {new Date().getFullYear()} unbrandedrx. All Rights Reserved
           </p>
+          {/* COFOUNDER NOTE: Add LegitScript seal per team feedback. */}
+          <div className="mt-8">
+            <Link
+              href="https://www.legitscript.com/websites/?checker_keywords=unbrandedrx.co"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/legitscript.png"
+                alt="unbrandedrx.co is Certified by LegitScript"
+                width={120}
+                height={80}
+              />
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

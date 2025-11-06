@@ -3,8 +3,24 @@ import DownIcon from "@/components/svg/down-icon";
 import ProductGridItem from "@/components/shop/product-grid-item";
 import { ProductItem } from "@/components/shop/product-grid-item";
 
-// Removed Dapoxetine from the sexual health products list.
+// COFOUNDER NOTE: Restored Dapoxetine and Dapoxetine Max to the sexual health products list per feedback.
 const SEXUAL_HEALTH_PRODUCTS: ProductItem[] = [
+  {
+    id: "dapoxetine",
+    name: "Dapoxetine",
+    medicalName: "Dapoxetine",
+    price: "89.00",
+    image: "/products/dapoxetine-hero.png",
+    slug: "dapoxetine",
+  },
+  {
+    id: "dapoxetine-max",
+    name: "Dapoxetine Max",
+    medicalName: "Sildenafil + Tadalafil + Dapoxetine + Apomorphine",
+    price: "119.00",
+    image: "/products/dapoxetine-max-hero.png",
+    slug: "dapoxetine-max",
+  },
   {
     id: "ed-rapid-dissolve-tablet",
     name: "4-in-1 ED Rapid Dissolve Tablet",
@@ -17,7 +33,8 @@ const SEXUAL_HEALTH_PRODUCTS: ProductItem[] = [
 
 export default function ProductGridSection() {
   return (
-    <section className="container mx-auto px-4 xl:px-0">
+    // COFOUNDER NOTE: Added id="products" to serve as an anchor for the hero button.
+    <section id="products" className="container mx-auto px-4 xl:px-0">
       <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center py-6 gap-y-4 mb-4 xl:mb-0">
         <div className="flex items-center gap-x-2">
           <h3 className="font-title tracking-tight text-3xl font-semibold">

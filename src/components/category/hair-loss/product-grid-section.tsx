@@ -43,7 +43,8 @@ const HAIR_LOSS_PRODUCTS: ProductItem[] = [
 
 export default function ProductGridSection() {
   return (
-    <section className="container mx-auto px-4 xl:px-0">
+    // COFOUNDER NOTE: Added id="products" to serve as an anchor for the hero button.
+    <section id="products" className="container mx-auto px-4 xl:px-0">
       <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center py-6 gap-y-4 mb-4 xl:mb-0">
         <div className="flex items-center gap-x-2">
           <h3 className="font-title tracking-tight text-3xl font-semibold">
