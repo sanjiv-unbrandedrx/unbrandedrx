@@ -160,7 +160,7 @@ export default function HeroSection() {
           {/* TASK: Added checkout link to CTA button. */}
           {/* COFOUNDER NOTE: Updated priceId from 1978 to 1977. */}
           <a
-            href="https://checkout.unbrandedrx.co/StaminaRx?priceId=1977"
+            href="https://checkout.unbrandedrx.co/DapoxetineRx?priceId=1977"
             target="_blank"
             rel="noopener noreferrer"
           >

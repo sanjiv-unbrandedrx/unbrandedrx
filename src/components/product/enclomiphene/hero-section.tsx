@@ -193,16 +193,16 @@ export default function HeroSection() {
                     <li>
                       You have a history of or are at risk for blood clots.
                     </li>
-                    <li>
-                      You have a history of hormone-related cancers.
-                    </li>
+                    <li>You have a history of hormone-related cancers.</li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-bold">Consult Your Provider Before Use</h4>
+                  <h4 className="font-bold">
+                    Consult Your Provider Before Use
+                  </h4>
                   <p>
-                    To ensure Enclomiphene is safe for you, inform your
-                    provider if you have ever had:
+                    To ensure Enclomiphene is safe for you, inform your provider
+                    if you have ever had:
                   </p>
                   <ul className="list-disc pl-5 mt-2 space-y-1">
                     <li>Liver disease or increased liver enzymes</li>
@@ -219,10 +219,10 @@ export default function HeroSection() {
                 <div>
                   <h4 className="font-bold">Potential Side Effects</h4>
                   <p>
-                    Get emergency medical help for signs of an allergic
-                    reaction (hives, difficulty breathing, swelling of your
-                    face, lips, tongue, or throat) or signs of a blood clot
-                    (shortness of breath, chest pain, swelling in the legs).
+                    Get emergency medical help for signs of an allergic reaction
+                    (hives, difficulty breathing, swelling of your face, lips,
+                    tongue, or throat) or signs of a blood clot (shortness of
+                    breath, chest pain, swelling in the legs).
                   </p>
                   <p className="mt-2">
                     Common side effects of Enclomiphene may include:
@@ -243,9 +243,8 @@ export default function HeroSection() {
                 </div>
                 <p className="mt-2 italic">
                   This is not a complete list of side effects and others may
-                  occur. Call your doctor for medical advice about side
-                  effects. You may report side effects to the FDA at
-                  1-800-FDA-1088.
+                  occur. Call your doctor for medical advice about side effects.
+                  You may report side effects to the FDA at 1-800-FDA-1088.
                 </p>
               </AccordionContent>
             </AccordionItem>

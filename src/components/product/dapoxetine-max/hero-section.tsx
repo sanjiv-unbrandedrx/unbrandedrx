@@ -34,9 +34,8 @@ export default function HeroSection() {
               Dapoxetine Max
             </p>
             <p className="text-sm xl:text-base">
-              The all-in-one prescription solution for total sexual
-              performance, addressing erections, stamina, and arousal in a
-              single capsule.
+              The all-in-one prescription solution for total sexual performance,
+              addressing erections, stamina, and arousal in a single capsule.
             </p>
             <div className="flex items-center justify-start gap-x-3">
               <div className="flex items-center justify-start gap-x-1">
@@ -162,7 +161,7 @@ export default function HeroSection() {
 
           {/* TASK: Updated checkout URL for the new product name. */}
           <a
-            href="https://checkout.unbrandedrx.co/dapoxetine-max?priceId=1979"
+            href="https://checkout.unbrandedrx.co/DapoxetineRx?priceId=1978"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -195,9 +194,10 @@ export default function HeroSection() {
                   <ul className="list-disc pl-5 mt-2 space-y-1">
                     <li>
                       You are using any nitrate-based medications (e.g.,
-                      nitroglycerin) or recreational drugs like &quot;poppers&quot;.
-                      Combining these with Sildenafil/Tadalafil can cause a
-                      sudden, dangerous drop in blood pressure.
+                      nitroglycerin) or recreational drugs like
+                      &quot;poppers&quot;. Combining these with
+                      Sildenafil/Tadalafil can cause a sudden, dangerous drop in
+                      blood pressure.
                     </li>
                     <li>
                       You are taking riociguat (Adempas) for pulmonary arterial
@@ -224,7 +224,9 @@ export default function HeroSection() {
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-bold">Consult Your Provider Before Use</h4>
+                  <h4 className="font-bold">
+                    Consult Your Provider Before Use
+                  </h4>
                   <p>
                     Inform your provider of your complete medical history,
                     especially if you have or have ever had heart, blood
