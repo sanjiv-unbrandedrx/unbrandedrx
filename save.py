@@ -9,7 +9,8 @@ EXCLUDED_DIRS = {
     "__pycache__", ".pytest_cache", ".cache", ".turbo", ".parcel-cache",
     ".venv", "venv", ".idea", ".vscode", "target", "bin", "obj",
     ".gradle", ".terraform", ".svn", ".hg",
-    "data",  # ignore the folder named exactly "data"
+    "data",
+    "public",  # ADDED: Exclude static assets folder
 }
 
 # Text/code file extensions to include
@@ -22,13 +23,25 @@ INCLUDE_EXTS = {
     ".c", ".h", ".hpp", ".cpp", ".rs", ".go", ".java", ".kt",
 }
 
-# Specific filenames (no extension) to include
+# Specific filenames to include (if they don't have a common extension)
 INCLUDE_FILENAMES = {
-    "Dockerfile", "Makefile", ".gitignore", ".gitattributes", "Procfile", "LICENSE", "LICENSE.txt", "README", "README.md"
+    "Dockerfile", "Makefile", ".gitignore", ".gitattributes", "Procfile", "LICENSE", "LICENSE.txt", "README", "README.md",
 }
 
 # Files to exclude explicitly
-EXCLUDED_FILES = {"save.py"}  # ignore this script itself
+EXCLUDED_FILES = {
+    "save.py",           # ignore this script itself
+    "saved_code.txt",    # ADDED: ignore the output file
+    
+    # Lock files
+    "package.json",
+    "package-lock.json",
+    "pnpm-lock.yaml",    # ADDED
+    "yarn.lock",         # ADDED
+    
+    # Auto-generated config
+    "next-env.d.ts",     # ADDED
+}
 
 
 def iter_code_files(root: Path):
