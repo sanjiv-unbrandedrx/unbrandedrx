@@ -155,7 +155,7 @@ export default function HeroSection() {
           </div>
 
           <a
-            href="https://checkout.unbrandedrx.co/4n1?priceId=2064"
+            href="https://checkout.unbrandedrx.co/maxman?priceId=2064"
             target="_blank"
             rel="noopener noreferrer"
           >
