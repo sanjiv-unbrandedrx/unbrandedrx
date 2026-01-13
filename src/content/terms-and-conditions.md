@@ -1,12 +1,12 @@
 ### **UnbrandedRx - Terms of Service**
 
-**Last Updated: October 1, 2025**
+**Last Updated: January 13, 2026**
 
 This document contains important information regarding your rights and obligations, as well as conditions, limitations, and exclusions that might apply to you. Please read it carefully.
 
 These Terms of Use govern your use of our online interfaces and properties (e.g., websites and mobile applications) owned and controlled by **UnbrandedRx** (“we,” “us,” or “our”), including, but not limited to, the **https://www.unbrandedrx.co** website (the "Site"), as well as the services (“Services”) and products (“Products”) available to users through the Site. Professional medical services are provided by independent medical groups and their affiliated physicians (individually the "Provider" and collectively the "Providers"). **UnbrandedRx** provides the non-clinical Site services. The terms "you" and "your" mean you and any other person accessing your **UnbrandedRx** account.
 
-By using or accessing the Site, registering with the Site, and/or by clicking “I Agree,” you acknowledge that you have read, understand, and agree to all terms and conditions contained within these Terms of Use. Your compliance with these Terms of Use is a condition to your use of the Site. If you do not agree to be bound by the Term of Use, promptly exit the Site. Please also consult our Privacy Policy, which can be found at **http://unbrandedrx.co/privacy-policy** for a description of our privacy practices and our Returns Policy, which can be found at **http://unbrandedrx.co/returns-policy** for a description regarding how Product returns are handled.
+By using or accessing the Site, registering with the Site, and/or by clicking “I Agree,” you acknowledge that you have read, understand, and agree to all terms and conditions contained within these Terms of Use. Your compliance with these Terms of Use is a condition to your use of the Site. If you do not agree to be bound by the Term of Use, promptly exit the Site. Please also consult our Privacy Policy, which can be found at **https://www.unbrandedrx.co/privacy-policy** for a description of our privacy practices and our Returns Policy, which can be found at **https://www.unbrandedrx.co/returns-policy** for a description regarding how Product returns are handled.
 
 **Binding Arbitration:** These Terms of Use provide that all disputes between you and **UnbrandedRx** that in any way relate to these Terms of Use or your use of the Site will be resolved by BINDING ARBITRATION. ACCORDINGLY, YOU GIVE UP YOUR RIGHT TO GO TO COURT (INCLUDING IN A CLASS ACTION PROCEEDING) to assert or defend your rights under these Terms of Use. Your rights will be determined by a NEUTRAL ARBITRATOR and NOT a judge or jury and your claims cannot be brought as a class action. Please review the Section below titled Dispute Resolution: Arbitration Agreement for details regarding your agreement to arbitrate any disputes with **UnbrandedRx**.
 
@@ -14,7 +14,7 @@ By using or accessing the Site, registering with the Site, and/or by clicking �
 We may modify these Terms of Use from time to time in our sole discretion. We will provide notice by updating this posting. You are expected to carefully review and periodically check these Terms of Use from time to time so you are aware of any changes. Any changes to these Terms of Use will be in effect as of the “Last Updated” date referenced at the top of these Terms of Use. Your continued use of the Site constitutes your binding acceptance to these Terms of Use, including any changes or modifications that we may make. If any part of these Terms of Use or any future changes to these Terms of Use are not acceptable to you, you must not use or access the Site.
 
 **2. Privacy practices**
-You agree that information provided by you in connection with the Services is governed by the Privacy Policy available at **http://unbrandedrx.co/privacy-policy**.
+You agree that information provided by you in connection with the Services is governed by the Privacy Policy available at **https://www.unbrandedrx.co/privacy-policy**.
 
 **3. Services provided - no medical care or advice by UnbrandedRx**
 We offer an online communication platform for Providers and their patients to connect via the Site through the use of synchronous and asynchronous telecommunications technologies. The Site facilitates communication between patients and Providers.
@@ -57,7 +57,7 @@ RISK OF LOSS
 All Products purchased from our Site are delivered to shipment carriers. The risk of loss and title for such Products pass to you when they are delivered to the carrier.
 
 RETURNS
-You may return Products in accordance with our Returns Policy available at **http://unbrandedrx.co/returns-policy** posted on our Site.
+You may return Products in accordance with our Returns Policy available at **https://www.unbrandedrx.co/returns-policy** posted on our Site.
 
 **6. Eligibility, site access, security and restrictions; passwords**
 THE SITE IS OFFERED AND AVAILABLE TO USERS WHO ARE 18 YEARS OF AGE OR OLDER. YOU MAY NOT USE, ACCESS, OR REQUEST SERVICES FROM THE SITE IF YOU (A) DO NOT AGREE TO THESE TERMS OF USE, (B) ARE NOT AT LEAST 18 YEARS OF AGE, OR (C) ARE PROHIBITED FROM ACCESSING OR USING THE SITE OR ANY OF THE SITE'S CONTENTS OR SERVICES BY APPLICABLE LAW.
@@ -197,28 +197,79 @@ These Terms of Use, together with any documents expressly referred to in them, i
 REFORMATION AND INTERPRETATION
 If any part of these Terms of Use is determined to be invalid or unenforceable pursuant to applicable law, then the invalid or unenforceable provision will be deemed superseded by a valid, enforceable provision that most closely matches the intent of the original provision, and the remainder of the Terms of Use shall continue in effect.
 
-**19. Mobile Message Service Terms and Conditions**
-Last updated: Oct. 26, 2023
+**19. SMS & TEXT MESSAGING TERMS**
 
-The **UnbrandedRx** mobile message service (the "Service") is operated by **UnbrandedRx** (“**UnbrandedRx**”, “we”, or “us”). Your use of the Service constitutes your agreement to these terms and conditions (“Mobile Terms”). We may modify or cancel the Service or any of its features without notice. To the extent permitted by applicable law, we may also modify these Mobile Terms at any time and your continued use of the Service following the effective date of any such changes shall constitute your acceptance of such changes.
+**Program Overview**
 
-By consenting to **UnbrandedRx’s** SMS/text messaging service, you agree to receive recurring SMS/text messages from and on behalf of **UnbrandedRx** through your wireless provider to the mobile number you provided, even if your mobile number is registered on any state or federal Do Not Call list. Text messages may be sent using an automatic telephone dialing system or other technology. Service-related messages may include updates, alerts, and information (e.g., order updates, account alerts, etc.). Promotional messages may include promotions, specials, and other marketing offers (e.g., cart reminders).
+UnbrandedRx Alerts ("Program") is an SMS text messaging program that sends you transactional and promotional messages related to your orders, prescriptions, and account.
 
-You understand that you do not have to sign up for this program in order to make any purchases, and your consent is not a condition of any purchase with **UnbrandedRx**. Your participation in this program is completely voluntary.
+**Types of Messages**
 
-We do not charge for the Service, but you are responsible for all charges and fees associated with text messaging imposed by your wireless provider. Message frequency varies. Message and data rates may apply. Check your mobile plan and contact your wireless provider for details. You are solely responsible for all charges related to SMS/text messages, including charges from your wireless provider.
+By opting into this Program, you consent to receive the following types of text messages from UnbrandedRx:
 
-You may opt-out of the Service at any time. Text the single keyword command STOP to **[NEW SMS PHONE NUMBER]** or click the unsubscribe link (where available) in any text message to cancel. You'll receive a one-time opt-out confirmation text message. No further messages will be sent to your mobile device, unless initiated by you. If you have subscribed to other **UnbrandedRx** mobile message programs and wish to cancel, except where applicable law requires otherwise, you will need to opt out separately from those programs by following the instructions provided in their respective mobile terms.
+- **Transactional Messages**: Order confirmations, prescription status updates, shipping notifications, delivery confirmations, refill reminders, account notifications, and customer service communications
+- **Promotional Messages**: Marketing offers, promotional discounts, new product announcements, and sales notifications
 
-For Service support or assistance, text HELP to **[NEW SMS PHONE NUMBER]** or email **care@unbrandedrx.co**.
+**Message Frequency**
 
-We may change any short code or telephone number we use to operate the Service at any time and will notify you of these changes. You acknowledge that any messages, including any STOP or HELP requests, you send to a short code or telephone number we have changed may not be received and we will not be responsible for honoring requests made in such messages.
+Message frequency varies based on your account activity and opt-in preferences. You may receive multiple messages per week during active order periods, or fewer messages if you have no active orders or subscriptions.
 
-The wireless carriers supported by the Service are not liable for delayed or undelivered messages. You agree to provide us with a valid mobile number. If you get a new mobile number, you will need to sign up for the program with your new number.
+**Consent and Opt-In**
 
-To the extent permitted by applicable law, you agree that we will not be liable for failed, delayed, or misdirected delivery of any information sent through the Service, any errors in such information, and/or any action you may or may not take in reliance on the information or Service.
+By providing your mobile phone number and checking the SMS opt-in box during registration or checkout, you expressly consent to receive recurring automated marketing and transactional text messages from UnbrandedRx at the phone number you provided. Consent is not a condition of purchase. You may still use UnbrandedRx services without opting into SMS messaging.
 
-We respect your right to privacy. To see how we collect and use your personal information, please see our Privacy Notice.
+Your consent applies to the specific phone number you provide. If you change your phone number, you must update your account settings and re-consent to continue receiving messages at your new number.
+
+**Opting Out (STOP)**
+
+You may opt out of receiving SMS messages at any time by texting **STOP** to the number from which you received messages. Upon receiving your STOP request, we will send you a final confirmation message acknowledging your opt-out, after which you will no longer receive SMS messages from UnbrandedRx.
+
+Opting out of SMS messages will not affect:
+- Your ability to use UnbrandedRx services
+- Email communications (if you are separately opted into email)
+- Your order fulfillment or prescription services
+
+**Help and Support**
+
+For assistance with SMS messaging, text **HELP** to the number from which you received messages, or contact our customer support team at care@unbrandedrx.co.
+
+**Message and Data Rates**
+
+Standard message and data rates may apply based on your mobile carrier's plan. You are responsible for any charges incurred from your wireless provider for text messaging services. UnbrandedRx does not charge you for SMS messages, but your carrier may.
+
+**Carrier Liability**
+
+Mobile carriers are not liable for delayed or undelivered messages. Message delivery is subject to your carrier's network availability and any limitations of your device.
+
+**Supported Carriers**
+
+This service is available on participating carriers including but not limited to AT&T, Verizon Wireless, T-Mobile, Sprint, and other major U.S. carriers. Service may not be available on all carriers or in all geographic areas.
+
+**Device and Network Requirements**
+
+You must have a text messaging-capable device and an active mobile phone service plan to participate in this Program. UnbrandedRx is not responsible for device compatibility issues or network connectivity problems.
+
+**Program Changes and Termination**
+
+UnbrandedRx reserves the right to modify or terminate the SMS messaging Program at any time with or without notice. We may change message frequency, content, or features of the Program. We will notify you of material changes when reasonably possible.
+
+**Privacy and Data Use**
+
+Your mobile phone number and SMS opt-in consent are governed by our Privacy Policy, available at unbrandedrx.co/privacy-policy. **Mobile opt-in data and consent are never shared with third parties for marketing purposes.**
+
+For information on how we collect, use, and protect your personal information, including your phone number, please review our Privacy Policy.
+
+**No Emergency Use**
+
+**DO NOT use SMS messaging for medical emergencies or urgent health matters.** If you are experiencing a medical emergency, call 911 immediately. SMS messages are not monitored 24/7 and should not be used for time-sensitive medical communications.
+
+**Contact Information**
+
+For questions about this SMS Program, contact us at:
+- Email: care@unbrandedrx.co
+- Website: unbrandedrx.co/contact-us
+
+**Last Updated:** January 13, 2026
 
 **20. Subscription Policy**
 All of our prescriptions are subscriptions to help you stay on track with your medication. You will be charged the full amount for your prescription every 30 or 90 days, depending on your refill schedule, until you pause or cancel your subscription. You can pause or cancel your subscription at any time by emailing **care@unbrandedrx.co**.

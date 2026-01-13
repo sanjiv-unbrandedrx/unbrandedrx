@@ -42,3 +42,7 @@ next-env.d.ts
 
 #node
 .nvmrc
+
+# claude code
+.claude/
+tmpclaude-*

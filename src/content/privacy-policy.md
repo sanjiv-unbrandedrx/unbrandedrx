@@ -1,17 +1,6 @@
-## 1. Information We Collect
+### **UnbrandedRx - Privacy Policy**
 
-This is a placeholder for the Privacy Policy. This document outlines how we collect, use, and protect your personal information.
-
-### 1.1. Personal Data
-- Name
-- Email Address
-- Shipping Address
-
-## 2. How We Use Your Information
-
-We use the information we collect to process your orders, provide customer support, and improve our services. We do not sell your personal information to third parties.### **UnbrandedRx - Privacy Policy**
-
-**Last Updated: October 1, 2025**
+**Last Updated: January 13, 2026**
 
 **Introduction**
 **UnbrandedRx** (referred to herein as “we,” “us,” and “our”) is committed to protecting the privacy and security of the personal information we receive and collect from you. We also believe in transparency, and we are committed to informing you about how we treat your personal information.
@@ -155,8 +144,86 @@ Any personal information provided by you or automatically collected from you by 
 **Data Sharing**
 Customer data is not shared with 3rd parties for promotional or marketing purposes. Mobile opt-in and consent are never shared with anyone for any purpose. Any information sharing that may be mentioned elsewhere in this policy excludes mobile opt-in data.
 
-**Messaging Terms and Conditions**
-By providing your phone number and agreeing to receive texts, you consent to receive text messages from **UnbrandedRx**, from **[NEW SMS PHONE NUMBER]** regarding account notifications, customer care, delivery notifications. Consent is not a condition of purchase. Message frequency varies. Message & data rates may apply. You can reply STOP to unsubscribe at any time or HELP for assistance. You can also contact us at **[NEW SMS PHONE NUMBER]** or **care@unbrandedrx.co**. Mobile opt-in information is never shared with third parties.
+**SMS & TEXT MESSAGING DATA COLLECTION AND USE**
+
+**Information We Collect When You Opt Into SMS**
+
+When you opt into SMS text messaging from UnbrandedRx, we collect and process the following information:
+
+- **Mobile Phone Number**: The phone number you provide during opt-in
+- **Opt-In Consent Record**: Date, time, and method of your consent to receive SMS messages
+- **Message Interaction Data**: Delivery status, opt-out requests (STOP), and help requests (HELP)
+- **Carrier Information**: Your mobile carrier network for message routing purposes
+
+**How We Use Your SMS Data**
+
+We use your mobile phone number and SMS consent information to:
+
+- Send order confirmations, prescription status updates, and shipping notifications
+- Deliver refill reminders and account notifications
+- Provide promotional offers and marketing messages (if you consented to promotional messages)
+- Respond to your HELP requests for customer support
+- Process your STOP requests to opt out of messaging
+- Maintain records of your consent and communication preferences as required by law
+
+**SMS Data Sharing and Third-Party Disclosure**
+
+**Your mobile opt-in data and consent are NEVER shared with third parties for marketing or promotional purposes.**
+
+We may share your mobile phone number only with:
+
+- **SMS Service Providers**: Third-party vendors who transmit messages on our behalf (e.g., Twilio, Bandwidth, or similar SMS gateway providers). These providers are contractually obligated to protect your data and may only use it to deliver messages as instructed by UnbrandedRx.
+- **Mobile Carriers**: Your wireless carrier, as necessary to deliver SMS messages to your device.
+- **Legal Authorities**: When required by law, court order, or government regulation.
+
+We **do not** sell, rent, or share your mobile phone number or SMS opt-in consent with:
+- Advertisers or marketing companies
+- Data brokers or list rental services
+- Other companies for their promotional purposes
+- Social media platforms (except as necessary to deliver messages you've requested)
+
+**SMS Data Retention**
+
+We retain your mobile phone number and SMS consent records for as long as:
+- You maintain an active account with UnbrandedRx
+- You remain opted into SMS messaging
+- Required by law for compliance and recordkeeping purposes (typically 3-7 years after opt-out)
+
+If you opt out of SMS messaging by texting STOP, we will retain your phone number on our opt-out list to ensure we do not send you further messages, in compliance with federal regulations.
+
+**Your Rights Regarding SMS Data**
+
+You have the following rights concerning your SMS data:
+
+- **Opt Out Anytime**: Text STOP to immediately stop receiving messages
+- **Access Your Data**: Request a copy of the SMS data we have collected about you
+- **Correct Your Phone Number**: Update your phone number in your account settings
+- **Delete Your Data**: Request deletion of your SMS data (subject to legal retention requirements)
+- **Withdraw Consent**: Opt out at any time without affecting your ability to use UnbrandedRx services
+
+To exercise these rights, contact us at care@unbrandedrx.co or through your account settings.
+
+**Security of SMS Data**
+
+We implement reasonable security measures to protect your mobile phone number and SMS consent data from unauthorized access, use, or disclosure. However, no data transmission over mobile networks can be guaranteed to be 100% secure. You acknowledge and accept the inherent security risks of SMS communication.
+
+**Updates to SMS Privacy Practices**
+
+We may update our SMS data collection and privacy practices from time to time. Material changes will be communicated through our website, email, or SMS message (if you are opted in). Your continued use of SMS services after such changes constitutes acceptance of the updated practices.
+
+**SMS Compliance**
+
+Our SMS program complies with:
+- Telephone Consumer Protection Act (TCPA)
+- CAN-SPAM Act
+- Cellular Telecommunications Industry Association (CTIA) guidelines
+- Mobile carrier requirements and best practices
+
+**Contact Us About SMS Privacy**
+
+If you have questions about how we collect, use, or protect your SMS data, contact us at:
+- Email: care@unbrandedrx.co
+- Website: unbrandedrx.co/contact-us
 
 **Children’s online privacy protection act compliance**
 We are committed to protecting the privacy of children. The Children’s Online Privacy Protection Act (“COPPA”), as well as other data privacy regulations, restrict the collection, use, or disclosure of personal information from and about children on the Internet. Our Site, products, and services are not directed to children under the age of 18, nor is information knowingly collected from children under the age of 18. No one under the age of 18 may access, browse, or use the Site or provide any information to or on the Site. If you are under 18, please do not use or provide any information on the Site (including, for example, your name, telephone number, email address, and username). If we learn that we have collected or received personal information from a child under the age of 18 without a parent’s or legal guardian’s consent, we will take steps to stop collecting that information and delete it. If you believe we might have any information from or about a child under the age of 18, please contact us using the contact information provided below.
@@ -166,5 +233,5 @@ For more information about COPPA, please visit the Federal Trade Commission's we
 **Updates and changes to this policy**
 We reserve the right, at any time and without notice, to add to, change, update, or modify this Privacy Policy to reflect any changes to the way in which we treat your personal information or in response to changes in law. Should this Policy change, we will post all changes we make to this Policy on this page. Any such changes, updates or modifications shall be effective immediately upon posting on the Site. The date on which this policy was last modified is identified at the beginning of this Policy.
 
-You are expected to, and you acknowledge and agree that it is your responsibility to, carefully review this Policy prior to using the Site, and from time to to time, so you are aware of any changes. Your continued use of the Site after the “Last Modified” date will constitute your acceptance of and agreement to such changes and to our collection and sharing of your personal information according to the terms of the then-current Policy. If you do not agree with this Policy and our practices, do not access, view, or use any part of the Site.
+You are expected to, and you acknowledge and agree that it is your responsibility to, carefully review this Policy prior to using the Site, and from time to time, so you are aware of any changes. Your continued use of the Site after the “Last Modified” date will constitute your acceptance of and agreement to such changes and to our collection and sharing of your personal information according to the terms of the then-current Policy. If you do not agree with this Policy and our practices, do not access, view, or use any part of the Site.
 
