@@ -59,7 +59,7 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
             {/* SURGICAL STRIKE: Increased logo width by 50% (w-32 to w-48) */}
             <Logo className="w-48" />
             <div className="flex items-center gap-x-6">
-              <Link href="/signup" onClick={onClose} aria-label="My Account">
+              <Link href="https://checkout.unbrandedrx.co/auth/sign-up" onClick={onClose} aria-label="My Account">
                 <UserIcon />
               </Link>
               <button aria-label="Shopping Basket">
