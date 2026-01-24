@@ -12,20 +12,52 @@ import StarFillIcon from "@/components/svg/star-fill-icon";
 import Badge from "@/components/ui/badge";
 import Button from "@/components/ui/button-custom";
 import Image from "next/image";
-import { Zap, Heart, Brain, Dumbbell, Shield, Pill } from "lucide-react";
+import { Zap, Heart, Brain, Dumbbell, Shield, Pill, ChevronDown } from "lucide-react";
 
-type PricingTier = "monthly" | "quarterly" | "5-month";
+type DosageOption =
+  | "enclo-6.25"
+  | "enclo-12.5"
+  | "enclo-25"
+  | "enclo-tad-6.25"
+  | "enclo-tad-12.5"
+  | "enclo-tad-25";
 
-const pricingData: Record<PricingTier, { label: string; price: string; ctaText: string }> = {
-  monthly: { label: "Monthly", price: "$79", ctaText: "Get Started — $79/month" },
-  quarterly: { label: "Quarterly", price: "$189", ctaText: "Get Started — $189/quarter" },
-  "5-month": { label: "5-Month", price: "$319", ctaText: "Get Started — $319 for 5 months" },
+type PricingTier = "monthly" | "quarterly";
+
+interface DosageInfo {
+  label: string;
+  monthly: number;
+  quarterly: number;
+  savings: number;
+}
+
+const dosageData: Record<DosageOption, DosageInfo> = {
+  "enclo-6.25": { label: "Enclomiphene 6.25mg", monthly: 79, quarterly: 189, savings: 48 },
+  "enclo-12.5": { label: "Enclomiphene 12.5mg", monthly: 99, quarterly: 237, savings: 60 },
+  "enclo-25": { label: "Enclomiphene 25mg", monthly: 119, quarterly: 297.50, savings: 59.50 },
+  "enclo-tad-6.25": { label: "Enclomiphene 6.25mg + Tadalafil", monthly: 79, quarterly: 189, savings: 48 },
+  "enclo-tad-12.5": { label: "Enclomiphene 12.5mg + Tadalafil", monthly: 99, quarterly: 237, savings: 60 },
+  "enclo-tad-25": { label: "Enclomiphene 25mg + Tadalafil", monthly: 119, quarterly: 297.50, savings: 59.50 },
 };
 
 export default function HeroSection() {
   const [selectedTier, setSelectedTier] = useState<PricingTier>("quarterly");
+  const [selectedDosage, setSelectedDosage] = useState<DosageOption>("enclo-6.25");
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const currentDosage = dosageData[selectedDosage];
+  const monthlyPerMonth = currentDosage.monthly;
+  const quarterlyPerMonth = Math.round((currentDosage.quarterly / 3) * 100) / 100;
+
+  const getCtaText = () => {
+    if (selectedTier === "monthly") {
+      return `Get Started — $${currentDosage.monthly}/month`;
+    }
+    return `Get Started — $${currentDosage.quarterly}/quarter`;
+  };
+
   return (
-    <section className="container mx-auto my-4 px-4 xl:my-15 xl:px-0">
+    <section id="hero" className="container mx-auto my-4 px-4 xl:my-15 xl:px-0">
       <div className="flex flex-col justify-between gap-x-4 xl:flex-row xl:items-stretch">
         <div className="relative h-full min-h-[590px] w-full overflow-hidden rounded-3xl">
           <Image
@@ -130,6 +162,56 @@ export default function HeroSection() {
             </div>
           </div>
 
+          {/* Dosage Selector */}
+          <div className="space-y-2">
+            <label className="text-sm text-muted-foreground">
+              Existing prescription? Select your dose
+            </label>
+            <div className="relative">
+              <button
+                type="button"
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className="w-full flex items-center justify-between rounded-xl border border-neutral-200 bg-white px-4 py-3 text-left text-sm font-medium hover:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-primary/20"
+              >
+                <span>{currentDosage.label}</span>
+                <ChevronDown className={`size-4 text-neutral-500 transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
+              </button>
+              {dropdownOpen && (
+                <div className="absolute z-10 mt-1 w-full rounded-xl border border-neutral-200 bg-white shadow-lg">
+                  <div className="py-1">
+                    {(["enclo-6.25", "enclo-12.5", "enclo-25"] as DosageOption[]).map((dosage) => (
+                      <button
+                        key={dosage}
+                        type="button"
+                        onClick={() => {
+                          setSelectedDosage(dosage);
+                          setDropdownOpen(false);
+                        }}
+                        className={`w-full px-4 py-2.5 text-left text-sm hover:bg-neutral-50 ${selectedDosage === dosage ? "bg-neutral-50 font-medium" : ""}`}
+                      >
+                        {dosageData[dosage].label}
+                      </button>
+                    ))}
+                    <div className="my-1 border-t border-neutral-100" />
+                    {(["enclo-tad-6.25", "enclo-tad-12.5", "enclo-tad-25"] as DosageOption[]).map((dosage) => (
+                      <button
+                        key={dosage}
+                        type="button"
+                        onClick={() => {
+                          setSelectedDosage(dosage);
+                          setDropdownOpen(false);
+                        }}
+                        className={`w-full px-4 py-2.5 text-left text-sm hover:bg-neutral-50 ${selectedDosage === dosage ? "bg-neutral-50 font-medium" : ""}`}
+                      >
+                        {dosageData[dosage].label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+
           {/* Pricing Options */}
           <div className="flex flex-col justify-between space-y-3">
             <label className="radio-wrapper">
@@ -149,7 +231,7 @@ export default function HeroSection() {
                 </div>
                 <div className="flex items-baseline gap-x-2">
                   <p className="tabular-nums text-2xl font-bold text-neutral-900">
-                    $79
+                    ${monthlyPerMonth}
                   </p>
                   <p className="text-sm text-muted-foreground">/month</p>
                 </div>
@@ -173,7 +255,7 @@ export default function HeroSection() {
                   <div className="flex items-center gap-x-2">
                     <Badge>Most Popular</Badge>
                     <span className="text-xs font-medium text-emerald-600">
-                      Save $48
+                      Save ${currentDosage.savings}
                     </span>
                   </div>
                   <CheckCircleFillIcon className="radio-icon" />
@@ -181,50 +263,15 @@ export default function HeroSection() {
                 <p className="font-semibold">Quarterly</p>
                 <div className="flex items-baseline gap-x-2">
                   <p className="tabular-nums text-2xl font-bold text-neutral-900">
-                    $63
+                    ${quarterlyPerMonth}
                   </p>
                   <p className="text-sm text-muted-foreground">/month</p>
                   <p className="text-xs text-muted-foreground line-through">
-                    $79
+                    ${monthlyPerMonth}
                   </p>
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  $189 billed every 3 months. Free shipping.
-                </p>
-              </div>
-            </label>
-            <label className="radio-wrapper">
-              <input
-                className="peer absolute opacity-0"
-                type="radio"
-                name="price"
-                value="5-month"
-                id="price-5-month"
-                checked={selectedTier === "5-month"}
-                onChange={() => setSelectedTier("5-month")}
-              />
-              <div className="radio-card">
-                <div className="flex w-full justify-between items-center">
-                  <div className="flex items-center gap-x-2">
-                    <Badge className="bg-emerald-600">Best Value</Badge>
-                    <span className="text-xs font-medium text-emerald-600">
-                      Save $76
-                    </span>
-                  </div>
-                  <CheckCircleFillIcon className="radio-icon" />
-                </div>
-                <p className="font-semibold">5-Month Supply</p>
-                <div className="flex items-baseline gap-x-2">
-                  <p className="tabular-nums text-2xl font-bold text-neutral-900">
-                    $64
-                  </p>
-                  <p className="text-sm text-muted-foreground">/month</p>
-                  <p className="text-xs text-muted-foreground line-through">
-                    $79
-                  </p>
-                </div>
-                <p className="text-xs text-muted-foreground">
-                  $319 billed every 5 months. Free shipping + lab kit.
+                  ${currentDosage.quarterly} billed every 3 months. Free shipping.
                 </p>
               </div>
             </label>
@@ -237,7 +284,7 @@ export default function HeroSection() {
             rel="noopener noreferrer"
           >
             <Button variant="filled" size="xl" fullWidth>
-              {pricingData[selectedTier].ctaText}
+              {getCtaText()}
             </Button>
           </a>
 

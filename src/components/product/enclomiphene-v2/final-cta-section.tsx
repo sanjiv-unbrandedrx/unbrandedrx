@@ -14,13 +14,9 @@ export default function FinalCTASection() {
         </p>
 
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-            href="https://checkout.unbrandedrx.co/enclomiphine?priceId=1998"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="#hero">
             <Button variant="filledInverse" size="xl">
-              Get Started — $79/month
+              Get Started
             </Button>
           </a>
         </div>

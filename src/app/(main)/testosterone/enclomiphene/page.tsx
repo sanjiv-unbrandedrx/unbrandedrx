@@ -1,6 +1,7 @@
 import Header from "@/components/common/Header";
 import HeroSection from "@/components/product/enclomiphene-v2/hero-section";
 import ComparisonSection from "@/components/product/enclomiphene-v2/comparison-section";
+import PricingSection from "@/components/product/enclomiphene-v2/pricing-section";
 import TimelineSection from "@/components/product/enclomiphene-v2/timeline-section";
 import HowItWorksSection from "@/components/product/enclomiphene-v2/how-it-works-section";
 import ScienceSection from "@/components/product/enclomiphene-v2/science-section";
@@ -22,6 +23,7 @@ export default function EnclomipheneV2Page() {
       </section>
       <HeroSection />
       <ComparisonSection />
+      <PricingSection />
       <TimelineSection />
       <HowItWorksSection />
       <ScienceSection />
