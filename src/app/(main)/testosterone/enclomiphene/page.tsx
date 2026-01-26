@@ -12,7 +12,7 @@ import FinalCTASection from "@/components/product/enclomiphene-v2/final-cta-sect
 export const metadata = {
   title: "Enclomiphene | Natural Testosterone Booster | UnbrandedRx",
   description:
-    "Boost testosterone naturally with Enclomiphene. A daily oral capsule that stimulates your body's own production—no injections, no fertility loss. From $79/month.",
+    "Boost testosterone naturally with Enclomiphene. A daily oral capsule that stimulates your body's own production - no injections, no fertility loss. From $79/month.",
 };
 
 export default function EnclomipheneV2Page() {

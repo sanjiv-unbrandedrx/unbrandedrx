@@ -13,7 +13,7 @@ export default function FAQSection() {
           <h2 className="font-title text-3xl font-medium">
             Common Questions
           </h2>
-          <p className="mt-2 text-sm text-muted-foreground max-w-xs">
+          <p className="mt-3 text-base text-muted-foreground max-w-xs">
             Everything you need to know about Enclomiphene therapy.
           </p>
         </div>
@@ -22,12 +22,12 @@ export default function FAQSection() {
           <Accordion type="single" collapsible className="space-y-4">
             <AccordionItem
               value="item-1"
-              className="border-0 rounded-3xl bg-white px-5"
+              className="border-0 rounded-3xl bg-white px-6"
             >
-              <AccordionTrigger className="hover:no-underline font-semibold">
+              <AccordionTrigger className="hover:no-underline font-semibold text-base text-left">
                 How much will my testosterone increase?
               </AccordionTrigger>
-              <AccordionContent className="text-sm text-neutral-600">
+              <AccordionContent className="text-base text-neutral-600">
                 Results vary by individual, but clinical studies and real-world
                 experience show most men achieve a 1.5-2x increase in
                 testosterone levels within 6-8 weeks. Some men see even higher
@@ -39,12 +39,12 @@ export default function FAQSection() {
 
             <AccordionItem
               value="item-2"
-              className="border-0 rounded-3xl bg-white px-5"
+              className="border-0 rounded-3xl bg-white px-6"
             >
-              <AccordionTrigger className="hover:no-underline font-semibold">
+              <AccordionTrigger className="hover:no-underline font-semibold text-base text-left">
                 How does Enclomiphene work?
               </AccordionTrigger>
-              <AccordionContent className="text-sm text-neutral-600">
+              <AccordionContent className="text-base text-neutral-600">
                 Enclomiphene is a selective estrogen receptor modulator (SERM).
                 It works by blocking estrogen receptors in your brain, which
                 signals your pituitary gland to release more Luteinizing Hormone
@@ -55,16 +55,16 @@ export default function FAQSection() {
 
             <AccordionItem
               value="item-3"
-              className="border-0 rounded-3xl bg-white px-5"
+              className="border-0 rounded-3xl bg-white px-6"
             >
-              <AccordionTrigger className="hover:no-underline font-semibold">
+              <AccordionTrigger className="hover:no-underline font-semibold text-base text-left">
                 How is this different from TRT injections or gels?
               </AccordionTrigger>
-              <AccordionContent className="text-sm text-neutral-600">
+              <AccordionContent className="text-base text-neutral-600">
                 Traditional TRT introduces external testosterone into your body,
                 which causes your natural production to shut down. This can lead
                 to testicular shrinkage and fertility issues. Enclomiphene takes
-                the opposite approach—it encourages your body to produce more of
+                the opposite approach: it encourages your body to produce more of
                 its own testosterone, preserving your natural hormonal function,
                 testicular size, and fertility.
               </AccordionContent>
@@ -72,12 +72,12 @@ export default function FAQSection() {
 
             <AccordionItem
               value="item-4"
-              className="border-0 rounded-3xl bg-white px-5"
+              className="border-0 rounded-3xl bg-white px-6"
             >
-              <AccordionTrigger className="hover:no-underline font-semibold">
+              <AccordionTrigger className="hover:no-underline font-semibold text-base text-left">
                 Can I use this if I want to have children?
               </AccordionTrigger>
-              <AccordionContent className="text-sm text-neutral-600">
+              <AccordionContent className="text-base text-neutral-600">
                 Yes. Unlike traditional TRT which can significantly reduce sperm
                 count and fertility, enclomiphene actually supports sperm
                 production by increasing FSH levels. It&apos;s often the
@@ -88,12 +88,12 @@ export default function FAQSection() {
 
             <AccordionItem
               value="item-5"
-              className="border-0 rounded-3xl bg-white px-5"
+              className="border-0 rounded-3xl bg-white px-6"
             >
-              <AccordionTrigger className="hover:no-underline font-semibold">
+              <AccordionTrigger className="hover:no-underline font-semibold text-base text-left">
                 What&apos;s the difference between Enclomiphene and Clomid?
               </AccordionTrigger>
-              <AccordionContent className="text-sm text-neutral-600">
+              <AccordionContent className="text-base text-neutral-600">
                 Clomid (clomiphene citrate) contains two isomers: zuclomiphene
                 and enclomiphene. While enclomiphene boosts testosterone,
                 zuclomiphene can linger in the body and cause unwanted
@@ -105,12 +105,12 @@ export default function FAQSection() {
 
             <AccordionItem
               value="item-6"
-              className="border-0 rounded-3xl bg-white px-5"
+              className="border-0 rounded-3xl bg-white px-6"
             >
-              <AccordionTrigger className="hover:no-underline font-semibold">
+              <AccordionTrigger className="hover:no-underline font-semibold text-base text-left">
                 Is this a steroid?
               </AccordionTrigger>
-              <AccordionContent className="text-sm text-neutral-600">
+              <AccordionContent className="text-base text-neutral-600">
                 No. Enclomiphene is not an anabolic steroid. It&apos;s a
                 non-steroidal oral medication that works with your body&apos;s
                 endocrine system to stimulate natural testosterone production,
@@ -120,12 +120,12 @@ export default function FAQSection() {
 
             <AccordionItem
               value="item-7"
-              className="border-0 rounded-3xl bg-white px-5"
+              className="border-0 rounded-3xl bg-white px-6"
             >
-              <AccordionTrigger className="hover:no-underline font-semibold">
+              <AccordionTrigger className="hover:no-underline font-semibold text-base text-left">
                 Do I need lab work?
               </AccordionTrigger>
-              <AccordionContent className="text-sm text-neutral-600">
+              <AccordionContent className="text-base text-neutral-600">
                 Yes. To ensure this treatment is safe and appropriate for you,
                 your provider needs to see your current hormone levels. You can
                 either upload recent lab results (within 6 months) or use our
@@ -136,28 +136,28 @@ export default function FAQSection() {
 
             <AccordionItem
               value="item-8"
-              className="border-0 rounded-3xl bg-white px-5"
+              className="border-0 rounded-3xl bg-white px-6"
             >
-              <AccordionTrigger className="hover:no-underline font-semibold">
+              <AccordionTrigger className="hover:no-underline font-semibold text-base text-left">
                 How long until I see results?
               </AccordionTrigger>
-              <AccordionContent className="text-sm text-neutral-600">
+              <AccordionContent className="text-base text-neutral-600">
                 Hormone levels typically begin changing within the first 2
                 weeks. Most men start noticing improvements in energy, mood, and
-                libido within 4-6 weeks. Full benefits—including improvements in
-                body composition and mental clarity—usually develop over 8-12
+                libido within 4-6 weeks. Full benefits, including improvements in
+                body composition and mental clarity, usually develop over 8-12
                 weeks of consistent daily use.
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem
               value="item-9"
-              className="border-0 rounded-3xl bg-white px-5"
+              className="border-0 rounded-3xl bg-white px-6"
             >
-              <AccordionTrigger className="hover:no-underline font-semibold">
+              <AccordionTrigger className="hover:no-underline font-semibold text-base text-left">
                 What are the potential side effects?
               </AccordionTrigger>
-              <AccordionContent className="text-sm text-neutral-600">
+              <AccordionContent className="text-base text-neutral-600">
                 Enclomiphene is generally well-tolerated. Potential side effects
                 include headache, nausea, hot flashes, mood changes, and visual
                 disturbances (rare). Serious side effects are uncommon but can
@@ -169,12 +169,12 @@ export default function FAQSection() {
 
             <AccordionItem
               value="item-10"
-              className="border-0 rounded-3xl bg-white px-5"
+              className="border-0 rounded-3xl bg-white px-6"
             >
-              <AccordionTrigger className="hover:no-underline font-semibold">
+              <AccordionTrigger className="hover:no-underline font-semibold text-base text-left">
                 What if it doesn&apos;t work for me?
               </AccordionTrigger>
-              <AccordionContent className="text-sm text-neutral-600">
+              <AccordionContent className="text-base text-neutral-600">
                 While most men respond well to enclomiphene, individual results
                 vary. If you don&apos;t see the expected improvements, your
                 provider can adjust your dosage or discuss alternative treatment
@@ -185,12 +185,12 @@ export default function FAQSection() {
 
             <AccordionItem
               value="item-11"
-              className="border-0 rounded-3xl bg-white px-5"
+              className="border-0 rounded-3xl bg-white px-6"
             >
-              <AccordionTrigger className="hover:no-underline font-semibold">
+              <AccordionTrigger className="hover:no-underline font-semibold text-base text-left">
                 Will insurance cover this?
               </AccordionTrigger>
-              <AccordionContent className="text-sm text-neutral-600">
+              <AccordionContent className="text-base text-neutral-600">
                 Enclomiphene is typically not covered by insurance as it&apos;s
                 dispensed through a compounding pharmacy. However, our pricing
                 is designed to be affordable without insurance, and you may be

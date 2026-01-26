@@ -8,7 +8,7 @@ export default function FinalCTASection() {
         <h2 className="font-title text-3xl xl:text-4xl font-medium text-white">
           Ready to Optimize Your Testosterone?
         </h2>
-        <p className="mt-4 text-neutral-300 max-w-xl mx-auto">
+        <p className="mt-4 text-lg text-neutral-300 max-w-xl mx-auto">
           Join thousands of men who&apos;ve taken control of their hormone
           health. Start your personalized treatment today.
         </p>
@@ -21,22 +21,22 @@ export default function FinalCTASection() {
           </a>
         </div>
 
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-sm text-neutral-400">
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-base text-neutral-400">
           <div className="flex items-center gap-x-2">
-            <Shield className="size-4" />
+            <Shield className="size-5" />
             <span>Licensed U.S. Providers</span>
           </div>
           <div className="flex items-center gap-x-2">
-            <Truck className="size-4" />
+            <Truck className="size-5" />
             <span>Free Discreet Shipping</span>
           </div>
           <div className="flex items-center gap-x-2">
-            <MessageCircle className="size-4" />
+            <MessageCircle className="size-5" />
             <span>Ongoing Provider Support</span>
           </div>
         </div>
 
-        <p className="mt-6 text-xs text-neutral-500">
+        <p className="mt-6 text-sm text-neutral-500">
           Cancel anytime. No long-term commitment required.
         </p>
       </div>

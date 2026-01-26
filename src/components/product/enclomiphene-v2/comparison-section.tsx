@@ -7,7 +7,7 @@ export default function ComparisonSection() {
         <h2 className="font-title text-3xl xl:text-4xl tracking-tight font-medium">
           Why Enclomiphene Over Traditional TRT?
         </h2>
-        <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
+        <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
           Traditional TRT shuts down your body&apos;s natural production.
           Enclomiphene works with your body to boost what it already makes.
         </p>
@@ -17,12 +17,12 @@ export default function ComparisonSection() {
         <div className="grid grid-cols-3 gap-4 mb-4">
           <div className="col-span-1"></div>
           <div className="text-center">
-            <div className="bg-emerald-100 text-emerald-800 font-semibold py-2 px-4 rounded-t-xl text-sm">
+            <div className="bg-emerald-100 text-emerald-800 font-semibold py-2.5 px-4 rounded-t-xl text-base">
               Enclomiphene
             </div>
           </div>
           <div className="text-center">
-            <div className="bg-neutral-100 text-neutral-600 font-semibold py-2 px-4 rounded-t-xl text-sm">
+            <div className="bg-neutral-100 text-neutral-600 font-semibold py-2.5 px-4 rounded-t-xl text-base">
               Traditional TRT
             </div>
           </div>
@@ -70,7 +70,7 @@ export default function ComparisonSection() {
       </div>
 
       <div className="mt-10 text-center">
-        <p className="text-sm text-muted-foreground max-w-xl mx-auto">
+        <p className="text-base text-muted-foreground max-w-xl mx-auto">
           Enclomiphene is ideal for men who want to optimize testosterone while
           preserving fertility and avoiding the risks of hormone replacement.
         </p>
@@ -94,28 +94,28 @@ function ComparisonRow({
 }) {
   return (
     <div
-      className={`grid grid-cols-3 gap-4 py-4 px-4 ${
+      className={`grid grid-cols-3 gap-4 py-5 px-4 ${
         !isLast ? "border-b border-neutral-100" : ""
       }`}
     >
       <div className="flex items-center">
-        <span className="text-sm font-medium text-neutral-800">{feature}</span>
+        <span className="text-base font-medium text-neutral-800">{feature}</span>
       </div>
       <div className="flex items-center justify-center gap-x-2">
         {encloBetter ? (
-          <Check className="size-4 text-emerald-600 flex-shrink-0" />
+          <Check className="size-5 text-emerald-600 flex-shrink-0" />
         ) : (
-          <X className="size-4 text-red-500 flex-shrink-0" />
+          <X className="size-5 text-red-500 flex-shrink-0" />
         )}
-        <span className="text-sm text-neutral-700">{enclomiphene}</span>
+        <span className="text-base text-neutral-700">{enclomiphene}</span>
       </div>
       <div className="flex items-center justify-center gap-x-2">
         {!encloBetter ? (
-          <Check className="size-4 text-emerald-600 flex-shrink-0" />
+          <Check className="size-5 text-emerald-600 flex-shrink-0" />
         ) : (
-          <X className="size-4 text-neutral-400 flex-shrink-0" />
+          <X className="size-5 text-neutral-400 flex-shrink-0" />
         )}
-        <span className="text-sm text-neutral-500">{trt}</span>
+        <span className="text-base text-neutral-500">{trt}</span>
       </div>
     </div>
   );

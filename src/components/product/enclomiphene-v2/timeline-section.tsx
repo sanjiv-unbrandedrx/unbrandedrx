@@ -8,7 +8,7 @@ export default function TimelineSection() {
           <h2 className="font-title text-3xl xl:text-4xl tracking-tight font-medium">
             What to Expect
           </h2>
-          <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
+          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
             Results vary by individual, but here&apos;s what most men experience
             with consistent daily use.
           </p>
@@ -48,7 +48,7 @@ export default function TimelineSection() {
         </div>
 
         <div className="mt-10 text-center">
-          <p className="text-xs text-muted-foreground max-w-lg mx-auto">
+          <p className="text-sm text-muted-foreground max-w-lg mx-auto">
             Individual results may vary. Consistent daily use is important for
             best results. Your provider may adjust dosing based on lab results
             and symptoms.
@@ -86,11 +86,11 @@ function TimelineCard({
       >
         {icon}
       </div>
-      <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">
+      <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-1">
         {week}
       </p>
-      <h3 className="font-semibold text-neutral-900 mb-2">{title}</h3>
-      <p className="text-sm text-muted-foreground">{description}</p>
+      <h3 className="font-semibold text-lg text-neutral-900 mb-2">{title}</h3>
+      <p className="text-base text-muted-foreground">{description}</p>
     </div>
   );
 }

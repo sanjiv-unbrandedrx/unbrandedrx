@@ -51,9 +51,9 @@ export default function HeroSection() {
 
   const getCtaText = () => {
     if (selectedTier === "monthly") {
-      return `Get Started — $${currentDosage.monthly}/month`;
+      return `Get Started - $${currentDosage.monthly}/month`;
     }
-    return `Get Started — $${currentDosage.quarterly}/quarter`;
+    return `Get Started - $${currentDosage.quarterly}/quarter`;
   };
 
   return (
@@ -70,21 +70,21 @@ export default function HeroSection() {
         </div>
         <div className="flex w-full flex-col gap-y-8 py-6 px-1 xl:py-0 xl:px-19">
           <div className="space-y-4">
-            <div className="flex items-center gap-x-2">
-              <Badge className="bg-emerald-600">Fertility Safe</Badge>
-              <Badge className="bg-blue-600">No Injections</Badge>
+            <div className="flex items-center gap-x-3">
+              <Badge className="text-sm py-1.5 px-4">Fertility Safe</Badge>
+              <Badge className="text-sm py-1.5 px-4">No Injections</Badge>
             </div>
             <h1 className="font-title text-2xl font-medium tracking-tight xl:text-4xl">
               Enclomiphene
             </h1>
             <p className="text-base xl:text-lg text-neutral-700">
               Boost your testosterone naturally. A daily capsule that works with
-              your body—not against it.
+              your body, not against it.
             </p>
 
             {/* Quantified Claim */}
-            <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-4">
-              <p className="text-emerald-800 font-medium text-sm">
+            <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-5">
+              <p className="text-emerald-800 font-medium text-base">
                 Most men see a <span className="font-bold">1.5-2x increase</span> in
                 testosterone levels within 6-8 weeks of consistent use.
               </p>
@@ -93,68 +93,68 @@ export default function HeroSection() {
             {/* Social Proof */}
             <div className="flex items-center justify-start gap-x-4">
               <div className="flex items-center justify-start gap-x-1">
-                <StarFillIcon className="size-4 text-amber-400" />
-                <StarFillIcon className="size-4 text-amber-400" />
-                <StarFillIcon className="size-4 text-amber-400" />
-                <StarFillIcon className="size-4 text-amber-400" />
-                <StarFillIcon className="size-4 text-amber-400" />
+                <StarFillIcon className="size-5 text-amber-400" />
+                <StarFillIcon className="size-5 text-amber-400" />
+                <StarFillIcon className="size-5 text-amber-400" />
+                <StarFillIcon className="size-5 text-amber-400" />
+                <StarFillIcon className="size-5 text-amber-400" />
               </div>
-              <p className="text-sm text-neutral-700">
+              <p className="text-base text-neutral-700">
                 <span className="font-semibold tabular-nums">4.8/5</span> from{" "}
                 <span className="font-semibold">500+ reviews</span>
               </p>
             </div>
 
             {/* Benefit-Focused Features */}
-            <div className="grid grid-cols-1 gap-3 pt-2">
+            <div className="grid grid-cols-1 gap-4 pt-2">
               <div className="flex items-start gap-x-3">
-                <div className="bg-primary/10 p-2 rounded-lg">
-                  <Zap className="size-4 text-primary" />
+                <div className="bg-primary/10 p-2.5 rounded-lg">
+                  <Zap className="size-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-neutral-900">
+                  <p className="text-base font-medium text-neutral-900">
                     Restore Energy & Drive
                   </p>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-sm text-muted-foreground">
                     Feel more motivated and alert throughout the day
                   </p>
                 </div>
               </div>
               <div className="flex items-start gap-x-3">
-                <div className="bg-primary/10 p-2 rounded-lg">
-                  <Heart className="size-4 text-primary" />
+                <div className="bg-primary/10 p-2.5 rounded-lg">
+                  <Heart className="size-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-neutral-900">
+                  <p className="text-base font-medium text-neutral-900">
                     Enhance Libido & Performance
                   </p>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-sm text-muted-foreground">
                     Support healthy sexual function naturally
                   </p>
                 </div>
               </div>
               <div className="flex items-start gap-x-3">
-                <div className="bg-primary/10 p-2 rounded-lg">
-                  <Brain className="size-4 text-primary" />
+                <div className="bg-primary/10 p-2.5 rounded-lg">
+                  <Brain className="size-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-neutral-900">
+                  <p className="text-base font-medium text-neutral-900">
                     Sharpen Focus & Mood
                   </p>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-sm text-muted-foreground">
                     Improved mental clarity and emotional balance
                   </p>
                 </div>
               </div>
               <div className="flex items-start gap-x-3">
-                <div className="bg-primary/10 p-2 rounded-lg">
-                  <Dumbbell className="size-4 text-primary" />
+                <div className="bg-primary/10 p-2.5 rounded-lg">
+                  <Dumbbell className="size-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-neutral-900">
+                  <p className="text-base font-medium text-neutral-900">
                     Support Lean Muscle
                   </p>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-sm text-muted-foreground">
                     Optimize body composition and metabolism
                   </p>
                 </div>
@@ -164,17 +164,17 @@ export default function HeroSection() {
 
           {/* Dosage Selector */}
           <div className="space-y-2">
-            <label className="text-sm text-muted-foreground">
+            <label className="text-base text-muted-foreground">
               Existing prescription? Select your dose
             </label>
             <div className="relative">
               <button
                 type="button"
                 onClick={() => setDropdownOpen(!dropdownOpen)}
-                className="w-full flex items-center justify-between rounded-xl border border-neutral-200 bg-white px-4 py-3 text-left text-sm font-medium hover:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-primary/20"
+                className="w-full flex items-center justify-between rounded-xl border border-neutral-200 bg-white px-4 py-3.5 text-left text-base font-medium hover:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-primary/20"
               >
                 <span>{currentDosage.label}</span>
-                <ChevronDown className={`size-4 text-neutral-500 transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
+                <ChevronDown className={`size-5 text-neutral-500 transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
               </button>
               {dropdownOpen && (
                 <div className="absolute z-10 mt-1 w-full rounded-xl border border-neutral-200 bg-white shadow-lg">
@@ -187,7 +187,7 @@ export default function HeroSection() {
                           setSelectedDosage(dosage);
                           setDropdownOpen(false);
                         }}
-                        className={`w-full px-4 py-2.5 text-left text-sm hover:bg-neutral-50 ${selectedDosage === dosage ? "bg-neutral-50 font-medium" : ""}`}
+                        className={`w-full px-4 py-3 text-left text-base hover:bg-neutral-50 ${selectedDosage === dosage ? "bg-neutral-50 font-medium" : ""}`}
                       >
                         {dosageData[dosage].label}
                       </button>
@@ -201,7 +201,7 @@ export default function HeroSection() {
                           setSelectedDosage(dosage);
                           setDropdownOpen(false);
                         }}
-                        className={`w-full px-4 py-2.5 text-left text-sm hover:bg-neutral-50 ${selectedDosage === dosage ? "bg-neutral-50 font-medium" : ""}`}
+                        className={`w-full px-4 py-3 text-left text-base hover:bg-neutral-50 ${selectedDosage === dosage ? "bg-neutral-50 font-medium" : ""}`}
                       >
                         {dosageData[dosage].label}
                       </button>
@@ -226,16 +226,16 @@ export default function HeroSection() {
               />
               <div className="radio-card">
                 <div className="flex w-full justify-between">
-                  <p className="font-semibold">Monthly</p>
+                  <p className="font-semibold text-lg">Monthly</p>
                   <CheckCircleFillIcon className="radio-icon" />
                 </div>
                 <div className="flex items-baseline gap-x-2">
-                  <p className="tabular-nums text-2xl font-bold text-neutral-900">
+                  <p className="tabular-nums text-3xl font-bold text-neutral-900">
                     ${monthlyPerMonth}
                   </p>
-                  <p className="text-sm text-muted-foreground">/month</p>
+                  <p className="text-base text-muted-foreground">/month</p>
                 </div>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-sm text-muted-foreground">
                   No commitment. Cancel anytime.
                 </p>
               </div>
@@ -253,24 +253,24 @@ export default function HeroSection() {
               <div className="radio-card">
                 <div className="flex w-full justify-between items-center">
                   <div className="flex items-center gap-x-2">
-                    <Badge>Most Popular</Badge>
-                    <span className="text-xs font-medium text-emerald-600">
+                    <Badge className="text-sm py-1.5 px-4">Most Popular</Badge>
+                    <span className="text-sm font-medium text-emerald-600">
                       Save ${currentDosage.savings}
                     </span>
                   </div>
                   <CheckCircleFillIcon className="radio-icon" />
                 </div>
-                <p className="font-semibold">Quarterly</p>
+                <p className="font-semibold text-lg">Quarterly</p>
                 <div className="flex items-baseline gap-x-2">
-                  <p className="tabular-nums text-2xl font-bold text-neutral-900">
+                  <p className="tabular-nums text-3xl font-bold text-neutral-900">
                     ${quarterlyPerMonth}
                   </p>
-                  <p className="text-sm text-muted-foreground">/month</p>
-                  <p className="text-xs text-muted-foreground line-through">
+                  <p className="text-base text-muted-foreground">/month</p>
+                  <p className="text-sm text-muted-foreground line-through">
                     ${monthlyPerMonth}
                   </p>
                 </div>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-sm text-muted-foreground">
                   ${currentDosage.quarterly} billed every 3 months. Free shipping.
                 </p>
               </div>
@@ -289,17 +289,17 @@ export default function HeroSection() {
           </a>
 
           {/* Trust Indicators */}
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
-            <div className="flex items-center gap-x-1">
-              <Shield className="size-3.5" />
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
+            <div className="flex items-center gap-x-1.5">
+              <Shield className="size-4" />
               <span>Licensed U.S. Providers</span>
             </div>
-            <div className="flex items-center gap-x-1">
-              <Pill className="size-3.5" />
+            <div className="flex items-center gap-x-1.5">
+              <Pill className="size-4" />
               <span>FDA-Registered Pharmacy</span>
             </div>
-            <div className="flex items-center gap-x-1">
-              <Zap className="size-3.5" />
+            <div className="flex items-center gap-x-1.5">
+              <Zap className="size-4" />
               <span>Free Shipping</span>
             </div>
           </div>
@@ -307,10 +307,10 @@ export default function HeroSection() {
           {/* Safety Information */}
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="item-1" className="border-b-0">
-              <AccordionTrigger className="hover:no-underline text-sm font-semibold">
+              <AccordionTrigger className="hover:no-underline text-base font-semibold">
                 Important Safety Information
               </AccordionTrigger>
-              <AccordionContent className="text-xs space-y-4">
+              <AccordionContent className="text-sm space-y-4">
                 <div>
                   <h4 className="font-bold">
                     Contraindications (Do Not Take If):

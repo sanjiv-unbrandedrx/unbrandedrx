@@ -14,11 +14,11 @@ export default function ScienceSection() {
               </h2>
             </div>
 
-            <div className="space-y-4 text-neutral-700">
+            <div className="space-y-4 text-neutral-700 text-lg">
               <p>
                 <span className="font-semibold">Enclomiphene Citrate</span> is a
                 selective estrogen receptor modulator (SERM) that works at the
-                source—your brain.
+                source: your brain.
               </p>
               <p>
                 By blocking estrogen receptors in the hypothalamus, it signals
@@ -32,13 +32,13 @@ export default function ScienceSection() {
               </p>
               <p>
                 These hormones then stimulate your testes to produce more
-                testosterone naturally—without introducing external hormones
+                testosterone naturally, without introducing external hormones
                 that can shut down your body&apos;s own production.
               </p>
             </div>
 
-            <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
-              <p className="text-sm text-blue-800">
+            <div className="bg-blue-50 border border-blue-100 rounded-xl p-5">
+              <p className="text-base text-blue-800">
                 <span className="font-semibold">Key difference:</span> Unlike
                 traditional TRT which replaces your testosterone, enclomiphene
                 helps your body make more of its own. This preserves testicular
@@ -48,20 +48,20 @@ export default function ScienceSection() {
 
             <div className="grid grid-cols-3 gap-4 pt-2">
               <div className="text-center">
-                <p className="text-2xl font-bold text-neutral-900">LH ↑</p>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-3xl font-bold text-neutral-900">LH ↑</p>
+                <p className="text-sm text-muted-foreground">
                   Luteinizing Hormone
                 </p>
               </div>
               <div className="text-center">
-                <p className="text-2xl font-bold text-neutral-900">FSH ↑</p>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-3xl font-bold text-neutral-900">FSH ↑</p>
+                <p className="text-sm text-muted-foreground">
                   Follicle-Stimulating
                 </p>
               </div>
               <div className="text-center">
-                <p className="text-2xl font-bold text-emerald-600">T ↑</p>
-                <p className="text-xs text-muted-foreground">Testosterone</p>
+                <p className="text-3xl font-bold text-emerald-600">T ↑</p>
+                <p className="text-sm text-muted-foreground">Testosterone</p>
               </div>
             </div>
           </div>

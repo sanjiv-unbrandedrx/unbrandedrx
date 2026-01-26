@@ -7,7 +7,7 @@ export default function TestimonialsSection() {
         <h2 className="font-title text-3xl xl:text-4xl tracking-tight font-medium">
           Real Results from Real Men
         </h2>
-        <p className="mt-3 text-muted-foreground">
+        <p className="mt-4 text-lg text-muted-foreground">
           Hear from men who&apos;ve optimized their testosterone with Enclomiphene.
         </p>
       </div>
@@ -39,13 +39,13 @@ export default function TestimonialsSection() {
       <div className="mt-10 text-center">
         <div className="inline-flex items-center gap-x-4 bg-neutral-50 rounded-full px-6 py-3">
           <div className="flex items-center gap-x-1">
-            <StarFillIcon className="size-4 text-amber-400" />
-            <StarFillIcon className="size-4 text-amber-400" />
-            <StarFillIcon className="size-4 text-amber-400" />
-            <StarFillIcon className="size-4 text-amber-400" />
-            <StarFillIcon className="size-4 text-amber-400" />
+            <StarFillIcon className="size-5 text-amber-400" />
+            <StarFillIcon className="size-5 text-amber-400" />
+            <StarFillIcon className="size-5 text-amber-400" />
+            <StarFillIcon className="size-5 text-amber-400" />
+            <StarFillIcon className="size-5 text-amber-400" />
           </div>
-          <p className="text-sm text-neutral-700">
+          <p className="text-base text-neutral-700">
             <span className="font-semibold">4.8 out of 5</span> based on 500+
             reviews
           </p>
@@ -71,23 +71,23 @@ function TestimonialCard({
   return (
     <div className="bg-white border border-neutral-100 rounded-2xl p-6 shadow-sm">
       <div className="flex items-center gap-x-1 mb-4">
-        <StarFillIcon className="size-3.5 text-amber-400" />
-        <StarFillIcon className="size-3.5 text-amber-400" />
-        <StarFillIcon className="size-3.5 text-amber-400" />
-        <StarFillIcon className="size-3.5 text-amber-400" />
-        <StarFillIcon className="size-3.5 text-amber-400" />
+        <StarFillIcon className="size-4 text-amber-400" />
+        <StarFillIcon className="size-4 text-amber-400" />
+        <StarFillIcon className="size-4 text-amber-400" />
+        <StarFillIcon className="size-4 text-amber-400" />
+        <StarFillIcon className="size-4 text-amber-400" />
       </div>
-      <p className="text-sm text-neutral-700 mb-4 leading-relaxed">
+      <p className="text-base text-neutral-700 mb-4 leading-relaxed">
         &ldquo;{quote}&rdquo;
       </p>
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-sm font-semibold text-neutral-900">{name}</p>
-          <p className="text-xs text-muted-foreground">
+          <p className="text-base font-semibold text-neutral-900">{name}</p>
+          <p className="text-sm text-muted-foreground">
             {age}, {location}
           </p>
         </div>
-        <span className="text-xs font-medium bg-emerald-50 text-emerald-700 px-2 py-1 rounded-full">
+        <span className="text-sm font-medium bg-emerald-50 text-emerald-700 px-3 py-1.5 rounded-full">
           {benefit}
         </span>
       </div>

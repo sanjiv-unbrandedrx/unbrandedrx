@@ -17,7 +17,7 @@ export default function PricingSection() {
         <h2 className="font-title text-3xl xl:text-4xl tracking-tight font-medium">
           Transparent Pricing
         </h2>
-        <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
+        <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
           No hidden fees, no surprises. Choose the plan that works for you.
         </p>
       </div>
@@ -26,35 +26,35 @@ export default function PricingSection() {
         {/* Enclomiphene Only Card */}
         <div className="rounded-2xl border border-neutral-200 bg-white overflow-hidden">
           <div className="bg-emerald-50 px-6 py-4 border-b border-emerald-100">
-            <h3 className="font-semibold text-lg text-emerald-900">Enclomiphene</h3>
-            <p className="text-sm text-emerald-700">Pure testosterone boost</p>
+            <h3 className="font-semibold text-xl text-emerald-900">Enclomiphene</h3>
+            <p className="text-base text-emerald-700">Pure testosterone boost</p>
           </div>
           <div className="p-6">
             <table className="w-full">
               <thead>
-                <tr className="text-sm text-muted-foreground">
-                  <th className="text-left font-medium pb-3">Dose</th>
-                  <th className="text-center font-medium pb-3">30-Day</th>
-                  <th className="text-center font-medium pb-3">90-Day</th>
+                <tr className="text-base text-muted-foreground">
+                  <th className="text-left font-medium pb-4">Dose</th>
+                  <th className="text-center font-medium pb-4">30-Day</th>
+                  <th className="text-center font-medium pb-4">90-Day</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-neutral-100">
                 {enclomiphenePricing.map((item) => (
                   <tr key={item.dose}>
-                    <td className="py-4 text-sm font-medium text-neutral-800">
+                    <td className="py-4 text-base font-medium text-neutral-800">
                       {item.dose}
                     </td>
                     <td className="py-4 text-center">
-                      <span className="text-sm font-semibold text-neutral-900">
+                      <span className="text-base font-semibold text-neutral-900">
                         ${item.monthly}
                       </span>
                     </td>
                     <td className="py-4 text-center">
                       <div className="flex flex-col items-center">
-                        <span className="text-sm font-semibold text-neutral-900">
+                        <span className="text-base font-semibold text-neutral-900">
                           ${item.quarterly}
                         </span>
-                        <span className="text-xs text-emerald-600 font-medium">
+                        <span className="text-sm text-emerald-600 font-medium">
                           Save ${item.savings}
                         </span>
                       </div>
@@ -69,35 +69,35 @@ export default function PricingSection() {
         {/* Enclomiphene + Tadalafil Card */}
         <div className="rounded-2xl border border-neutral-200 bg-white overflow-hidden">
           <div className="bg-blue-50 px-6 py-4 border-b border-blue-100">
-            <h3 className="font-semibold text-lg text-blue-900">Enclomiphene + Tadalafil</h3>
-            <p className="text-sm text-blue-700">T-boost + ED support</p>
+            <h3 className="font-semibold text-xl text-blue-900">Enclomiphene + Tadalafil</h3>
+            <p className="text-base text-blue-700">T-boost + ED support</p>
           </div>
           <div className="p-6">
             <table className="w-full">
               <thead>
-                <tr className="text-sm text-muted-foreground">
-                  <th className="text-left font-medium pb-3">Dose</th>
-                  <th className="text-center font-medium pb-3">30-Day</th>
-                  <th className="text-center font-medium pb-3">90-Day</th>
+                <tr className="text-base text-muted-foreground">
+                  <th className="text-left font-medium pb-4">Dose</th>
+                  <th className="text-center font-medium pb-4">30-Day</th>
+                  <th className="text-center font-medium pb-4">90-Day</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-neutral-100">
                 {comboPricing.map((item) => (
                   <tr key={item.dose}>
-                    <td className="py-4 text-sm font-medium text-neutral-800">
+                    <td className="py-4 text-base font-medium text-neutral-800">
                       {item.dose}
                     </td>
                     <td className="py-4 text-center">
-                      <span className="text-sm font-semibold text-neutral-900">
+                      <span className="text-base font-semibold text-neutral-900">
                         ${item.monthly}
                       </span>
                     </td>
                     <td className="py-4 text-center">
                       <div className="flex flex-col items-center">
-                        <span className="text-sm font-semibold text-neutral-900">
+                        <span className="text-base font-semibold text-neutral-900">
                           ${item.quarterly}
                         </span>
-                        <span className="text-xs text-emerald-600 font-medium">
+                        <span className="text-sm text-emerald-600 font-medium">
                           Save ${item.savings}
                         </span>
                       </div>
