@@ -6,10 +6,10 @@ import Link from "next/link";
 import PrescriptionIcon from "@/components/svg/prescription-icon";
 
 const categoryLinks = [
-  { name: "Hair Loss", href: "/shop/category/hair-loss" },
-  { name: "Men's Health", href: "/shop/category/mens-health" },
-  { name: "Sexual Health", href: "/shop/category/sexual-health" },
-  { name: "Testosterone", href: "/shop/category/testosterone" },
+  { name: "Hair Loss", href: "/find/category/hair-loss" },
+  { name: "Men's Health", href: "/find/category/mens-health" },
+  { name: "Sexual Health", href: "/find/category/sexual-health" },
+  { name: "Testosterone", href: "/find/category/testosterone" },
 ];
 
 export default function NotFound() {
@@ -33,7 +33,8 @@ export default function NotFound() {
 
             {/* Subheadline */}
             <p className="mt-6 text-lg text-neutral-600 max-w-2xl mx-auto">
-              Unfortunately, this page doesn&apos;t exist. But we can help you find what you&apos;re looking for.
+              Unfortunately, this page doesn&apos;t exist. But we can help you
+              find what you&apos;re looking for.
             </p>
 
             {/* Category Quick Links */}
@@ -57,10 +58,21 @@ export default function NotFound() {
 
             {/* Primary CTA */}
             <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild className="rounded-full bg-neutral-800 hover:bg-neutral-700 text-white">
-                <Link href="/shop/category/all-products">Shop All Treatments</Link>
+              <Button
+                size="lg"
+                asChild
+                className="rounded-full bg-neutral-800 hover:bg-neutral-700 text-white"
+              >
+                <Link href="/find/category/all-products">
+                  Shop All Treatments
+                </Link>
               </Button>
-              <Button size="lg" variant="outline" asChild className="rounded-full">
+              <Button
+                size="lg"
+                variant="outline"
+                asChild
+                className="rounded-full"
+              >
                 <Link href="/">Return Home</Link>
               </Button>
             </div>
@@ -68,7 +80,10 @@ export default function NotFound() {
             {/* Support Link */}
             <p className="mt-12 text-sm text-neutral-500">
               Need help?{" "}
-              <Link href="/contact-us" className="text-neutral-800 hover:underline font-medium">
+              <Link
+                href="/contact-us"
+                className="text-neutral-800 hover:underline font-medium"
+              >
                 Contact our support team
               </Link>
             </p>

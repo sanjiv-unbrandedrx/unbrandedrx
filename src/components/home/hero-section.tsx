@@ -17,13 +17,12 @@ export default function HeroSection() {
           </h2>
           {/* DEVAN FEEDBACK: Updated sub-headline */}
           <p className="font-light text-xl xl:text-2xl text-neutral-700 xl:text-muted-foreground">
-            Skip fancy packaging. Save more & get better
-            prescription formulas.
+            Skip fancy packaging. Save more & get better prescription formulas.
           </p>
         </div>
         {/* SURGICAL STRIKE: Updated button text and linked to all-products page */}
         <Button size="xl" variant="filled">
-          <Link href="/shop/category/all-products">Shop All Treatments</Link>
+          <Link href="/find/category/all-products">Shop All Treatments</Link>
         </Button>
       </div>
     </section>

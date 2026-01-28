@@ -23,7 +23,7 @@ export default function HeroSection() {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href="/shop/category/all-products">
+            <BreadcrumbLink href="/find/category/all-products">
               {getNameFromSlug(slug)}
             </BreadcrumbLink>
           </BreadcrumbItem>
@@ -36,8 +36,8 @@ export default function HeroSection() {
           No Brand Markup.
         </h2>
         <p className="font-light text-xl xl:text-2xl text-muted-foreground">
-          Browse all clinically-backed formulas prescribed by licensed
-          providers — without paying for celebrity ads or flashy packaging.
+          Browse all clinically-backed formulas prescribed by licensed providers
+          — without paying for celebrity ads or flashy packaging.
         </p>
       </div>
       {/* COFOUNDER NOTE: Replaced Button with a styled Link to scroll to the products section. */}

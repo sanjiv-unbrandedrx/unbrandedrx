@@ -21,7 +21,7 @@ export type Product = {
 export default function ProductCard({ product }: { product: Product }) {
   return (
     <div className="bg-white rounded-3xl overflow-hidden">
-      <Link href={`/shop/product/${product.slug}`}>
+      <Link href={`/find/treatment/${product.slug}`}>
         <div className="relative rounded-t-3xl min-w-[328px] aspect-square">
           <Image
             className="object-center object-cover"
@@ -59,7 +59,7 @@ export default function ProductCard({ product }: { product: Product }) {
             asChild
             className="rounded-full"
           >
-            <Link href={`/shop/product/${product.slug}`}>Get Started</Link>
+            <Link href={`/find/treatment/${product.slug}`}>Get Started</Link>
           </Button>
           <Button
             size="sm"

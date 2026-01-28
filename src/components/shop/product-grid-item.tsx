@@ -32,7 +32,7 @@ export default function ProductGridItem({ product }: { product: ProductItem }) {
         <PlusIcon />
       </div>
       {/* TASK: Wrapped the image container with a Link to make it clickable. */}
-      <Link href={`/shop/product/${product.slug}`}>
+      <Link href={`/find/treatment/${product.slug}`}>
         <div className="relative h-[285px] w-full">
           <Image
             src={product.image}
@@ -56,7 +56,7 @@ export default function ProductGridItem({ product }: { product: ProductItem }) {
             className="border-neutral-800 hover:bg-neutral-900 hover:text-white"
           >
             {/* BUG FIX: Link now uses the product's slug */}
-            <Link href={`/shop/product/${product.slug}`}>Get Started</Link>
+            <Link href={`/find/treatment/${product.slug}`}>Get Started</Link>
           </Button>
         </div>
       </div>
