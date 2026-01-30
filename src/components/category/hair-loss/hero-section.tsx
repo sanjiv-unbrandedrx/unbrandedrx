@@ -22,7 +22,7 @@ export default function HeroSection() {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href="/shop/category/hair-loss">
+            <BreadcrumbLink href="/find/category/hair-loss">
               {getNameFromSlug(slug)}
             </BreadcrumbLink>
           </BreadcrumbItem>

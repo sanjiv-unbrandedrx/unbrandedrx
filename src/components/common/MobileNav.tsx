@@ -11,11 +11,11 @@ import { UserIcon } from "../svg/user-icon";
 import BasketIcon from "../svg/basket-icon";
 
 const navLinks = [
-  { name: "All Products", href: "/shop/category/all-products" },
-  { name: "Hair Loss", href: "/shop/category/hair-loss" },
-  { name: "Men's Health", href: "/shop/category/mens-health" },
-  { name: "Sexual Health", href: "/shop/category/sexual-health" },
-  { name: "Testosterone", href: "/shop/category/testosterone" },
+  { name: "All Products", href: "/find/category/all-products" },
+  { name: "Hair Loss", href: "/find/category/hair-loss" },
+  { name: "Men's Health", href: "/find/category/mens-health" },
+  { name: "Sexual Health", href: "/find/category/sexual-health" },
+  { name: "Testosterone", href: "/find/category/testosterone" },
 ];
 
 interface MobileNavProps {
@@ -41,7 +41,7 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
       <div
         className={cn(
           "fixed inset-0 bg-black/40 z-40 transition-opacity duration-300",
-          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+          isOpen ? "opacity-100" : "opacity-0 pointer-events-none",
         )}
         onClick={onClose}
       />
@@ -50,7 +50,7 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
       <div
         className={cn(
           "fixed top-0 right-0 h-full w-full max-w-sm bg-white z-50 transform transition-transform duration-300 ease-in-out",
-          isOpen ? "translate-x-0" : "translate-x-full"
+          isOpen ? "translate-x-0" : "translate-x-full",
         )}
       >
         <div className="flex flex-col h-full">
@@ -59,7 +59,11 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
             {/* SURGICAL STRIKE: Increased logo width by 50% (w-32 to w-48) */}
             <Logo className="w-48" />
             <div className="flex items-center gap-x-6">
-              <Link href="https://checkout.unbrandedrx.co/auth/sign-up" onClick={onClose} aria-label="My Account">
+              <Link
+                href="https://checkout.unbrandedrx.co/auth/sign-up"
+                onClick={onClose}
+                aria-label="My Account"
+              >
                 <UserIcon />
               </Link>
               <button aria-label="Shopping Basket">

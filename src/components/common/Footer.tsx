@@ -6,32 +6,32 @@ import Image from "next/image";
 const productLinks = [
   {
     category: "Hair Loss",
-    categoryHref: "/shop/category/hair-loss",
+    categoryHref: "/find/category/hair-loss",
     items: [
-      { name: "Oral Finasteride", href: "/shop/product/oral-finasteride" },
-      { name: "Oral Dutasteride", href: "/shop/product/oral-dutasteride" },
+      { name: "Oral Finasteride", href: "/find/treatment/oral-finasteride" },
+      { name: "Oral Dutasteride", href: "/find/treatment/oral-dutasteride" },
       {
         name: "Topical Finasteride",
-        href: "/shop/product/topical-finasteride",
+        href: "/find/treatment/topical-finasteride",
       },
       {
         name: "Topical Dutasteride",
-        href: "/shop/product/topical-dutasteride",
+        href: "/find/treatment/topical-dutasteride",
       },
     ],
   },
   {
     category: "Men's Health",
-    categoryHref: "/shop/category/mens-health",
+    categoryHref: "/find/category/mens-health",
     items: [
       {
         name: "4-in-1 ED Rapid Dissolve Tablet",
-        href: "/shop/product/ed-rapid-dissolve-tablet",
+        href: "/find/treatment/ed-rapid-dissolve-tablet",
       },
-      { name: "Enclomiphene", href: "/shop/product/enclomiphene" },
+      { name: "Enclomiphene", href: "/find/treatment/enclomiphene" },
       // COFOUNDER NOTE: Restored Dapoxetine and Dapoxetine Max to footer links per feedback.
-      { name: "Dapoxetine", href: "/shop/product/dapoxetine" },
-      { name: "Dapoxetine Max", href: "/shop/product/dapoxetine-max" },
+      { name: "Dapoxetine", href: "/find/treatment/dapoxetine" },
+      { name: "Dapoxetine Max", href: "/find/treatment/dapoxetine-max" },
     ],
   },
 ];

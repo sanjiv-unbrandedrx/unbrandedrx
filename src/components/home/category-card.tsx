@@ -13,7 +13,7 @@ export type CategoryItem = {
 export default function CategoryCard({ category }: { category: CategoryItem }) {
   return (
     <div className="overflow-hidden xl:pt-10">
-      <Link href={`/shop/category/${category.slug}`} className="group">
+      <Link href={`/find/category/${category.slug}`} className="group">
         <div className="bg-muted px-12 rounded-2xl flex justify-between items-center relative">
           <div className="py-8 xl:max-w-50 space-y-3">
             <p className="font-title text-neutral-800 font-medium text-3xl">

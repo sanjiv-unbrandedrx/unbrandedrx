@@ -36,8 +36,8 @@ export default function HeroSection() {
               4-in-1 ED Rapid Dissolve Tablet
             </p>
             <p className="text-sm xl:text-base">
-              A fast-acting, multi-symptom solution for erectile dysfunction
-              in a discreet, rapid-dissolving tablet.
+              A fast-acting, multi-symptom solution for erectile dysfunction in
+              a discreet, rapid-dissolving tablet.
             </p>
             <div className="flex items-center justify-start gap-x-3">
               <div className="flex items-center justify-start gap-x-1">
@@ -155,7 +155,7 @@ export default function HeroSection() {
           </div>
 
           <a
-            href="https://checkout.unbrandedrx.co/maxman?priceId=2064"
+            href="https://checkout.unbrandedrx.co/4n1?priceId=2064"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -183,14 +183,16 @@ export default function HeroSection() {
                       sudden, dangerous drop in blood pressure.
                     </li>
                     <li>
-                      You use recreational drugs known as &quot;poppers&quot; (amyl
-                      nitrate or nitrite).
+                      You use recreational drugs known as &quot;poppers&quot;
+                      (amyl nitrate or nitrite).
                     </li>
                     <li>
-                      You are taking riociguat (Adempas) for pulmonary
-                      arterial hypertension.
+                      You are taking riociguat (Adempas) for pulmonary arterial
+                      hypertension.
                     </li>
-                    <li>You have a known allergy to any of the active ingredients.</li>
+                    <li>
+                      You have a known allergy to any of the active ingredients.
+                    </li>
                     <li>
                       You are taking 5HT3 antagonist medications such as
                       ondansetron (Zofran), granisetron, or dolasetron.
@@ -209,7 +211,9 @@ export default function HeroSection() {
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-bold">Consult Your Provider Before Use</h4>
+                  <h4 className="font-bold">
+                    Consult Your Provider Before Use
+                  </h4>
                   <p>
                     To ensure this medication is safe for you, inform your
                     provider of your complete medical history, especially if you
@@ -226,16 +230,15 @@ export default function HeroSection() {
                       <strong>Vision Problems:</strong> Severe vision loss,
                       blindness in one or both eyes, retinitis pigmentosa, or a
                       condition called NAION (Non-arteritic anterior ischemic
-                      optic neuropathy). Patients with a &quot;crowded&quot; optic disc
-                      may be at higher risk.
+                      optic neuropathy). Patients with a &quot;crowded&quot;
+                      optic disc may be at higher risk.
                     </li>
                     <li>
-                      <strong>Other Medical Conditions:</strong> Liver or
-                      kidney disease, pulmonary veno-occlusive disease (PVOD),
-                      blood cell disorders (e.g., sickle cell anemia,
-                      leukemia), stomach ulcers, bleeding problems, or a
-                      physical deformity of the penis (e.g., Peyronie&apos;s
-                      disease).
+                      <strong>Other Medical Conditions:</strong> Liver or kidney
+                      disease, pulmonary veno-occlusive disease (PVOD), blood
+                      cell disorders (e.g., sickle cell anemia, leukemia),
+                      stomach ulcers, bleeding problems, or a physical deformity
+                      of the penis (e.g., Peyronie&apos;s disease).
                     </li>
                     <li>
                       <strong>Other Factors:</strong> If you have been advised
