@@ -29,9 +29,6 @@ const productLinks = [
         href: "/find/treatment/ed-rapid-dissolve-tablet",
       },
       { name: "Enclomiphene", href: "/find/treatment/enclomiphene" },
-      // COFOUNDER NOTE: Restored Dapoxetine and Dapoxetine Max to footer links per feedback.
-      { name: "Dapoxetine", href: "/find/treatment/dapoxetine" },
-      { name: "Dapoxetine Max", href: "/find/treatment/dapoxetine-max" },
     ],
   },
 ];

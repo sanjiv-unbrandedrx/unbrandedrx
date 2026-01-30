@@ -3,24 +3,7 @@ import DownIcon from "@/components/svg/down-icon";
 import ProductGridItem from "@/components/shop/product-grid-item";
 import { ProductItem } from "@/components/shop/product-grid-item";
 
-// COFOUNDER NOTE: Restored Dapoxetine and Dapoxetine Max to the men's health products list per feedback.
 const MENS_HEALTH_PRODUCTS: ProductItem[] = [
-  {
-    id: "dapoxetine",
-    name: "Dapoxetine",
-    medicalName: "Dapoxetine",
-    price: "89.00",
-    image: "/products/dapoxetine-hero.png",
-    slug: "dapoxetine",
-  },
-  {
-    id: "dapoxetine-max",
-    name: "Dapoxetine Max",
-    medicalName: "Sildenafil + Tadalafil + Dapoxetine + Apomorphine",
-    price: "119.00",
-    image: "/products/dapoxetine-max-hero.png",
-    slug: "dapoxetine-max",
-  },
   {
     id: "ed-rapid-dissolve-tablet",
     name: "4-in-1 ED Rapid Dissolve Tablet",

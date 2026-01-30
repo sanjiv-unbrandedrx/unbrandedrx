@@ -37,15 +37,6 @@ const DUMMY_CATEGORIES: CategoryItem[] = [
 ];
 
 const BEST_SELLERS: Product[] = [
-  // COFOUNDER NOTE: Restored Dapoxetine to the Best Sellers list per feedback.
-  {
-    id: "dapoxetine",
-    name: "Dapoxetine",
-    medicalName: "Dapoxetine",
-    price: "89.00",
-    image: "/products/dapoxetine-hero.png",
-    slug: "dapoxetine",
-  },
   {
     id: "enclomiphene",
     name: "Enclomiphene",
