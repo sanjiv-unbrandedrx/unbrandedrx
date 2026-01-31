@@ -1,13 +1,13 @@
 const enclomiphenePricing = [
-  { dose: "6.25mg", monthly: 79, quarterly: 189, savings: 48 },
-  { dose: "12.5mg", monthly: 99, quarterly: 237, savings: 60 },
-  { dose: "25mg", monthly: 119, quarterly: 297.5, savings: 59.5 },
+  { dose: "6.25mg", monthly: 79, quarterly: 189, quarterlySavings: 48, fiveMonth: 319, fiveMonthSavings: 76 },
+  { dose: "12.5mg", monthly: 99, quarterly: 237, quarterlySavings: 60, fiveMonth: 389, fiveMonthSavings: 106 },
+  { dose: "25mg", monthly: 119, quarterly: 297.5, quarterlySavings: 59.5, fiveMonth: 469, fiveMonthSavings: 126 },
 ];
 
 const comboPricing = [
-  { dose: "6.25mg + Tadalafil", monthly: 79, quarterly: 189, savings: 48 },
-  { dose: "12.5mg + Tadalafil", monthly: 99, quarterly: 237, savings: 60 },
-  { dose: "25mg + Tadalafil", monthly: 119, quarterly: 297.5, savings: 59.5 },
+  { dose: "6.25mg + Tadalafil", monthly: 79, quarterly: 189, quarterlySavings: 48, fiveMonth: 319, fiveMonthSavings: 76 },
+  { dose: "12.5mg + Tadalafil", monthly: 99, quarterly: 237, quarterlySavings: 60, fiveMonth: 389, fiveMonthSavings: 106 },
+  { dose: "25mg + Tadalafil", monthly: 119, quarterly: 297.5, quarterlySavings: 59.5, fiveMonth: 469, fiveMonthSavings: 126 },
 ];
 
 export default function PricingSection() {
@@ -36,6 +36,7 @@ export default function PricingSection() {
                   <th className="text-left font-medium pb-4">Dose</th>
                   <th className="text-center font-medium pb-4">30-Day</th>
                   <th className="text-center font-medium pb-4">90-Day</th>
+                  <th className="text-center font-medium pb-4">150-Day</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-neutral-100">
@@ -55,7 +56,17 @@ export default function PricingSection() {
                           ${item.quarterly}
                         </span>
                         <span className="text-sm text-emerald-600 font-medium">
-                          Save ${item.savings}
+                          Save ${item.quarterlySavings}
+                        </span>
+                      </div>
+                    </td>
+                    <td className="py-4 text-center">
+                      <div className="flex flex-col items-center">
+                        <span className="text-base font-semibold text-neutral-900">
+                          ${item.fiveMonth}
+                        </span>
+                        <span className="text-sm text-emerald-600 font-medium">
+                          Save ${item.fiveMonthSavings}
                         </span>
                       </div>
                     </td>
@@ -79,6 +90,7 @@ export default function PricingSection() {
                   <th className="text-left font-medium pb-4">Dose</th>
                   <th className="text-center font-medium pb-4">30-Day</th>
                   <th className="text-center font-medium pb-4">90-Day</th>
+                  <th className="text-center font-medium pb-4">150-Day</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-neutral-100">
@@ -98,7 +110,17 @@ export default function PricingSection() {
                           ${item.quarterly}
                         </span>
                         <span className="text-sm text-emerald-600 font-medium">
-                          Save ${item.savings}
+                          Save ${item.quarterlySavings}
+                        </span>
+                      </div>
+                    </td>
+                    <td className="py-4 text-center">
+                      <div className="flex flex-col items-center">
+                        <span className="text-base font-semibold text-neutral-900">
+                          ${item.fiveMonth}
+                        </span>
+                        <span className="text-sm text-emerald-600 font-medium">
+                          Save ${item.fiveMonthSavings}
                         </span>
                       </div>
                     </td>

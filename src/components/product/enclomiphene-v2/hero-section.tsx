@@ -22,22 +22,24 @@ type DosageOption =
   | "enclo-tad-12.5"
   | "enclo-tad-25";
 
-type PricingTier = "monthly" | "quarterly";
+type PricingTier = "monthly" | "quarterly" | "fiveMonth";
 
 interface DosageInfo {
   label: string;
   monthly: number;
   quarterly: number;
-  savings: number;
+  quarterlySavings: number;
+  fiveMonth: number;
+  fiveMonthSavings: number;
 }
 
 const dosageData: Record<DosageOption, DosageInfo> = {
-  "enclo-6.25": { label: "Enclomiphene 6.25mg", monthly: 79, quarterly: 189, savings: 48 },
-  "enclo-12.5": { label: "Enclomiphene 12.5mg", monthly: 99, quarterly: 237, savings: 60 },
-  "enclo-25": { label: "Enclomiphene 25mg", monthly: 119, quarterly: 297.50, savings: 59.50 },
-  "enclo-tad-6.25": { label: "Enclomiphene 6.25mg + Tadalafil", monthly: 79, quarterly: 189, savings: 48 },
-  "enclo-tad-12.5": { label: "Enclomiphene 12.5mg + Tadalafil", monthly: 99, quarterly: 237, savings: 60 },
-  "enclo-tad-25": { label: "Enclomiphene 25mg + Tadalafil", monthly: 119, quarterly: 297.50, savings: 59.50 },
+  "enclo-6.25": { label: "Enclomiphene 6.25mg", monthly: 79, quarterly: 189, quarterlySavings: 48, fiveMonth: 319, fiveMonthSavings: 76 },
+  "enclo-12.5": { label: "Enclomiphene 12.5mg", monthly: 99, quarterly: 237, quarterlySavings: 60, fiveMonth: 389, fiveMonthSavings: 106 },
+  "enclo-25": { label: "Enclomiphene 25mg", monthly: 119, quarterly: 297.50, quarterlySavings: 59.50, fiveMonth: 469, fiveMonthSavings: 126 },
+  "enclo-tad-6.25": { label: "Enclomiphene 6.25mg + Tadalafil", monthly: 79, quarterly: 189, quarterlySavings: 48, fiveMonth: 319, fiveMonthSavings: 76 },
+  "enclo-tad-12.5": { label: "Enclomiphene 12.5mg + Tadalafil", monthly: 99, quarterly: 237, quarterlySavings: 60, fiveMonth: 389, fiveMonthSavings: 106 },
+  "enclo-tad-25": { label: "Enclomiphene 25mg + Tadalafil", monthly: 119, quarterly: 297.50, quarterlySavings: 59.50, fiveMonth: 469, fiveMonthSavings: 126 },
 };
 
 export default function HeroSection() {
@@ -48,10 +50,14 @@ export default function HeroSection() {
   const currentDosage = dosageData[selectedDosage];
   const monthlyPerMonth = currentDosage.monthly;
   const quarterlyPerMonth = Math.round((currentDosage.quarterly / 3) * 100) / 100;
+  const fiveMonthPerMonth = Math.round((currentDosage.fiveMonth / 5) * 100) / 100;
 
   const getCtaText = () => {
     if (selectedTier === "monthly") {
       return `Get Started - $${currentDosage.monthly}/month`;
+    }
+    if (selectedTier === "fiveMonth") {
+      return `Get Started - $${currentDosage.fiveMonth}/5 months`;
     }
     return `Get Started - $${currentDosage.quarterly}/quarter`;
   };
@@ -253,9 +259,8 @@ export default function HeroSection() {
               <div className="radio-card">
                 <div className="flex w-full justify-between items-center">
                   <div className="flex items-center gap-x-2">
-                    <Badge className="text-sm py-1.5 px-4">Most Popular</Badge>
                     <span className="text-sm font-medium text-emerald-600">
-                      Save ${currentDosage.savings}
+                      Save ${currentDosage.quarterlySavings}
                     </span>
                   </div>
                   <CheckCircleFillIcon className="radio-icon" />
@@ -272,6 +277,41 @@ export default function HeroSection() {
                 </div>
                 <p className="text-sm text-muted-foreground">
                   ${currentDosage.quarterly} billed every 3 months. Free shipping.
+                </p>
+              </div>
+            </label>
+            <label className="radio-wrapper">
+              <input
+                className="peer absolute opacity-0"
+                type="radio"
+                name="price"
+                value="fiveMonth"
+                id="price-five-month"
+                checked={selectedTier === "fiveMonth"}
+                onChange={() => setSelectedTier("fiveMonth")}
+              />
+              <div className="radio-card">
+                <div className="flex w-full justify-between items-center">
+                  <div className="flex items-center gap-x-2">
+                    <Badge className="text-sm py-1.5 px-4">Best Value</Badge>
+                    <span className="text-sm font-medium text-emerald-600">
+                      Save ${currentDosage.fiveMonthSavings}
+                    </span>
+                  </div>
+                  <CheckCircleFillIcon className="radio-icon" />
+                </div>
+                <p className="font-semibold text-lg">5-Month Supply</p>
+                <div className="flex items-baseline gap-x-2">
+                  <p className="tabular-nums text-3xl font-bold text-neutral-900">
+                    ${fiveMonthPerMonth}
+                  </p>
+                  <p className="text-base text-muted-foreground">/month</p>
+                  <p className="text-sm text-muted-foreground line-through">
+                    ${monthlyPerMonth}
+                  </p>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  ${currentDosage.fiveMonth} billed every 5 months. Free shipping.
                 </p>
               </div>
             </label>
