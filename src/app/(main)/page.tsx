@@ -1,4 +1,5 @@
 // src/app/(main)/page.tsx
+import type { Metadata } from "next";
 import HeroSection from "@/components/home/hero-section";
 import CategoryCard, { CategoryItem } from "@/components/home/category-card";
 import CardsSection from "@/components/home/cards-section";
@@ -70,6 +71,12 @@ const BEST_SELLERS: Product[] = [
     slug: "topical-finasteride",
   },
 ];
+
+export const metadata: Metadata = {
+  title: "Better Formulas. Smarter Rx Prices.",
+  description:
+    "Skip fancy packaging and save more on prescription treatments for hair loss, ED, testosterone, and more. Prescribed by licensed U.S. providers.",
+};
 
 export default function Home() {
   return (

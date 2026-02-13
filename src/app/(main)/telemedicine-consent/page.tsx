@@ -1,6 +1,13 @@
 // File: src/app/(main)/telemedicine-consent/page.tsx
+import type { Metadata } from "next";
 import Header from "@/components/common/Header";
 import { getMarkdownContent } from "@/lib/markdown";
+
+export const metadata: Metadata = {
+  title: "Telemedicine Consent",
+  description:
+    "Read and understand the telemedicine informed consent for UnbrandedRx online provider consultations.",
+};
 
 export default async function TelemedicineConsentPage() {
   const contentHtml = await getMarkdownContent("telemedicine-consent");

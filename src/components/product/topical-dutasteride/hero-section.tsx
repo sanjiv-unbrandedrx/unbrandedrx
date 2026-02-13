@@ -26,14 +26,15 @@ export default function HeroSection() {
             src="/products/topical-dutasteride-hero.png"
             alt="Topical Dutasteride + Minoxidil + Tretinoin + Fluocinolone + Biotin"
             fill
+            priority
             className="object-contain object-center"
           />
         </div>
         <div className="flex w-full flex-col gap-y-10 py-6 px-1 xl:py-0 xl:px-19">
           <div className="space-y-3">
-            <p className="font-title text-2xl font-medium tracking-tight xl:text-4xl">
+            <h1 className="font-title text-2xl font-medium tracking-tight xl:text-4xl">
               Topical Dutasteride + Minoxidil + Tretinoin + Fluocinolone + Biotin
-            </p>
+            </h1>
             <p className="text-sm xl:text-base">
               A maximum-strength topical serum combining potent Dutasteride
               and Minoxidil for advanced hair loss. The perfect 5-in-1 topical

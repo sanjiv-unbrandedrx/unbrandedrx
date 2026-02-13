@@ -1,8 +1,15 @@
 // File: src/app/(main)/shop/category/mens-health/page.tsx
+import type { Metadata } from "next";
 import HeroSection from "@/components/category/mens-health/hero-section";
 import ProductGridSection from "@/components/category/mens-health/product-grid-section";
 import ProductCarousel from "@/components/common/product-carousel";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Men's Health Treatments",
+  description:
+    "Prescription men's health treatments for vitality and well-being. Clinically-backed formulas prescribed by licensed U.S. providers at smarter prices.",
+};
 
 export default function MensHealthCategoryPage() {
   return (

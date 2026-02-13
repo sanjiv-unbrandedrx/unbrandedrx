@@ -29,11 +29,11 @@ export default function HeroSection() {
         </BreadcrumbList>
       </Breadcrumb>
       <div className="max-w-md space-y-6 mb-9">
-        <h2 className="font-title font-medium text-2xl xl:text-4xl tracking-tight">
+        <h1 className="font-title font-medium text-2xl xl:text-4xl tracking-tight">
           Prescription Hair Loss Treatments.
           <br />
           No Brand Markup.
-        </h2>
+        </h1>
         <p className="font-light text-xl xl:text-2xl text-muted-foreground">
           Get clinically-backed hair regrowth formulas prescribed by licensed
           providers — without paying for celebrity ads or flashy packaging.

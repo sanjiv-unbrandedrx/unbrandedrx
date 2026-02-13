@@ -1,4 +1,9 @@
+import type { Metadata } from "next";
 import Footer from "@/components/common/Footer";
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+};
 
 export default function StagingLayout({
   children,

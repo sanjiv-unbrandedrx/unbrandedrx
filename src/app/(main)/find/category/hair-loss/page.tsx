@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import HeroSection from "@/components/category/hair-loss/hero-section";
 import ProductGridSection from "@/components/category/hair-loss/product-grid-section";
 import ProductCarousel from "@/components/common/product-carousel";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Hair Loss Treatments",
+  description:
+    "Prescription hair loss treatments including topical finasteride and dutasteride. Clinically-backed formulas to prevent hair loss and promote regrowth.",
+};
 
 export default function HairLossCategoryPage() {
   return (

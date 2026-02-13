@@ -27,9 +27,9 @@ export default function HeroSection() {
         </div>
         <div className="flex w-full flex-col gap-y-10 py-6 px-1 xl:py-0 xl:px-19">
           <div className="space-y-3">
-            <p className="font-title text-2xl font-medium tracking-tight xl:text-4xl">
+            <h1 className="font-title text-2xl font-medium tracking-tight xl:text-4xl">
               Oral Sermorelin
-            </p>
+            </h1>
             <p className="text-sm xl:text-base">
               A convenient oral peptide therapy that supports your body&apos;s
               natural growth hormone production — no injections required. May

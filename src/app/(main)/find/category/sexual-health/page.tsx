@@ -1,4 +1,5 @@
 // File: src/app/(main)/shop/category/sexual-health/page.tsx
+import type { Metadata } from "next";
 import HeroSection from "@/components/category/sexual-health/hero-section";
 import ProductGridSection from "@/components/category/sexual-health/product-grid-section";
 import ProductCarousel from "@/components/common/product-carousel";
@@ -24,6 +25,12 @@ const RELATED_PRODUCTS: Product[] = [
     slug: "topical-finasteride",
   },
 ];
+
+export const metadata: Metadata = {
+  title: "Sexual Health Treatments",
+  description:
+    "Prescription treatments for erectile dysfunction and sexual performance. Fast-acting formulas prescribed online by licensed U.S. providers.",
+};
 
 export default function SexualHealthCategoryPage() {
   return (

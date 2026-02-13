@@ -1,6 +1,13 @@
 // File: src/app/(main)/privacy-policy/page.tsx
+import type { Metadata } from "next";
 import Header from "@/components/common/Header";
 import { getMarkdownContent } from "@/lib/markdown";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description:
+    "Read the UnbrandedRx Privacy Policy to understand how we collect, use, and protect your personal and health information.",
+};
 
 export default async function PrivacyPolicyPage() {
   const contentHtml = await getMarkdownContent("privacy-policy");

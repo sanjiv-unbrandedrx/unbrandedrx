@@ -31,11 +31,11 @@ export default function HeroSection() {
         </BreadcrumbList>
       </Breadcrumb>
       <div className="max-w-md space-y-6 mb-9">
-        <h2 className="font-title font-medium text-2xl xl:text-4xl tracking-tight">
+        <h1 className="font-title font-medium text-2xl xl:text-4xl tracking-tight">
           Prescription Men&apos;s Health Treatments.
           <br />
           No Brand Markup.
-        </h2>
+        </h1>
         <p className="font-light text-xl xl:text-2xl text-muted-foreground">
           Get clinically-backed treatments for sexual health, performance, and
           vitality, prescribed by licensed providers - without paying for flashy

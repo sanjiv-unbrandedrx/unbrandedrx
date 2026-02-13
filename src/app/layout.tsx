@@ -14,8 +14,26 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "unbrandedrx",
-  description: "unbrandedrx",
+  metadataBase: new URL("https://www.unbrandedrx.co"),
+  title: {
+    template: "%s | UnbrandedRx",
+    default: "UnbrandedRx — Better Formulas. Smarter Rx Prices.",
+  },
+  description:
+    "Skip fancy packaging and save more on prescription treatments. Clinically-backed formulas for hair loss, sexual health, testosterone, and more — prescribed by licensed U.S. providers.",
+  openGraph: {
+    type: "website",
+    siteName: "UnbrandedRx",
+    locale: "en_US",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -26,6 +44,25 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "UnbrandedRx",
+              url: "https://www.unbrandedrx.co",
+              logo: "https://www.unbrandedrx.co/logo.png",
+              description:
+                "Prescription treatments without the brand markup. Clinically-backed formulas prescribed by licensed U.S. providers.",
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "customer service",
+                url: "https://www.unbrandedrx.co/contact-us",
+              },
+            }),
+          }}
+        />
         <Script
           id="google-tag-manager"
           strategy="afterInteractive"

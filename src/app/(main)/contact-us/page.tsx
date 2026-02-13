@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import Header from "@/components/common/Header";
+
+export const metadata: Metadata = {
+  title: "Contact Us",
+  description:
+    "Have a question or need help with your UnbrandedRx order? Reach our customer support team by email for fast assistance.",
+};
 
 export default function ContactUsPage() {
   return (

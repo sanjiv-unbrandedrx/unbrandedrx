@@ -18,9 +18,9 @@ export default function HeroSection() {
         </div>
         <div className="flex flex-col gap-y-10 w-full py-6 px-1 xl:px-19 xl:py-0">
           <div className="space-y-3">
-            <p className="font-title text-2xl xl:text-4xl font-medium tracking-tight">
+            <h1 className="font-title text-2xl xl:text-4xl font-medium tracking-tight">
               Follicle Activator
-            </p>
+            </h1>
             <p className="text-sm xl:text-base">
               A powerful topical blend of Minoxidil, Caffeine, Coppper Peptides
               and more, prescribed for your hair loss.

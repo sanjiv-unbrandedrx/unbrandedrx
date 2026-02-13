@@ -1,6 +1,13 @@
 // File: src/app/(main)/returns-policy/page.tsx
+import type { Metadata } from "next";
 import Header from "@/components/common/Header";
 import { getMarkdownContent } from "@/lib/markdown";
+
+export const metadata: Metadata = {
+  title: "Returns Policy",
+  description:
+    "Learn about the UnbrandedRx returns and refund policy for prescription medication orders.",
+};
 
 export default async function ReturnsPolicyPage() {
   const contentHtml = await getMarkdownContent("returns-policy");

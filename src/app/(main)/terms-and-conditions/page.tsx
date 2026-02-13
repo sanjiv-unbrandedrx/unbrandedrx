@@ -1,6 +1,13 @@
 // File: src/app/(main)/terms-and-conditions/page.tsx
+import type { Metadata } from "next";
 import Header from "@/components/common/Header";
 import { getMarkdownContent } from "@/lib/markdown";
+
+export const metadata: Metadata = {
+  title: "Terms & Conditions",
+  description:
+    "Review the UnbrandedRx Terms and Conditions governing use of our telehealth platform and prescription services.",
+};
 
 export default async function TermsAndConditionsPage() {
   const contentHtml = await getMarkdownContent("terms-and-conditions");

@@ -1,8 +1,15 @@
 // @/app/(main)/shop/category/testosterone/page.tsx
+import type { Metadata } from "next";
 import HeroSection from "@/components/category/testosterone/hero-section";
 import ProductGridSection from "@/components/category/testosterone/product-grid-section";
 import ProductCarousel from "@/components/common/product-carousel";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Testosterone Treatments",
+  description:
+    "Prescription testosterone support treatments including enclomiphene. Promote healthy testosterone levels with clinically-backed formulas.",
+};
 
 export default function TestosteroneCategoryPage() {
   return (

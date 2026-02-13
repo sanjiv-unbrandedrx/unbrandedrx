@@ -27,14 +27,15 @@ export default function HeroSection() {
             src="/products/ed-rapid-dissolve-tablet-hero.png"
             alt="4-in-1 ED Rapid Dissolve Tablet"
             fill
+            priority
             className="object-contain object-center"
           />
         </div>
         <div className="flex w-full flex-col gap-y-10 py-6 px-1 xl:py-0 xl:px-19">
           <div className="space-y-3">
-            <p className="font-title text-2xl font-medium tracking-tight xl:text-4xl">
+            <h1 className="font-title text-2xl font-medium tracking-tight xl:text-4xl">
               4-in-1 ED Rapid Dissolve Tablet
-            </p>
+            </h1>
             <p className="text-sm xl:text-base">
               A fast-acting, multi-symptom solution for erectile dysfunction in
               a discreet, rapid-dissolving tablet.

@@ -12,9 +12,9 @@ export default function HeroSection() {
         <div className="max-w-md space-y-6 mb-9 mt-12 xl:mt-35">
           {/* DEVAN FEEDBACK: Updated headline */}
           {/* SURGICAL STRIKE: Added a line break to match the mockup design. */}
-          <h2 className="font-title font-medium text-3xl xl:text-4xl tracking-tight">
+          <h1 className="font-title font-medium text-3xl xl:text-4xl tracking-tight">
             Better Formulas. <br /> Smarter Rx Prices.
-          </h2>
+          </h1>
           {/* DEVAN FEEDBACK: Updated sub-headline */}
           <p className="font-light text-xl xl:text-2xl text-neutral-700 xl:text-muted-foreground">
             Skip fancy packaging. Save more & get better prescription formulas.

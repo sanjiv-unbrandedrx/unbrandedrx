@@ -19,7 +19,7 @@ export default function HowItWorksSection() {
             </div>
             <Image
               src="/products/card-1.webp"
-              alt="test"
+              alt="Complete a quick online visit"
               width={185}
               height={202}
               className="absolute object-center object-cover -top-6 right-0 xl:-right-6"
@@ -40,7 +40,7 @@ export default function HowItWorksSection() {
             </div>
             <Image
               src="/products/card-2.webp"
-              alt="test"
+              alt="A licensed provider reviews your information"
               width={202}
               height={253}
               className="absolute object-center object-cover -top-16 right-0"
@@ -61,7 +61,7 @@ export default function HowItWorksSection() {
             </div>
             <Image
               src="/products/card-3.webp"
-              alt="test"
+              alt="Receive your medication with free discreet delivery"
               width={190}
               height={120}
               className="absolute object-center object-cover -top-4 right-4"

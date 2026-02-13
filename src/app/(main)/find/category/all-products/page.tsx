@@ -1,8 +1,15 @@
 // @/app/(main)/shop/category/all-products/page.tsx
+import type { Metadata } from "next";
 import HeroSection from "@/components/category/all-products/hero-section";
 import ProductGridSection from "@/components/category/all-products/product-grid-section";
 import ProductCarousel from "@/components/common/product-carousel";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "All Prescription Treatments",
+  description:
+    "Browse all clinically-backed prescription treatments from UnbrandedRx. Hair loss, ED, testosterone, and more — without brand markup.",
+};
 
 export default function AllProductsCategoryPage() {
   return (

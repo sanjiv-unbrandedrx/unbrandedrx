@@ -28,15 +28,16 @@ export default function HeroSection() {
             src="/products/topical-finasteride-hero.png"
             alt="Topical Finasteride + Minoxidil + Tretinoin + Fluocinolone + Biotin"
             fill
+            priority
             className="object-contain object-center"
           />
         </div>
         <div className="flex w-full flex-col gap-y-10 py-6 px-1 xl:py-0 xl:px-19">
           <div className="space-y-3">
             {/* SURGICAL STRIKE: Update product title for consistency and clarity */}
-            <p className="font-title text-2xl font-medium tracking-tight xl:text-4xl">
+            <h1 className="font-title text-2xl font-medium tracking-tight xl:text-4xl">
               Topical Finasteride + Minoxidil + Tretinoin + Fluocinolone + Biotin
-            </p>
+            </h1>
             <p className="text-sm xl:text-base">
               A powerful, multi-action serum that combines four key
               ingredients to fight hair loss directly at the scalp. The perfect
