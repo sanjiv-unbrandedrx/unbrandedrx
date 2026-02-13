@@ -1,4 +1,4 @@
-import Placeholder from "@/components/staging/ui/placeholder";
+import Image from "next/image";
 
 export default function DeepDiveSection() {
   return (
@@ -29,13 +29,12 @@ export default function DeepDiveSection() {
             </div>
           </div>
         </div>
-        <div className="flex min-h-[360px] flex-1 flex-col items-stretch justify-stretch rounded-3xl overflow-hidden xl:min-h-[522px]">
-          <Placeholder
-            width={600}
-            height={522}
-            label="NAD+ Science"
-            icon="image"
-            className="w-full h-full"
+        <div className="relative flex min-h-[360px] flex-1 flex-col items-stretch justify-stretch rounded-3xl overflow-hidden xl:min-h-[522px]">
+          <Image
+            src="/products/nad-plus-injection-science.png"
+            alt="The Science of NAD+"
+            fill
+            className="object-cover"
           />
         </div>
       </div>

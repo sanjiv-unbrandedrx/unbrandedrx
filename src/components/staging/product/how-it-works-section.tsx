@@ -1,4 +1,4 @@
-import Placeholder from "@/components/staging/ui/placeholder";
+import Image from "next/image";
 
 export default function HowItWorksSection() {
   return (
@@ -19,11 +19,11 @@ export default function HowItWorksSection() {
               </p>
             </div>
             <div className="absolute -top-6 right-0 xl:-right-6">
-              <Placeholder
+              <Image
+                src="/products/how-it-works-step-1.png"
+                alt="Choose Your Treatment"
                 width={185}
                 height={202}
-                label="Step 1"
-                icon="step"
               />
             </div>
           </div>
@@ -41,11 +41,11 @@ export default function HowItWorksSection() {
               </p>
             </div>
             <div className="absolute -top-16 right-0">
-              <Placeholder
+              <Image
+                src="/products/how-it-works-step-2.png"
+                alt="Doctor Review"
                 width={202}
                 height={253}
-                label="Step 2"
-                icon="step"
               />
             </div>
           </div>
@@ -63,11 +63,11 @@ export default function HowItWorksSection() {
               </p>
             </div>
             <div className="absolute -top-4 right-4">
-              <Placeholder
+              <Image
+                src="/products/how-it-works-step-3.png"
+                alt="Discreet Delivery"
                 width={190}
                 height={120}
-                label="Step 3"
-                icon="step"
               />
             </div>
           </div>

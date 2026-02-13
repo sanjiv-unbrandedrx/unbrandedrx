@@ -1,4 +1,4 @@
-import Placeholder from "@/components/staging/ui/placeholder";
+import Image from "next/image";
 
 export default function LabTestingSection() {
   return (
@@ -26,13 +26,12 @@ export default function LabTestingSection() {
         </div>
 
         {/* Column 2: Image */}
-        <div className="flex min-h-[360px] flex-1 flex-col items-stretch justify-stretch rounded-3xl overflow-hidden xl:min-h-[522px]">
-          <Placeholder
-            width={600}
-            height={522}
-            label="Lab Kit"
-            icon="product"
-            className="w-full h-full"
+        <div className="relative flex min-h-[360px] flex-1 flex-col items-stretch justify-stretch rounded-3xl overflow-hidden xl:min-h-[522px]">
+          <Image
+            src="/products/lab-testing.png"
+            alt="At-Home Lab Testing Kit"
+            fill
+            className="object-cover"
           />
         </div>
       </div>

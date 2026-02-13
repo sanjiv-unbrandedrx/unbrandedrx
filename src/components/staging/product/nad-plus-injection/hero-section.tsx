@@ -10,7 +10,7 @@ import { CheckCircleFillIcon } from "@/components/svg/check-circle-fill-icon";
 import StarFillIcon from "@/components/svg/star-fill-icon";
 import Badge from "@/components/ui/badge";
 import Button from "@/components/ui/button-custom";
-import Placeholder from "@/components/staging/ui/placeholder";
+import Image from "next/image";
 import { Zap, Brain, Syringe, ShieldCheck, Beaker } from "lucide-react";
 
 export default function HeroSection() {
@@ -18,12 +18,11 @@ export default function HeroSection() {
     <section className="container mx-auto my-4 px-4 xl:my-15 xl:px-0">
       <div className="flex flex-col justify-between gap-x-4 xl:flex-row xl:items-stretch">
         <div className="relative h-full min-h-[590px] w-full overflow-hidden rounded-3xl flex items-center justify-center bg-neutral-50">
-          <Placeholder
-            width={560}
-            height={590}
-            label="NAD+ Injection"
-            icon="product"
-            className="w-full h-full"
+          <Image
+            src="/products/nad-plus-injection-hero.png"
+            alt="NAD+ Injection"
+            fill
+            className="object-cover"
           />
         </div>
         <div className="flex w-full flex-col gap-y-10 py-6 px-1 xl:py-0 xl:px-19">

@@ -13,7 +13,7 @@ const BEST_SELLERS: Product[] = [
     name: "Injectable Sermorelin",
     medicalName: "Sermorelin Acetate",
     price: "119.00",
-    image: "/products/enclomiphene-hero.png",
+    image: "/products/injectable-sermorelin-hero.png",
     slug: "injectable-sermorelin",
   },
   {
@@ -21,7 +21,7 @@ const BEST_SELLERS: Product[] = [
     name: "Oral Sermorelin",
     medicalName: "Sermorelin Acetate (Oral)",
     price: "119.00",
-    image: "/products/enclomiphene-hero.png",
+    image: "/products/oral-sermorelin-hero.png",
     slug: "oral-sermorelin",
   },
   {
@@ -29,7 +29,7 @@ const BEST_SELLERS: Product[] = [
     name: "NAD+ Injection",
     medicalName: "Nicotinamide Adenine Dinucleotide",
     price: "149.00",
-    image: "/products/enclomiphene-hero.png",
+    image: "/products/nad-plus-injection-hero.png",
     slug: "nad-plus-injection",
   },
   {

@@ -1,20 +1,18 @@
 import Link from "next/link";
+import Image from "next/image";
 import Header from "@/components/common/Header";
 import Button from "@/components/ui/button-custom";
-import Placeholder from "@/components/staging/ui/placeholder";
 
 export default function HeroSection() {
   return (
     <section className="container mx-auto px-4 xl:px-0">
       <div className="relative overflow-hidden rounded-2xl mt-5 px-6 xl:px-12 bg-[#f0edf0]">
-        {/* Placeholder for hero background image */}
-        <div className="absolute inset-0 hidden xl:flex items-center justify-end pointer-events-none">
-          <Placeholder
-            width={800}
-            height={600}
-            label="Hero Background"
-            icon="hero"
-            className="opacity-30 w-full h-full"
+        <div className="absolute inset-0 hidden xl:block pointer-events-none">
+          <Image
+            src="/home/hero-background.png"
+            alt=""
+            fill
+            className="object-cover object-right"
           />
         </div>
 
