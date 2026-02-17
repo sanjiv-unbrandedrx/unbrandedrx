@@ -16,19 +16,17 @@ These are wide, landscape-oriented banner images. They came in at 560x400, but t
 | `how-it-works-step-2.png` | 560x400 | **640x240** |
 | `how-it-works-step-3.png` | 560x400 | **640x240** |
 
-## Shared (Product Pages) — How It Works (3 files)
+## ~~Shared (Product Pages) — How It Works (3 files)~~ RESOLVED
 
-This is the tricky part — these three each have a **different, unique aspect ratio**. They're NOT all the same size. Last round they all came in at 1120x800, and this round they're the same 1120x800 again.
+Updated the code to use these images as full card backgrounds instead of small floating elements. The 1120x800 dimensions work as-is — no re-export needed. The line art fills the card as a subtle background with text overlaid on top.
 
-| File | You Delivered | Correct Size | Shape |
-|------|-------------|--------------|-------|
-| `how-it-works-step-1.png` | 1120x800 | **370x404** | Nearly square, slightly portrait |
-| `how-it-works-step-2.png` | 1120x800 | **404x506** | Portrait (taller than wide) |
-| `how-it-works-step-3.png` | 1120x800 | **380x240** | Landscape (wider than tall) |
-
-The artwork itself looks great — the line art style is perfect. They just need to be re-exported at these exact pixel dimensions. Each one is a different shape because they sit in different layout positions on the product pages.
+| File | Dimensions | Status |
+|------|-----------|--------|
+| `how-it-works-step-1.png` | 1120x800 | **Good to go** |
+| `how-it-works-step-2.png` | 1120x800 | **Good to go** |
+| `how-it-works-step-3.png` | 1120x800 | **Good to go** |
 
 You can see how they render live here (scroll down to the "How It Works" section on any product page):
 - https://www.unbrandedrx.co/staging/treatment/injectable-sermorelin
 
-Everything else is good to go — just these 6 and we're done. Thanks!
+Only the 3 home page "How It Works" banner images still need the dimension fix. Thanks!
