@@ -1,4 +1,4 @@
-import Placeholder from "@/components/staging/ui/placeholder";
+import Image from "next/image";
 
 const steps = [
   {
@@ -6,18 +6,21 @@ const steps = [
     title: "Choose Your Treatment",
     description:
       "Browse our treatments and select the one that fits your goals. Complete a quick online health profile.",
+    image: "/products/how-it-works-step-1.png",
   },
   {
     number: "2",
     title: "Online Doctor Visit",
     description:
       "A licensed U.S. provider reviews your information and prescribes a personalized treatment plan, if appropriate.",
+    image: "/products/how-it-works-step-2.png",
   },
   {
     number: "3",
     title: "Delivered to Your Door",
     description:
       "Your medication ships free in discreet, unmarked packaging. Refills are automatic so you never miss a dose.",
+    image: "/products/how-it-works-step-3.png",
   },
 ];
 
@@ -31,20 +34,20 @@ export default function HowItWorksSection() {
         {steps.map((step) => (
           <div
             key={step.number}
-            className="bg-muted p-6 rounded-2xl flex flex-col gap-y-4 min-h-[280px]"
+            className="bg-muted rounded-2xl relative overflow-hidden min-h-[280px]"
           >
-            <div className="flex items-center justify-center rounded-xl overflow-hidden">
-              <Placeholder
-                width={320}
-                height={120}
-                label={`Step ${step.number}`}
-                icon="step"
-              />
+            <Image
+              src={step.image}
+              alt=""
+              fill
+              className="object-cover object-right-top"
+            />
+            <div className="relative z-10 p-6 flex flex-col items-start justify-end h-full min-h-[280px]">
+              <p className="font-semibold text-neutral-800 text-xl">
+                {step.number}. {step.title}
+              </p>
+              <p className="text-muted-foreground mt-3">{step.description}</p>
             </div>
-            <p className="font-semibold text-neutral-800 text-xl">
-              {step.number}. {step.title}
-            </p>
-            <p className="text-muted-foreground">{step.description}</p>
           </div>
         ))}
       </div>
