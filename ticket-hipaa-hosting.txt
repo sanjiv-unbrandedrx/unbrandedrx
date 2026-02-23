@@ -1,0 +1,24 @@
+TICKET: Evaluate HIPAA-Compliant Hosting Alternatives
+Assigned to: Sanjiv
+Priority: High
+Date: 2026-02-23
+
+CONTEXT:
+We're currently on Vercel Hobby for unbrandedrx.co. HIPAA compliance
+requires at minimum a Pro plan with a BAA. Upgrading to Pro added ~$350/mo
+which is too expensive. We need a cheaper HIPAA-compliant hosting option
+that still supports git-based deploys (commit to GitHub → auto build).
+
+OPTIONS TO EVALUATE:
+1. Vercel Pro — $350/mo, keeps current workflow, but expensive
+2. AWS Amplify — BAA available under AWS, supports git-based deploys
+3. Render — BAA on Team plan, git-based deploys
+4. Self-hosted on AWS/GCP/Azure — cheapest long-term, more setup
+
+REQUIREMENTS:
+- HIPAA compliance with BAA
+- Git-based deploy workflow (push to GitHub → auto build/deploy)
+- Cheaper than $350/mo
+
+ACTION:
+Sanjiv to discuss with Vivek and decide on best path forward.
