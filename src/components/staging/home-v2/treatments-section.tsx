@@ -24,6 +24,30 @@ interface Treatment {
 
 const TREATMENTS: Treatment[] = [
   {
+    id: "enclomiphene",
+    name: "Enclomiphene",
+    medicalName: "Enclomiphene Citrate",
+    price: "$79/mo",
+    image: "/home/v2/treatment-enclomiphene.png",
+    href: "/find/treatment/enclomiphene",
+  },
+  {
+    id: "ed-rapid-dissolve-tablet",
+    name: "4-in-1 ED Rapid Dissolve",
+    medicalName: "Tadalafil + Vardenafil + Apomorphine",
+    price: "$79/mo",
+    image: "/home/v2/treatment-ed-rapid-dissolve.png",
+    href: "/find/treatment/ed-rapid-dissolve-tablet",
+  },
+  {
+    id: "topical-dutasteride",
+    name: "Topical Dutasteride",
+    medicalName: "Minoxidil + Dutasteride + Tretinoin",
+    price: "$69/mo",
+    image: "/home/product-card-topical-dutasteride.png",
+    href: "/find/treatment/topical-dutasteride",
+  },
+  {
     id: "injectable-sermorelin",
     name: "Injectable Sermorelin",
     medicalName: "Sermorelin Acetate",
@@ -49,30 +73,6 @@ const TREATMENTS: Treatment[] = [
     image: "/home/v2/treatment-nad-plus-injection.png",
     href: "/staging/treatment/nad-plus-injection",
     comingSoon: true,
-  },
-  {
-    id: "enclomiphene",
-    name: "Enclomiphene",
-    medicalName: "Enclomiphene Citrate",
-    price: "$79/mo",
-    image: "/home/v2/treatment-enclomiphene.png",
-    href: "/find/treatment/enclomiphene",
-  },
-  {
-    id: "ed-rapid-dissolve-tablet",
-    name: "4-in-1 ED Rapid Dissolve",
-    medicalName: "Tadalafil + Vardenafil + Apomorphine",
-    price: "$79/mo",
-    image: "/home/v2/treatment-ed-rapid-dissolve.png",
-    href: "/find/treatment/ed-rapid-dissolve-tablet",
-  },
-  {
-    id: "topical-dutasteride",
-    name: "Topical Dutasteride",
-    medicalName: "Minoxidil + Dutasteride + Tretinoin",
-    price: "$69/mo",
-    image: "/home/product-card-topical-dutasteride.png",
-    href: "/find/treatment/topical-dutasteride",
   },
 ];
 
