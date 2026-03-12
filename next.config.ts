@@ -2,8 +2,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  // SURGICAL STRIKE: Add remotePatterns to allow external images from placehold.co
+  async redirects() {
+    return [
+      {
+        source: "/shop/product/dapoxetine",
+        destination: "/find/category/all-products",
+        permanent: true,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {

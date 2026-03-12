@@ -137,13 +137,12 @@ A hand delicately holding a white capsule between fingers against a soft gray ba
 
 ## Product Categories
 
-### Launch Products (6 Core)
+### Launch Products (5 Core)
 1. **ED Treatment** - Tadalafil, rapid dissolve tablets
 2. **Hair Loss (Oral)** - Finasteride, Dutasteride
 3. **Hair Loss (Topical)** - Topical Finasteride, Topical Dutasteride
 4. **Testosterone** - Enclomiphene
-5. **Premature Ejaculation** - Dapoxetine
-6. **Combination/Performance** - Ultimate Performance stack
+5. **Combination/Performance** - Ultimate Performance stack
 
 ---
 

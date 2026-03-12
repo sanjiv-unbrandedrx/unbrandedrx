@@ -68,7 +68,6 @@ Size:           Standard supplement bottle (~120cc)
 | Dutasteride (oral) | DUTASTERIDE | — |
 | Finasteride (topical) | TOPICAL | FINASTERIDE |
 | Dutasteride (topical) | TOPICAL | DUTASTERIDE |
-| Dapoxetine | DAPOXETINE | — |
 
 ---
 

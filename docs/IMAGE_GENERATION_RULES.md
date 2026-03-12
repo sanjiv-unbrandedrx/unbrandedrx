@@ -95,7 +95,6 @@ Professional pharmaceutical product photography, high resolution, crisp focus.
 | Dutasteride (oral) | Dutasteride |
 | Finasteride (topical) | Topical Finasteride |
 | Dutasteride (topical) | Topical Dutasteride |
-| Dapoxetine | Dapoxetine |
 
 ---
 
