@@ -29,6 +29,18 @@ const productLinks = [
         href: "/find/treatment/ed-rapid-dissolve-tablet",
       },
       { name: "Enclomiphene", href: "/find/treatment/enclomiphene" },
+      {
+        name: "Injectable Sermorelin",
+        href: "/staging/treatment/injectable-sermorelin",
+      },
+      {
+        name: "Oral Sermorelin",
+        href: "/staging/treatment/oral-sermorelin",
+      },
+      {
+        name: "NAD+ Injection",
+        href: "/staging/treatment/nad-plus-injection",
+      },
     ],
   },
 ];
