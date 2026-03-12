@@ -15,6 +15,12 @@ const smallCards = [
     image: "/home/v2/category-nad.png",
     href: "/find/category/mens-health",
   },
+  {
+    title: "Weight Loss",
+    titleAccent: "Focus",
+    image: "/home/v2/category-weight-loss.png",
+    href: "/find/category/all-products",
+  },
 ];
 
 export default function CategoryCardsSection() {
@@ -22,10 +28,14 @@ export default function CategoryCardsSection() {
     <section className="container mx-auto px-4 xl:px-0 mt-4">
       {/* Large cards: 2 columns */}
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
-        {/* Boost Testosterone */}
+        {/* Boost Testosterone — warm radial gradient */}
         <Link
           href="/find/category/testosterone"
-          className="group relative rounded-2xl overflow-hidden h-[180px] xl:h-[200px] block bg-gradient-to-r from-amber-50 to-amber-100/80"
+          className="group relative rounded-2xl overflow-hidden h-[180px] xl:h-[200px] block"
+          style={{
+            background:
+              "radial-gradient(ellipse at 70% 80%, #C9A87C 0%, #DCCBB2 30%, #EDE5DA 55%, #F0EBE3 100%)",
+          }}
         >
           <div className="absolute right-0 top-0 bottom-0 w-1/2">
             <Image
@@ -37,7 +47,7 @@ export default function CategoryCardsSection() {
           </div>
           <div className="absolute inset-0 flex flex-col justify-between p-6 z-10">
             <h3 className="font-title text-2xl xl:text-3xl font-medium tracking-tight">
-              Boost <span className="text-neutral-500">Testosterone</span>
+              Boost <span className="text-[#B08B5B]">Testosterone</span>
             </h3>
             <div>
               <Button variant="filled" size="sm">
@@ -47,10 +57,13 @@ export default function CategoryCardsSection() {
           </div>
         </Link>
 
-        {/* ED Fast Acting */}
+        {/* ED Fast Acting — dark gradient */}
         <Link
           href="/find/category/sexual-health"
-          className="group relative rounded-2xl overflow-hidden h-[180px] xl:h-[200px] block bg-gradient-to-r from-neutral-100 to-neutral-200"
+          className="group relative rounded-2xl overflow-hidden h-[180px] xl:h-[200px] block"
+          style={{
+            background: "linear-gradient(135deg, #17161D 0%, #26272F 100%)",
+          }}
         >
           <div className="absolute right-0 top-0 bottom-0 w-1/2">
             <Image
@@ -61,11 +74,11 @@ export default function CategoryCardsSection() {
             />
           </div>
           <div className="absolute inset-0 flex flex-col justify-between p-6 z-10">
-            <h3 className="font-title text-2xl xl:text-3xl font-medium tracking-tight">
-              ED <span className="text-neutral-500">Fast Acting</span>
+            <h3 className="font-title text-2xl xl:text-3xl font-medium tracking-tight text-white">
+              ED <span className="text-neutral-400">Fast Acting</span>
             </h3>
             <div>
-              <Button variant="filled" size="sm">
+              <Button variant="filledInverse" size="sm">
                 Learn More &rarr;
               </Button>
             </div>
@@ -73,8 +86,8 @@ export default function CategoryCardsSection() {
         </Link>
       </div>
 
-      {/* Small cards: 2 columns */}
-      <div className="grid grid-cols-2 gap-4 mt-4">
+      {/* Small cards: 3 columns */}
+      <div className="grid grid-cols-2 xl:grid-cols-3 gap-4 mt-4">
         {smallCards.map((card) => (
           <Link
             key={card.title}
