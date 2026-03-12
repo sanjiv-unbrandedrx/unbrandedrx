@@ -119,7 +119,7 @@ export default function Footer() {
               {peptidesItems.map((name) => (
                 <span
                   key={name}
-                  className="text-sm text-neutral-400"
+                  className="text-sm text-neutral-600"
                 >
                   {name}
                 </span>
