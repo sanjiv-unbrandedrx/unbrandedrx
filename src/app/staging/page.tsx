@@ -5,6 +5,7 @@ import ValuePropsSection from "@/components/staging/home/value-props-section";
 import TrustSignalsSection from "@/components/staging/home/trust-signals-section";
 import ProductCarousel from "@/components/common/product-carousel";
 import FinalCtaSection from "@/components/staging/home/final-cta-section";
+import Footer from "@/components/common/Footer";
 import { Product } from "@/components/shop/product-card";
 
 const BEST_SELLERS: Product[] = [
@@ -52,6 +53,7 @@ const BEST_SELLERS: Product[] = [
 
 export default function StagingHome() {
   return (
+    <>
     <main>
       <HeroSection />
       <FeaturedProductsSection />
@@ -61,5 +63,7 @@ export default function StagingHome() {
       <ProductCarousel title="Our Best Sellers" products={BEST_SELLERS} />
       <FinalCtaSection />
     </main>
+    <Footer />
+    </>
   );
 }

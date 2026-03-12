@@ -5,9 +5,11 @@ import DeepDiveSection from "@/components/staging/product/nad-plus-injection/dee
 import LabTestingSection from "@/components/staging/product/lab-testing-section";
 import ContentModule from "@/components/staging/product/nad-plus-injection/content-module";
 import QuestionsSection from "@/components/staging/product/nad-plus-injection/questions";
+import Footer from "@/components/common/Footer";
 
 export default function ProductPage() {
   return (
+    <>
     <main>
       <section className="px-4 xl:px-0">
         <Header />
@@ -19,5 +21,7 @@ export default function ProductPage() {
       <ContentModule />
       <QuestionsSection />
     </main>
+    <Footer />
+    </>
   );
 }
