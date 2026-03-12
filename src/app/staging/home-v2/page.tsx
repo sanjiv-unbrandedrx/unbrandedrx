@@ -23,7 +23,7 @@ const BEST_SELLERS: Product[] = [
     name: "Oral Sermorelin",
     medicalName: "Sermorelin Acetate",
     price: "119.00",
-    image: "/home/v2/treatment-oral-sermorelin.png",
+    image: "/home/v2/bestseller-oral-sermorelin.png",
     slug: "oral-sermorelin",
   },
   {
@@ -31,7 +31,7 @@ const BEST_SELLERS: Product[] = [
     name: "NAD+ Injection",
     medicalName: "Nicotinamide Adenine Dinucleotide",
     price: "149.00",
-    image: "/home/v2/treatment-nad-plus-injection.png",
+    image: "/home/v2/bestseller-nad-plus-injection.png",
     slug: "nad-plus-injection",
   },
   {

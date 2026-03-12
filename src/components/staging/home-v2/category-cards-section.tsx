@@ -16,8 +16,8 @@ const smallCards = [
     href: "/find/category/mens-health",
   },
   {
-    title: "Weight Loss",
-    titleAccent: "Focus",
+    title: "Browse",
+    titleAccent: "All Products",
     image: "/home/v2/category-weight-loss.png",
     href: "/find/category/all-products",
   },
