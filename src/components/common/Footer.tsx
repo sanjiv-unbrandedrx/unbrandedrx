@@ -3,46 +3,31 @@ import Link from "next/link";
 // COFOUNDER NOTE: Add Image import for the LegitScript seal.
 import Image from "next/image";
 
-const productLinks = [
+const hairCareLinks = [
+  { name: "Oral Finasteride", href: "/find/treatment/oral-finasteride" },
+  { name: "Oral Dutasteride", href: "/find/treatment/oral-dutasteride" },
+  { name: "Topical Finasteride", href: "/find/treatment/topical-finasteride" },
+  { name: "Topical Dutasteride", href: "/find/treatment/topical-dutasteride" },
+];
+
+const sexualHealthLinks = [
   {
-    category: "Hair Loss",
-    categoryHref: "/find/category/hair-loss",
-    items: [
-      { name: "Oral Finasteride", href: "/find/treatment/oral-finasteride" },
-      { name: "Oral Dutasteride", href: "/find/treatment/oral-dutasteride" },
-      {
-        name: "Topical Finasteride",
-        href: "/find/treatment/topical-finasteride",
-      },
-      {
-        name: "Topical Dutasteride",
-        href: "/find/treatment/topical-dutasteride",
-      },
-    ],
+    name: "4-in-1 ED Rapid Dissolve Tablet",
+    href: "/find/treatment/ed-rapid-dissolve-tablet",
   },
+];
+
+const testosteroneLinks = [
+  { name: "Enclomiphene", href: "/find/treatment/enclomiphene" },
+];
+
+const peptidesLinks = [
   {
-    category: "Men's Health",
-    categoryHref: "/find/category/mens-health",
-    items: [
-      {
-        name: "4-in-1 ED Rapid Dissolve Tablet",
-        href: "/find/treatment/ed-rapid-dissolve-tablet",
-      },
-      { name: "Enclomiphene", href: "/find/treatment/enclomiphene" },
-      {
-        name: "Injectable Sermorelin",
-        href: "/staging/treatment/injectable-sermorelin",
-      },
-      {
-        name: "Oral Sermorelin",
-        href: "/staging/treatment/oral-sermorelin",
-      },
-      {
-        name: "NAD+ Injection",
-        href: "/staging/treatment/nad-plus-injection",
-      },
-    ],
+    name: "Injectable Sermorelin",
+    href: "/staging/treatment/injectable-sermorelin",
   },
+  { name: "Oral Sermorelin", href: "/staging/treatment/oral-sermorelin" },
+  { name: "NAD+ Injection", href: "/staging/treatment/nad-plus-injection" },
 ];
 
 const companyLinks = [
@@ -61,32 +46,89 @@ export default function Footer() {
   return (
     <footer className="border-t bg-neutral-800 py-16 text-white px-4 xl:px-10">
       <div className="mx-auto max-w-[1360px]">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-          {/* Products Section */}
-          <div className="col-span-2 grid grid-cols-1 gap-8 sm:grid-cols-2">
-            {productLinks.map((section) => (
-              <div key={section.category}>
-                <p className="font-medium text-neutral-300">
-                  <Link
-                    href={section.categoryHref}
-                    className="hover:underline underline-offset-2"
-                  >
-                    {section.category}
-                  </Link>
-                </p>
-                <div className="mt-4 flex flex-col space-y-3">
-                  {section.items.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className="text-sm text-neutral-400 hover:text-white hover:underline underline-offset-2"
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            ))}
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
+          {/* Hair Care */}
+          <div>
+            <p className="font-medium text-neutral-300">
+              <Link
+                href="/find/category/hair-loss"
+                className="hover:underline underline-offset-2"
+              >
+                Hair Care
+              </Link>
+            </p>
+            <div className="mt-4 flex flex-col space-y-3">
+              {hairCareLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-sm text-neutral-400 hover:text-white hover:underline underline-offset-2"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Sexual Health + Testosterone (one column, two sections) */}
+          <div>
+            <p className="font-medium text-neutral-300">
+              <Link
+                href="/find/category/sexual-health"
+                className="hover:underline underline-offset-2"
+              >
+                Sexual Health
+              </Link>
+            </p>
+            <div className="mt-4 flex flex-col space-y-3">
+              {sexualHealthLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-sm text-neutral-400 hover:text-white hover:underline underline-offset-2"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+
+            <p className="font-medium text-neutral-300 mt-8">
+              <Link
+                href="/find/category/testosterone"
+                className="hover:underline underline-offset-2"
+              >
+                Testosterone
+              </Link>
+            </p>
+            <div className="mt-4 flex flex-col space-y-3">
+              {testosteroneLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-sm text-neutral-400 hover:text-white hover:underline underline-offset-2"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Peptides & Longevity */}
+          <div>
+            <p className="font-medium text-neutral-300">
+              Peptides &amp; Longevity
+            </p>
+            <div className="mt-4 flex flex-col space-y-3">
+              {peptidesLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-sm text-neutral-400 hover:text-white hover:underline underline-offset-2"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
           </div>
 
           {/* Company Section */}
