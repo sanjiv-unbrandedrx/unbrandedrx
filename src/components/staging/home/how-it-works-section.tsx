@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { FadeIn, Stagger, StaggerItem } from "@/components/ui/animate";
 
 const steps = [
   {
@@ -27,14 +28,16 @@ const steps = [
 export default function HowItWorksSection() {
   return (
     <section className="container mx-auto py-10 xl:py-20 px-4 xl:px-0">
-      <h2 className="font-title text-3xl xl:text-4xl font-medium tracking-tight">
-        How it works
-      </h2>
-      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 mt-10">
+      <FadeIn>
+        <h2 className="font-title text-3xl xl:text-4xl font-medium tracking-tight">
+          How it works
+        </h2>
+      </FadeIn>
+      <Stagger staggerDelay={0.15} className="grid grid-cols-1 xl:grid-cols-3 gap-6 mt-10">
         {steps.map((step) => (
-          <div
+          <StaggerItem
             key={step.number}
-            className="bg-muted rounded-2xl relative overflow-hidden min-h-[280px]"
+            className="bg-muted rounded-2xl relative overflow-hidden min-h-[280px] transition-transform duration-300 hover:-translate-y-1"
           >
             <Image
               src={step.image}
@@ -48,9 +51,9 @@ export default function HowItWorksSection() {
               </p>
               <p className="text-muted-foreground mt-3">{step.description}</p>
             </div>
-          </div>
+          </StaggerItem>
         ))}
-      </div>
+      </Stagger>
     </section>
   );
 }

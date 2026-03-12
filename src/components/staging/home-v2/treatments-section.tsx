@@ -10,6 +10,7 @@ import RightCircleFillIcon from "@/components/svg/right-circle-fill-icon";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import { useState } from "react";
+import { FadeIn } from "@/components/ui/animate";
 
 interface Treatment {
   id: string;
@@ -73,7 +74,7 @@ const TREATMENTS: Treatment[] = [
 
 function TreatmentCard({ treatment }: { treatment: Treatment }) {
   return (
-    <div className="bg-white border border-neutral-200 rounded-3xl overflow-hidden flex flex-col h-full">
+    <div className="bg-white border border-neutral-200 rounded-3xl overflow-hidden flex flex-col h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
       <Link href={treatment.href}>
         <div className="relative h-[200px] bg-neutral-50">
           <Image
@@ -121,14 +122,14 @@ export default function TreatmentsSection() {
       {/* Header */}
       <div className="container mx-auto px-4 xl:px-0">
         <div className="flex justify-between items-start xl:items-center mb-8">
-          <div>
+          <FadeIn>
             <h2 className="font-title text-3xl xl:text-4xl font-medium tracking-tight">
               Our Treatments
             </h2>
             <p className="mt-2 text-muted-foreground text-lg">
               Prescription-grade formulas at transparent prices.
             </p>
-          </div>
+          </FadeIn>
           {/* Desktop carousel arrows */}
           {sliderReady && instanceRef.current && (
             <div className="hidden xl:flex items-center gap-x-3">

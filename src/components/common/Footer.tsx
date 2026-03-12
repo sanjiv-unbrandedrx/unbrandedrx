@@ -165,8 +165,7 @@ export default function Footer() {
           <p className="text-sm text-neutral-500">
             &copy; {new Date().getFullYear()} unbrandedrx. All Rights Reserved
           </p>
-          {/* COFOUNDER NOTE: Add LegitScript seal per team feedback. */}
-          <div className="mt-8">
+          <div className="mt-8 flex items-center gap-x-6">
             <Link
               href="https://www.legitscript.com/websites/?checker_keywords=unbrandedrx.co"
               target="_blank"
@@ -179,6 +178,12 @@ export default function Footer() {
                 height={80}
               />
             </Link>
+            <Image
+              src="/compounded-in-usa.png"
+              alt="Compounded in the U.S.A."
+              width={120}
+              height={120}
+            />
           </div>
         </div>
       </div>

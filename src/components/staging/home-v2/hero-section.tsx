@@ -2,6 +2,7 @@ import Header from "@/components/common/Header";
 import Link from "next/link";
 import Button from "@/components/ui/button-custom";
 import { ShieldCheck, BadgeCheck, Building2, Star } from "lucide-react";
+import { FadeIn, Stagger, StaggerItem } from "@/components/ui/animate";
 
 const trustBadges = [
   {
@@ -33,7 +34,7 @@ export default function HeroSection() {
         <Header />
         <div className="flex flex-col xl:flex-row justify-between items-start gap-8 mt-8 xl:mt-20">
           {/* Left: Headline + CTA */}
-          <div className="max-w-lg space-y-6">
+          <FadeIn className="max-w-lg space-y-6">
             <h1 className="font-title font-semibold text-4xl xl:text-5xl tracking-tight">
               Better Formulas. <br /> Smarter Rx Prices.
             </h1>
@@ -41,12 +42,12 @@ export default function HeroSection() {
               Prescription-grade treatments without the pharmacy markup.
               Clinician-led care, delivered to your door.
             </p>
-          </div>
+          </FadeIn>
 
           {/* Right: Trust Badges */}
-          <div className="flex flex-col gap-y-4 xl:max-w-sm w-full">
+          <Stagger staggerDelay={0.12} className="flex flex-col gap-y-4 xl:max-w-sm w-full">
             {trustBadges.map((badge) => (
-              <div
+              <StaggerItem
                 key={badge.title}
                 className="flex items-start gap-x-3"
               >
@@ -61,9 +62,9 @@ export default function HeroSection() {
                     {badge.description}
                   </p>
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </div>
     </section>

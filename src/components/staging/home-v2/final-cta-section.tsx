@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Button from "@/components/ui/button-custom";
+import { FadeIn } from "@/components/ui/animate";
 
 export default function FinalCtaSection() {
   return (
@@ -17,7 +18,7 @@ export default function FinalCtaSection() {
         <div className="absolute inset-0 bg-black/50" />
 
         {/* Content */}
-        <div className="relative z-10">
+        <FadeIn variant="scaleIn" className="relative z-10">
           <h2 className="font-title text-3xl xl:text-4xl font-medium tracking-tight text-white">
             Ready to get started?
           </h2>
@@ -30,7 +31,7 @@ export default function FinalCtaSection() {
               <Link href="/find/category/all-products">Browse Treatments</Link>
             </Button>
           </div>
-        </div>
+        </FadeIn>
       </div>
     </section>
   );

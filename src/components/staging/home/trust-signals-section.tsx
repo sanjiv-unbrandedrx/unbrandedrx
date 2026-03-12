@@ -1,4 +1,5 @@
 import { ShieldCheck, BadgeCheck, Building2, Star } from "lucide-react";
+import { Stagger, StaggerItem } from "@/components/ui/animate";
 
 const signals = [
   {
@@ -26,9 +27,9 @@ const signals = [
 export default function TrustSignalsSection() {
   return (
     <section className="container mx-auto py-16 xl:py-20 px-4 xl:px-0">
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
+      <Stagger staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
         {signals.map((signal) => (
-          <div
+          <StaggerItem
             key={signal.title}
             className="flex flex-col items-center text-center gap-y-3"
           >
@@ -39,9 +40,9 @@ export default function TrustSignalsSection() {
             <p className="text-sm text-muted-foreground max-w-xs">
               {signal.description}
             </p>
-          </div>
+          </StaggerItem>
         ))}
-      </div>
+      </Stagger>
     </section>
   );
 }

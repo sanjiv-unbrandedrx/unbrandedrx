@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/ui/button-custom";
+import { FadeIn, Stagger, StaggerItem } from "@/components/ui/animate";
 
 const smallCards = [
   {
@@ -27,8 +28,9 @@ export default function CategoryCardsSection() {
   return (
     <section className="container mx-auto px-4 xl:px-0 mt-4">
       {/* Large cards: 2 columns */}
-      <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 pt-16">
+      <Stagger staggerDelay={0.15} className="grid grid-cols-1 xl:grid-cols-2 gap-4 pt-16">
         {/* Boost Testosterone — warm radial gradient */}
+        <StaggerItem>
         <Link
           href="/find/category/testosterone"
           className="group relative block h-[180px] xl:h-[200px]"
@@ -64,8 +66,10 @@ export default function CategoryCardsSection() {
             </div>
           </div>
         </Link>
+        </StaggerItem>
 
         {/* ED Fast Acting — dark gradient */}
+        <StaggerItem>
         <Link
           href="/find/category/sexual-health"
           className="group relative block h-[180px] xl:h-[200px]"
@@ -100,13 +104,14 @@ export default function CategoryCardsSection() {
             </div>
           </div>
         </Link>
-      </div>
+        </StaggerItem>
+      </Stagger>
 
       {/* Small cards: 3 columns */}
-      <div className="grid grid-cols-2 xl:grid-cols-3 gap-4 mt-4">
+      <Stagger staggerDelay={0.1} className="grid grid-cols-2 xl:grid-cols-3 gap-4 mt-4">
         {smallCards.map((card) => (
+          <StaggerItem key={card.title}>
           <Link
-            key={card.title}
             href={card.href}
             className="group relative rounded-2xl overflow-hidden h-[100px] xl:h-[120px] block bg-muted"
           >
@@ -125,8 +130,9 @@ export default function CategoryCardsSection() {
               </h3>
             </div>
           </Link>
+          </StaggerItem>
         ))}
-      </div>
+      </Stagger>
     </section>
   );
 }

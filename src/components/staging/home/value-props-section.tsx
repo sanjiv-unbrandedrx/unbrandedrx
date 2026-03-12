@@ -1,4 +1,5 @@
 import { DollarSign, Stethoscope, Truck, FlaskConical } from "lucide-react";
+import { FadeIn, Stagger, StaggerItem } from "@/components/ui/animate";
 
 const valueProps = [
   {
@@ -31,14 +32,16 @@ export default function ValuePropsSection() {
   return (
     <section className="bg-secondary py-16 xl:py-20">
       <div className="container mx-auto px-4 xl:px-0">
-        <h2 className="font-title text-3xl xl:text-4xl font-medium tracking-tight text-center">
-          Why unbrandedrx?
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mt-10 xl:mt-14">
+        <FadeIn>
+          <h2 className="font-title text-3xl xl:text-4xl font-medium tracking-tight text-center">
+            Why unbrandedrx?
+          </h2>
+        </FadeIn>
+        <Stagger staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mt-10 xl:mt-14">
           {valueProps.map((prop) => (
-            <div
+            <StaggerItem
               key={prop.title}
-              className="bg-white rounded-3xl p-8 flex flex-col gap-y-4"
+              className="bg-white rounded-3xl p-8 flex flex-col gap-y-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
               <div className="size-12 rounded-2xl bg-neutral-100 flex items-center justify-center">
                 <prop.icon className="size-6 text-neutral-800" />
@@ -47,9 +50,9 @@ export default function ValuePropsSection() {
               <p className="text-sm text-muted-foreground">
                 {prop.description}
               </p>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );
