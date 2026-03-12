@@ -17,19 +17,19 @@ export default function TreatmentPlanPanel() {
   return (
     <>
       {/* ── Desktop Sidebar ──────────────────────────────────────────── */}
-      <aside className="hidden lg:flex flex-col w-80 border-l border-neutral-200 bg-white">
+      <aside className="hidden lg:flex flex-col w-[360px] border-l border-neutral-200 bg-white">
         <div className="p-6 border-b border-neutral-100">
-          <h3 className="font-title font-semibold text-lg tracking-tight">
+          <h3 className="font-title font-semibold text-xl tracking-tight">
             Your Treatment Plan
           </h3>
-          <p className="text-xs text-muted-foreground mt-1">
+          <p className="text-sm text-muted-foreground mt-1">
             Your provider will review and finalize
           </p>
         </div>
 
-        <div className="flex-1 overflow-y-auto p-4 space-y-3">
+        <div className="flex-1 overflow-y-auto p-5 space-y-3">
           {treatmentPlan.length === 0 ? (
-            <p className="text-sm text-muted-foreground text-center py-8">
+            <p className="text-base text-muted-foreground text-center py-8">
               No treatments selected yet
             </p>
           ) : (
@@ -49,7 +49,7 @@ export default function TreatmentPlanPanel() {
 
         {treatmentPlan.length > 0 && (
           <div className="p-4 border-t border-neutral-100">
-            <p className="text-xs text-muted-foreground text-center">
+            <p className="text-sm text-muted-foreground text-center">
               {count} treatment{count !== 1 ? "s" : ""} selected
             </p>
           </div>
@@ -128,20 +128,20 @@ function TreatmentCard({
   onRemove,
 }: TreatmentCardProps) {
   return (
-    <div className="flex items-start gap-3 rounded-xl border border-neutral-200 p-3 relative group">
-      <div className="relative h-12 w-12 shrink-0 rounded-lg overflow-hidden bg-neutral-100">
+    <div className="flex items-start gap-4 rounded-xl border border-neutral-200 p-4 relative group">
+      <div className="relative h-16 w-16 shrink-0 rounded-lg overflow-hidden bg-neutral-100">
         <Image src={image} alt={name} fill className="object-cover" />
       </div>
       <div className="flex-1 min-w-0">
-        <p className="text-sm font-semibold font-title truncate">{name}</p>
-        <p className="text-xs text-muted-foreground truncate">{medicalName}</p>
-        <div className="flex items-center gap-2 mt-1">
-          <span className="text-sm font-semibold">
+        <p className="text-base font-semibold font-title truncate">{name}</p>
+        <p className="text-sm text-muted-foreground truncate">{medicalName}</p>
+        <div className="flex items-center gap-2 mt-1.5">
+          <span className="text-base font-semibold">
             {formatPrice(price)}
           </span>
           <span
             className={cn(
-              "text-[10px] uppercase tracking-wider font-medium px-1.5 py-0.5 rounded-full",
+              "text-xs uppercase tracking-wider font-medium px-2 py-0.5 rounded-full",
               reason === "initial"
                 ? "bg-zinc-100 text-zinc-600"
                 : "bg-blue-50 text-blue-600",
@@ -156,7 +156,7 @@ function TreatmentCard({
         className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity p-1 rounded-full hover:bg-neutral-100"
         aria-label={`Remove ${name}`}
       >
-        <X className="h-3.5 w-3.5 text-muted-foreground" />
+        <X className="h-4 w-4 text-muted-foreground" />
       </button>
     </div>
   );

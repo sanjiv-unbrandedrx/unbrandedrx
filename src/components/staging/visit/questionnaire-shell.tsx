@@ -151,29 +151,29 @@ export default function QuestionnaireShell() {
       <div className="flex-1 flex flex-col">
         {/* Progress bar */}
         <div className="border-b border-neutral-100 px-6 py-4 bg-white">
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-3xl mx-auto">
             <QuestionnaireProgressBar />
           </div>
         </div>
 
         {/* Question area */}
-        <div className="flex-1 px-6 py-8 overflow-y-auto pb-32 lg:pb-8">
-          <div className="max-w-2xl mx-auto space-y-8">
+        <div className="flex-1 px-6 py-10 overflow-y-auto pb-32 lg:pb-10">
+          <div className="max-w-3xl mx-auto space-y-8">
             {showingInterstitial ? (
               /* ── Suggestion Interstitial ─────────────────────────── */
               <FadeIn variant="fadeUp" key="suggestions-interstitial">
                 <div className="space-y-6">
                   <div>
-                    <h2 className="text-2xl font-semibold font-title tracking-tight">
+                    <h2 className="text-4xl font-semibold font-title tracking-tight">
                       Based on your answers...
                     </h2>
-                    <p className="text-muted-foreground mt-2">
+                    <p className="text-xl text-muted-foreground mt-3">
                       Your provider may also recommend the following treatments.
                       You can add them to your plan or skip.
                     </p>
                   </div>
 
-                  <div className="space-y-4">
+                  <div className="space-y-5">
                     {pendingSuggestions.map((s) => (
                       <TreatmentSuggestion
                         key={s.treatmentId}
@@ -197,11 +197,11 @@ export default function QuestionnaireShell() {
                     key={`section-${currentSection.id}`}
                   >
                     <div className="pb-4 border-b border-neutral-100">
-                      <h3 className="text-sm uppercase tracking-wider font-medium text-muted-foreground">
+                      <h3 className="text-lg uppercase tracking-wider font-medium text-muted-foreground">
                         {currentSection.title}
                       </h3>
                       {currentSection.description && (
-                        <p className="text-sm text-muted-foreground mt-1">
+                        <p className="text-lg text-muted-foreground mt-1">
                           {currentSection.description}
                         </p>
                       )}
@@ -224,17 +224,17 @@ export default function QuestionnaireShell() {
         </div>
 
         {/* Navigation buttons */}
-        <div className="border-t border-neutral-100 px-6 py-4 bg-white">
-          <div className="max-w-2xl mx-auto flex items-center justify-between">
+        <div className="border-t border-neutral-100 px-6 py-5 bg-white">
+          <div className="max-w-3xl mx-auto flex items-center justify-between">
             <ButtonCustom
               variant="outline"
-              size="base"
+              size="lg"
               onClick={handleBack}
               disabled={isFirstStep}
               className={cn(isFirstStep && "opacity-50 cursor-not-allowed")}
             >
               <span className="flex items-center gap-2">
-                <ArrowLeft className="h-4 w-4" />
+                <ArrowLeft className="h-5 w-5" />
                 Back
               </span>
             </ButtonCustom>
@@ -242,7 +242,7 @@ export default function QuestionnaireShell() {
             {!isPastQuestions && (
               <ButtonCustom
                 variant="filled"
-                size="base"
+                size="lg"
                 onClick={handleNext}
                 disabled={
                   !showingInterstitial &&
@@ -262,7 +262,7 @@ export default function QuestionnaireShell() {
                     : isLastQuestion
                       ? "Review"
                       : "Continue"}
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-5 w-5" />
                 </span>
               </ButtonCustom>
             )}

@@ -23,13 +23,13 @@ export default function TreatmentSuggestion({
 
   return (
     <FadeIn variant="fadeUp">
-      <div className="rounded-2xl border border-blue-200 bg-blue-50/50 p-5">
-        <p className="text-xs uppercase tracking-wider font-medium text-blue-600 mb-3">
+      <div className="rounded-2xl border border-blue-200 bg-blue-50/50 p-8">
+        <p className="text-base uppercase tracking-wider font-medium text-blue-600 mb-5">
           Your provider may also recommend
         </p>
 
-        <div className="flex items-start gap-4">
-          <div className="relative h-16 w-16 shrink-0 rounded-xl overflow-hidden bg-white">
+        <div className="flex items-start gap-6">
+          <div className="relative h-24 w-24 shrink-0 rounded-xl overflow-hidden bg-white">
             <Image
               src={treatment.image}
               alt={treatment.name}
@@ -39,32 +39,32 @@ export default function TreatmentSuggestion({
           </div>
 
           <div className="flex-1 min-w-0">
-            <h4 className="font-title font-semibold text-base">
+            <h4 className="font-title font-semibold text-xl">
               {treatment.name}
             </h4>
-            <p className="text-xs text-muted-foreground mt-0.5">
+            <p className="text-base text-muted-foreground mt-1">
               {treatment.medicalName}
             </p>
-            <p className="text-sm font-semibold mt-1">
+            <p className="text-lg font-semibold mt-1.5">
               {formatPrice(treatment.price)}
               <span className="font-normal text-muted-foreground">/mo</span>
             </p>
           </div>
         </div>
 
-        <p className="text-sm text-muted-foreground mt-3">{reason}</p>
+        <p className="text-lg text-muted-foreground mt-5">{reason}</p>
 
-        <div className="flex gap-3 mt-4">
+        <div className="flex gap-4 mt-6">
           <ButtonCustom
             variant="filled"
-            size="sm"
+            size="lg"
             onClick={() => addTreatment(treatmentId, reason)}
           >
             + Add to Treatment Plan
           </ButtonCustom>
           <ButtonCustom
             variant="outline"
-            size="sm"
+            size="lg"
             onClick={() => dismissTreatment(treatmentId)}
           >
             Not interested

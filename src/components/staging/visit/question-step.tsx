@@ -87,12 +87,12 @@ export default function QuestionStep({ question, onAutoAdvance }: QuestionStepPr
     });
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       {/* Question text */}
       <div>
         <h2
           className={cn(
-            "text-xl font-semibold font-title tracking-tight text-foreground",
+            "text-3xl font-semibold font-title tracking-tight text-foreground",
             question.critical &&
               "text-red-700 border-l-4 border-red-500 pl-4",
           )}
@@ -100,14 +100,14 @@ export default function QuestionStep({ question, onAutoAdvance }: QuestionStepPr
           {question.question}
         </h2>
         {question.description && (
-          <p className="mt-2 text-sm text-muted-foreground">
+          <p className="mt-3 text-lg text-muted-foreground">
             {question.description}
           </p>
         )}
       </div>
 
       {/* Answer input */}
-      <div className="space-y-3">
+      <div className="space-y-4">
         {(question.type === "single" ||
           question.type === "yes-no" ||
           question.type === "scale") &&
@@ -115,7 +115,7 @@ export default function QuestionStep({ question, onAutoAdvance }: QuestionStepPr
             <label
               key={option.value}
               className={cn(
-                "flex items-center gap-3 rounded-xl border px-4 py-3 cursor-pointer transition-all",
+                "flex items-center gap-4 rounded-xl border px-6 py-5 cursor-pointer transition-all",
                 selectedValue === option.value
                   ? "border-foreground bg-zinc-50 ring-1 ring-foreground"
                   : "border-neutral-200 hover:border-neutral-400",
@@ -123,17 +123,17 @@ export default function QuestionStep({ question, onAutoAdvance }: QuestionStepPr
             >
               <div
                 className={cn(
-                  "flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 transition-colors",
+                  "flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 transition-colors",
                   selectedValue === option.value
                     ? "border-foreground"
                     : "border-neutral-300",
                 )}
               >
                 {selectedValue === option.value && (
-                  <div className="h-2.5 w-2.5 rounded-full bg-foreground" />
+                  <div className="h-3 w-3 rounded-full bg-foreground" />
                 )}
               </div>
-              <span className="text-sm">{option.label}</span>
+              <span className="text-lg">{option.label}</span>
               <input
                 type="radio"
                 name={question.id}
@@ -182,7 +182,7 @@ export default function QuestionStep({ question, onAutoAdvance }: QuestionStepPr
               <label
                 key={option.value}
                 className={cn(
-                  "flex items-center gap-3 rounded-xl border px-4 py-3 cursor-pointer transition-all",
+                  "flex items-center gap-4 rounded-xl border px-6 py-5 cursor-pointer transition-all",
                   isSelected
                     ? "border-foreground bg-zinc-50 ring-1 ring-foreground"
                     : "border-neutral-200 hover:border-neutral-400",
@@ -191,9 +191,9 @@ export default function QuestionStep({ question, onAutoAdvance }: QuestionStepPr
                 <Checkbox
                   checked={isSelected}
                   onCheckedChange={handleToggle}
-                  className="shrink-0"
+                  className="shrink-0 h-5 w-5"
                 />
-                <span className="text-sm">{option.label}</span>
+                <span className="text-lg">{option.label}</span>
               </label>
             );
           })}
@@ -204,12 +204,12 @@ export default function QuestionStep({ question, onAutoAdvance }: QuestionStepPr
             onChange={(e) => setSelectedValue(e.target.value)}
             placeholder="Type your answer here..."
             rows={4}
-            className="w-full rounded-xl border border-neutral-200 px-4 py-3 text-sm outline-none focus:border-foreground focus:ring-1 focus:ring-foreground transition-all resize-none"
+            className="w-full rounded-xl border border-neutral-200 px-6 py-5 text-lg outline-none focus:border-foreground focus:ring-1 focus:ring-foreground transition-all resize-none"
           />
         )}
 
         {question.type === "info" && (
-          <div className="rounded-xl bg-blue-50 border border-blue-200 px-4 py-3 text-sm text-blue-800">
+          <div className="rounded-xl bg-blue-50 border border-blue-200 px-6 py-5 text-lg text-blue-800">
             {question.description}
           </div>
         )}
@@ -217,8 +217,8 @@ export default function QuestionStep({ question, onAutoAdvance }: QuestionStepPr
 
       {/* Follow-up text input */}
       {showFollowUp && question.followUp && (
-        <div className="space-y-2 pl-4 border-l-2 border-neutral-200">
-          <p className="text-sm font-medium text-muted-foreground">
+        <div className="space-y-3 pl-5 border-l-2 border-neutral-200">
+          <p className="text-lg font-medium text-muted-foreground">
             {question.followUp.prompt}
           </p>
           <textarea
@@ -226,7 +226,7 @@ export default function QuestionStep({ question, onAutoAdvance }: QuestionStepPr
             onChange={(e) => setFollowUpText(e.target.value)}
             placeholder="Please provide details..."
             rows={3}
-            className="w-full rounded-xl border border-neutral-200 px-4 py-3 text-sm outline-none focus:border-foreground focus:ring-1 focus:ring-foreground transition-all resize-none"
+            className="w-full rounded-xl border border-neutral-200 px-6 py-5 text-lg outline-none focus:border-foreground focus:ring-1 focus:ring-foreground transition-all resize-none"
           />
         </div>
       )}
