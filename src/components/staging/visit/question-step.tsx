@@ -10,9 +10,10 @@ import { evaluateCondition } from "@/lib/questionnaire/engine";
 
 interface QuestionStepProps {
   question: Question;
+  onAutoAdvance?: () => void;
 }
 
-export default function QuestionStep({ question }: QuestionStepProps) {
+export default function QuestionStep({ question, onAutoAdvance }: QuestionStepProps) {
   const { state, setAnswer } = useQuestionnaire();
   const existingAnswer = state.answers[question.id];
 
@@ -40,6 +41,35 @@ export default function QuestionStep({ question }: QuestionStepProps) {
     }
     setAnswer(question.id, selectedValue, followUpText || undefined);
   }, [selectedValue, followUpText, question.id, setAnswer]);
+
+  // Check if selecting a value would trigger a follow-up
+  const wouldTriggerFollowUp = (value: string) => {
+    if (!question.followUp) return false;
+    return evaluateCondition(question.followUp.condition, {
+      ...state,
+      answers: {
+        ...state.answers,
+        [question.id]: { questionId: question.id, value, followUpText: "" },
+      },
+    });
+  };
+
+  // Auto-advance for single-select questions (radio buttons)
+  const handleRadioSelect = (value: string) => {
+    setSelectedValue(value);
+    setAnswer(question.id, value, followUpText || undefined);
+
+    // Auto-advance if: single-select type, no follow-up triggered, and callback provided
+    const isSingleSelect =
+      question.type === "single" ||
+      question.type === "yes-no" ||
+      question.type === "scale";
+
+    if (isSingleSelect && onAutoAdvance && !wouldTriggerFollowUp(value)) {
+      // Small delay so the user sees their selection highlight
+      setTimeout(() => onAutoAdvance(), 300);
+    }
+  };
 
   // Check if follow-up should show
   const showFollowUp =
@@ -109,7 +139,7 @@ export default function QuestionStep({ question }: QuestionStepProps) {
                 name={question.id}
                 value={option.value}
                 checked={selectedValue === option.value}
-                onChange={() => setSelectedValue(option.value)}
+                onChange={() => handleRadioSelect(option.value)}
                 className="sr-only"
               />
             </label>

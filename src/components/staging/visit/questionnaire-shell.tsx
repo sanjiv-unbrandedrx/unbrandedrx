@@ -215,7 +215,7 @@ export default function QuestionnaireShell() {
                   currentAnswer ? (
                     <ReviewStep />
                   ) : (
-                    <QuestionStep question={currentQuestion} />
+                    <QuestionStep question={currentQuestion} onAutoAdvance={handleNext} />
                   )}
                 </FadeIn>
               </>
