@@ -27,24 +27,32 @@ export default function CategoryCardsSection() {
   return (
     <section className="container mx-auto px-4 xl:px-0 mt-4">
       {/* Large cards: 2 columns */}
-      <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 pt-16">
         {/* Boost Testosterone — warm radial gradient */}
         <Link
           href="/find/category/testosterone"
-          className="group relative rounded-2xl overflow-clip h-[180px] xl:h-[200px] block"
-          style={{
-            background:
-              "radial-gradient(ellipse at 65% 80%, #C9A87C 0%, #DCCBB2 30%, #EDE5DA 55%, #F0EBE3 100%)",
-          }}
+          className="group relative block h-[180px] xl:h-[200px]"
         >
-          <div className="absolute right-[15%] -top-[25%] -bottom-[5%] w-[35%]">
+          {/* Gradient background — clipped to rounded corners */}
+          <div
+            className="absolute inset-0 rounded-2xl overflow-hidden"
+            style={{
+              background:
+                "radial-gradient(ellipse at 65% 80%, #C9A87C 0%, #DCCBB2 30%, #EDE5DA 55%, #F0EBE3 100%)",
+            }}
+          />
+
+          {/* Bottle image — overflows above the card */}
+          <div className="absolute right-[12%] -top-[40%] bottom-0 w-[40%] z-[1] pointer-events-none">
             <Image
               src="/home/v2/category-testosterone.png"
               alt="Boost Testosterone"
               fill
-              className="object-contain object-center"
+              className="object-contain object-bottom"
             />
           </div>
+
+          {/* Text + Button */}
           <div className="absolute inset-0 flex flex-col justify-between p-6 z-10">
             <h3 className="font-title text-2xl xl:text-3xl font-medium tracking-tight">
               Boost <span className="text-[#B08B5B]">Testosterone</span>
@@ -60,19 +68,27 @@ export default function CategoryCardsSection() {
         {/* ED Fast Acting — dark gradient */}
         <Link
           href="/find/category/sexual-health"
-          className="group relative rounded-2xl overflow-clip h-[180px] xl:h-[200px] block"
-          style={{
-            background: "linear-gradient(135deg, #17161D 0%, #26272F 100%)",
-          }}
+          className="group relative block h-[180px] xl:h-[200px]"
         >
-          <div className="absolute right-[15%] -top-[20%] -bottom-[20%] w-[30%]">
+          {/* Gradient background — clipped to rounded corners */}
+          <div
+            className="absolute inset-0 rounded-2xl overflow-hidden"
+            style={{
+              background: "linear-gradient(135deg, #17161D 0%, #26272F 100%)",
+            }}
+          />
+
+          {/* Pill image — overflows above the card */}
+          <div className="absolute right-[8%] -top-[35%] bottom-0 w-[40%] z-[1] pointer-events-none">
             <Image
               src="/home/v2/category-ed.png"
               alt="ED Fast Acting"
               fill
-              className="object-contain object-center"
+              className="object-contain object-bottom"
             />
           </div>
+
+          {/* Text + Button */}
           <div className="absolute inset-0 flex flex-col justify-between p-6 z-10">
             <h3 className="font-title text-2xl xl:text-3xl font-medium tracking-tight text-white">
               ED <span className="text-neutral-400">Fast Acting</span>
