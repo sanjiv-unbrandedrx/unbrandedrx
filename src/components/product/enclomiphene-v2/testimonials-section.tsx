@@ -36,21 +36,8 @@ export default function TestimonialsSection() {
         />
       </div>
 
-      <div className="mt-10 text-center">
-        <div className="inline-flex items-center gap-x-4 bg-neutral-50 rounded-full px-6 py-3">
-          <div className="flex items-center gap-x-1">
-            <StarFillIcon className="size-5 text-amber-400" />
-            <StarFillIcon className="size-5 text-amber-400" />
-            <StarFillIcon className="size-5 text-amber-400" />
-            <StarFillIcon className="size-5 text-amber-400" />
-            <StarFillIcon className="size-5 text-amber-400" />
-          </div>
-          <p className="text-base text-neutral-700">
-            <span className="font-semibold">4.8 out of 5</span> based on 500+
-            reviews
-          </p>
-        </div>
-      </div>
+
+
     </section>
   );
 }

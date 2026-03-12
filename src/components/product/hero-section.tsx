@@ -1,5 +1,4 @@
 import { CheckCircleFillIcon } from "@/components/svg/check-circle-fill-icon";
-import StarFillIcon from "@/components/svg/star-fill-icon";
 import Badge from "@/components/ui/badge";
 import Image from "next/image";
 import Button from "../ui/button-custom";
@@ -25,18 +24,7 @@ export default function HeroSection() {
               A powerful topical blend of Minoxidil, Caffeine, Coppper Peptides
               and more, prescribed for your hair loss.
             </p>
-            <div className="flex justify-start items-center gap-x-3">
-              <div className="flex justify-start items-center gap-x-1">
-                <StarFillIcon className="size-3.5" />
-                <StarFillIcon className="size-3.5" />
-                <StarFillIcon className="size-3.5" />
-                <StarFillIcon className="size-3.5" />
-                <StarFillIcon className="text-muted-foreground size-3.5" />
-              </div>
-              <p className="text-xs text-neutral-800">
-                (<span className="tabular-nums">4.8/5</span>)
-              </p>
-            </div>
+
 
             <ul className="flex flex-col gap-y-1 list-none list-inside text-muted-foreground text-xs">
               <li>

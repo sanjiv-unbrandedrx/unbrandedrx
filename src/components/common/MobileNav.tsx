@@ -12,10 +12,10 @@ import BasketIcon from "../svg/basket-icon";
 
 const navLinks = [
   { name: "All Products", href: "/find/category/all-products" },
-  { name: "Hair Loss", href: "/find/category/hair-loss" },
-  { name: "Men's Health", href: "/find/category/mens-health" },
+  { name: "Hair Care", href: "/find/category/hair-loss" },
   { name: "Sexual Health", href: "/find/category/sexual-health" },
   { name: "Testosterone", href: "/find/category/testosterone" },
+  { name: "Peptides & Longevity", href: "/find/category/mens-health" },
 ];
 
 interface MobileNavProps {

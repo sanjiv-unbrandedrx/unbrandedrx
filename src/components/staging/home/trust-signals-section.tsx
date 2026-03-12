@@ -4,24 +4,22 @@ const signals = [
   {
     icon: ShieldCheck,
     title: "LegitScript Certified",
-    description: "Verified compliance with healthcare laws and regulations.",
+    description: "Verified healthcare compliance.",
   },
   {
     icon: BadgeCheck,
     title: "U.S. Licensed Providers",
-    description:
-      "Every prescription reviewed by a licensed healthcare professional.",
+    description: "Prescriptions reviewed by licensed professionals.",
   },
   {
     icon: Building2,
     title: "U.S. Compounding Pharmacy",
-    description:
-      "Medications compounded in accredited U.S. pharmacies.",
+    description: "Compounded in accredited U.S. pharmacies.",
   },
   {
     icon: Star,
-    title: "4.8 / 5 Patient Rating",
-    description: "Trusted by thousands of patients nationwide.",
+    title: "Top Patient Ratings",
+    description: "Trusted care, nationwide.",
   },
 ];
 

@@ -8,7 +8,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { CheckCircleFillIcon } from "@/components/svg/check-circle-fill-icon";
-import StarFillIcon from "@/components/svg/star-fill-icon";
 import Badge from "@/components/ui/badge";
 import Button from "@/components/ui/button-custom";
 import Image from "next/image";
@@ -96,20 +95,7 @@ export default function HeroSection() {
               </p>
             </div>
 
-            {/* Social Proof */}
-            <div className="flex items-center justify-start gap-x-4">
-              <div className="flex items-center justify-start gap-x-1">
-                <StarFillIcon className="size-5 text-amber-400" />
-                <StarFillIcon className="size-5 text-amber-400" />
-                <StarFillIcon className="size-5 text-amber-400" />
-                <StarFillIcon className="size-5 text-amber-400" />
-                <StarFillIcon className="size-5 text-amber-400" />
-              </div>
-              <p className="text-base text-neutral-700">
-                <span className="font-semibold tabular-nums">4.8/5</span> from{" "}
-                <span className="font-semibold">500+ reviews</span>
-              </p>
-            </div>
+
 
             {/* Benefit-Focused Features */}
             <div className="grid grid-cols-1 gap-4 pt-2">

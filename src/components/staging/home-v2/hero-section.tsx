@@ -7,23 +7,22 @@ const trustBadges = [
   {
     icon: ShieldCheck,
     title: "LegitScript Certified",
-    description: "Verified compliance with healthcare laws and regulations.",
+    description: "Verified healthcare compliance.",
   },
   {
     icon: BadgeCheck,
     title: "U.S. Licensed Providers",
-    description:
-      "Every prescription reviewed by a licensed healthcare professional.",
+    description: "Prescriptions reviewed by licensed professionals.",
   },
   {
     icon: Building2,
     title: "U.S. Compounding Pharmacy",
-    description: "Medications compounded in accredited U.S. pharmacies.",
+    description: "Compounded in accredited U.S. pharmacies.",
   },
   {
     icon: Star,
-    title: "4.8 / 5 Patient Rating",
-    description: "Trusted by thousands of patients nationwide.",
+    title: "Top Patient Ratings",
+    description: "Trusted care, nationwide.",
   },
 ];
 
@@ -35,7 +34,7 @@ export default function HeroSection() {
         <div className="flex flex-col xl:flex-row justify-between items-start gap-8 mt-8 xl:mt-20">
           {/* Left: Headline + CTA */}
           <div className="max-w-lg space-y-6">
-            <h1 className="font-title font-medium text-3xl xl:text-4xl tracking-tight">
+            <h1 className="font-title font-semibold text-4xl xl:text-5xl tracking-tight">
               Better Formulas. <br /> Smarter Rx Prices.
             </h1>
             <p className="font-light text-lg xl:text-xl text-neutral-600">

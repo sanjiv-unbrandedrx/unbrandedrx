@@ -73,7 +73,7 @@ const TREATMENTS: Treatment[] = [
 
 function TreatmentCard({ treatment }: { treatment: Treatment }) {
   return (
-    <div className="bg-white border border-neutral-200 rounded-3xl overflow-hidden flex flex-col">
+    <div className="bg-white border border-neutral-200 rounded-3xl overflow-hidden flex flex-col h-full">
       <Link href={treatment.href}>
         <div className="relative h-[200px] bg-neutral-50">
           <Image
@@ -90,7 +90,7 @@ function TreatmentCard({ treatment }: { treatment: Treatment }) {
           <p className="text-sm text-muted-foreground">{treatment.medicalName}</p>
         </div>
         <p className="text-lg font-semibold tabular-nums">{treatment.price}</p>
-        <Link href={treatment.href}>
+        <Link href={treatment.href} className="mt-auto">
           <Button variant="filled" size="sm" fullWidth>
             Get Started
           </Button>
@@ -161,7 +161,7 @@ export default function TreatmentsSection() {
 
       {/* Desktop: Carousel */}
       <div className="hidden xl:block pl-4 xl:pl-[max(1rem,calc((100vw-1200px)/2))]">
-        <div ref={sliderRef} className="keen-slider">
+        <div ref={sliderRef} className="keen-slider !items-stretch [&>.keen-slider__slide]:!h-auto">
           {TREATMENTS.map((treatment) => (
             <div
               className="keen-slider__slide min-w-[280px] max-w-[300px]"

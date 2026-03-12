@@ -8,7 +8,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { CheckCircleFillIcon } from "@/components/svg/check-circle-fill-icon";
-import StarFillIcon from "@/components/svg/star-fill-icon";
 import Badge from "@/components/ui/badge";
 import Button from "@/components/ui/button-custom";
 import Image from "next/image";
@@ -43,18 +42,6 @@ export default function HeroSection() {
               ingredients to fight hair loss directly at the scalp. The perfect
               5-in-1 topical hair loss formula.
             </p>
-            <div className="flex items-center justify-start gap-x-3">
-              <div className="flex items-center justify-start gap-x-1">
-                <StarFillIcon className="size-3.5" />
-                <StarFillIcon className="size-3.5" />
-                <StarFillIcon className="size-3.5" />
-                <StarFillIcon className="size-3.5" />
-                <StarFillIcon className="text-muted-foreground size-3.5" />
-              </div>
-              <p className="text-xs text-neutral-800">
-                (<span className="tabular-nums">4.8/5</span>)
-              </p>
-            </div>
 
             <div className="space-y-4 pt-4">
               <div className="flex items-start gap-x-3">
