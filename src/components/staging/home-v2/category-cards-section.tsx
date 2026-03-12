@@ -4,14 +4,14 @@ import Button from "@/components/ui/button-custom";
 
 const smallCards = [
   {
-    title: "Topical",
-    titleAccent: "Hair Care",
+    title: "Hair",
+    titleAccent: "Care",
     image: "/home/v2/category-hair-care.png",
     href: "/find/category/hair-loss",
   },
   {
-    title: "Longevity with",
-    titleAccent: "NAD+",
+    title: "Peptides &",
+    titleAccent: "Longevity",
     image: "/home/v2/category-nad.png",
     href: "/find/category/mens-health",
   },
