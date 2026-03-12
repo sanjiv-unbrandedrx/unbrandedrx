@@ -31,18 +31,18 @@ export default function CategoryCardsSection() {
         {/* Boost Testosterone — warm radial gradient */}
         <Link
           href="/find/category/testosterone"
-          className="group relative rounded-2xl overflow-hidden h-[180px] xl:h-[200px] block"
+          className="group relative rounded-2xl overflow-clip h-[180px] xl:h-[200px] block"
           style={{
             background:
-              "radial-gradient(ellipse at 70% 80%, #C9A87C 0%, #DCCBB2 30%, #EDE5DA 55%, #F0EBE3 100%)",
+              "radial-gradient(ellipse at 65% 80%, #C9A87C 0%, #DCCBB2 30%, #EDE5DA 55%, #F0EBE3 100%)",
           }}
         >
-          <div className="absolute right-0 top-0 bottom-0 w-1/2">
+          <div className="absolute right-[15%] -top-[25%] -bottom-[5%] w-[35%]">
             <Image
               src="/home/v2/category-testosterone.png"
               alt="Boost Testosterone"
               fill
-              className="object-contain object-right-bottom"
+              className="object-contain object-center"
             />
           </div>
           <div className="absolute inset-0 flex flex-col justify-between p-6 z-10">
@@ -60,17 +60,17 @@ export default function CategoryCardsSection() {
         {/* ED Fast Acting — dark gradient */}
         <Link
           href="/find/category/sexual-health"
-          className="group relative rounded-2xl overflow-hidden h-[180px] xl:h-[200px] block"
+          className="group relative rounded-2xl overflow-clip h-[180px] xl:h-[200px] block"
           style={{
             background: "linear-gradient(135deg, #17161D 0%, #26272F 100%)",
           }}
         >
-          <div className="absolute right-0 top-0 bottom-0 w-1/2">
+          <div className="absolute right-[15%] -top-[20%] -bottom-[20%] w-[30%]">
             <Image
               src="/home/v2/category-ed.png"
               alt="ED Fast Acting"
               fill
-              className="object-contain object-right-bottom"
+              className="object-contain object-center"
             />
           </div>
           <div className="absolute inset-0 flex flex-col justify-between p-6 z-10">
