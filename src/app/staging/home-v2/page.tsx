@@ -1,7 +1,6 @@
 import HeroSection from "@/components/staging/home-v2/hero-section";
 import CategoryCardsSection from "@/components/staging/home-v2/category-cards-section";
 import TreatmentsSection from "@/components/staging/home-v2/treatments-section";
-import SearchBarSection from "@/components/staging/home-v2/search-bar-section";
 import HowItWorksSection from "@/components/staging/home/how-it-works-section";
 import ValuePropsSection from "@/components/staging/home/value-props-section";
 import ProductCarousel from "@/components/common/product-carousel";
@@ -58,7 +57,6 @@ export default function HomeV2() {
       <HeroSection />
       <CategoryCardsSection />
       <TreatmentsSection />
-      <SearchBarSection />
       <HowItWorksSection />
       <ValuePropsSection />
       <ProductCarousel title="Our Best Sellers" products={BEST_SELLERS} />

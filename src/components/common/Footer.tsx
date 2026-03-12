@@ -21,13 +21,10 @@ const testosteroneLinks = [
   { name: "Enclomiphene", href: "/find/treatment/enclomiphene" },
 ];
 
-const peptidesLinks = [
-  {
-    name: "Injectable Sermorelin",
-    href: "/staging/treatment/injectable-sermorelin",
-  },
-  { name: "Oral Sermorelin", href: "/staging/treatment/oral-sermorelin" },
-  { name: "NAD+ Injection", href: "/staging/treatment/nad-plus-injection" },
+const peptidesItems = [
+  "Injectable Sermorelin",
+  "Oral Sermorelin",
+  "NAD+ Injection",
 ];
 
 const companyLinks = [
@@ -119,14 +116,13 @@ export default function Footer() {
               Peptides &amp; Longevity
             </p>
             <div className="mt-4 flex flex-col space-y-3">
-              {peptidesLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className="text-sm text-neutral-400 hover:text-white hover:underline underline-offset-2"
+              {peptidesItems.map((name) => (
+                <span
+                  key={name}
+                  className="text-sm text-neutral-400"
                 >
-                  {link.name}
-                </Link>
+                  {name}
+                </span>
               ))}
             </div>
           </div>
