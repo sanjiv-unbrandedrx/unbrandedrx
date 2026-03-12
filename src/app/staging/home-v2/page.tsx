@@ -16,6 +16,7 @@ const BEST_SELLERS: Product[] = [
     price: "119.00",
     image: "/home/v2/treatment-injectable-sermorelin.png",
     slug: "injectable-sermorelin",
+    comingSoon: true,
   },
   {
     id: "oral-sermorelin",
@@ -24,6 +25,7 @@ const BEST_SELLERS: Product[] = [
     price: "119.00",
     image: "/home/v2/bestseller-oral-sermorelin.png",
     slug: "oral-sermorelin",
+    comingSoon: true,
   },
   {
     id: "nad-plus-injection",
@@ -32,6 +34,7 @@ const BEST_SELLERS: Product[] = [
     price: "149.00",
     image: "/home/v2/bestseller-nad-plus-injection.png",
     slug: "nad-plus-injection",
+    comingSoon: true,
   },
   {
     id: "enclomiphene",

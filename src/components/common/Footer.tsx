@@ -49,7 +49,7 @@ export default function Footer() {
             <p className="font-medium text-neutral-300">
               <Link
                 href="/find/category/hair-loss"
-                className="hover:underline underline-offset-2"
+                className=""
               >
                 Hair Care
               </Link>
@@ -59,7 +59,7 @@ export default function Footer() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-sm text-neutral-400 hover:text-white hover:underline underline-offset-2"
+                  className="text-sm text-neutral-400 hover:text-white "
                 >
                   {link.name}
                 </Link>
@@ -72,7 +72,7 @@ export default function Footer() {
             <p className="font-medium text-neutral-300">
               <Link
                 href="/find/category/sexual-health"
-                className="hover:underline underline-offset-2"
+                className=""
               >
                 Sexual Health
               </Link>
@@ -82,7 +82,7 @@ export default function Footer() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-sm text-neutral-400 hover:text-white hover:underline underline-offset-2"
+                  className="text-sm text-neutral-400 hover:text-white "
                 >
                   {link.name}
                 </Link>
@@ -92,7 +92,7 @@ export default function Footer() {
             <p className="font-medium text-neutral-300 mt-8">
               <Link
                 href="/find/category/testosterone"
-                className="hover:underline underline-offset-2"
+                className=""
               >
                 Testosterone
               </Link>
@@ -102,7 +102,7 @@ export default function Footer() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-sm text-neutral-400 hover:text-white hover:underline underline-offset-2"
+                  className="text-sm text-neutral-400 hover:text-white "
                 >
                   {link.name}
                 </Link>
@@ -135,7 +135,7 @@ export default function Footer() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-sm text-neutral-400 hover:text-white hover:underline underline-offset-2"
+                  className="text-sm text-neutral-400 hover:text-white "
                 >
                   {link.name}
                 </Link>
@@ -151,7 +151,7 @@ export default function Footer() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-sm text-neutral-400 hover:text-white hover:underline underline-offset-2"
+                  className="text-sm text-neutral-400 hover:text-white "
                 >
                   {link.name}
                 </Link>

@@ -19,6 +19,7 @@ interface Treatment {
   price: string;
   image: string;
   href: string;
+  comingSoon?: boolean;
 }
 
 const TREATMENTS: Treatment[] = [
@@ -29,6 +30,7 @@ const TREATMENTS: Treatment[] = [
     price: "$119/mo",
     image: "/home/v2/treatment-injectable-sermorelin.png",
     href: "/staging/treatment/injectable-sermorelin",
+    comingSoon: true,
   },
   {
     id: "oral-sermorelin",
@@ -37,6 +39,7 @@ const TREATMENTS: Treatment[] = [
     price: "$119/mo",
     image: "/home/v2/treatment-oral-sermorelin.png",
     href: "/staging/treatment/oral-sermorelin",
+    comingSoon: true,
   },
   {
     id: "nad-plus-injection",
@@ -45,6 +48,7 @@ const TREATMENTS: Treatment[] = [
     price: "$149/mo",
     image: "/home/v2/treatment-nad-plus-injection.png",
     href: "/staging/treatment/nad-plus-injection",
+    comingSoon: true,
   },
   {
     id: "enclomiphene",
@@ -73,9 +77,11 @@ const TREATMENTS: Treatment[] = [
 ];
 
 function TreatmentCard({ treatment }: { treatment: Treatment }) {
+  const disabled = treatment.comingSoon;
+
   return (
-    <div className="bg-white border border-neutral-200 rounded-3xl overflow-hidden flex flex-col h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-      <Link href={treatment.href}>
+    <div className={`bg-white border border-neutral-200 rounded-3xl overflow-hidden flex flex-col h-full transition-all duration-300 ${disabled ? "opacity-50 pointer-events-none" : "hover:-translate-y-1 hover:shadow-lg"}`}>
+      {disabled ? (
         <div className="relative h-[200px] bg-neutral-50">
           <Image
             src={treatment.image}
@@ -84,18 +90,37 @@ function TreatmentCard({ treatment }: { treatment: Treatment }) {
             className="object-cover"
           />
         </div>
-      </Link>
+      ) : (
+        <Link href={treatment.href}>
+          <div className="relative h-[200px] bg-neutral-50">
+            <Image
+              src={treatment.image}
+              alt={treatment.name}
+              fill
+              className="object-cover"
+            />
+          </div>
+        </Link>
+      )}
       <div className="p-6 flex flex-col flex-1 gap-y-3">
         <div>
           <p className="font-title text-lg font-medium">{treatment.name}</p>
           <p className="text-sm text-muted-foreground">{treatment.medicalName}</p>
         </div>
         <p className="text-lg font-semibold tabular-nums">{treatment.price}</p>
-        <Link href={treatment.href} className="mt-auto">
-          <Button variant="filled" size="sm" fullWidth>
-            Get Started
-          </Button>
-        </Link>
+        <div className="mt-auto">
+          {disabled ? (
+            <Button variant="filled" size="sm" fullWidth disabled>
+              Coming Soon
+            </Button>
+          ) : (
+            <Link href={treatment.href}>
+              <Button variant="filled" size="sm" fullWidth>
+                Get Started
+              </Button>
+            </Link>
+          )}
+        </div>
       </div>
     </div>
   );
