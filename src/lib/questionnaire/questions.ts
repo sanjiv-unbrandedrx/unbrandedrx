@@ -533,6 +533,24 @@ export const QUESTIONS: Question[] = [
       { label: "Not difficult", value: "not" },
     ],
     required: true,
+    triggers: [
+      {
+        condition: {
+          type: "or",
+          conditions: [
+            { type: "equals", questionId: "ed-difficulty", value: "extremely" },
+            { type: "equals", questionId: "ed-difficulty", value: "very" },
+            { type: "equals", questionId: "ed-difficulty", value: "somewhat" },
+          ],
+        },
+        action: {
+          type: "suggest",
+          treatmentId: "ed-rapid-dissolve-tablet",
+          reason:
+            "Based on your symptoms, your provider may recommend this combination ED treatment.",
+        },
+      },
+    ],
   },
   {
     id: "ed-symptoms",
@@ -864,6 +882,24 @@ export const QUESTIONS: Question[] = [
       { label: "Extremely strong", value: "extremely-strong" },
     ],
     required: true,
+    triggers: [
+      {
+        condition: {
+          type: "or",
+          conditions: [
+            { type: "equals", questionId: "test-erections", value: "extremely-weak" },
+            { type: "equals", questionId: "test-erections", value: "weak" },
+            { type: "equals", questionId: "test-erections", value: "neutral" },
+          ],
+        },
+        action: {
+          type: "suggest",
+          treatmentId: "ed-rapid-dissolve-tablet",
+          reason:
+            "Low erection strength combined with ED symptoms may benefit from a combination ED treatment.",
+        },
+      },
+    ],
   },
   {
     id: "test-previous-treatment",
@@ -928,6 +964,20 @@ export const QUESTIONS: Question[] = [
     description:
       "Include a description of your hair loss, what you have used before, and any hair procedures you may have had.",
     required: true,
+    triggers: [
+      {
+        condition: {
+          type: "answered",
+          questionId: "hair-description",
+        },
+        action: {
+          type: "suggest",
+          treatmentId: "topical-finasteride",
+          reason:
+            "Based on your hair loss concerns, your provider may recommend a topical treatment formula.",
+        },
+      },
+    ],
   },
   {
     id: "hair-scalp-symptoms",

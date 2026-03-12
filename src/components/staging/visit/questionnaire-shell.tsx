@@ -1,9 +1,8 @@
 "use client";
 
-import { useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { cn } from "@/lib/utils";
 import { useQuestionnaire } from "@/lib/questionnaire/context";
-import { getVisibleQuestions } from "@/lib/questionnaire/engine";
 import { SECTIONS } from "@/lib/questionnaire/questions";
 import QuestionStep from "./question-step";
 import TreatmentPlanPanel from "./treatment-plan-panel";
@@ -24,10 +23,15 @@ export default function QuestionnaireShell() {
     dispatch,
   } = useQuestionnaire();
 
+  // Track which suggestions have been shown (so we only show new ones)
+  const [shownSuggestions, setShownSuggestions] = useState<Set<string>>(
+    new Set(),
+  );
+  // Are we currently showing a suggestion interstitial?
+  const [showingInterstitial, setShowingInterstitial] = useState(false);
+
   const currentQuestion = visibleQuestions[state.currentStep];
-  const isFirstStep = state.currentStep === 0;
-  const isLastQuestion = state.currentStep >= visibleQuestions.length - 1;
-  const isReviewStep = currentQuestion?.section === "review" && isLastQuestion;
+  const isFirstStep = state.currentStep === 0 && !showingInterstitial;
 
   // Check if current question is answered
   const currentAnswer = currentQuestion
@@ -42,7 +46,30 @@ export default function QuestionnaireShell() {
     return currentAnswer.value !== "";
   })();
 
-  // Detect section transitions to show suggestions
+  // Find pending suggestions (new ones that haven't been shown yet)
+  const pendingSuggestions = useMemo(() => {
+    return triggerResults.suggestions.filter(
+      (s) => !shownSuggestions.has(s.treatmentId),
+    );
+  }, [triggerResults.suggestions, shownSuggestions]);
+
+  // Check if next question is in a different section
+  const nextQuestion =
+    state.currentStep < visibleQuestions.length - 1
+      ? visibleQuestions[state.currentStep + 1]
+      : null;
+  const isAtSectionBoundary =
+    currentQuestion && nextQuestion
+      ? currentQuestion.section !== nextQuestion.section
+      : currentQuestion?.section !== "review" &&
+        state.currentStep === visibleQuestions.length - 1;
+
+  // Get current section label
+  const currentSection = currentQuestion
+    ? SECTIONS.find((s) => s.id === currentQuestion.section)
+    : null;
+
+  // Detect section change for header display
   const prevQuestion =
     state.currentStep > 0
       ? visibleQuestions[state.currentStep - 1]
@@ -52,38 +79,71 @@ export default function QuestionnaireShell() {
       ? prevQuestion.section !== currentQuestion.section
       : false;
 
-  // Get current section label
-  const currentSection = currentQuestion
-    ? SECTIONS.find((s) => s.id === currentQuestion.section)
-    : null;
+  const handleNext = useCallback(() => {
+    // If we're showing the interstitial, close it and proceed
+    if (showingInterstitial) {
+      setShowingInterstitial(false);
+      // Mark suggestions as shown
+      setShownSuggestions((prev) => {
+        const next = new Set(prev);
+        for (const s of pendingSuggestions) {
+          next.add(s.treatmentId);
+        }
+        return next;
+      });
+      nextStep();
+      return;
+    }
 
-  const handleNext = () => {
-    // Mark section as complete if we're moving to a new section
-    if (currentQuestion && visibleQuestions[state.currentStep + 1]) {
-      const nextQ = visibleQuestions[state.currentStep + 1];
-      if (nextQ.section !== currentQuestion.section) {
+    // Mark section as complete if moving to a new section
+    if (currentQuestion && nextQuestion) {
+      if (nextQuestion.section !== currentQuestion.section) {
         dispatch({
           type: "COMPLETE_SECTION",
           section: currentQuestion.section,
         });
       }
     }
-    // If this is the last question before review, mark all sections complete
-    if (isLastQuestion && currentQuestion?.section !== "review") {
+    // If last question, mark section complete
+    if (
+      state.currentStep >= visibleQuestions.length - 1 &&
+      currentQuestion?.section !== "review"
+    ) {
       dispatch({
         type: "COMPLETE_SECTION",
         section: currentQuestion!.section,
       });
     }
-    nextStep();
-  };
 
-  // Show review step instead of regular question for last step
-  const showReview =
-    state.currentStep >= visibleQuestions.length ||
-    (currentQuestion?.section === "review" &&
-      currentQuestion?.id === "final-anything-else" &&
-      currentAnswer);
+    // If at a section boundary and there are pending suggestions, show interstitial
+    if (isAtSectionBoundary && pendingSuggestions.length > 0) {
+      setShowingInterstitial(true);
+      return;
+    }
+
+    nextStep();
+  }, [
+    showingInterstitial,
+    currentQuestion,
+    nextQuestion,
+    state.currentStep,
+    visibleQuestions.length,
+    isAtSectionBoundary,
+    pendingSuggestions,
+    dispatch,
+    nextStep,
+  ]);
+
+  const handleBack = useCallback(() => {
+    if (showingInterstitial) {
+      setShowingInterstitial(false);
+      return;
+    }
+    prevStep();
+  }, [showingInterstitial, prevStep]);
+
+  const isLastQuestion = state.currentStep >= visibleQuestions.length - 1;
+  const isPastQuestions = state.currentStep >= visibleQuestions.length;
 
   return (
     <div className="flex min-h-[calc(100vh-64px)]">
@@ -99,46 +159,67 @@ export default function QuestionnaireShell() {
         {/* Question area */}
         <div className="flex-1 px-6 py-8 overflow-y-auto pb-32 lg:pb-8">
           <div className="max-w-2xl mx-auto space-y-8">
-            {/* Section header on section change */}
-            {currentSection && sectionChanged && (
-              <FadeIn variant="fadeUp" key={`section-${currentSection.id}`}>
-                <div className="pb-4 border-b border-neutral-100">
-                  <h3 className="text-sm uppercase tracking-wider font-medium text-muted-foreground">
-                    {currentSection.title}
-                  </h3>
-                  {currentSection.description && (
-                    <p className="text-sm text-muted-foreground mt-1">
-                      {currentSection.description}
+            {showingInterstitial ? (
+              /* ── Suggestion Interstitial ─────────────────────────── */
+              <FadeIn variant="fadeUp" key="suggestions-interstitial">
+                <div className="space-y-6">
+                  <div>
+                    <h2 className="text-2xl font-semibold font-title tracking-tight">
+                      Based on your answers...
+                    </h2>
+                    <p className="text-muted-foreground mt-2">
+                      Your provider may also recommend the following treatments.
+                      You can add them to your plan or skip.
                     </p>
-                  )}
+                  </div>
+
+                  <div className="space-y-4">
+                    {pendingSuggestions.map((s) => (
+                      <TreatmentSuggestion
+                        key={s.treatmentId}
+                        treatmentId={s.treatmentId}
+                        reason={s.reason}
+                      />
+                    ))}
+                  </div>
                 </div>
               </FadeIn>
-            )}
-
-            {/* Treatment suggestions (show between sections) */}
-            {sectionChanged &&
-              triggerResults.suggestions.map((s) => (
-                <TreatmentSuggestion
-                  key={s.treatmentId}
-                  treatmentId={s.treatmentId}
-                  reason={s.reason}
-                />
-              ))}
-
-            {/* Current question */}
-            {currentQuestion && (
-              <FadeIn variant="fadeUp" key={currentQuestion.id}>
-                {currentQuestion.id === "final-anything-else" &&
-                currentAnswer ? (
-                  <ReviewStep />
-                ) : (
-                  <QuestionStep question={currentQuestion} />
+            ) : isPastQuestions ? (
+              /* ── Review (past all questions) ─────────────────────── */
+              <ReviewStep />
+            ) : currentQuestion ? (
+              /* ── Regular Question ─────────────────────────────────── */
+              <>
+                {/* Section header on section change */}
+                {currentSection && sectionChanged && (
+                  <FadeIn
+                    variant="fadeUp"
+                    key={`section-${currentSection.id}`}
+                  >
+                    <div className="pb-4 border-b border-neutral-100">
+                      <h3 className="text-sm uppercase tracking-wider font-medium text-muted-foreground">
+                        {currentSection.title}
+                      </h3>
+                      {currentSection.description && (
+                        <p className="text-sm text-muted-foreground mt-1">
+                          {currentSection.description}
+                        </p>
+                      )}
+                    </div>
+                  </FadeIn>
                 )}
-              </FadeIn>
-            )}
 
-            {/* Show review when past last question */}
-            {state.currentStep >= visibleQuestions.length && <ReviewStep />}
+                {/* Current question */}
+                <FadeIn variant="fadeUp" key={currentQuestion.id}>
+                  {currentQuestion.id === "final-anything-else" &&
+                  currentAnswer ? (
+                    <ReviewStep />
+                  ) : (
+                    <QuestionStep question={currentQuestion} />
+                  )}
+                </FadeIn>
+              </>
+            ) : null}
           </div>
         </div>
 
@@ -148,7 +229,7 @@ export default function QuestionnaireShell() {
             <ButtonCustom
               variant="outline"
               size="base"
-              onClick={prevStep}
+              onClick={handleBack}
               disabled={isFirstStep}
               className={cn(isFirstStep && "opacity-50 cursor-not-allowed")}
             >
@@ -158,20 +239,29 @@ export default function QuestionnaireShell() {
               </span>
             </ButtonCustom>
 
-            {state.currentStep < visibleQuestions.length && (
+            {!isPastQuestions && (
               <ButtonCustom
                 variant="filled"
                 size="base"
                 onClick={handleNext}
-                disabled={!isCurrentAnswered && currentQuestion?.required}
-                className={cn(
+                disabled={
+                  !showingInterstitial &&
                   !isCurrentAnswered &&
+                  currentQuestion?.required
+                }
+                className={cn(
+                  !showingInterstitial &&
+                    !isCurrentAnswered &&
                     currentQuestion?.required &&
                     "opacity-50 cursor-not-allowed",
                 )}
               >
                 <span className="flex items-center gap-2">
-                  {isLastQuestion ? "Review" : "Continue"}
+                  {showingInterstitial
+                    ? "Continue"
+                    : isLastQuestion
+                      ? "Review"
+                      : "Continue"}
                   <ArrowRight className="h-4 w-4" />
                 </span>
               </ButtonCustom>
