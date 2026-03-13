@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useCallback, useEffect } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { cn } from "@/lib/utils";
 import { useQuestionnaire } from "@/lib/questionnaire/context";
 import { SECTIONS } from "@/lib/questionnaire/questions";
@@ -15,22 +15,6 @@ import { FadeIn } from "@/components/ui/animate";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 export default function QuestionnaireShell() {
-  // Hide Zendesk support widget on this page
-  useEffect(() => {
-    const hide = () => {
-      (window as /* eslint-disable-next-line @typescript-eslint/no-explicit-any */ any).zE?.("messenger", "hide");
-    };
-    // Widget may not be loaded yet — try immediately and also on load
-    hide();
-    const interval = setInterval(hide, 500);
-    const timeout = setTimeout(() => clearInterval(interval), 5000);
-    return () => {
-      clearInterval(interval);
-      clearTimeout(timeout);
-      (window as /* eslint-disable-next-line @typescript-eslint/no-explicit-any */ any).zE?.("messenger", "show");
-    };
-  }, []);
-
   const {
     state,
     visibleQuestions,

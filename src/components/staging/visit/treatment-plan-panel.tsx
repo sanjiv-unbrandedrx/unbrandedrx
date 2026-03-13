@@ -5,14 +5,98 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { useQuestionnaire } from "@/lib/questionnaire/context";
 import { formatPrice } from "@/lib/component-utils";
-import { X, ClipboardList } from "lucide-react";
+import { TREATMENTS } from "@/lib/questionnaire/treatments";
+import type { Treatment } from "@/lib/questionnaire/treatments";
+import { X, ClipboardList, Plus, ChevronDown, ChevronUp } from "lucide-react";
+
+const CATEGORY_LABELS: Record<Treatment["category"], string> = {
+  hair: "Hair Care",
+  ed: "Sexual Health",
+  testosterone: "Testosterone",
+  peptides: "Peptides & Longevity",
+};
+
+const CATEGORY_ORDER: Treatment["category"][] = [
+  "hair",
+  "ed",
+  "testosterone",
+  "peptides",
+];
 
 export default function TreatmentPlanPanel() {
-  const { state, removeTreatment } = useQuestionnaire();
+  const { state, removeTreatment, addTreatment } = useQuestionnaire();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [exploring, setExploring] = useState(false);
 
-  const { treatmentPlan } = state;
+  const { treatmentPlan, disqualifications } = state;
   const count = treatmentPlan.length;
+
+  // Treatments available to add (not in plan, not disqualified, not coming soon)
+  const inPlanIds = new Set(treatmentPlan.map((t) => t.treatmentId));
+  const dqIds = new Set(Object.keys(disqualifications));
+  const availableTreatments = TREATMENTS.filter(
+    (t) => !inPlanIds.has(t.id) && !dqIds.has(t.id) && !t.comingSoon,
+  );
+
+  // Group by category
+  const grouped = CATEGORY_ORDER.map((cat) => ({
+    category: cat,
+    label: CATEGORY_LABELS[cat],
+    treatments: availableTreatments.filter((t) => t.category === cat),
+  })).filter((g) => g.treatments.length > 0);
+
+  const handleAdd = (treatmentId: string) => {
+    addTreatment(treatmentId, "Included by you");
+  };
+
+  const planContent = (
+    <>
+      {treatmentPlan.length === 0 ? (
+        <p className="text-base text-muted-foreground text-center py-8">
+          No treatments selected yet
+        </p>
+      ) : (
+        treatmentPlan.map((t) => (
+          <TreatmentCard
+            key={t.treatmentId}
+            name={t.name}
+            medicalName={t.medicalName}
+            price={t.price}
+            image={t.image}
+            reason={t.reason}
+            onRemove={() => removeTreatment(t.treatmentId)}
+          />
+        ))
+      )}
+    </>
+  );
+
+  const exploreContent = (
+    <div className="space-y-5">
+      {grouped.length === 0 ? (
+        <p className="text-sm text-muted-foreground text-center py-8">
+          All available treatments are in your plan
+        </p>
+      ) : (
+        grouped.map((group) => (
+          <div key={group.category}>
+            <p className="text-xs uppercase tracking-wider font-medium text-muted-foreground mb-2">
+              {group.label}
+            </p>
+            <div className="space-y-2">
+              {group.treatments.map((t) => (
+                <AddTreatmentCard
+                  key={t.id}
+                  treatment={t}
+                  onAdd={() => handleAdd(t.id)}
+                />
+              ))}
+            </div>
+          </div>
+        ))
+      )}
+    </div>
+  );
 
   return (
     <>
@@ -28,22 +112,26 @@ export default function TreatmentPlanPanel() {
         </div>
 
         <div className="flex-1 overflow-y-auto p-5 space-y-3">
-          {treatmentPlan.length === 0 ? (
-            <p className="text-base text-muted-foreground text-center py-8">
-              No treatments selected yet
-            </p>
-          ) : (
-            treatmentPlan.map((t) => (
-              <TreatmentCard
-                key={t.treatmentId}
-                name={t.name}
-                medicalName={t.medicalName}
-                price={t.price}
-                image={t.image}
-                reason={t.reason}
-                onRemove={() => removeTreatment(t.treatmentId)}
-              />
-            ))
+          {planContent}
+
+          {/* Explore toggle */}
+          {availableTreatments.length > 0 && (
+            <div className="pt-3 border-t border-neutral-100 mt-4">
+              <button
+                onClick={() => setExploring(!exploring)}
+                className="flex items-center gap-2 text-sm font-medium text-foreground hover:text-black transition-colors w-full"
+              >
+                <Plus className="h-4 w-4" />
+                Explore other treatments
+                {exploring ? (
+                  <ChevronUp className="h-4 w-4 ml-auto" />
+                ) : (
+                  <ChevronDown className="h-4 w-4 ml-auto" />
+                )}
+              </button>
+
+              {exploring && <div className="mt-4">{exploreContent}</div>}
+            </div>
           )}
         </div>
 
@@ -56,7 +144,7 @@ export default function TreatmentPlanPanel() {
         )}
       </aside>
 
-      {/* ── Mobile: Header Icon (rendered via portal-like fixed position) ── */}
+      {/* ── Mobile: Header Icon ────────────────────────────────────── */}
       <div className="lg:hidden fixed top-4 right-4 z-40">
         <button
           onClick={() => setMobileOpen(true)}
@@ -104,22 +192,26 @@ export default function TreatmentPlanPanel() {
 
             {/* Content */}
             <div className="flex-1 overflow-y-auto p-5 space-y-3">
-              {treatmentPlan.length === 0 ? (
-                <p className="text-sm text-muted-foreground text-center py-8">
-                  No treatments selected yet
-                </p>
-              ) : (
-                treatmentPlan.map((t) => (
-                  <TreatmentCard
-                    key={t.treatmentId}
-                    name={t.name}
-                    medicalName={t.medicalName}
-                    price={t.price}
-                    image={t.image}
-                    reason={t.reason}
-                    onRemove={() => removeTreatment(t.treatmentId)}
-                  />
-                ))
+              {planContent}
+
+              {/* Explore toggle */}
+              {availableTreatments.length > 0 && (
+                <div className="pt-3 border-t border-neutral-100 mt-4">
+                  <button
+                    onClick={() => setExploring(!exploring)}
+                    className="flex items-center gap-2 text-sm font-medium text-foreground hover:text-black transition-colors w-full"
+                  >
+                    <Plus className="h-4 w-4" />
+                    Explore other treatments
+                    {exploring ? (
+                      <ChevronUp className="h-4 w-4 ml-auto" />
+                    ) : (
+                      <ChevronDown className="h-4 w-4 ml-auto" />
+                    )}
+                  </button>
+
+                  {exploring && <div className="mt-4">{exploreContent}</div>}
+                </div>
               )}
             </div>
 
@@ -138,7 +230,7 @@ export default function TreatmentPlanPanel() {
   );
 }
 
-// ── Treatment Card ────────────────────────────────────────────────────────
+// ── Treatment Card (in plan) ──────────────────────────────────────────────
 
 interface TreatmentCardProps {
   name: string;
@@ -158,12 +250,12 @@ function TreatmentCard({
   onRemove,
 }: TreatmentCardProps) {
   return (
-    <div className="flex items-start gap-4 rounded-xl border border-neutral-200 p-4 relative group">
+    <div className="flex items-start gap-4 rounded-xl border border-neutral-200 p-4 relative">
       <div className="relative h-16 w-16 shrink-0 rounded-lg overflow-hidden bg-neutral-100">
         <Image src={image} alt={name} fill className="object-cover" />
       </div>
       <div className="flex-1 min-w-0">
-        <p className="text-base font-semibold font-title truncate">{name}</p>
+        <p className="text-base font-semibold font-title truncate pr-6">{name}</p>
         <p className="text-sm text-muted-foreground truncate">{medicalName}</p>
         <div className="flex items-center gap-2 mt-1.5">
           <span className="text-base font-semibold">
@@ -183,10 +275,48 @@ function TreatmentCard({
       </div>
       <button
         onClick={onRemove}
-        className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity p-1 rounded-full hover:bg-neutral-100"
+        className="absolute top-2 right-2 p-1 rounded-full hover:bg-neutral-100 transition-colors"
         aria-label={`Remove ${name}`}
       >
         <X className="h-4 w-4 text-muted-foreground" />
+      </button>
+    </div>
+  );
+}
+
+// ── Add Treatment Card (in explore list) ──────────────────────────────────
+
+function AddTreatmentCard({
+  treatment,
+  onAdd,
+}: {
+  treatment: Treatment;
+  onAdd: () => void;
+}) {
+  return (
+    <div className="flex items-center gap-3 rounded-xl border border-neutral-200 p-3">
+      <div className="relative h-12 w-12 shrink-0 rounded-lg overflow-hidden bg-neutral-100">
+        <Image
+          src={treatment.image}
+          alt={treatment.name}
+          fill
+          className="object-cover"
+        />
+      </div>
+      <div className="flex-1 min-w-0">
+        <p className="text-sm font-semibold font-title truncate">
+          {treatment.name}
+        </p>
+        <p className="text-xs text-muted-foreground truncate">
+          {formatPrice(treatment.price)}/mo
+        </p>
+      </div>
+      <button
+        onClick={onAdd}
+        className="shrink-0 flex items-center gap-1.5 text-xs font-medium bg-zinc-900 text-white px-3 py-2 rounded-full hover:bg-black transition-colors"
+      >
+        <Plus className="h-3.5 w-3.5" />
+        Include
       </button>
     </div>
   );
