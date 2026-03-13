@@ -71,7 +71,7 @@ export function computeActiveSections(
   goals: string[],
   treatmentPlan: TreatmentSelection[],
 ): QuestionSection[] {
-  const sections: QuestionSection[] = ["basics", "goals", "medical-history"];
+  const sections: QuestionSection[] = ["basics", "medical-history"];
 
   const treatmentIds = treatmentPlan.map((t) => t.treatmentId);
   const treatment = getTreatmentById(initialTreatment);

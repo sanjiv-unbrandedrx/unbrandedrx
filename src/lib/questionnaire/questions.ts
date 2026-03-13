@@ -7,8 +7,7 @@ import type { Question, SectionMeta } from "./types";
 // ── Section Metadata ──────────────────────────────────────────────────────
 
 export const SECTIONS: SectionMeta[] = [
-  { id: "basics", title: "Let's Get Started" },
-  { id: "goals", title: "Your Health Goals" },
+  { id: "basics", title: "Getting Started" },
   { id: "medical-history", title: "Medical History" },
   {
     id: "cardiovascular",
@@ -52,9 +51,37 @@ export const SECTIONS: SectionMeta[] = [
 
 export const QUESTIONS: Question[] = [
   // ═══════════════════════════════════════════════════════════════════════
-  // SECTION 1: BASICS
+  // SECTION 1: GETTING STARTED (welcome + goals + demographics)
   // ═══════════════════════════════════════════════════════════════════════
 
+  {
+    id: "welcome",
+    section: "basics",
+    type: "welcome",
+    question: "Let's build your treatment plan",
+    description:
+      "This takes about 3 minutes. We'll ask about your health goals, medical history, and match you with the right treatments.",
+    required: true,
+  },
+  {
+    id: "goals",
+    section: "basics",
+    type: "multi",
+    question: "What are your health goals?",
+    description:
+      "Select all that apply — this helps us personalize your visit.",
+    options: [
+      { label: "Energy & vitality", value: "energy" },
+      { label: "Sexual performance", value: "sexual-performance" },
+      { label: "Hair growth", value: "hair" },
+      { label: "Muscle & strength", value: "muscle" },
+      { label: "Weight management", value: "weight" },
+      { label: "Sleep quality", value: "sleep" },
+      { label: "Anti-aging & longevity", value: "longevity" },
+      { label: "General wellness", value: "wellness" },
+    ],
+    required: true,
+  },
   {
     id: "basics-sex",
     section: "basics",
@@ -71,8 +98,6 @@ export const QUESTIONS: Question[] = [
     section: "basics",
     type: "single",
     question: "What is your age?",
-    description:
-      "Our bodies and needs change with age, so knowing your age helps us better understand your needs.",
     options: [
       { label: "18 or younger", value: "0-18" },
       { label: "19–30", value: "19-30" },
@@ -123,9 +148,8 @@ export const QUESTIONS: Question[] = [
   {
     id: "basics-state",
     section: "basics",
-    type: "single",
-    question: "What state do you reside in?",
-    description: "Some treatments have state-specific availability.",
+    type: "select",
+    question: "What state do you live in?",
     options: [
       { label: "Alabama", value: "AL" },
       { label: "Alaska", value: "AK" },
@@ -178,30 +202,6 @@ export const QUESTIONS: Question[] = [
       { label: "Wisconsin", value: "WI" },
       { label: "Wyoming", value: "WY" },
       { label: "District of Columbia", value: "DC" },
-    ],
-    required: true,
-  },
-
-  // ═══════════════════════════════════════════════════════════════════════
-  // SECTION 2: HEALTH GOALS
-  // ═══════════════════════════════════════════════════════════════════════
-
-  {
-    id: "goals",
-    section: "goals",
-    type: "multi",
-    question: "What are your health goals? Select all that apply.",
-    description:
-      "This helps us personalize your visit and show relevant questions.",
-    options: [
-      { label: "Energy & vitality", value: "energy" },
-      { label: "Sexual performance", value: "sexual-performance" },
-      { label: "Hair growth", value: "hair" },
-      { label: "Muscle & strength", value: "muscle" },
-      { label: "Weight management", value: "weight" },
-      { label: "Sleep quality", value: "sleep" },
-      { label: "Anti-aging & longevity", value: "longevity" },
-      { label: "General wellness", value: "wellness" },
     ],
     required: true,
   },
@@ -352,7 +352,7 @@ export const QUESTIONS: Question[] = [
     section: "cardiovascular",
     type: "yes-no",
     question:
-      "Have you recently, in the past 6 months, had your blood pressure measured?",
+      "Have you had your blood pressure measured in the past 6 months?",
     options: [
       { label: "Yes", value: "yes" },
       { label: "No", value: "no" },
@@ -698,7 +698,9 @@ export const QUESTIONS: Question[] = [
     section: "ed-sexual-health",
     type: "multi",
     question:
-      "Are you taking any of the following medications? Certain medications can cause serious side effects with ED medications, and if used together, can cause death.",
+      "Are you taking any of the following medications?",
+    description:
+      "These medications can cause serious, life-threatening complications when combined with ED treatments.",
     critical: true,
     options: [
       {
@@ -742,7 +744,9 @@ export const QUESTIONS: Question[] = [
     section: "ed-sexual-health",
     type: "multi",
     question:
-      "Certain recreational drugs can cause life-threatening interactions with erectile dysfunction medications. Do you use any of these recreational drugs?",
+      "Do you use any of these recreational drugs?",
+    description:
+      "Certain recreational drugs can cause life-threatening interactions with ED medications.",
     critical: true,
     options: [
       { label: "Marijuana", value: "marijuana" },
@@ -780,7 +784,9 @@ export const QUESTIONS: Question[] = [
     section: "ed-sexual-health",
     type: "single",
     question:
-      "Alcohol use should be avoided while using ED medication due to a potential dangerous drop in blood pressure. How many alcoholic beverages do you consume per week?",
+      "How many alcoholic beverages do you consume per week?",
+    description:
+      "Alcohol should be limited while using ED medication due to potential drops in blood pressure.",
     options: [
       { label: "0", value: "0" },
       { label: "1–5", value: "1-5" },
@@ -877,7 +883,7 @@ export const QUESTIONS: Question[] = [
     options: [
       { label: "Extremely weak", value: "extremely-weak" },
       { label: "Weak", value: "weak" },
-      { label: "Neither weak or strong", value: "neutral" },
+      { label: "Neither weak nor strong", value: "neutral" },
       { label: "Strong", value: "strong" },
       { label: "Extremely strong", value: "extremely-strong" },
     ],
@@ -925,9 +931,9 @@ export const QUESTIONS: Question[] = [
     id: "test-lab-work",
     section: "testosterone",
     type: "single",
-    question: "How may we help you today?",
+    question: "Which best describes your Enclomiphene needs?",
     description:
-      '"Recent" lab work means within the last 6 months.',
+      "Recent lab work means within the last 6 months.",
     options: [
       {
         label: "Start Enclomiphene (I need recent lab work)",
@@ -962,7 +968,7 @@ export const QUESTIONS: Question[] = [
     type: "text",
     question: "Tell us about your hair loss.",
     description:
-      "Include a description of your hair loss, what you have used before, and any hair procedures you may have had.",
+      "Describe your hair loss — when it started, where you're noticing it, and how it's progressing.",
     required: true,
     triggers: [
       {
@@ -1096,7 +1102,7 @@ export const QUESTIONS: Question[] = [
     id: "hair-sexual-dysfunction",
     section: "hair-loss",
     type: "yes-no",
-    question: "Do you have any issues with sexual dysfunction currently?",
+    question: "Are you currently experiencing any sexual dysfunction?",
     options: [
       { label: "Yes", value: "yes" },
       { label: "No", value: "no" },
@@ -1131,7 +1137,9 @@ export const QUESTIONS: Question[] = [
     section: "hair-loss",
     type: "yes-no",
     question:
-      "There are some reports that 5 alpha-reductase inhibitor medications (finasteride/dutasteride) can cause worsening depression or anxiety symptoms. If you have a history of depression or anxiety, please discuss using this medication with your managing provider. If you have any thoughts of wanting to hurt yourself or others, discontinue this medication immediately and call 9-1-1.\n\nDo you acknowledge this and would you like to proceed?",
+      "Do you acknowledge the following and wish to proceed?",
+    description:
+      "5-alpha-reductase inhibitors (finasteride/dutasteride) may worsen depression or anxiety. If you have a history of these conditions, discuss with your provider. If you experience thoughts of self-harm, stop the medication immediately and call 911.",
     critical: true,
     options: [
       { label: "Yes, I acknowledge and want to proceed", value: "yes" },
@@ -1321,34 +1329,6 @@ export const QUESTIONS: Question[] = [
           "Highly active/Performance-focused — Competitive athlete or focused on performance optimization",
         value: "highly-active",
       },
-    ],
-    required: true,
-  },
-  {
-    id: "pep-fitness-goals",
-    section: "peptides",
-    type: "multi",
-    question: "What are your primary health and fitness goals? Select all that apply.",
-    options: [
-      { label: "Lose body fat or weight", value: "lose-fat" },
-      {
-        label: "Improve overall health and well-being",
-        value: "overall-health",
-      },
-      { label: "Enhance physical appearance", value: "appearance" },
-      {
-        label: "Increase muscle tone and definition",
-        value: "muscle-tone",
-      },
-      {
-        label: "Maintain a healthy body composition",
-        value: "body-composition",
-      },
-      { label: "Improve cardiovascular fitness", value: "cardio-fitness" },
-      { label: "Boost daily energy levels", value: "energy" },
-      { label: "Enhance post-workout recovery", value: "recovery" },
-      { label: "Improve sleep quality", value: "sleep" },
-      { label: "Speed up metabolism", value: "metabolism" },
     ],
     required: true,
   },

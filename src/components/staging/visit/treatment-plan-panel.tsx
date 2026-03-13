@@ -57,7 +57,7 @@ export default function TreatmentPlanPanel() {
       </aside>
 
       {/* ── Mobile Bottom Drawer ─────────────────────────────────────── */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40">
+      <div className="lg:hidden fixed bottom-[60px] left-0 right-0 z-40">
         {/* Collapsed bar */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}

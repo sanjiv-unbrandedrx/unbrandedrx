@@ -9,7 +9,9 @@ export type QuestionType =
   | "text" // free-text input
   | "yes-no" // Yes / No radio
   | "scale" // labeled scale (e.g. Terrible → Excellent)
-  | "info"; // read-only informational step (no input)
+  | "info" // read-only informational step (no input)
+  | "welcome" // welcome screen with email capture
+  | "select"; // searchable dropdown
 
 /** A selectable option within a question */
 export interface Option {

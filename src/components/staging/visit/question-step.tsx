@@ -1,12 +1,16 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import type { Question, AnswerValue } from "@/lib/questionnaire/types";
 import { useQuestionnaire } from "@/lib/questionnaire/context";
 import { evaluateCondition } from "@/lib/questionnaire/engine";
+import { getTreatmentById } from "@/lib/questionnaire/treatments";
+import { formatPrice } from "@/lib/component-utils";
+import { Search, Check } from "lucide-react";
 
 interface QuestionStepProps {
   question: Question;
@@ -85,6 +89,36 @@ export default function QuestionStep({ question, onAutoAdvance }: QuestionStepPr
         },
       },
     });
+
+  // ── Welcome Type ──────────────────────────────────────────────────────
+  if (question.type === "welcome") {
+    return (
+      <WelcomeStep
+        question={question}
+        selectedValue={selectedValue}
+        setSelectedValue={setSelectedValue}
+        followUpText={followUpText}
+        setFollowUpText={setFollowUpText}
+      />
+    );
+  }
+
+  // ── Select Type (searchable dropdown) ─────────────────────────────────
+  if (question.type === "select") {
+    return (
+      <SelectStep
+        question={question}
+        selectedValue={selectedValue}
+        setSelectedValue={(val) => {
+          setSelectedValue(val);
+          setAnswer(question.id, val);
+          if (onAutoAdvance) {
+            setTimeout(() => onAutoAdvance(), 300);
+          }
+        }}
+      />
+    );
+  }
 
   return (
     <div className="space-y-8">
@@ -230,6 +264,257 @@ export default function QuestionStep({ question, onAutoAdvance }: QuestionStepPr
           />
         </div>
       )}
+    </div>
+  );
+}
+
+// ── Welcome Step Component ────────────────────────────────────────────────
+
+function WelcomeStep({
+  question,
+  selectedValue,
+  setSelectedValue,
+  followUpText,
+  setFollowUpText,
+}: {
+  question: Question;
+  selectedValue: AnswerValue;
+  setSelectedValue: (v: AnswerValue) => void;
+  followUpText: string;
+  setFollowUpText: (v: string) => void;
+}) {
+  const { state, setAnswer } = useQuestionnaire();
+  const treatment = getTreatmentById(state.initialTreatment);
+
+  // Parse stored values
+  const email = typeof selectedValue === "string" ? selectedValue : "";
+  const [firstName, lastName] = (followUpText || "|").split("|");
+
+  const handleEmailChange = (val: string) => {
+    setSelectedValue(val);
+    setAnswer(question.id, val, `${firstName || ""}|${lastName || ""}`);
+  };
+  const handleFirstNameChange = (val: string) => {
+    setFollowUpText(`${val}|${lastName || ""}`);
+    setAnswer(question.id, email, `${val}|${lastName || ""}`);
+  };
+  const handleLastNameChange = (val: string) => {
+    setFollowUpText(`${firstName || ""}|${val}`);
+    setAnswer(question.id, email, `${firstName || ""}|${val}`);
+  };
+
+  const showNameFields = email.includes("@") && email.includes(".");
+
+  return (
+    <div className="space-y-8">
+      <div>
+        <h2 className="text-3xl font-semibold font-title tracking-tight">
+          {question.question}
+        </h2>
+        <p className="mt-3 text-lg text-muted-foreground">
+          {question.description}
+        </p>
+      </div>
+
+      {/* Treatment card */}
+      {treatment && (
+        <div className="rounded-2xl border border-neutral-200 p-5 flex items-center gap-5">
+          <div className="relative h-16 w-16 shrink-0 rounded-xl overflow-hidden bg-neutral-100">
+            <Image
+              src={treatment.image}
+              alt={treatment.name}
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="flex-1">
+            <p className="text-lg font-semibold font-title">{treatment.name}</p>
+            <p className="text-base text-muted-foreground">{treatment.medicalName}</p>
+          </div>
+          <p className="text-lg font-semibold">
+            {formatPrice(treatment.price)}
+            <span className="font-normal text-muted-foreground">/mo</span>
+          </p>
+        </div>
+      )}
+
+      {/* Email + name capture */}
+      <div className="space-y-4">
+        <div>
+          <label className="text-base font-medium text-foreground mb-2 block">
+            Email address
+          </label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => handleEmailChange(e.target.value)}
+            placeholder="you@example.com"
+            className="w-full rounded-xl border border-neutral-200 px-6 py-5 text-lg outline-none focus:border-foreground focus:ring-1 focus:ring-foreground transition-all"
+            autoFocus
+          />
+        </div>
+
+        {showNameFields && (
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="text-base font-medium text-foreground mb-2 block">
+                First name
+              </label>
+              <input
+                type="text"
+                value={firstName || ""}
+                onChange={(e) => handleFirstNameChange(e.target.value)}
+                placeholder="First name"
+                className="w-full rounded-xl border border-neutral-200 px-6 py-5 text-lg outline-none focus:border-foreground focus:ring-1 focus:ring-foreground transition-all"
+              />
+            </div>
+            <div>
+              <label className="text-base font-medium text-foreground mb-2 block">
+                Last name
+              </label>
+              <input
+                type="text"
+                value={lastName || ""}
+                onChange={(e) => handleLastNameChange(e.target.value)}
+                placeholder="Last name"
+                className="w-full rounded-xl border border-neutral-200 px-6 py-5 text-lg outline-none focus:border-foreground focus:ring-1 focus:ring-foreground transition-all"
+              />
+            </div>
+          </div>
+        )}
+
+        {showNameFields && (
+          <p className="text-sm text-muted-foreground">
+            By continuing, you agree to our{" "}
+            <a href="/terms-and-conditions" className="underline" target="_blank">
+              Terms of Service
+            </a>{" "}
+            and{" "}
+            <a href="/privacy-policy" className="underline" target="_blank">
+              Privacy Policy
+            </a>
+            .
+          </p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ── Searchable Select Step ────────────────────────────────────────────────
+
+function SelectStep({
+  question,
+  selectedValue,
+  setSelectedValue,
+}: {
+  question: Question;
+  selectedValue: AnswerValue;
+  setSelectedValue: (v: string) => void;
+}) {
+  const [search, setSearch] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const selectedLabel = question.options?.find(
+    (o) => o.value === selectedValue,
+  )?.label;
+
+  const filtered = useMemo(() => {
+    if (!search) return question.options ?? [];
+    const lower = search.toLowerCase();
+    return (question.options ?? []).filter((o) =>
+      o.label.toLowerCase().includes(lower),
+    );
+  }, [search, question.options]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node) &&
+        inputRef.current &&
+        !inputRef.current.contains(e.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  return (
+    <div className="space-y-8">
+      <div>
+        <h2 className="text-3xl font-semibold font-title tracking-tight">
+          {question.question}
+        </h2>
+        {question.description && (
+          <p className="mt-3 text-lg text-muted-foreground">
+            {question.description}
+          </p>
+        )}
+      </div>
+
+      <div className="relative">
+        {/* Search input */}
+        <div className="relative">
+          <Search className="absolute left-5 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+          <input
+            ref={inputRef}
+            type="text"
+            value={isOpen ? search : selectedLabel ?? search}
+            onChange={(e) => {
+              setSearch(e.target.value);
+              if (!isOpen) setIsOpen(true);
+            }}
+            onFocus={() => {
+              setIsOpen(true);
+              setSearch("");
+            }}
+            placeholder="Search..."
+            className="w-full rounded-xl border border-neutral-200 pl-14 pr-6 py-5 text-lg outline-none focus:border-foreground focus:ring-1 focus:ring-foreground transition-all"
+          />
+        </div>
+
+        {/* Dropdown */}
+        {isOpen && (
+          <div
+            ref={dropdownRef}
+            className="absolute z-20 mt-2 w-full max-h-72 overflow-y-auto rounded-xl border border-neutral-200 bg-white shadow-lg"
+          >
+            {filtered.length === 0 ? (
+              <p className="px-6 py-4 text-base text-muted-foreground">
+                No results found
+              </p>
+            ) : (
+              filtered.map((option) => (
+                <button
+                  key={option.value}
+                  onClick={() => {
+                    setSelectedValue(option.value);
+                    setSearch("");
+                    setIsOpen(false);
+                  }}
+                  className={cn(
+                    "w-full flex items-center gap-3 px-6 py-4 text-lg text-left hover:bg-zinc-50 transition-colors",
+                    selectedValue === option.value && "bg-zinc-50 font-medium",
+                  )}
+                >
+                  {selectedValue === option.value && (
+                    <Check className="h-5 w-5 text-foreground shrink-0" />
+                  )}
+                  <span className={selectedValue === option.value ? "" : "pl-8"}>
+                    {option.label}
+                  </span>
+                </button>
+              ))
+            )}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

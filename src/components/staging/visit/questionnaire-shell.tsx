@@ -41,6 +41,12 @@ export default function QuestionnaireShell() {
     if (!currentQuestion) return false;
     if (!currentQuestion.required) return true;
     if (!currentAnswer) return false;
+    // Welcome step: need email + first name + last name
+    if (currentQuestion.type === "welcome") {
+      const email = typeof currentAnswer.value === "string" ? currentAnswer.value : "";
+      const [firstName, lastName] = (currentAnswer.followUpText || "|").split("|");
+      return email.includes("@") && email.includes(".") && !!firstName?.trim() && !!lastName?.trim();
+    }
     if (Array.isArray(currentAnswer.value))
       return currentAnswer.value.length > 0;
     return currentAnswer.value !== "";
@@ -157,7 +163,7 @@ export default function QuestionnaireShell() {
         </div>
 
         {/* Question area */}
-        <div className="flex-1 px-6 py-10 overflow-y-auto pb-32 lg:pb-10">
+        <div className="flex-1 px-6 py-10 overflow-y-auto pb-44 lg:pb-10">
           <div className="max-w-3xl mx-auto space-y-8">
             {showingInterstitial ? (
               /* ── Suggestion Interstitial ─────────────────────────── */
@@ -224,7 +230,7 @@ export default function QuestionnaireShell() {
         </div>
 
         {/* Navigation buttons */}
-        <div className="border-t border-neutral-100 px-6 py-5 bg-white">
+        <div className="border-t border-neutral-100 px-6 py-5 bg-white mb-[60px] lg:mb-0">
           <div className="max-w-3xl mx-auto flex items-center justify-between">
             <ButtonCustom
               variant="outline"

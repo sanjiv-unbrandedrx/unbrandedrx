@@ -41,7 +41,7 @@ function createInitialState(initialTreatment: string): QuestionnaireState {
     answers: {},
     currentStep: 0,
     completedSections: [],
-    activeSections: ["basics", "goals", "medical-history", "review"],
+    activeSections: ["basics", "medical-history", "review"],
     disqualifications: {},
   };
 }
