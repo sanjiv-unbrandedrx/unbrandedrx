@@ -15,7 +15,7 @@ function VisitContent() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       {/* Minimal header */}
-      <header className="border-b border-neutral-100 px-6 py-3 flex items-center justify-between bg-white">
+      <header className="border-b border-neutral-100 px-6 py-6 flex items-center justify-between bg-white">
         <Link
           href="/staging/home-v2"
           className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
@@ -23,7 +23,7 @@ function VisitContent() {
           <ArrowLeft className="h-4 w-4" />
           Back to UnbrandedRx
         </Link>
-        <Logo className="w-32" />
+        <Logo className="w-44" />
         <div className="w-24" /> {/* spacer for centering */}
       </header>
 
