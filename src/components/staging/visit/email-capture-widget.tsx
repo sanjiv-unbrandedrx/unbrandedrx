@@ -28,9 +28,14 @@ function GoogleIcon({ className }: { className?: string }) {
   );
 }
 
-export default function EmailCaptureWidget() {
+export default function EmailCaptureWidget({ show = false }: { show?: boolean }) {
   const [visible, setVisible] = useState(false);
-  const [dismissed, setDismissed] = useState(false);
+  const [dismissed, setDismissed] = useState(() => {
+    if (typeof window !== "undefined") {
+      return sessionStorage.getItem("unbrandedrx_email_dismissed") === "true";
+    }
+    return false;
+  });
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -39,11 +44,13 @@ export default function EmailCaptureWidget() {
   const [agreedToSms, setAgreedToSms] = useState(false);
   const [step, setStep] = useState<"email" | "create" | "done">("email");
 
-  // Show after 3 seconds
+  // Show when parent signals (after goals step) with a brief delay
   useEffect(() => {
-    const timer = setTimeout(() => setVisible(true), 3000);
-    return () => clearTimeout(timer);
-  }, []);
+    if (show && !dismissed) {
+      const timer = setTimeout(() => setVisible(true), 500);
+      return () => clearTimeout(timer);
+    }
+  }, [show, dismissed]);
 
   const validEmail = email.includes("@") && email.includes(".");
 
@@ -59,7 +66,12 @@ export default function EmailCaptureWidget() {
       JSON.stringify({ email, phone, firstName, lastName }),
     );
     setStep("done");
-    setTimeout(() => setDismissed(true), 1500);
+    setTimeout(() => dismiss(), 1500);
+  };
+
+  const dismiss = () => {
+    setDismissed(true);
+    sessionStorage.setItem("unbrandedrx_email_dismissed", "true");
   };
 
   const handleKeyDown = (e: React.KeyboardEvent, action: () => void) => {
@@ -74,7 +86,7 @@ export default function EmailCaptureWidget() {
       {/* Dark overlay */}
       <div
         className="fixed inset-0 z-50 bg-black/50"
-        onClick={() => setDismissed(true)}
+        onClick={dismiss}
       />
 
       {/* Bottom sheet */}
@@ -82,7 +94,7 @@ export default function EmailCaptureWidget() {
         {/* Close button */}
         <div className="flex justify-end p-4 pb-0">
           <button
-            onClick={() => setDismissed(true)}
+            onClick={dismiss}
             className="p-1.5 rounded-full hover:bg-neutral-100 transition-colors"
             aria-label="Close"
           >
@@ -90,7 +102,8 @@ export default function EmailCaptureWidget() {
           </button>
         </div>
 
-        <div className="px-6 pb-8 pt-0">
+        <div className="px-6 pb-12 pt-0">
+          <div className="max-w-md mx-auto">
           {step === "done" ? (
             /* ── Success ──────────────────────────────────── */
             <div className="text-center py-4">
@@ -339,6 +352,7 @@ export default function EmailCaptureWidget() {
               </button>
             </>
           )}
+          </div>
         </div>
       </div>
     </>

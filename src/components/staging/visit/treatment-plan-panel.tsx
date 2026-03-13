@@ -5,7 +5,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { useQuestionnaire } from "@/lib/questionnaire/context";
 import { formatPrice } from "@/lib/component-utils";
-import { X, ChevronUp, ChevronDown, ShoppingBag } from "lucide-react";
+import { X, ClipboardList } from "lucide-react";
 
 export default function TreatmentPlanPanel() {
   const { state, removeTreatment } = useQuestionnaire();
@@ -56,54 +56,84 @@ export default function TreatmentPlanPanel() {
         )}
       </aside>
 
-      {/* ── Mobile Bottom Drawer ─────────────────────────────────────── */}
-      <div className="lg:hidden fixed bottom-[60px] left-0 right-0 z-40">
-        {/* Collapsed bar */}
+      {/* ── Mobile: Header Icon (rendered via portal-like fixed position) ── */}
+      <div className="lg:hidden fixed top-4 right-4 z-40">
         <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="w-full flex items-center justify-between bg-zinc-800 text-white px-4 py-3"
+          onClick={() => setMobileOpen(true)}
+          className="relative flex items-center justify-center h-10 w-10 rounded-full bg-zinc-900 text-white shadow-md"
+          aria-label="Treatment Plan"
         >
-          <div className="flex items-center gap-2">
-            <ShoppingBag className="h-4 w-4" />
-            <span className="text-sm font-medium font-title">
-              Treatment Plan
+          <ClipboardList className="h-5 w-5" />
+          {count > 0 && (
+            <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+              {count}
             </span>
-            {count > 0 && (
-              <span className="bg-white text-zinc-800 text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
-                {count}
-              </span>
-            )}
-          </div>
-          {mobileOpen ? (
-            <ChevronDown className="h-4 w-4" />
-          ) : (
-            <ChevronUp className="h-4 w-4" />
           )}
         </button>
+      </div>
 
-        {/* Expanded drawer */}
-        {mobileOpen && (
-          <div className="bg-white border-t border-neutral-200 max-h-[60vh] overflow-y-auto p-4 space-y-3">
-            {treatmentPlan.length === 0 ? (
-              <p className="text-sm text-muted-foreground text-center py-4">
-                No treatments selected yet
-              </p>
-            ) : (
-              treatmentPlan.map((t) => (
-                <TreatmentCard
-                  key={t.treatmentId}
-                  name={t.name}
-                  medicalName={t.medicalName}
-                  price={t.price}
-                  image={t.image}
-                  reason={t.reason}
-                  onRemove={() => removeTreatment(t.treatmentId)}
-                />
-              ))
+      {/* ── Mobile: Full-screen Slide-over ─────────────────────────── */}
+      {mobileOpen && (
+        <div className="lg:hidden fixed inset-0 z-50">
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 bg-black/50"
+            onClick={() => setMobileOpen(false)}
+          />
+
+          {/* Panel */}
+          <div className="absolute right-0 top-0 bottom-0 w-full max-w-sm bg-white shadow-2xl animate-in slide-in-from-right duration-300 flex flex-col">
+            {/* Header */}
+            <div className="flex items-center justify-between p-5 border-b border-neutral-100">
+              <div>
+                <h3 className="font-title font-semibold text-lg">
+                  Your Treatment Plan
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  Your provider will review and finalize
+                </p>
+              </div>
+              <button
+                onClick={() => setMobileOpen(false)}
+                className="p-2 rounded-full hover:bg-neutral-100 transition-colors"
+                aria-label="Close"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+
+            {/* Content */}
+            <div className="flex-1 overflow-y-auto p-5 space-y-3">
+              {treatmentPlan.length === 0 ? (
+                <p className="text-sm text-muted-foreground text-center py-8">
+                  No treatments selected yet
+                </p>
+              ) : (
+                treatmentPlan.map((t) => (
+                  <TreatmentCard
+                    key={t.treatmentId}
+                    name={t.name}
+                    medicalName={t.medicalName}
+                    price={t.price}
+                    image={t.image}
+                    reason={t.reason}
+                    onRemove={() => removeTreatment(t.treatmentId)}
+                  />
+                ))
+              )}
+            </div>
+
+            {/* Footer */}
+            {treatmentPlan.length > 0 && (
+              <div className="p-4 border-t border-neutral-100">
+                <p className="text-sm text-muted-foreground text-center">
+                  {count} treatment{count !== 1 ? "s" : ""} selected
+                </p>
+              </div>
             )}
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </>
   );
 }

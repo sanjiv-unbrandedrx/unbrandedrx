@@ -928,31 +928,29 @@ export const QUESTIONS: Question[] = [
     },
   },
   {
-    id: "test-lab-work",
+    id: "test-start-or-refill",
     section: "testosterone",
     type: "single",
-    question: "Which best describes your Enclomiphene needs?",
-    description:
-      "Recent lab work means within the last 6 months.",
+    question:
+      "Are you starting Enclomiphene for the first time, or refilling an existing prescription?",
     options: [
+      { label: "Starting for the first time", value: "starting" },
       {
-        label: "Start Enclomiphene (I need recent lab work)",
-        value: "start-need-labs",
+        label: "Refilling (I have been using the medication)",
+        value: "refilling",
       },
-      {
-        label: "Start Enclomiphene (I have recent lab work)",
-        value: "start-have-labs",
-      },
-      {
-        label:
-          "Refill Enclomiphene (I need recent lab work and have been using the medication)",
-        value: "refill-need-labs",
-      },
-      {
-        label:
-          "Refill Enclomiphene (I have recent lab work and have been using the medication)",
-        value: "refill-have-labs",
-      },
+    ],
+    required: true,
+    showIf: { type: "treatmentInPlan", treatmentId: "enclomiphene" },
+  },
+  {
+    id: "test-recent-labs",
+    section: "testosterone",
+    type: "yes-no",
+    question: "Do you have recent lab work within the last 6 months?",
+    options: [
+      { label: "Yes", value: "yes" },
+      { label: "No", value: "no" },
     ],
     required: true,
     showIf: { type: "treatmentInPlan", treatmentId: "enclomiphene" },

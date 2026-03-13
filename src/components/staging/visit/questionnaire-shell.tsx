@@ -174,7 +174,7 @@ export default function QuestionnaireShell() {
         </div>
 
         {/* Question area */}
-        <div className="flex-1 px-6 py-10 overflow-y-auto pb-44 lg:pb-10">
+        <div className="flex-1 px-6 py-10 overflow-y-auto">
           <div className="max-w-3xl mx-auto space-y-8">
             {showingInterstitial ? (
               /* ── Suggestion Interstitial ─────────────────────────── */
@@ -241,7 +241,7 @@ export default function QuestionnaireShell() {
         </div>
 
         {/* Navigation buttons */}
-        <div className="border-t border-neutral-100 px-6 py-5 bg-white mb-[60px] lg:mb-0">
+        <div className="border-t border-neutral-100 px-6 py-5 bg-white">
           <div className="max-w-3xl mx-auto flex items-center justify-between">
             <ButtonCustom
               variant="outline"
@@ -290,8 +290,8 @@ export default function QuestionnaireShell() {
       {/* Treatment Plan sidebar */}
       <TreatmentPlanPanel />
 
-      {/* Floating email capture */}
-      <EmailCaptureWidget />
+      {/* Floating email capture — show after goals step */}
+      <EmailCaptureWidget show={!!state.answers["goals"] && state.currentStep >= 2} />
     </div>
   );
 }
