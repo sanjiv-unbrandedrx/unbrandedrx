@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { X } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
 import Logo from "@/components/svg/logo";
 
@@ -83,26 +82,12 @@ export default function EmailCaptureWidget({ show = false }: { show?: boolean })
 
   return (
     <>
-      {/* Dark overlay */}
-      <div
-        className="fixed inset-0 z-50 bg-black/50"
-        onClick={dismiss}
-      />
+      {/* Dark overlay (non-dismissible) */}
+      <div className="fixed inset-0 z-50 bg-black/50" />
 
       {/* Bottom sheet */}
       <div className="fixed bottom-0 left-0 right-0 z-50 bg-white rounded-t-2xl shadow-2xl animate-in slide-in-from-bottom duration-400 max-h-[90vh] overflow-y-auto">
-        {/* Close button */}
-        <div className="flex justify-end p-4 pb-0">
-          <button
-            onClick={dismiss}
-            className="p-1.5 rounded-full hover:bg-neutral-100 transition-colors"
-            aria-label="Close"
-          >
-            <X className="h-5 w-5 text-muted-foreground" />
-          </button>
-        </div>
-
-        <div className="px-6 pb-12 pt-0">
+        <div className="px-6 pb-12 pt-6">
           <div className="max-w-md mx-auto">
           {step === "done" ? (
             /* ── Success ──────────────────────────────────── */
