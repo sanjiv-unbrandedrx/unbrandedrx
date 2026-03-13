@@ -92,15 +92,7 @@ export default function QuestionStep({ question, onAutoAdvance }: QuestionStepPr
 
   // ── Welcome Type ──────────────────────────────────────────────────────
   if (question.type === "welcome") {
-    return (
-      <WelcomeStep
-        question={question}
-        selectedValue={selectedValue}
-        setSelectedValue={setSelectedValue}
-        followUpText={followUpText}
-        setFollowUpText={setFollowUpText}
-      />
-    );
+    return <WelcomeStep question={question} />;
   }
 
   // ── Select Type (searchable dropdown) ─────────────────────────────────
@@ -270,40 +262,16 @@ export default function QuestionStep({ question, onAutoAdvance }: QuestionStepPr
 
 // ── Welcome Step Component ────────────────────────────────────────────────
 
-function WelcomeStep({
-  question,
-  selectedValue,
-  setSelectedValue,
-  followUpText,
-  setFollowUpText,
-}: {
-  question: Question;
-  selectedValue: AnswerValue;
-  setSelectedValue: (v: AnswerValue) => void;
-  followUpText: string;
-  setFollowUpText: (v: string) => void;
-}) {
+function WelcomeStep({ question }: { question: Question }) {
   const { state, setAnswer } = useQuestionnaire();
   const treatment = getTreatmentById(state.initialTreatment);
 
-  // Parse stored values
-  const email = typeof selectedValue === "string" ? selectedValue : "";
-  const [firstName, lastName] = (followUpText || "|").split("|");
-
-  const handleEmailChange = (val: string) => {
-    setSelectedValue(val);
-    setAnswer(question.id, val, `${firstName || ""}|${lastName || ""}`);
-  };
-  const handleFirstNameChange = (val: string) => {
-    setFollowUpText(`${val}|${lastName || ""}`);
-    setAnswer(question.id, email, `${val}|${lastName || ""}`);
-  };
-  const handleLastNameChange = (val: string) => {
-    setFollowUpText(`${firstName || ""}|${val}`);
-    setAnswer(question.id, email, `${firstName || ""}|${val}`);
-  };
-
-  const showNameFields = email.includes("@") && email.includes(".");
+  // Auto-set answer so Continue button is enabled
+  useEffect(() => {
+    if (!state.answers[question.id]) {
+      setAnswer(question.id, "acknowledged");
+    }
+  }, [question.id, state.answers, setAnswer]);
 
   return (
     <div className="space-y-8">
@@ -318,8 +286,8 @@ function WelcomeStep({
 
       {/* Treatment card */}
       {treatment && (
-        <div className="rounded-2xl border border-neutral-200 p-5 flex items-center gap-5">
-          <div className="relative h-16 w-16 shrink-0 rounded-xl overflow-hidden bg-neutral-100">
+        <div className="rounded-2xl border border-neutral-200 p-6 flex items-center gap-5">
+          <div className="relative h-20 w-20 shrink-0 rounded-xl overflow-hidden bg-neutral-100">
             <Image
               src={treatment.image}
               alt={treatment.name}
@@ -328,74 +296,29 @@ function WelcomeStep({
             />
           </div>
           <div className="flex-1">
-            <p className="text-lg font-semibold font-title">{treatment.name}</p>
+            <p className="text-xl font-semibold font-title">{treatment.name}</p>
             <p className="text-base text-muted-foreground">{treatment.medicalName}</p>
           </div>
-          <p className="text-lg font-semibold">
+          <p className="text-xl font-semibold">
             {formatPrice(treatment.price)}
             <span className="font-normal text-muted-foreground">/mo</span>
           </p>
         </div>
       )}
 
-      {/* Email + name capture */}
-      <div className="space-y-4">
-        <div>
-          <label className="text-base font-medium text-foreground mb-2 block">
-            Email address
-          </label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => handleEmailChange(e.target.value)}
-            placeholder="you@example.com"
-            className="w-full rounded-xl border border-neutral-200 px-6 py-5 text-lg outline-none focus:border-foreground focus:ring-1 focus:ring-foreground transition-all"
-            autoFocus
-          />
+      <div className="space-y-4 text-lg text-muted-foreground">
+        <div className="flex items-start gap-3">
+          <span className="text-foreground font-semibold">1.</span>
+          <span>Answer a few questions about your health goals</span>
         </div>
-
-        {showNameFields && (
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label className="text-base font-medium text-foreground mb-2 block">
-                First name
-              </label>
-              <input
-                type="text"
-                value={firstName || ""}
-                onChange={(e) => handleFirstNameChange(e.target.value)}
-                placeholder="First name"
-                className="w-full rounded-xl border border-neutral-200 px-6 py-5 text-lg outline-none focus:border-foreground focus:ring-1 focus:ring-foreground transition-all"
-              />
-            </div>
-            <div>
-              <label className="text-base font-medium text-foreground mb-2 block">
-                Last name
-              </label>
-              <input
-                type="text"
-                value={lastName || ""}
-                onChange={(e) => handleLastNameChange(e.target.value)}
-                placeholder="Last name"
-                className="w-full rounded-xl border border-neutral-200 px-6 py-5 text-lg outline-none focus:border-foreground focus:ring-1 focus:ring-foreground transition-all"
-              />
-            </div>
-          </div>
-        )}
-
-        {showNameFields && (
-          <p className="text-sm text-muted-foreground">
-            By continuing, you agree to our{" "}
-            <a href="/terms-and-conditions" className="underline" target="_blank">
-              Terms of Service
-            </a>{" "}
-            and{" "}
-            <a href="/privacy-policy" className="underline" target="_blank">
-              Privacy Policy
-            </a>
-            .
-          </p>
-        )}
+        <div className="flex items-start gap-3">
+          <span className="text-foreground font-semibold">2.</span>
+          <span>We'll match you with the right treatments</span>
+        </div>
+        <div className="flex items-start gap-3">
+          <span className="text-foreground font-semibold">3.</span>
+          <span>A licensed provider reviews and approves your plan</span>
+        </div>
       </div>
     </div>
   );

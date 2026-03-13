@@ -10,6 +10,7 @@ import TreatmentSuggestion from "./treatment-suggestion";
 import QuestionnaireProgressBar from "./progress-bar";
 import ReviewStep from "./review-step";
 import ButtonCustom from "@/components/ui/button-custom";
+import EmailCaptureWidget from "./email-capture-widget";
 import { FadeIn } from "@/components/ui/animate";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
@@ -41,12 +42,6 @@ export default function QuestionnaireShell() {
     if (!currentQuestion) return false;
     if (!currentQuestion.required) return true;
     if (!currentAnswer) return false;
-    // Welcome step: need email + first name + last name
-    if (currentQuestion.type === "welcome") {
-      const email = typeof currentAnswer.value === "string" ? currentAnswer.value : "";
-      const [firstName, lastName] = (currentAnswer.followUpText || "|").split("|");
-      return email.includes("@") && email.includes(".") && !!firstName?.trim() && !!lastName?.trim();
-    }
     if (Array.isArray(currentAnswer.value))
       return currentAnswer.value.length > 0;
     return currentAnswer.value !== "";
@@ -278,6 +273,9 @@ export default function QuestionnaireShell() {
 
       {/* Treatment Plan sidebar */}
       <TreatmentPlanPanel />
+
+      {/* Floating email capture */}
+      <EmailCaptureWidget />
     </div>
   );
 }

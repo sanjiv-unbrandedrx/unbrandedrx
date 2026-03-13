@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import { QuestionnaireProvider } from "@/lib/questionnaire/context";
 import QuestionnaireShell from "@/components/staging/visit/questionnaire-shell";
 import Link from "next/link";
+import Logo from "@/components/svg/logo";
 import { ArrowLeft } from "lucide-react";
 
 function VisitContent() {
@@ -22,9 +23,7 @@ function VisitContent() {
           <ArrowLeft className="h-4 w-4" />
           Back to UnbrandedRx
         </Link>
-        <span className="font-title font-semibold text-sm tracking-tight">
-          UnbrandedRx
-        </span>
+        <Logo className="w-32" />
         <div className="w-24" /> {/* spacer for centering */}
       </header>
 
