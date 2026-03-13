@@ -85,17 +85,31 @@ export function computeActiveSections(
     goals.includes("sexual-performance") ||
     goals.includes("energy");
 
+  // Also check categories of all treatments in the plan
+  const planCategories = new Set(
+    treatmentPlan
+      .map((t) => getTreatmentById(t.treatmentId)?.category)
+      .filter(Boolean),
+  );
+
   const needsED =
-    category === "ed" || goals.includes("sexual-performance");
+    category === "ed" ||
+    planCategories.has("ed") ||
+    goals.includes("sexual-performance");
 
   const needsTestosterone =
     category === "testosterone" ||
+    planCategories.has("testosterone") ||
     (goals.includes("energy") && goals.includes("muscle"));
 
-  const needsHair = category === "hair" || goals.includes("hair");
+  const needsHair =
+    category === "hair" ||
+    planCategories.has("hair") ||
+    goals.includes("hair");
 
   const needsPeptides =
     category === "peptides" ||
+    planCategories.has("peptides") ||
     goals.includes("longevity") ||
     goals.includes("wellness");
 

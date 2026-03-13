@@ -98,22 +98,43 @@ function questionnaireReducer(
       if (state.treatmentPlan.some((t) => t.treatmentId === action.treatment.treatmentId)) {
         return state;
       }
+      const newPlan = [...state.treatmentPlan, action.treatment];
+      const goalsAnswer = state.answers["goals"];
+      const goals = goalsAnswer && Array.isArray(goalsAnswer.value)
+        ? goalsAnswer.value
+        : [];
       return {
         ...state,
-        treatmentPlan: [...state.treatmentPlan, action.treatment],
+        treatmentPlan: newPlan,
         dismissed: state.dismissed.filter(
           (id) => id !== action.treatment.treatmentId,
+        ),
+        activeSections: computeActiveSections(
+          state.initialTreatment,
+          goals,
+          newPlan,
         ),
       };
     }
 
-    case "REMOVE_TREATMENT":
+    case "REMOVE_TREATMENT": {
+      const updatedPlan = state.treatmentPlan.filter(
+        (t) => t.treatmentId !== action.treatmentId,
+      );
+      const goalsAns = state.answers["goals"];
+      const goalsVal = goalsAns && Array.isArray(goalsAns.value)
+        ? goalsAns.value
+        : [];
       return {
         ...state,
-        treatmentPlan: state.treatmentPlan.filter(
-          (t) => t.treatmentId !== action.treatmentId,
+        treatmentPlan: updatedPlan,
+        activeSections: computeActiveSections(
+          state.initialTreatment,
+          goalsVal,
+          updatedPlan,
         ),
       };
+    }
 
     case "DISMISS_TREATMENT":
       return {
