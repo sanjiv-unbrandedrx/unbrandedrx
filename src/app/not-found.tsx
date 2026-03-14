@@ -1,5 +1,4 @@
 // src/app/not-found.tsx
-import Footer from "@/components/common/Footer";
 import Header from "@/components/common/Header";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -90,7 +89,6 @@ export default function NotFound() {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   );
 }

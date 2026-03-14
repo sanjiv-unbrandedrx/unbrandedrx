@@ -141,7 +141,7 @@ export default function HeroSection() {
           </div>
 
           <a
-            href="https://checkout.unbrandedrx.co/oral-sermorelin"
+            href="https://checkout.unbrandedrx.co/longevityrx?priceId=2138"
             target="_blank"
             rel="noopener noreferrer"
           >
