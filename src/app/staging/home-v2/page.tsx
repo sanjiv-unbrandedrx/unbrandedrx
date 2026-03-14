@@ -34,6 +34,38 @@ const BEST_SELLERS: Product[] = [
     image: "/home/v2/bestseller-oral-sermorelin.png",
     slug: "oral-sermorelin",
   },
+  {
+    id: "oral-finasteride",
+    name: "Oral Finasteride",
+    medicalName: "Finasteride + Minoxidil",
+    price: "69.00",
+    image: "/products/oral-finasteride-hero.png",
+    slug: "oral-finasteride",
+  },
+  {
+    id: "oral-dutasteride",
+    name: "Oral Dutasteride",
+    medicalName: "Dutasteride + Minoxidil",
+    price: "69.00",
+    image: "/products/oral-dutasteride-hero.png",
+    slug: "oral-dutasteride",
+  },
+  {
+    id: "topical-finasteride",
+    name: "Topical Finasteride",
+    medicalName: "Minoxidil + Finasteride + Tretinoin",
+    price: "59.00",
+    image: "/products/topical-finasteride-hero.png",
+    slug: "topical-finasteride",
+  },
+  {
+    id: "topical-dutasteride",
+    name: "Topical Dutasteride",
+    medicalName: "Minoxidil + Dutasteride + Tretinoin",
+    price: "69.00",
+    image: "/products/topical-dutasteride-hero.png",
+    slug: "topical-dutasteride",
+  },
 ];
 
 export default function HomeV2() {
@@ -42,7 +74,7 @@ export default function HomeV2() {
     <main>
       <HeroSection />
       <CategoryCardsSection />
-      <ProductCarousel title="Our Best Sellers" products={BEST_SELLERS} />
+      <ProductCarousel title="Our Treatments" products={BEST_SELLERS} />
       <HowItWorksSection />
       <ValuePropsSection />
       <TrustSignalsSection />
