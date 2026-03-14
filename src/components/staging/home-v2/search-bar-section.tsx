@@ -13,19 +13,9 @@ interface SearchResult {
 
 const ALL_ITEMS: SearchResult[] = [
   {
-    name: "Injectable Sermorelin",
-    category: "Longevity",
-    href: "/staging/treatment/injectable-sermorelin",
-  },
-  {
     name: "Oral Sermorelin",
     category: "Longevity",
     href: "/staging/treatment/oral-sermorelin",
-  },
-  {
-    name: "NAD+ Injection",
-    category: "Longevity",
-    href: "/staging/treatment/nad-plus-injection",
   },
   {
     name: "Enclomiphene",

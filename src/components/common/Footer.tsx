@@ -22,9 +22,7 @@ const testosteroneLinks = [
 ];
 
 const peptidesItems = [
-  "Injectable Sermorelin",
   "Oral Sermorelin",
-  "NAD+ Injection",
 ];
 
 const companyLinks = [

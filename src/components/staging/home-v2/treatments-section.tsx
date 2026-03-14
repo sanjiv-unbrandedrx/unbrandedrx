@@ -48,31 +48,12 @@ const TREATMENTS: Treatment[] = [
     href: "/find/treatment/topical-dutasteride",
   },
   {
-    id: "injectable-sermorelin",
-    name: "Injectable Sermorelin",
-    medicalName: "Sermorelin Acetate",
-    price: "$119/mo",
-    image: "/home/v2/treatment-injectable-sermorelin.png",
-    href: "/staging/treatment/injectable-sermorelin",
-    comingSoon: true,
-  },
-  {
     id: "oral-sermorelin",
     name: "Oral Sermorelin",
     medicalName: "Sermorelin Acetate (Oral)",
     price: "$119/mo",
     image: "/home/v2/treatment-oral-sermorelin.png",
     href: "/staging/treatment/oral-sermorelin",
-    comingSoon: true,
-  },
-  {
-    id: "nad-plus-injection",
-    name: "NAD+ Injection",
-    medicalName: "Nicotinamide Adenine Dinucleotide",
-    price: "$149/mo",
-    image: "/home/v2/treatment-nad-plus-injection.png",
-    href: "/staging/treatment/nad-plus-injection",
-    comingSoon: true,
   },
 ];
 
