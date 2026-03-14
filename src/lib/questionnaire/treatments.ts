@@ -79,16 +79,6 @@ export const TREATMENTS: Treatment[] = [
 
   // ── Peptides & Longevity ────────────────────────────────────────────
   {
-    id: "injectable-sermorelin",
-    name: "Injectable Sermorelin",
-    medicalName: "Sermorelin Acetate",
-    price: "119.00",
-    image: "/home/v2/treatment-injectable-sermorelin.png",
-    checkoutSlug: "injectable-sermorelin",
-    category: "peptides",
-    comingSoon: true,
-  },
-  {
     id: "oral-sermorelin",
     name: "Oral Sermorelin",
     medicalName: "Sermorelin Acetate",
@@ -96,18 +86,7 @@ export const TREATMENTS: Treatment[] = [
     image: "/home/v2/bestseller-oral-sermorelin.png",
     checkoutSlug: "oral-sermorelin",
     category: "peptides",
-    comingSoon: true,
     excludedStates: ["AR"],
-  },
-  {
-    id: "nad-plus-injection",
-    name: "NAD+ Injection",
-    medicalName: "Nicotinamide Adenine Dinucleotide",
-    price: "149.00",
-    image: "/home/v2/bestseller-nad-plus-injection.png",
-    checkoutSlug: "nad-plus-injection",
-    category: "peptides",
-    comingSoon: true,
   },
 ];
 

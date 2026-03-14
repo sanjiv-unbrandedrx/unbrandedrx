@@ -1,6 +1,6 @@
 import HeroSection from "@/components/staging/home-v2/hero-section";
 import CategoryCardsSection from "@/components/staging/home-v2/category-cards-section";
-import TreatmentsSection from "@/components/staging/home-v2/treatments-section";
+
 import HowItWorksSection from "@/components/staging/home/how-it-works-section";
 import ValuePropsSection from "@/components/staging/home/value-props-section";
 import ProductCarousel from "@/components/common/product-carousel";
@@ -27,31 +27,12 @@ const BEST_SELLERS: Product[] = [
     slug: "ed-rapid-dissolve-tablet",
   },
   {
-    id: "injectable-sermorelin",
-    name: "Injectable Sermorelin",
-    medicalName: "Sermorelin Acetate",
-    price: "119.00",
-    image: "/home/v2/treatment-injectable-sermorelin.png",
-    slug: "injectable-sermorelin",
-    comingSoon: true,
-  },
-  {
     id: "oral-sermorelin",
     name: "Oral Sermorelin",
     medicalName: "Sermorelin Acetate",
     price: "119.00",
     image: "/home/v2/bestseller-oral-sermorelin.png",
     slug: "oral-sermorelin",
-    comingSoon: true,
-  },
-  {
-    id: "nad-plus-injection",
-    name: "NAD+ Injection",
-    medicalName: "Nicotinamide Adenine Dinucleotide",
-    price: "149.00",
-    image: "/home/v2/bestseller-nad-plus-injection.png",
-    slug: "nad-plus-injection",
-    comingSoon: true,
   },
 ];
 
@@ -61,10 +42,9 @@ export default function HomeV2() {
     <main>
       <HeroSection />
       <CategoryCardsSection />
-      <TreatmentsSection />
+      <ProductCarousel title="Our Best Sellers" products={BEST_SELLERS} />
       <HowItWorksSection />
       <ValuePropsSection />
-      <ProductCarousel title="Our Best Sellers" products={BEST_SELLERS} />
       <TrustSignalsSection />
       <FinalCtaSection />
     </main>

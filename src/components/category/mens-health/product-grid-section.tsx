@@ -20,6 +20,14 @@ const MENS_HEALTH_PRODUCTS: ProductItem[] = [
     image: "/products/enclomiphene-hero.png",
     slug: "enclomiphene",
   },
+  {
+    id: "oral-sermorelin",
+    name: "Oral Sermorelin",
+    medicalName: "Sermorelin Acetate",
+    price: "119.00",
+    image: "/products/oral-sermorelin-hero.png",
+    slug: "oral-sermorelin",
+  },
 ];
 
 export default function ProductGridSection() {

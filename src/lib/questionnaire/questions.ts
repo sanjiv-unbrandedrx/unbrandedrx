@@ -311,25 +311,6 @@ export const QUESTIONS: Question[] = [
               questionId: "med-physical-exam",
               value: "more-2yr",
             },
-            { type: "treatmentInPlan", treatmentId: "injectable-sermorelin" },
-          ],
-        },
-        action: {
-          type: "disqualify",
-          treatmentId: "injectable-sermorelin",
-          reason:
-            "Sermorelin requires an in-person medical evaluation within the last 2 years.",
-        },
-      },
-      {
-        condition: {
-          type: "and",
-          conditions: [
-            {
-              type: "equals",
-              questionId: "med-physical-exam",
-              value: "more-2yr",
-            },
             { type: "treatmentInPlan", treatmentId: "oral-sermorelin" },
           ],
         },

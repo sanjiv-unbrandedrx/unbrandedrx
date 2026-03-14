@@ -21,8 +21,8 @@ const testosteroneLinks = [
   { name: "Enclomiphene", href: "/find/treatment/enclomiphene" },
 ];
 
-const peptidesItems = [
-  "Oral Sermorelin",
+const peptidesLinks = [
+  { name: "Oral Sermorelin", href: "/find/treatment/oral-sermorelin" },
 ];
 
 const companyLinks = [
@@ -114,13 +114,14 @@ export default function Footer() {
               Peptides &amp; Longevity
             </p>
             <div className="mt-4 flex flex-col space-y-3">
-              {peptidesItems.map((name) => (
-                <span
-                  key={name}
-                  className="text-sm text-neutral-600"
+              {peptidesLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-sm text-neutral-400 hover:text-white "
                 >
-                  {name}
-                </span>
+                  {link.name}
+                </Link>
               ))}
             </div>
           </div>
