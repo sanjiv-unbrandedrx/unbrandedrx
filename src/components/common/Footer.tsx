@@ -29,6 +29,7 @@ const companyLinks = [
   { name: "About Us", href: "/about" },
   { name: "How it Works", href: "/how-it-works" },
   { name: "Contact Us", href: "/contact-us" },
+  { name: "Support", href: "/support" },
 ];
 
 const legalLinks = [

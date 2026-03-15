@@ -16,6 +16,7 @@ const navLinks = [
   { name: "Sexual Health", href: "/find/category/sexual-health" },
   { name: "Testosterone", href: "/find/category/testosterone" },
   { name: "Peptides & Longevity", href: "/find/category/mens-health" },
+  { name: "Support", href: "/support" },
 ];
 
 interface MobileNavProps {

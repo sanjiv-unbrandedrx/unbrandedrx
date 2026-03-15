@@ -6,8 +6,8 @@ import Script from "next/script";
 export default function ZendeskWidget() {
   const pathname = usePathname();
 
-  // Hide Zendesk on questionnaire pages
-  if (pathname.startsWith("/staging/visit")) return null;
+  // Only show Zendesk on the support page
+  if (pathname !== "/support") return null;
 
   return (
     <Script
