@@ -122,7 +122,7 @@ export default function TreatmentPlanPanel() {
                 className="flex items-center gap-2 text-sm font-medium text-foreground hover:text-black transition-colors w-full"
               >
                 <Plus className="h-4 w-4" />
-                Explore other treatments
+                Add other treatments
                 {exploring ? (
                   <ChevronUp className="h-4 w-4 ml-auto" />
                 ) : (
@@ -202,7 +202,7 @@ export default function TreatmentPlanPanel() {
                     className="flex items-center gap-2 text-sm font-medium text-foreground hover:text-black transition-colors w-full"
                   >
                     <Plus className="h-4 w-4" />
-                    Explore other treatments
+                    Add other treatments
                     {exploring ? (
                       <ChevronUp className="h-4 w-4 ml-auto" />
                     ) : (
