@@ -3,7 +3,7 @@ import { Clock, TrendingUp, Target, Trophy } from "lucide-react";
 export default function TimelineSection() {
   return (
     <section className="bg-secondary py-12 xl:py-20">
-      <div className="container mx-auto px-4 xl:px-0">
+      <div className="container mx-auto px-4 xl:px-6">
         <div className="text-center mb-12">
           <h2 className="font-title text-3xl xl:text-4xl tracking-tight font-medium">
             What to Expect

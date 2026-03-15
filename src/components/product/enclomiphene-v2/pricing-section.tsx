@@ -12,7 +12,7 @@ const comboPricing = [
 
 export default function PricingSection() {
   return (
-    <section className="container mx-auto my-4 py-12 px-4 xl:my-15 xl:py-20 xl:px-0">
+    <section className="container mx-auto my-4 py-12 px-4 xl:my-15 xl:py-20 xl:px-6">
       <div className="text-center mb-12">
         <h2 className="font-title text-3xl xl:text-4xl tracking-tight font-medium">
           Transparent Pricing

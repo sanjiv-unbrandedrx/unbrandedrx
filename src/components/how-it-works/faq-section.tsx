@@ -29,7 +29,7 @@ const faqs = [
 
 export default function FaqSection() {
   return (
-    <section className="container mx-auto my-10 px-4 py-10 xl:my-20 xl:px-0">
+    <section className="container mx-auto my-10 px-4 py-10 xl:my-20 xl:px-6">
       <div className="mx-auto max-w-4xl">
         <h2 className="mb-12 text-center font-title text-3xl font-medium tracking-tight xl:text-4xl">
           Frequently Asked Questions

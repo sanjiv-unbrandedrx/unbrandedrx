@@ -42,7 +42,7 @@ const promises = [
 export default function ProcessSection() {
   return (
     <section className="bg-secondary">
-      <div className="container mx-auto grid grid-cols-1 gap-16 px-4 py-20 lg:grid-cols-2 lg:gap-24 xl:px-0">
+      <div className="container mx-auto grid grid-cols-1 gap-16 px-4 py-20 lg:grid-cols-2 lg:gap-24 xl:px-6">
         {/* Left Column: The Process */}
         <div className="flex flex-col gap-12">
           {steps.map((item) => (

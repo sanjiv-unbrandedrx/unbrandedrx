@@ -83,7 +83,7 @@ export default function Home() {
     <main>
       <HeroSection />
 
-      <section className="max-w-[1200px] mx-auto mt-8 xl:mt-16 px-4 xl:px-0">
+      <section className="max-w-[1200px] mx-auto mt-8 xl:mt-16 px-4 xl:px-6">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-x-6 gap-y-3">
           {DUMMY_CATEGORIES.map((category) => (
             <CategoryCard key={category.id} category={category} />

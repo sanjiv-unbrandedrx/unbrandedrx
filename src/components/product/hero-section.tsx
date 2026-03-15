@@ -5,7 +5,7 @@ import Button from "../ui/button-custom";
 
 export default function HeroSection() {
   return (
-    <section className="container mx-auto px-4 xl:px-0 my-4 xl:my-15">
+    <section className="container mx-auto px-4 xl:px-6 my-4 xl:my-15">
       <div className="flex flex-col xl:flex-row justify-between items-stretch gap-x-4">
         <div className="w-full min-h-[590px] h-full max-h-full relative rounded-3xl overflow-hidden">
           <Image

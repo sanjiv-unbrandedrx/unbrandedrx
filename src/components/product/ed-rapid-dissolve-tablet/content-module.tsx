@@ -1,7 +1,7 @@
 // src/components/product/ed-troche/content-module.tsx
 export default function ContentModule() {
   return (
-    <section className="container mx-auto my-4 py-6 px-4 xl:my-15 xl:py-10 xl:px-0">
+    <section className="container mx-auto my-4 py-6 px-4 xl:my-15 xl:py-10 xl:px-6">
       <div className="rounded-3xl bg-secondary p-10 text-center xl:p-20">
         {/* TASK 19: Change title to RDT */}
         <h3 className="font-title text-3xl font-medium">

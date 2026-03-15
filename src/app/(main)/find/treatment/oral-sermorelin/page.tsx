@@ -25,7 +25,7 @@ export default function ProductPage() {
         sku="oral-sermorelin"
         url="/find/treatment/oral-sermorelin"
       />
-      <section className="px-4 xl:px-0">
+      <section className="px-4 xl:px-6">
         <Header />
       </section>
       <HeroSection />

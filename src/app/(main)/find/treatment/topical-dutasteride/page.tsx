@@ -24,7 +24,7 @@ export default function ProductPage() {
         sku="topical-dutasteride"
         url="/find/treatment/topical-dutasteride"
       />
-      <section className="px-4 xl:px-0">
+      <section className="px-4 xl:px-6">
         <Header />
       </section>
       <HeroSection />

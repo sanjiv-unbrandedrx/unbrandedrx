@@ -1,7 +1,7 @@
 // src/components/product/topical-dutasteride/deep-dive-section.tsx
 export default function DeepDiveSection() {
   return (
-    <section className="container mx-auto my-4 py-6 px-4 xl:my-15 xl:py-10 xl:px-0">
+    <section className="container mx-auto my-4 py-6 px-4 xl:my-15 xl:py-10 xl:px-6">
       {/* TASKS 3, 17 & CONSISTENCY FIX: Refactored to a two-column layout and removed ingredient strengths. */}
       <div className="flex flex-col justify-between gap-y-8 gap-x-19 xl:flex-row">
         {/* Column 1: Text Content (Ingredients) */}

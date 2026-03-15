@@ -57,7 +57,7 @@ const FEATURED_PRODUCTS: FeaturedProduct[] = [
 
 export default function FeaturedProductsSection() {
   return (
-    <section className="container mx-auto py-10 xl:py-20 px-4 xl:px-0">
+    <section className="container mx-auto py-10 xl:py-20 px-4 xl:px-6">
       <div className="text-center mb-10 xl:mb-14">
         <h2 className="font-title text-3xl xl:text-4xl font-medium tracking-tight">
           Our Treatments

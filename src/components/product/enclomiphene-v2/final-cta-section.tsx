@@ -3,7 +3,7 @@ import { Shield, Truck, MessageCircle } from "lucide-react";
 
 export default function FinalCTASection() {
   return (
-    <section className="container mx-auto my-4 py-12 px-4 xl:my-15 xl:py-20 xl:px-0">
+    <section className="container mx-auto my-4 py-12 px-4 xl:my-15 xl:py-20 xl:px-6">
       <div className="bg-neutral-900 rounded-3xl p-8 xl:p-16 text-center">
         <h2 className="font-title text-3xl xl:text-4xl font-medium text-white">
           Ready to Optimize Your Testosterone?

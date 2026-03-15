@@ -17,7 +17,7 @@ export default function MensHealthCategoryPage() {
       <HeroSection />
       <ProductGridSection />
 
-      <section className="container mx-auto py-25 px-4 xl:px-0">
+      <section className="container mx-auto py-25 px-4 xl:px-6">
         <div className="relative min-h-[500px]">
           <Image
             className="rounded-xl object-center object-cover"

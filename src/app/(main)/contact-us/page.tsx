@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 export default function ContactUsPage() {
   return (
     <main>
-      <section className="px-4 xl:px-0">
+      <section className="px-4 xl:px-6">
         <Header />
       </section>
-      <section className="container mx-auto my-10 px-4 py-10 text-center xl:my-20 xl:px-0">
+      <section className="container mx-auto my-10 px-4 py-10 text-center xl:my-20 xl:px-6">
         <div className="mx-auto max-w-2xl">
           <h1 className="font-title text-4xl font-medium tracking-tight">
             Get in Touch

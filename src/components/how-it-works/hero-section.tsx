@@ -1,7 +1,7 @@
 // File: src/components/how-it-works/hero-section.tsx
 export default function HeroSection() {
   return (
-    <section className="container mx-auto my-10 px-4 py-10 text-center xl:my-20 xl:px-0">
+    <section className="container mx-auto my-10 px-4 py-10 text-center xl:my-20 xl:px-6">
       <div className="mx-auto max-w-4xl">
         <h1 className="font-title text-4xl font-medium tracking-tight xl:text-6xl">
           Prescription Care. Radically Simple.

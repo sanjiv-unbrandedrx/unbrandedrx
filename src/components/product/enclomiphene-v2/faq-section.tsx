@@ -8,7 +8,7 @@ import {
 export default function FAQSection() {
   return (
     <section className="bg-secondary py-20">
-      <div className="container mx-auto flex flex-col items-start justify-start gap-x-10 px-4 xl:flex-row xl:px-0">
+      <div className="container mx-auto flex flex-col items-start justify-start gap-x-10 px-4 xl:flex-row xl:px-6">
         <div className="min-w-sm mb-6 xl:mb-0">
           <h2 className="font-title text-3xl font-medium">
             Common Questions

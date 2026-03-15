@@ -24,7 +24,7 @@ export default function ProductPage() {
         sku="oral-dutasteride"
         url="/find/treatment/oral-dutasteride"
       />
-      <section className="px-4 xl:px-0">
+      <section className="px-4 xl:px-6">
         <Header />
       </section>
       <HeroSection />

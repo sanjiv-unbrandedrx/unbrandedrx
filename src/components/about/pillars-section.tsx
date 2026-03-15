@@ -25,7 +25,7 @@ const pillars = [
 
 export default function PillarsSection() {
   return (
-    <section className="container mx-auto my-10 px-4 py-10 xl:my-20 xl:px-0">
+    <section className="container mx-auto my-10 px-4 py-10 xl:my-20 xl:px-6">
       <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
         {pillars.map((pillar) => (
           <div key={pillar.title} className="text-center">

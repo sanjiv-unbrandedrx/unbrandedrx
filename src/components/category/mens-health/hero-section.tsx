@@ -15,7 +15,7 @@ export default function HeroSection() {
   const slug = "mens-health";
   return (
     // Using hair-loss image as a placeholder for now
-    <section className="container mx-auto pb-20 bg-none xl:bg-[url(/categories/hair-loss.webp)] bg-right bg-cover bg-no-repeat px-4 xl:px-0">
+    <section className="container mx-auto pb-20 bg-none xl:bg-[url(/categories/hair-loss.webp)] bg-right bg-cover bg-no-repeat px-4 xl:px-6">
       <Header />
       <Breadcrumb className="mt-4 mb-9 container mx-auto">
         <BreadcrumbList className="lowercase text-xs font-light tracking-tight">

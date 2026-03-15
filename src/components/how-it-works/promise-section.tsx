@@ -20,7 +20,7 @@ const promises = [
 export default function PromiseSection() {
   return (
     <section className="bg-secondary">
-      <div className="container mx-auto px-4 py-20 xl:px-0">
+      <div className="container mx-auto px-4 py-20 xl:px-6">
         <h2 className="text-center font-title text-3xl font-medium tracking-tight xl:text-4xl">
           The unbrandedrx Promise
         </h2>

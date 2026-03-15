@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function HowItWorksSection() {
   return (
-    <section className="container mx-auto my-4 xl:my-15 py-8 xl:py-15 px-4 xl:px-0">
+    <section className="container mx-auto my-4 xl:my-15 py-8 xl:py-15 px-4 xl:px-6">
       <div className="text-center mb-10">
         <h2 className="font-title text-3xl xl:text-4xl tracking-tight font-medium">
           Simple Process, Real Results

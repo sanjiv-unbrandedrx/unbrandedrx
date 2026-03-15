@@ -126,7 +126,7 @@ export default function TreatmentsSection() {
   return (
     <section className="py-10 xl:py-20">
       {/* Header */}
-      <div className="container mx-auto px-4 xl:px-0">
+      <div className="container mx-auto px-4 xl:px-6">
         <div className="flex justify-between items-start xl:items-center mb-8">
           <FadeIn>
             <h2 className="font-title text-3xl xl:text-4xl font-medium tracking-tight">

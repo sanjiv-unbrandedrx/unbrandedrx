@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function HowItWorksSection() {
   return (
-    <section className="container mx-auto my-4 xl:my-15 py-8 xl:py-15 px-4 xl:px-0">
+    <section className="container mx-auto my-4 xl:my-15 py-8 xl:py-15 px-4 xl:px-6">
       <h3 className="font-title text-4xl tracking-tight font-medium">
         How it works
       </h3>

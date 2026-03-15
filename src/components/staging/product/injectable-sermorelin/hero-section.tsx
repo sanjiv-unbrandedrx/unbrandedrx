@@ -14,7 +14,7 @@ import { Activity, Moon, Syringe, ShieldCheck, Beaker } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="container mx-auto my-4 px-4 xl:my-15 xl:px-0">
+    <section className="container mx-auto my-4 px-4 xl:my-15 xl:px-6">
       <div className="flex flex-col justify-between gap-x-4 xl:flex-row xl:items-stretch">
         <div className="relative h-full min-h-[590px] w-full overflow-hidden rounded-3xl flex items-center justify-center bg-neutral-50">
           <Image

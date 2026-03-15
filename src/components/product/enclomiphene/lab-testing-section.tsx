@@ -1,7 +1,7 @@
 // File: src/components/product/enclomiphene/lab-testing-section.tsx
 export default function LabTestingSection() {
   return (
-    <section className="container mx-auto my-4 py-6 px-4 xl:my-15 xl:py-10 xl:px-0">
+    <section className="container mx-auto my-4 py-6 px-4 xl:my-15 xl:py-10 xl:px-6">
       <div className="flex flex-col justify-between gap-y-8 gap-x-19 xl:flex-row">
         {/* Column 1: Text Content */}
         <div className="flex-1 flex flex-col justify-center">

@@ -97,7 +97,7 @@ export default function SearchBarSection() {
   }, []);
 
   return (
-    <section className="container mx-auto px-4 xl:px-0 py-6">
+    <section className="container mx-auto px-4 xl:px-6 py-6">
       <div className="flex flex-col xl:flex-row items-center justify-center gap-4 xl:gap-6">
         {/* Search Input */}
         <div ref={wrapperRef} className="relative w-full xl:max-w-md">

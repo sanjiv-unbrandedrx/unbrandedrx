@@ -2,7 +2,7 @@ import { Check, X } from "lucide-react";
 
 export default function ComparisonSection() {
   return (
-    <section className="container mx-auto my-4 py-8 px-4 xl:my-15 xl:py-15 xl:px-0">
+    <section className="container mx-auto my-4 py-8 px-4 xl:my-15 xl:py-15 xl:px-6">
       <div className="text-center mb-10">
         <h2 className="font-title text-3xl xl:text-4xl tracking-tight font-medium">
           Why Enclomiphene Over Traditional TRT?

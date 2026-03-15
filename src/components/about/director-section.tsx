@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function DirectorSection() {
   return (
-    <section className="container mx-auto my-10 px-4 py-10 xl:my-20 xl:px-0">
+    <section className="container mx-auto my-10 px-4 py-10 xl:my-20 xl:px-6">
       <div className="flex flex-col items-center gap-12 md:flex-row">
         <div className="relative size-48 flex-shrink-0 md:size-64">
           {/* SURGICAL STRIKE: Replaced placeholder with the local image of Dr. Patel. */}

@@ -2,7 +2,7 @@ import Badge from "../ui/badge";
 
 export default function CardsSection() {
   return (
-    <section className="container mx-auto py-5 xl:py-20 mt-5 px-4 xl:px-0">
+    <section className="container mx-auto py-5 xl:py-20 mt-5 px-4 xl:px-6">
       <div className="flex flex-col items-center justify-center gap-y-6 xl:gap-y-15">
         <div className="text-center">
           <p className="text-muted-foreground text-lg xl:text-2xl">

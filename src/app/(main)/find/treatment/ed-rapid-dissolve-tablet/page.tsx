@@ -24,7 +24,7 @@ export default function ProductPage() {
         sku="ed-rdt-4in1"
         url="/find/treatment/ed-rapid-dissolve-tablet"
       />
-      <section className="px-4 xl:px-0">
+      <section className="px-4 xl:px-6">
         <Header />
       </section>
       <HeroSection />
