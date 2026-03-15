@@ -27,7 +27,7 @@ const steps = [
 
 export default function HowItWorksSection() {
   return (
-    <section className="container mx-auto py-10 xl:py-20 px-4 xl:px-0">
+    <section className="container mx-auto py-10 xl:py-20 px-4 xl:px-6">
       <FadeIn>
         <h2 className="font-title text-3xl xl:text-4xl font-medium tracking-tight">
           How it works

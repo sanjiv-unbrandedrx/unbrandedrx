@@ -26,7 +26,7 @@ const smallCards = [
 
 export default function CategoryCardsSection() {
   return (
-    <section className="container mx-auto px-4 xl:px-0 mt-4">
+    <section className="container mx-auto px-4 xl:px-6 mt-4">
       {/* Large cards: 2 columns */}
       <Stagger staggerDelay={0.15} className="grid grid-cols-1 xl:grid-cols-2 gap-4 pt-16">
         {/* Boost Testosterone — warm radial gradient */}

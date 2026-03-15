@@ -26,7 +26,7 @@ const signals = [
 
 export default function TrustSignalsSection() {
   return (
-    <section className="container mx-auto py-16 xl:py-20 px-4 xl:px-0">
+    <section className="container mx-auto py-16 xl:py-20 px-4 xl:px-6">
       <Stagger staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
         {signals.map((signal) => (
           <StaggerItem

@@ -29,7 +29,7 @@ const trustBadges = [
 
 export default function HeroSection() {
   return (
-    <section className="container mx-auto px-4 xl:px-0">
+    <section className="container mx-auto px-4 xl:px-6">
       <div className="bg-white rounded-2xl mt-5 px-6 xl:px-12 pb-12 xl:pb-16">
         <Header />
         <div className="flex flex-col xl:flex-row justify-between items-start gap-8 mt-8 xl:mt-20">

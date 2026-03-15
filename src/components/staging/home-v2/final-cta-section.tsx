@@ -5,7 +5,7 @@ import { FadeIn } from "@/components/ui/animate";
 
 export default function FinalCtaSection() {
   return (
-    <section className="container mx-auto px-4 xl:px-0 py-10 xl:py-20">
+    <section className="container mx-auto px-4 xl:px-6 py-10 xl:py-20">
       <div className="relative rounded-3xl overflow-hidden px-8 py-16 xl:px-20 xl:py-24 text-center">
         {/* Background Image */}
         <Image

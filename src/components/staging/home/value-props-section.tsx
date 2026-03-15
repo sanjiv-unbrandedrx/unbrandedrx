@@ -31,7 +31,7 @@ const valueProps = [
 export default function ValuePropsSection() {
   return (
     <section className="bg-secondary py-16 xl:py-20">
-      <div className="container mx-auto px-4 xl:px-0">
+      <div className="container mx-auto px-4 xl:px-6">
         <FadeIn>
           <h2 className="font-title text-3xl xl:text-4xl font-medium tracking-tight text-center">
             Why unbrandedrx?
