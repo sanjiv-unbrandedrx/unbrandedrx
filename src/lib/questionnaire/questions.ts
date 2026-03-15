@@ -1064,11 +1064,13 @@ export const QUESTIONS: Question[] = [
       { label: "Tretinoin", value: "tretinoin" },
       { label: "Hydrocortisone", value: "hydrocortisone" },
       { label: "Minoxidil", value: "minoxidil" },
-      { label: "Dutasteride", value: "dutasteride" },
+      { label: "Triamcinolone", value: "triamcinolone" },
       { label: "Ketoconazole", value: "ketoconazole" },
+      { label: "Dutasteride", value: "dutasteride" },
       { label: "Caffeine", value: "caffeine" },
       { label: "Latanoprost or Bimatoprost", value: "latanoprost" },
       { label: "Melatonin", value: "melatonin" },
+      { label: "Other", value: "other" },
       {
         label: "None of these medications",
         value: "none",
@@ -1076,6 +1078,14 @@ export const QUESTIONS: Question[] = [
       },
     ],
     required: true,
+    followUp: {
+      condition: {
+        type: "includes",
+        questionId: "hair-compound-allergies",
+        value: "other",
+      },
+      prompt: "Please list your other allergies.",
+    },
   },
   {
     id: "hair-sexual-dysfunction",
@@ -1137,6 +1147,89 @@ export const QUESTIONS: Question[] = [
           treatmentId: "__hair__",
           reason:
             "Acknowledgment of the 5-alpha-reductase inhibitor warning is required for hair loss treatments.",
+        },
+      },
+    ],
+  },
+  {
+    id: "hair-medical-conditions",
+    section: "hair-loss",
+    type: "multi",
+    question: "Do you have any of these medical conditions?",
+    options: [
+      { label: "Breast Cancer", value: "breast-cancer" },
+      { label: "Liver Problems", value: "liver-problems" },
+      { label: "Prostate Cancer", value: "prostate-cancer" },
+      { label: "HIV", value: "hiv" },
+      {
+        label: "Autoimmune Disease or Rheumatologic disorder",
+        value: "autoimmune",
+      },
+      { label: "Kidney Disease", value: "kidney-disease" },
+      { label: "Thyroid Disease", value: "thyroid-disease" },
+      { label: "Cancer Other than Breast", value: "cancer-other" },
+      { label: "Prostate Enlargement (BPH)", value: "bph" },
+      { label: "Other", value: "other" },
+      {
+        label: "I do not have any of these medical conditions",
+        value: "none",
+        exclusive: true,
+      },
+    ],
+    required: true,
+    followUp: {
+      condition: {
+        type: "includes",
+        questionId: "hair-medical-conditions",
+        value: "other",
+      },
+      prompt: "Please describe your medical condition.",
+    },
+  },
+  {
+    id: "hair-anything-else",
+    section: "hair-loss",
+    type: "yes-no",
+    question: "Is there anything else that your doctor may need to know?",
+    options: [
+      { label: "Yes", value: "yes" },
+      { label: "No", value: "no" },
+    ],
+    required: true,
+    followUp: {
+      condition: {
+        type: "equals",
+        questionId: "hair-anything-else",
+        value: "yes",
+      },
+      prompt: "Please describe.",
+    },
+  },
+  {
+    id: "hair-minoxidil-warning",
+    section: "hair-loss",
+    type: "yes-no",
+    question: "Do you acknowledge the following and wish to proceed?",
+    description:
+      "We do not recommend using minoxidil more than 2 times daily. Additionally, if you are using oral dutasteride/finasteride pills with the topical finasteride/dutasteride compounds, you are putting yourself at increased risk for side effects.",
+    critical: true,
+    options: [
+      { label: "Yes, I acknowledge and want to proceed", value: "yes" },
+      { label: "No", value: "no" },
+    ],
+    required: true,
+    triggers: [
+      {
+        condition: {
+          type: "equals",
+          questionId: "hair-minoxidil-warning",
+          value: "no",
+        },
+        action: {
+          type: "disqualify",
+          treatmentId: "__hair__",
+          reason:
+            "Acknowledgment of the minoxidil usage warning is required for hair loss treatments.",
         },
       },
     ],
