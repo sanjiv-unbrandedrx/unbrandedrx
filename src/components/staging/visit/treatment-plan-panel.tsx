@@ -31,6 +31,14 @@ export default function TreatmentPlanPanel() {
   const { treatmentPlan, disqualifications } = state;
   const count = treatmentPlan.length;
 
+  // Compute subtotal from plan prices
+  const subtotal = treatmentPlan.reduce(
+    (sum, t) => sum + parseFloat(t.price || "0"),
+    0,
+  );
+  const subtotalWhole = Math.floor(subtotal);
+  const subtotalCents = String(Math.round((subtotal % 1) * 100)).padStart(2, "0");
+
   // Treatments available to add (not in plan, not disqualified, not coming soon)
   const inPlanIds = new Set(treatmentPlan.map((t) => t.treatmentId));
   const dqIds = new Set(Object.keys(disqualifications));
@@ -136,10 +144,17 @@ export default function TreatmentPlanPanel() {
         </div>
 
         {treatmentPlan.length > 0 && (
-          <div className="p-4 border-t border-neutral-100">
-            <p className="text-sm text-muted-foreground text-center">
-              {count} treatment{count !== 1 ? "s" : ""} selected
-            </p>
+          <div className="p-5 border-t border-neutral-100">
+            <div className="flex items-center justify-between">
+              <p className="text-sm text-muted-foreground">
+                {count} treatment{count !== 1 ? "s" : ""}/mo
+              </p>
+              <p className="text-lg font-semibold tabular-nums tracking-tighter">
+                $ {subtotalWhole}
+                <span className="text-xs">.{subtotalCents}</span>
+                <span className="text-sm font-normal text-muted-foreground">/mo</span>
+              </p>
+            </div>
           </div>
         )}
       </aside>
@@ -217,10 +232,17 @@ export default function TreatmentPlanPanel() {
 
             {/* Footer */}
             {treatmentPlan.length > 0 && (
-              <div className="p-4 border-t border-neutral-100">
-                <p className="text-sm text-muted-foreground text-center">
-                  {count} treatment{count !== 1 ? "s" : ""} selected
-                </p>
+              <div className="p-5 border-t border-neutral-100">
+                <div className="flex items-center justify-between">
+                  <p className="text-sm text-muted-foreground">
+                    {count} treatment{count !== 1 ? "s" : ""}/mo
+                  </p>
+                  <p className="text-lg font-semibold tabular-nums tracking-tighter">
+                    $ {subtotalWhole}
+                    <span className="text-xs">.{subtotalCents}</span>
+                    <span className="text-sm font-normal text-muted-foreground">/mo</span>
+                  </p>
+                </div>
               </div>
             )}
           </div>
