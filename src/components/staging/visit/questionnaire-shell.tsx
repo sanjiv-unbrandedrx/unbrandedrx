@@ -147,9 +147,9 @@ export default function QuestionnaireShell() {
   const isPastQuestions = state.currentStep >= visibleQuestions.length;
 
   return (
-    <div className="flex min-h-[calc(100vh-64px)]">
+    <div className="flex flex-1 overflow-hidden">
       {/* Main content area */}
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col overflow-hidden">
         {/* Progress bar */}
         <div className="border-b border-neutral-100 px-6 py-4 bg-white">
           <div className="max-w-3xl mx-auto">
