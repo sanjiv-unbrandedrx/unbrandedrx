@@ -8,6 +8,7 @@ import QuestionsSection from "@/components/product/enclomiphene/questions";
 // AI COFOUNDER: Import new and updated components
 import HowItWorksSection from "@/components/product/enclomiphene/how-it-works-section";
 import LabTestingSection from "@/components/product/enclomiphene/lab-testing-section";
+import PricingSection from "@/components/product/enclomiphene-v2/pricing-section";
 import ProductJsonLd from "@/components/seo/product-jsonld";
 
 export const metadata: Metadata = {
@@ -31,6 +32,7 @@ export default function ProductPage() {
         <Header />
       </section>
       <HeroSection />
+      <PricingSection />
       {/* AI COFOUNDER: Use the new enclomiphene-specific 'How It Works' section */}
       <HowItWorksSection />
       <DeepDiveSection />
