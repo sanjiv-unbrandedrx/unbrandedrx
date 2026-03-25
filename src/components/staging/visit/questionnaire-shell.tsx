@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { useQuestionnaire } from "@/lib/questionnaire/context";
 import { SECTIONS } from "@/lib/questionnaire/questions";
@@ -53,6 +53,14 @@ export default function QuestionnaireShell() {
       (s) => !shownSuggestions.has(s.treatmentId),
     );
   }, [triggerResults.suggestions, shownSuggestions]);
+
+  // Auto-close interstitial if all suggestions were dismissed/added
+  useEffect(() => {
+    if (showingInterstitial && pendingSuggestions.length === 0) {
+      setShowingInterstitial(false);
+      nextStep();
+    }
+  }, [showingInterstitial, pendingSuggestions.length, nextStep]);
 
   // Check if next question is in a different section
   const nextQuestion =

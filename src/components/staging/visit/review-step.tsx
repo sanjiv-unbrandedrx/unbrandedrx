@@ -6,9 +6,10 @@ import { QUESTIONS } from "@/lib/questionnaire/questions";
 import { formatPrice } from "@/lib/component-utils";
 import ButtonCustom from "@/components/ui/button-custom";
 import { FadeIn, Stagger, StaggerItem } from "@/components/ui/animate";
+import { Pencil } from "lucide-react";
 
 export default function ReviewStep() {
-  const { state, visibleQuestions } = useQuestionnaire();
+  const { state, visibleQuestions, dispatch } = useQuestionnaire();
 
   const handleSubmit = () => {
     // Build checkout URL with treatment slugs
@@ -107,18 +108,35 @@ export default function ReviewStep() {
                       : q.options?.find((o) => o.value === answer.value)
                           ?.label ?? answer.value;
 
+                    const questionIndex = visibleQuestions.findIndex(
+                      (vq) => vq.id === q.id,
+                    );
+
                     return (
-                      <div key={q.id} className="space-y-1">
-                        <p className="text-lg text-muted-foreground">
-                          {q.question.length > 100
-                            ? q.question.slice(0, 100) + "..."
-                            : q.question}
-                        </p>
-                        <p className="text-lg font-medium">{displayValue}</p>
-                        {answer.followUpText && (
-                          <p className="text-lg text-muted-foreground italic">
-                            &ldquo;{answer.followUpText}&rdquo;
+                      <div key={q.id} className="group flex items-start justify-between gap-4">
+                        <div className="space-y-1 flex-1">
+                          <p className="text-lg text-muted-foreground">
+                            {q.question.length > 100
+                              ? q.question.slice(0, 100) + "..."
+                              : q.question}
                           </p>
+                          <p className="text-lg font-medium">{displayValue}</p>
+                          {answer.followUpText && (
+                            <p className="text-lg text-muted-foreground italic">
+                              &ldquo;{answer.followUpText}&rdquo;
+                            </p>
+                          )}
+                        </div>
+                        {questionIndex >= 0 && (
+                          <button
+                            onClick={() =>
+                              dispatch({ type: "GO_TO_STEP", step: questionIndex })
+                            }
+                            className="shrink-0 p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-zinc-100 opacity-0 group-hover:opacity-100 transition-all"
+                            title="Edit this answer"
+                          >
+                            <Pencil className="h-4 w-4" />
+                          </button>
                         )}
                       </div>
                     );

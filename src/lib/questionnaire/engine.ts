@@ -253,16 +253,15 @@ export function calculateProgress(state: QuestionnaireState): {
   percentage: number;
 } {
   const visibleQuestions = getVisibleQuestions(state);
-  const answeredCount = visibleQuestions.filter(
-    (q) => state.answers[q.id],
-  ).length;
+  // Use current step position (clamped) so the counter updates on Back navigation
+  const currentPosition = Math.min(state.currentStep + 1, visibleQuestions.length);
 
   return {
-    current: answeredCount,
+    current: currentPosition,
     total: visibleQuestions.length,
     percentage:
       visibleQuestions.length > 0
-        ? Math.round((answeredCount / visibleQuestions.length) * 100)
+        ? Math.round((currentPosition / visibleQuestions.length) * 100)
         : 0,
   };
 }

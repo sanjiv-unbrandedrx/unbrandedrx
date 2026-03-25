@@ -28,12 +28,14 @@ export default function QuestionStep({ question, onAutoAdvance }: QuestionStepPr
     existingAnswer?.followUpText ?? "",
   );
 
-  // Sync from state when question changes
+  // Sync from state only when navigating to a different question
+  // (NOT on every state.answers change — that causes circular updates for text inputs)
   useEffect(() => {
     const answer = state.answers[question.id];
     setSelectedValue(answer?.value ?? (question.type === "multi" ? [] : ""));
     setFollowUpText(answer?.followUpText ?? "");
-  }, [question.id, state.answers, question.type]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [question.id]);
 
   // Persist answer on change
   useEffect(() => {
