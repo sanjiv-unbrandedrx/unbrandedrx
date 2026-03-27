@@ -13,7 +13,7 @@ function VisitBContent() {
   const treatment = searchParams.get("treatment") ?? "enclomiphene";
 
   return (
-    <div className="h-[80vh] bg-white flex flex-col overflow-hidden">
+    <div className="h-dvh md:h-[80vh] bg-white flex flex-col overflow-hidden">
       {/* Minimal header */}
       <header className="border-b border-neutral-100 px-4 py-4 md:px-6 md:py-6 flex items-center justify-between bg-white">
         <Link
