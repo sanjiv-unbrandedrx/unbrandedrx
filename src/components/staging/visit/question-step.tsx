@@ -184,7 +184,16 @@ export default function QuestionStep({ question, onAutoAdvance }: QuestionStepPr
 
               if (option.exclusive) {
                 // Exclusive option clears all others
-                setSelectedValue(isSelected ? [] : [option.value]);
+                if (!isSelected) {
+                  setSelectedValue([option.value]);
+                  setAnswer(question.id, [option.value]);
+                  if (onAutoAdvance) {
+                    setTimeout(() => onAutoAdvance(), 300);
+                  }
+                } else {
+                  setSelectedValue([]);
+                }
+                return;
               } else {
                 if (isSelected) {
                   setSelectedValue(
