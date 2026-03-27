@@ -236,6 +236,56 @@ export default function QuestionStep({ question, onAutoAdvance }: QuestionStepPr
           />
         )}
 
+        {question.type === "consent" &&
+          question.options?.map((option) => {
+            const isSelected =
+              Array.isArray(selectedValue) &&
+              selectedValue.includes(option.value);
+
+            const handleToggle = () => {
+              if (!Array.isArray(selectedValue)) return;
+              if (isSelected) {
+                setSelectedValue(
+                  selectedValue.filter((v) => v !== option.value),
+                );
+              } else {
+                setSelectedValue([...selectedValue, option.value]);
+              }
+            };
+
+            return (
+              <label
+                key={option.value}
+                className={cn(
+                  "flex items-start gap-4 rounded-xl border px-6 py-5 cursor-pointer transition-all",
+                  isSelected
+                    ? "border-foreground bg-zinc-50 ring-1 ring-foreground"
+                    : "border-neutral-200 hover:border-neutral-400",
+                )}
+              >
+                <Checkbox
+                  checked={isSelected}
+                  onCheckedChange={handleToggle}
+                  className="shrink-0 h-5 w-5 mt-0.5"
+                />
+                <span className="text-lg">
+                  {option.label}{" "}
+                  {option.href && option.linkLabel && (
+                    <a
+                      href={option.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline font-medium text-foreground hover:text-foreground/80"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      {option.linkLabel}
+                    </a>
+                  )}
+                </span>
+              </label>
+            );
+          })}
+
         {question.type === "info" && (
           <div className="rounded-xl bg-blue-50 border border-blue-200 px-6 py-5 text-lg text-blue-800">
             {question.description}

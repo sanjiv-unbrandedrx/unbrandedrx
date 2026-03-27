@@ -116,12 +116,16 @@ export function computeActiveSections(
   // Mental health is needed for hair (5-AR warning) or ED
   const needsMentalHealth = needsHair || needsED;
 
+  // Lab consent is needed when any lab-requiring treatment is in the plan
+  const needsLabConsent = treatmentIds.includes("enclomiphene");
+
   if (needsCardio) sections.push("cardiovascular");
   if (needsED) sections.push("ed-sexual-health");
   if (needsTestosterone) sections.push("testosterone");
   if (needsHair) sections.push("hair-loss");
   if (needsPeptides) sections.push("peptides");
   if (needsMentalHealth) sections.push("mental-health");
+  if (needsLabConsent) sections.push("lab-consent");
 
   sections.push("review");
 

@@ -67,6 +67,11 @@ export default function QuestionnaireShellB() {
     if (!currentQuestion) return false;
     if (!currentQuestion.required) return true;
     if (!currentAnswer) return false;
+    // Consent type: all options must be checked
+    if (currentQuestion.type === "consent" && Array.isArray(currentAnswer.value)) {
+      const requiredCount = currentQuestion.options?.length ?? 0;
+      return currentAnswer.value.length === requiredCount;
+    }
     if (Array.isArray(currentAnswer.value))
       return currentAnswer.value.length > 0;
     return currentAnswer.value !== "";

@@ -11,7 +11,8 @@ export type QuestionType =
   | "scale" // labeled scale (e.g. Terrible → Excellent)
   | "info" // read-only informational step (no input)
   | "welcome" // welcome screen with email capture
-  | "select"; // searchable dropdown
+  | "select" // searchable dropdown
+  | "consent"; // consent checkboxes (all must be checked)
 
 /** A selectable option within a question */
 export interface Option {
@@ -19,6 +20,10 @@ export interface Option {
   value: string;
   /** If true, selecting this clears all other selections (e.g. "None apply") */
   exclusive?: boolean;
+  /** URL to link to (used by consent-type questions) */
+  href?: string;
+  /** Text within the label that becomes the link (used by consent-type questions) */
+  linkLabel?: string;
 }
 
 /** Condition for branching / triggers */
@@ -75,6 +80,7 @@ export type QuestionSection =
   | "peptides"
   | "mental-health"
   | "product-config"
+  | "lab-consent"
   | "review";
 
 /** Section metadata */

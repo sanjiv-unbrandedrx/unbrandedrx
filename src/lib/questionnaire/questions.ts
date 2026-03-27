@@ -44,6 +44,11 @@ export const SECTIONS: SectionMeta[] = [
     title: "Mental Health",
     showIf: { type: "sectionActive", section: "mental-health" },
   },
+  {
+    id: "lab-consent",
+    title: "Lab Testing Consent",
+    showIf: { type: "sectionActive", section: "lab-consent" },
+  },
   { id: "review", title: "Review & Submit" },
 ];
 
@@ -1475,6 +1480,34 @@ export const QUESTIONS: Question[] = [
         },
       },
     ],
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════
+  // SECTION: LAB TESTING CONSENT (conditional — shown for lab products)
+  // ═══════════════════════════════════════════════════════════════════════
+
+  {
+    id: "lab-consent",
+    section: "lab-consent",
+    type: "consent",
+    question: "Lab Testing Consent",
+    description:
+      "Your treatment plan includes lab testing. Please review and agree to the following before proceeding.",
+    options: [
+      {
+        label: "I have read and agree to the terms of the",
+        value: "hipaa-authorization",
+        href: "/hipaa-authorization",
+        linkLabel: "HIPAA Authorization",
+      },
+      {
+        label: "I have read and agree to the",
+        value: "telemedicine-consent",
+        href: "/telemedicine-consent",
+        linkLabel: "Telemedicine Consent",
+      },
+    ],
+    required: true,
   },
 
   // ═══════════════════════════════════════════════════════════════════════

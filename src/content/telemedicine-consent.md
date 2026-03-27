@@ -1,6 +1,6 @@
 ### **UnbrandedRx - Telemedicine Consent**
 
-**Last Updated: January 13, 2026**
+**Last Updated: March 27, 2026**
 
 ## Consent to Telehealth Services
 
@@ -180,6 +180,36 @@ Telehealth services through UnbrandedRx are only available to patients located w
 13. ✓ I understand the limitations of liability as described in this consent
 14. ✓ I am located in the United States at the time of my telehealth consultation
 15. ✓ I understand that I may be subject to state-specific regulations regarding telehealth services
+
+## Lab Testing Telehealth Consent (Junction / OpenLoop Healthcare)
+
+The following section applies specifically to lab testing services facilitated through Junction (Adept Labs, Inc.) and its affiliated healthcare providers. Lab orders placed through UnbrandedRx are reviewed and managed by Junction's provider network, which is separate from the Titan Medical Group providers referenced above.
+
+I understand that Telehealth is a mode of delivering health care services via communication technologies (e.g., internet or cellphone) to facilitate diagnosis, consultation, treatment, education, care management, and self-management of a patient's health care.
+
+**By acknowledging my consent below, I understand and agree to the following:**
+
+1. I understand that Junction and affiliate Openloop Healthcare Partners, PC offer Telehealth consultations, which are conducted through videoconferencing, telephonic, and asynchronous technology and my Telehealth provider will not be present in the room with me.
+
+2. I understand there are potential risks to the use of Telehealth technology, including but not limited to, interruptions, delays, unauthorized access, and or other technical difficulties. I understand that either my Telehealth provider or I can discontinue the Telehealth appointment if the technical connections are not adequate for my visit.
+
+3. I understand that I could seek an in-office visit rather than obtain care from a Telehealth provider, and I am choosing to participate in a Telehealth consultation with Junction, an affiliate of Openloop Healthcare Partners, PC, Openloop Healthcare Partners, PC, Openloop Healthcare Partners California, PC, Openloop Healthcare Partners Colorado, PC, Openloop Healthcare Partners New Jersey, PC, Openloop Healthcare Partners Wisconsin SC, Reliant.MD Medical Associates, PLLC, Reliant.MD Medical Associates California, PC, Reliant.MD Medical Associates Colorado, PC, Reliant.MD Medical Associates New Jersey, PC, Reliant.MD Medical Associates Wisconsin, SC, MECNB Physician Services, PC, MECNB Physician Services California, PC, MECNB Physician Services Colorado, PC, MECNB Physician Services New Jersey, PC, and MECNB Physician Services, SC.
+
+4. To protect the confidentiality of my health information, I agree to undertake my Telehealth consultation in a private location, and I understand that my Telehealth provider will similarly be in a private location.
+
+5. I understand that I am responsible for payment of any amounts due and owing resulting from my Telehealth visit.
+
+6. In an emergent situation, I understand that the responsibility of my Telehealth provider may be to direct me to emergency medical services, such as an emergency room.
+
+**By acknowledging below, I certify:**
+
+- That I have read this form and/or had it explained to me
+- That I understand the risks and benefits of a Telehealth appointment
+- That I have been given the opportunity to ask questions and that such questions have been answered to my satisfaction
+
+*Effective as of February 21, 2023*
+
+---
 
 ## Updates to This Consent
 
