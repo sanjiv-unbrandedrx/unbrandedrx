@@ -40,12 +40,12 @@ export default function ProductSelectionStep() {
   const dqIds = new Set(Object.keys(state.disqualifications));
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-6 md:space-y-10">
       <div>
-        <h2 className="text-3xl font-semibold font-title tracking-tight">
+        <h2 className="text-2xl md:text-3xl font-semibold font-title tracking-tight">
           Choose your treatments
         </h2>
-        <p className="mt-3 text-lg text-muted-foreground">
+        <p className="mt-2 md:mt-3 text-base md:text-lg text-muted-foreground">
           Select the products you&apos;d like evaluated. We&apos;ll only ask
           questions relevant to your selections.
         </p>
@@ -114,13 +114,13 @@ function ProductCard({
     <button
       onClick={onToggle}
       className={cn(
-        "flex items-center gap-4 rounded-xl border p-4 text-left transition-all w-full",
+        "flex items-center gap-3 md:gap-4 rounded-xl border p-3 md:p-4 text-left transition-all w-full",
         selected
           ? "border-foreground bg-zinc-50 ring-1 ring-foreground"
           : "border-neutral-200 hover:border-neutral-400",
       )}
     >
-      <div className="relative h-16 w-16 shrink-0 rounded-lg overflow-hidden bg-neutral-100">
+      <div className="relative h-14 w-14 md:h-16 md:w-16 shrink-0 rounded-lg overflow-hidden bg-neutral-100">
         <Image
           src={treatment.image}
           alt={treatment.name}

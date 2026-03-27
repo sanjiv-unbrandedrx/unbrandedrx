@@ -115,12 +115,12 @@ export default function QuestionStep({ question, onAutoAdvance }: QuestionStepPr
   }
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-5 md:space-y-8">
       {/* Question text */}
       <div>
         <h2
           className={cn(
-            "text-3xl font-semibold font-title tracking-tight text-foreground",
+            "text-2xl md:text-3xl font-semibold font-title tracking-tight text-foreground",
             question.critical &&
               "text-red-700 border-l-4 border-red-500 pl-4",
           )}
@@ -128,14 +128,14 @@ export default function QuestionStep({ question, onAutoAdvance }: QuestionStepPr
           {question.question}
         </h2>
         {question.description && (
-          <p className="mt-3 text-lg text-muted-foreground">
+          <p className="mt-2 md:mt-3 text-base md:text-lg text-muted-foreground">
             {question.description}
           </p>
         )}
       </div>
 
       {/* Answer input */}
-      <div className="space-y-4">
+      <div className="space-y-3 md:space-y-4">
         {(question.type === "single" ||
           question.type === "yes-no" ||
           question.type === "scale") &&
@@ -143,7 +143,7 @@ export default function QuestionStep({ question, onAutoAdvance }: QuestionStepPr
             <label
               key={option.value}
               className={cn(
-                "flex items-center gap-4 rounded-xl border px-6 py-5 cursor-pointer transition-all",
+                "flex items-center gap-3 md:gap-4 rounded-xl border px-4 py-3.5 md:px-6 md:py-5 cursor-pointer transition-all",
                 selectedValue === option.value
                   ? "border-foreground bg-zinc-50 ring-1 ring-foreground"
                   : "border-neutral-200 hover:border-neutral-400",
@@ -151,17 +151,17 @@ export default function QuestionStep({ question, onAutoAdvance }: QuestionStepPr
             >
               <div
                 className={cn(
-                  "flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 transition-colors",
+                  "flex h-5 w-5 md:h-6 md:w-6 shrink-0 items-center justify-center rounded-full border-2 transition-colors",
                   selectedValue === option.value
                     ? "border-foreground"
                     : "border-neutral-300",
                 )}
               >
                 {selectedValue === option.value && (
-                  <div className="h-3 w-3 rounded-full bg-foreground" />
+                  <div className="h-2.5 w-2.5 md:h-3 md:w-3 rounded-full bg-foreground" />
                 )}
               </div>
-              <span className="text-lg">{option.label}</span>
+              <span className="text-base md:text-lg">{option.label}</span>
               <input
                 type="radio"
                 name={question.id}
@@ -219,7 +219,7 @@ export default function QuestionStep({ question, onAutoAdvance }: QuestionStepPr
               <label
                 key={option.value}
                 className={cn(
-                  "flex items-center gap-4 rounded-xl border px-6 py-5 cursor-pointer transition-all",
+                  "flex items-center gap-3 md:gap-4 rounded-xl border px-4 py-3.5 md:px-6 md:py-5 cursor-pointer transition-all",
                   isSelected
                     ? "border-foreground bg-zinc-50 ring-1 ring-foreground"
                     : "border-neutral-200 hover:border-neutral-400",
@@ -230,7 +230,7 @@ export default function QuestionStep({ question, onAutoAdvance }: QuestionStepPr
                   onCheckedChange={handleToggle}
                   className="shrink-0 h-5 w-5"
                 />
-                <span className="text-lg">{option.label}</span>
+                <span className="text-base md:text-lg">{option.label}</span>
               </label>
             );
           })}
@@ -241,7 +241,7 @@ export default function QuestionStep({ question, onAutoAdvance }: QuestionStepPr
             onChange={(e) => setSelectedValue(e.target.value)}
             placeholder="Type your answer here..."
             rows={4}
-            className="w-full rounded-xl border border-neutral-200 px-6 py-5 text-lg outline-none focus:border-foreground focus:ring-1 focus:ring-foreground transition-all resize-none"
+            className="w-full rounded-xl border border-neutral-200 px-4 py-3.5 md:px-6 md:py-5 text-base md:text-lg outline-none focus:border-foreground focus:ring-1 focus:ring-foreground transition-all resize-none"
           />
         )}
 
@@ -266,7 +266,7 @@ export default function QuestionStep({ question, onAutoAdvance }: QuestionStepPr
               <label
                 key={option.value}
                 className={cn(
-                  "flex items-start gap-4 rounded-xl border px-6 py-5 cursor-pointer transition-all",
+                  "flex items-start gap-3 md:gap-4 rounded-xl border px-4 py-3.5 md:px-6 md:py-5 cursor-pointer transition-all",
                   isSelected
                     ? "border-foreground bg-zinc-50 ring-1 ring-foreground"
                     : "border-neutral-200 hover:border-neutral-400",
@@ -277,7 +277,7 @@ export default function QuestionStep({ question, onAutoAdvance }: QuestionStepPr
                   onCheckedChange={handleToggle}
                   className="shrink-0 h-5 w-5 mt-0.5"
                 />
-                <span className="text-lg">
+                <span className="text-base md:text-lg">
                   {option.label}{" "}
                   {option.href && option.linkLabel && (
                     <a
@@ -304,8 +304,8 @@ export default function QuestionStep({ question, onAutoAdvance }: QuestionStepPr
 
       {/* Follow-up text input */}
       {showFollowUp && question.followUp && (
-        <div className="space-y-3 pl-5 border-l-2 border-neutral-200">
-          <p className="text-lg font-medium text-muted-foreground">
+        <div className="space-y-3 pl-4 md:pl-5 border-l-2 border-neutral-200">
+          <p className="text-base md:text-lg font-medium text-muted-foreground">
             {question.followUp.prompt}
           </p>
           <textarea
@@ -313,7 +313,7 @@ export default function QuestionStep({ question, onAutoAdvance }: QuestionStepPr
             onChange={(e) => setFollowUpText(e.target.value)}
             placeholder="Please provide details..."
             rows={3}
-            className="w-full rounded-xl border border-neutral-200 px-6 py-5 text-lg outline-none focus:border-foreground focus:ring-1 focus:ring-foreground transition-all resize-none"
+            className="w-full rounded-xl border border-neutral-200 px-4 py-3.5 md:px-6 md:py-5 text-base md:text-lg outline-none focus:border-foreground focus:ring-1 focus:ring-foreground transition-all resize-none"
           />
         </div>
       )}
@@ -335,19 +335,19 @@ function WelcomeStep({ question }: { question: Question }) {
   }, [question.id, state.answers, setAnswer]);
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-5 md:space-y-8">
       <div>
-        <h2 className="text-3xl font-semibold font-title tracking-tight">
+        <h2 className="text-2xl md:text-3xl font-semibold font-title tracking-tight">
           {question.question}
         </h2>
-        <p className="mt-3 text-lg text-muted-foreground">
+        <p className="mt-2 md:mt-3 text-base md:text-lg text-muted-foreground">
           {question.description}
         </p>
       </div>
 
       {/* Treatment card */}
       {treatment && (
-        <div className="rounded-2xl border border-neutral-200 p-6 flex items-center gap-5">
+        <div className="rounded-2xl border border-neutral-200 p-4 md:p-6 flex items-center gap-4 md:gap-5">
           <div className="relative h-20 w-20 shrink-0 rounded-xl overflow-hidden bg-neutral-100">
             <Image
               src={treatment.image}
@@ -357,17 +357,17 @@ function WelcomeStep({ question }: { question: Question }) {
             />
           </div>
           <div className="flex-1">
-            <p className="text-xl font-semibold font-title">{treatment.name}</p>
-            <p className="text-base text-muted-foreground">{treatment.medicalName}</p>
+            <p className="text-lg md:text-xl font-semibold font-title">{treatment.name}</p>
+            <p className="text-sm md:text-base text-muted-foreground">{treatment.medicalName}</p>
           </div>
-          <p className="text-xl font-semibold">
+          <p className="text-lg md:text-xl font-semibold">
             {formatPrice(treatment.price)}
             <span className="font-normal text-muted-foreground">/mo</span>
           </p>
         </div>
       )}
 
-      <div className="space-y-4 text-lg text-muted-foreground">
+      <div className="space-y-3 md:space-y-4 text-base md:text-lg text-muted-foreground">
         <div className="flex items-start gap-3">
           <span className="text-foreground font-semibold">1.</span>
           <span>Answer a few questions about your health goals</span>
@@ -430,13 +430,13 @@ function SelectStep({
   }, []);
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-5 md:space-y-8">
       <div>
-        <h2 className="text-3xl font-semibold font-title tracking-tight">
+        <h2 className="text-2xl md:text-3xl font-semibold font-title tracking-tight">
           {question.question}
         </h2>
         {question.description && (
-          <p className="mt-3 text-lg text-muted-foreground">
+          <p className="mt-2 md:mt-3 text-base md:text-lg text-muted-foreground">
             {question.description}
           </p>
         )}

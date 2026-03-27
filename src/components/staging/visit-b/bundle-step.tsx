@@ -51,27 +51,27 @@ export default function BundleStep({ onContinue }: BundleStepProps) {
   const savings = baseSubtotal * (selectedSupply / 30) - totalCost;
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-6 md:space-y-10">
       <div>
-        <h2 className="text-3xl font-semibold font-title tracking-tight">
+        <h2 className="text-2xl md:text-3xl font-semibold font-title tracking-tight">
           Customize your plan
         </h2>
-        <p className="mt-3 text-lg text-muted-foreground">
+        <p className="mt-2 md:mt-3 text-base md:text-lg text-muted-foreground">
           Choose your supply duration. Longer supplies save you more.
         </p>
       </div>
 
       {/* Bundle callout */}
       {bestBundle && (
-        <div className="rounded-xl border border-green-200 bg-green-50/50 p-5 flex items-start gap-4">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-green-100">
-            <Sparkles className="h-5 w-5 text-green-700" />
+        <div className="rounded-xl border border-green-200 bg-green-50/50 p-4 md:p-5 flex items-start gap-3 md:gap-4">
+          <div className="flex h-9 w-9 md:h-10 md:w-10 shrink-0 items-center justify-center rounded-full bg-green-100">
+            <Sparkles className="h-4 w-4 md:h-5 md:w-5 text-green-700" />
           </div>
           <div>
-            <p className="font-semibold font-title text-lg text-green-900">
+            <p className="font-semibold font-title text-base md:text-lg text-green-900">
               {bestBundle.name} — {bestBundle.discountPercent}% bundle discount
             </p>
-            <p className="text-base text-green-800 mt-1">
+            <p className="text-sm md:text-base text-green-800 mt-1">
               {bestBundle.tagline}. This discount is automatically applied
               because your plan includes the right combination.
             </p>
@@ -81,7 +81,7 @@ export default function BundleStep({ onContinue }: BundleStepProps) {
 
       {/* Day supply tiers */}
       <div className="space-y-3">
-        <h3 className="text-lg font-semibold font-title">Supply duration</h3>
+        <h3 className="text-base md:text-lg font-semibold font-title">Supply duration</h3>
         {DAY_SUPPLY_TIERS.map((tier) => {
           const isSelected = selectedSupply === tier.days;
           const tierMonthly =
@@ -94,7 +94,7 @@ export default function BundleStep({ onContinue }: BundleStepProps) {
               key={tier.days}
               onClick={() => setSelectedSupply(tier.days)}
               className={cn(
-                "flex items-center w-full rounded-xl border p-5 text-left transition-all",
+                "flex items-center w-full rounded-xl border p-4 md:p-5 text-left transition-all",
                 isSelected
                   ? "border-foreground bg-zinc-50 ring-1 ring-foreground"
                   : "border-neutral-200 hover:border-neutral-400",
@@ -102,7 +102,7 @@ export default function BundleStep({ onContinue }: BundleStepProps) {
             >
               <div
                 className={cn(
-                  "flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 transition-colors mr-4",
+                  "flex h-5 w-5 md:h-6 md:w-6 shrink-0 items-center justify-center rounded-full border-2 transition-colors mr-3 md:mr-4",
                   isSelected ? "border-foreground" : "border-neutral-300",
                 )}
               >
@@ -113,7 +113,7 @@ export default function BundleStep({ onContinue }: BundleStepProps) {
 
               <div className="flex-1">
                 <div className="flex items-center gap-2">
-                  <span className="text-lg font-medium">{tier.label}</span>
+                  <span className="text-base md:text-lg font-medium">{tier.label}</span>
                   {tier.badge && (
                     <span
                       className={cn(
@@ -138,10 +138,10 @@ export default function BundleStep({ onContinue }: BundleStepProps) {
               </div>
 
               <div className="text-right">
-                <p className="text-lg font-semibold tabular-nums">
+                <p className="text-base md:text-lg font-semibold tabular-nums">
                   ${tierTotal.toFixed(2)}
                 </p>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-xs md:text-sm text-muted-foreground">
                   ${tierMonthly.toFixed(2)}/mo
                 </p>
               </div>
@@ -151,7 +151,7 @@ export default function BundleStep({ onContinue }: BundleStepProps) {
       </div>
 
       {/* Summary */}
-      <div className="rounded-xl border border-neutral-200 bg-zinc-50 p-6 space-y-4">
+      <div className="rounded-xl border border-neutral-200 bg-zinc-50 p-4 md:p-6 space-y-3 md:space-y-4">
         <div className="flex items-center justify-between">
           <span className="text-base text-muted-foreground">
             Base monthly cost
@@ -184,7 +184,7 @@ export default function BundleStep({ onContinue }: BundleStepProps) {
             Total ({selectedSupply}-day supply)
           </span>
           <div className="text-right">
-            <span className="text-2xl font-bold tabular-nums">
+            <span className="text-xl md:text-2xl font-bold tabular-nums">
               ${totalCost.toFixed(2)}
             </span>
             {savings > 0 && (

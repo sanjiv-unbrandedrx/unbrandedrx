@@ -260,7 +260,7 @@ export default function QuestionnaireShellB() {
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Progress bar — show on all phases except product selection */}
         {phase !== "product-selection" && (
-          <div className="border-b border-neutral-100 px-6 py-4 bg-white">
+          <div className="border-b border-neutral-100 px-4 py-3 md:px-6 md:py-4 bg-white">
             <div className="max-w-3xl mx-auto">
               <QuestionnaireProgressBar />
             </div>
@@ -268,8 +268,8 @@ export default function QuestionnaireShellB() {
         )}
 
         {/* Content area */}
-        <div className="flex-1 px-6 py-10 overflow-y-auto">
-          <div className="max-w-3xl mx-auto space-y-8">
+        <div className="flex-1 px-4 py-6 md:px-6 md:py-10 overflow-y-auto">
+          <div className="max-w-3xl mx-auto space-y-5 md:space-y-8">
             {phase === "product-selection" && (
               <FadeIn variant="fadeUp" key="product-selection">
                 <ProductSelectionStep />
@@ -280,10 +280,10 @@ export default function QuestionnaireShellB() {
               <FadeIn variant="fadeUp" key="suggestions-interstitial">
                 <div className="space-y-6">
                   <div>
-                    <h2 className="text-4xl font-semibold font-title tracking-tight">
+                    <h2 className="text-2xl md:text-4xl font-semibold font-title tracking-tight">
                       Based on your answers...
                     </h2>
-                    <p className="text-xl text-muted-foreground mt-3">
+                    <p className="text-base md:text-xl text-muted-foreground mt-2 md:mt-3">
                       Your provider may also recommend the following treatments.
                       You can add them to your plan or skip.
                     </p>
@@ -310,8 +310,8 @@ export default function QuestionnaireShellB() {
                       variant="fadeUp"
                       key={`section-${currentSection.id}`}
                     >
-                      <div className="pb-4 border-b border-neutral-100">
-                        <h3 className="text-lg uppercase tracking-wider font-medium text-muted-foreground">
+                      <div className="pb-3 md:pb-4 border-b border-neutral-100">
+                        <h3 className="text-sm md:text-lg uppercase tracking-wider font-medium text-muted-foreground">
                           {currentSection.title}
                         </h3>
                       </div>
@@ -341,7 +341,7 @@ export default function QuestionnaireShellB() {
         </div>
 
         {/* Navigation buttons */}
-        <div className="border-t border-neutral-100 px-6 py-5 pb-8 bg-white">
+        <div className="border-t border-neutral-100 px-4 py-4 pb-6 md:px-6 md:py-5 md:pb-8 bg-white">
           <div className="max-w-3xl mx-auto flex items-center justify-between">
             {/* Back button */}
             {phase === "product-selection" ? (
