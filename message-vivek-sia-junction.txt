@@ -1,0 +1,25 @@
+Subject: UnbrandedRx - Junction Consent Implementation Complete
+
+Hi Vivek and Sia,
+
+We've implemented the consent requirements for UnbrandedRx. Here's what's live:
+
+HIPAA Authorization (separate checkbox, as required):
+- Consent checkbox appears in the questionnaire for patients ordering lab testing (enclomiphene)
+- Links to the full HIPAA Authorization document hosted on our site
+- Screenshot uploaded to the Notion page
+
+Telehealth Consent (bundled into existing consent):
+- Junction/OpenLoop telehealth consent language has been appended to our Telemedicine Consent page
+- Patients already agree to this during account creation, with a checkbox linking to the page
+
+Live URLs to review:
+- HIPAA Authorization page: https://www.unbrandedrx.co/hipaa-authorization
+- Telemedicine Consent (scroll to "Lab Testing Telehealth Consent" section): https://www.unbrandedrx.co/telemedicine-consent
+
+One note: the HIPAA Authorization document we received referenced "Strut Health" as the enterprise customer. We updated it to "UnbrandedRx" for this implementation since it's a separate brand. Please confirm that's correct on your end.
+
+Let us know if anything needs adjusting for approval.
+
+Thanks,
+Chris
