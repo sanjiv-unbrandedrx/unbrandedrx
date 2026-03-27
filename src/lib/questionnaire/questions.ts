@@ -1500,12 +1500,6 @@ export const QUESTIONS: Question[] = [
         href: "/hipaa-authorization",
         linkLabel: "HIPAA Authorization",
       },
-      {
-        label: "I have read and agree to the",
-        value: "telemedicine-consent",
-        href: "/telemedicine-consent",
-        linkLabel: "Telemedicine Consent",
-      },
     ],
     required: true,
   },
